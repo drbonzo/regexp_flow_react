@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import UserInputText from './UserInputText.js';
 import UserOutputText from './UserOutputText.js';
+import RegexpFlowMetadata from './RegexpFlowMetadata.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
 
 class MainScreen extends Component {
@@ -14,12 +15,7 @@ class MainScreen extends Component {
 					</div>
 					<div className="col-md-4">
 						<div className="RegexpFlow">
-							<div className="RegexpFlow__Metadata">
-								<div className="form-group form-inline">
-									<label>Description: </label>
-									<input type="text" className="form-control input-sm description ng-pristine ng-valid" placeholder="flow description"/>
-								</div>
-							</div>
+							<RegexpFlowMetadata/>
 							<div className="RegexpFlow__TextProcessors">
 								<MatchLinesTextProcessor/>
 								<MatchLinesTextProcessor/>
