@@ -17,7 +17,7 @@ class UniqueTextProcessor extends Component {
 							</div>
 							<div className="form-group form-inline">
 								{/* no checkboxes */}
-								<ul className="TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
+								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									{/* no data*/}
 								</ul>
 							</div>

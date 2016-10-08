@@ -30,7 +30,7 @@ class MatchLinesTextProcessor extends Component {
 										<input type="checkbox"/>
 									</label>
 								</div>
-								<ul className="TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
+								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									<li>returns whole lines that are matched by regular expression</li>
 									<li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
 									<li>lines are returned, joined with \n character - not their original newline character!</li>

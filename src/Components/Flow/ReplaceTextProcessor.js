@@ -42,7 +42,7 @@ class ReplaceTextProcessor extends Component {
 							<div className="form-group">
 								<label>and replace with. (5 replacements)</label>
 								<input type="text" className="form-control input-sm" placeholder="replacement string"/>
-								<ul className="TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
+								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									<li>$1, $2, $3 - for groups.</li>
 									<li>$$ Inserts a "$".</li>
 									<li>$& Inserts the matched substring.</li>
