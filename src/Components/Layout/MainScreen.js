@@ -3,6 +3,7 @@ import UserInputText from './UserInputText.js';
 import UserOutputText from './UserOutputText.js';
 import RegexpFlowMetadata from './RegexpFlowMetadata.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
+import ReplaceTextProcessor from '../Flow/ReplaceTextProcessor.js';
 import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
 import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
 import UniqueTextProcessor from '../Flow/UniqueTextProcessor.js';
@@ -22,6 +23,7 @@ class MainScreen extends Component {
 							<div className="RegexpFlow__TextProcessors">
 								<MatchLinesTextProcessor/>
 								<FindAllTextProcessor/>
+								<ReplaceTextProcessor/>
 								<MatchInLineTextProcessor/>
 								<UniqueTextProcessor/>
 							</div>
