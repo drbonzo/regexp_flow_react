@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import NavBar from './Layout/NavBar.js';
-import MainScreen from './Layout/MainScreen.js';
+import NavBar from './Components/Layout/NavBar.js';
+import MainScreen from './Components/Layout/MainScreen.js';
 
 import './App.css';
 
