@@ -6,7 +6,7 @@ class RegexpFlowMetadata extends Component {
 			<div className="RegexpFlow__Metadata">
 				<form>
 					<div className="form-group form-group-sm">
-						<label for="RegexpFlow__Metadata__Description">Description</label>
+						<label htmlFor="RegexpFlow__Metadata__Description">Description</label>
 						<input type="text" className="form-control" id="RegexpFlow__Metadata__Description" placeholder="add some description"/>
 					</div>
 				</form>
