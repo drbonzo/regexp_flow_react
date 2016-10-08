@@ -6,7 +6,7 @@ class MatchLinesTextProcessor extends Component {
 		return (
 			<div className="TextProcessor MatchLinesTextProcessor">
 				<div className="TextProcessor__Header">
-					Replace in text
+					Match lines with text
 					<TextProcessorControlls/>
 				</div>
 				<div className="TextProcessor__Contents">
