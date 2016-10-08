@@ -13,34 +13,34 @@ class ReplaceTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Search for</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Search for</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
-								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
+								<div className="checkbox TextProcessor__Contents__Checkbox">
+									<label className="TextProcessor__Contents__Checkbox__Label">
+										<input type="checkbox"/>
 										Global
-										<input type="checkbox"/>
 									</label>
 								</div>
-								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
+								<div className="checkbox TextProcessor__Contents__Checkbox">
+									<label className="TextProcessor__Contents__Checkbox__Label">
+										<input type="checkbox"/>
 										Multiline
-										<input type="checkbox"/>
 									</label>
 								</div>
-								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
-										Case Insensitive
+								<div className="checkbox TextProcessor__Contents__Checkbox">
+									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
+										Case Insensitive
 									</label>
 								</div>
 							</div>
 						</fieldset>
 						<fieldset>
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">and replace with. (5 replacements)</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">and replace with. (5 replacements)</label>
 								<input type="text" className="form-control input-sm" placeholder="replacement string"/>
 								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									<li>$1, $2, $3 - for groups.</li>
@@ -57,7 +57,7 @@ class ReplaceTextProcessor extends Component {
 
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Description</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm"/>
 							</div>
 						</fieldset>

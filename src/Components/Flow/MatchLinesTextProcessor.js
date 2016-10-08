@@ -13,21 +13,21 @@ class MatchLinesTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Get lines <span>not</span> matching (showing 1 of 1 lines)</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Get lines <span>not</span> matching (showing 1 of 1 lines)</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
 								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
-										Case Insensitive
+									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
+										Case Insensitive
 									</label>
 								</div>
 								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
-										Invert match?
+									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
+										Invert match?
 									</label>
 								</div>
 								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
@@ -39,7 +39,7 @@ class MatchLinesTextProcessor extends Component {
 						</fieldset>
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Description</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm"/>
 							</div>
 						</fieldset>

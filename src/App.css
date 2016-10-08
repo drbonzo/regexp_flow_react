@@ -40,8 +40,16 @@
     display: none;
 }
 
-.TextProcessor__Contents__Label {
+.TextProcessor__Contents__Checkbox + .TextProcessor__Contents__Checkbox {
+    margin-left: 5px;
+}
+
+.TextProcessor__Contents__Checkbox__Label {
     font-weight: normal;
+}
+
+.TextProcessor__Contents__Checkbox__Label input[type=checkbox] {
+    margin-right: 2px;
 }
 
 .TextProcessor__Contents__Description {

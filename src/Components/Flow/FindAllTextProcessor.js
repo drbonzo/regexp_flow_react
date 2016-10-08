@@ -13,22 +13,22 @@ class FindAllTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Find all matches (Found: 0)</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Find all matches (Found: 0)</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
 								<div className="checkbox">
-									<label className="TextProcessor__Contents__Label">
-										Case Insensitive
+									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
+										Case Insensitive
 									</label>
 								</div>
 							</div>
 						</fieldset>
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Label">Description</label>
+								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm"/>
 							</div>
 						</fieldset>
