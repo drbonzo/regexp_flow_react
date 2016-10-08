@@ -1,3 +1,49 @@
 .navbar--no-bottom-margin {
     margin-bottom: 0;
 }
+
+.TextProcessor {
+    border: solid 1px #aaa;
+    font-size: 0.9em;
+
+}
+
+.TextProcessor + .TextProcessor {
+    margin-top: 5px;
+}
+
+.TextProcessor__Header {
+    background-color: #ccc;
+    padding: 3px;
+    height: 28px;
+    font-weight: bold;
+}
+
+.TextProcessor__Contents {
+    padding: 5px;
+    background-color: #f0f0f0;
+}
+
+.TextProcessor__Contents__Help {
+
+}
+
+.TextProcessor__Contents__Help--Hidden {
+    display: none;
+}
+
+.TextProcessor__Contents__RegexpErrors {
+
+}
+
+.TextProcessor__Contents__RegexpErrors--Hidden {
+    display: none;
+}
+
+.TextProcessor__Contents__Description {
+
+}
+
+.form-group {
+    margin-bottom: 5px;
+}
