@@ -13,7 +13,7 @@ class UniqueTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label>Show just unique lines (showing 5 of 10 lines)</label>
+								<label className="TextProcessor__Contents__Label">Show just unique lines (showing 5 of 10 lines)</label>
 							</div>
 							<div className="form-group form-inline">
 								{/* no checkboxes */}
@@ -24,7 +24,7 @@ class UniqueTextProcessor extends Component {
 						</fieldset>
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
-								<label>Description</label>
+								<label className="TextProcessor__Contents__Label">Description</label>
 								<input type="text" className="form-control input-sm"/>
 							</div>
 						</fieldset>

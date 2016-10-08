@@ -40,6 +40,10 @@
     display: none;
 }
 
+.TextProcessor__Contents__Label {
+    font-weight: normal;
+}
+
 .TextProcessor__Contents__Description {
 
 }
