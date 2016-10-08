@@ -13,7 +13,7 @@ class ReplaceTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label>Get lines <span>not</span> matching (showing 1 of 1 lines)</label>
+								<label>Search for</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>

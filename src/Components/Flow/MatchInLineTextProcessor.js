@@ -24,12 +24,6 @@ class MatchInLineTextProcessor extends Component {
 										<input type="checkbox"/>
 									</label>
 								</div>
-								<div className="checkbox">
-									<label>
-										Invert match?
-										<input type="checkbox"/>
-									</label>
-								</div>
 								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									<li>checks each line of input - if it matches regular expression</li>
 									<li>if line matches regular expression - then the match from regular expression is being returned

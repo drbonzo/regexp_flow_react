@@ -37,7 +37,7 @@ class MatchLinesTextProcessor extends Component {
 								</ul>
 							</div>
 						</fieldset>
-						<fieldset className="TextProcessor__Contents__Description TextProcessor__Contents__Description--Hidden">
+						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
 								<label>Description</label>
 								<input type="text" className="form-control input-sm"/>
