@@ -5,6 +5,7 @@ import RegexpFlowMetadata from './RegexpFlowMetadata.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
 import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
 import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
+import UniqueTextProcessor from '../Flow/UniqueTextProcessor.js';
 
 class MainScreen extends Component {
 	render() {
@@ -22,6 +23,7 @@ class MainScreen extends Component {
 								<MatchLinesTextProcessor/>
 								<FindAllTextProcessor/>
 								<MatchInLineTextProcessor/>
+								<UniqueTextProcessor/>
 							</div>
 						</div>
 					</div>
