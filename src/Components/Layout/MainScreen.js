@@ -3,6 +3,7 @@ import UserInputText from './UserInputText.js';
 import UserOutputText from './UserOutputText.js';
 import RegexpFlowMetadata from './RegexpFlowMetadata.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
+import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
 
 class MainScreen extends Component {
 	render() {
@@ -18,10 +19,7 @@ class MainScreen extends Component {
 							<RegexpFlowMetadata/>
 							<div className="RegexpFlow__TextProcessors">
 								<MatchLinesTextProcessor/>
-								<MatchLinesTextProcessor/>
-								<MatchLinesTextProcessor/>
-								<MatchLinesTextProcessor/>
-								<MatchLinesTextProcessor/>
+								<FindAllTextProcessor/>
 							</div>
 						</div>
 					</div>
