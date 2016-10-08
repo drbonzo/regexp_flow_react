@@ -13,10 +13,10 @@
 }
 
 .TextProcessor__Header {
+    font-size: 16px;
     background-color: #ccc;
     padding: 3px;
     height: 28px;
-    font-weight: bold;
 }
 
 .TextProcessor__Contents {
