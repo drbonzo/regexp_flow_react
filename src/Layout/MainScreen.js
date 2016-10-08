@@ -9,10 +9,8 @@ class MainScreen extends Component {
 			<div className="MainScreen">
 				<div className="row">
 					<div className="col-md-8">
-						<div className="inputOutput">
-							<UserInputText/>
-							<UserOutputText/>
-						</div>
+						<UserInputText/>
+						<UserOutputText/>
 					</div>
 					<div className="col-md-4">
 						<div className="flow">
