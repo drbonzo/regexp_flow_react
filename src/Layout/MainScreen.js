@@ -13,14 +13,14 @@ class MainScreen extends Component {
 						<UserOutputText/>
 					</div>
 					<div className="col-md-4">
-						<div className="flow">
-							<div className="flowHeader">
+						<div className="RegexpFlow">
+							<div className="RegexpFlow__Metadata">
 								<div className="form-group form-inline">
 									<label>Description: </label>
 									<input type="text" className="form-control input-sm description ng-pristine ng-valid" placeholder="flow description"/>
 								</div>
 							</div>
-							<div className="flowProcessors">
+							<div className="RegexpFlow__TextProcessors">
 								<MatchLinesTextProcessor/>
 								<MatchLinesTextProcessor/>
 								<MatchLinesTextProcessor/>
