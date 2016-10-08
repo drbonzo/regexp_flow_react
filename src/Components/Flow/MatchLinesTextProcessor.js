@@ -1,17 +1,13 @@
 import React, {Component} from 'react';
+import TextProcessorControlls from './TextProcessorControlls.js';
 
 class MatchLinesTextProcessor extends Component {
 	render() {
 		return (
 			<div className="TextProcessor MatchLinesTextProcessor">
 				<div className="TextProcessor__Header">
-					1. Replace in text
-					<div className="btn-group pull-right">
-						<button type="button" className="btn btn-xs btn-default regexpHelpButton" title="Toggle help">?</button>
-						<button type="button" className="btn btn-xs btn-info" title="Toggle description"><span className="glyphicon glyphicon-pencil"/></button>
-						<button type="button" className="btn btn-xs btn-warning" title="Disable/enable textProcessor"><span className="glyphicon glyphicon-pause"/></button>
-						<button type="button" className="btn btn-xs btn-danger" title="Remove textProcessor"><span className="glyphicon glyphicon-trash"/></button>
-					</div>
+					Replace in text
+					<TextProcessorControlls/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>
