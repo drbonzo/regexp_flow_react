@@ -44,6 +44,10 @@
 
 }
 
+.TextProcessor__Contents__Description--Hidden {
+    display: none;
+}
+
 .form-group {
     margin-bottom: 5px;
 }
