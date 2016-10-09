@@ -40,8 +40,8 @@
     display: none;
 }
 
-.TextProcessor__Contents__Checkbox + .TextProcessor__Contents__Checkbox {
-    margin-left: 5px;
+.TextProcessor__Contents__Checkbox {
+    margin-right: 10px;
 }
 
 .TextProcessor__Contents__Checkbox__Label {
