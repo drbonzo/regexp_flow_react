@@ -2,6 +2,49 @@ import React, {Component} from 'react';
 import TextProcessorControlls from './TextProcessorControlls.js';
 
 class MatchLinesTextProcessor extends Component {
+
+	constructor(props) {
+
+		super();
+
+		this.state = {
+			searchRegexp: props.searchRegexp,
+			caseInsensitive: props.caseInsensitive,
+			invertMatch: props.invertMatch,
+			description: props.description
+		};
+
+		// ES6 does not bind these automaticaly
+		this.handleSearchRegexpChange = this.handleSearchRegexpChange.bind(this);
+		this.handleCaseInsensitiveChange = this.handleCaseInsensitiveChange.bind(this);
+		this.handleInvertMatchChange = this.handleInvertMatchChange.bind(this);
+		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+	}
+
+	handleSearchRegexpChange(event) {
+		this.setState(
+			{searchRegexp: event.target.value}
+		);
+	}
+
+	handleCaseInsensitiveChange() {
+		this.setState({
+			caseInsensitive: !this.state.caseInsensitive
+		});
+	}
+
+	handleInvertMatchChange() {
+		this.setState({
+			invertMatch: !this.state.invertMatch
+		});
+	}
+
+	handleDescriptionChange(event) {
+		this.setState({
+			description: event.target.value
+		});
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor MatchLinesTextProcessor">
@@ -13,20 +56,20 @@ class MatchLinesTextProcessor extends Component {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="TextProcessor__Contents__Checkbox__Label">Get lines <span>not</span> matching (showing 1 of 1 lines)</label>
-								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
+								<label className="TextProcessor__Contents__Checkbox__Label">Get lines {this.state.invertMatch ? "not" : ""} matching (showing 1 of 1 lines)</label>
+								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.state.searchRegexp} onChange={this.handleSearchRegexpChange}/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
 								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
-										<input type="checkbox"/>
+										<input type="checkbox" checked={this.state.caseInsensitive} onChange={this.handleCaseInsensitiveChange}/>
 										Case Insensitive
 									</label>
 								</div>
 								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
-										<input type="checkbox"/>
+										<input type="checkbox" checked={this.state.invertMatch} onChange={this.handleInvertMatchChange}/>
 										Invert match?
 									</label>
 								</div>
@@ -40,7 +83,7 @@ class MatchLinesTextProcessor extends Component {
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
-								<input type="text" className="form-control input-sm"/>
+								<input type="text" className="form-control input-sm" value={this.state.description} onChange={this.handleDescriptionChange}/>
 							</div>
 						</fieldset>
 					</form>
@@ -49,5 +92,12 @@ class MatchLinesTextProcessor extends Component {
 		);
 	}
 }
+
+MatchLinesTextProcessor.propTypes = {
+	searchRegexp: React.PropTypes.string,
+	caseInsensitive: React.PropTypes.bool,
+	invertMatch: React.PropTypes.bool,
+	description: React.PropTypes.string
+};
 
 export default MatchLinesTextProcessor;
