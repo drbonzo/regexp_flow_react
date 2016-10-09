@@ -10,13 +10,15 @@ class UniqueTextProcessor extends Component {
 		this.state = {
 			description: props.description,
 
-			showHelp: false
+			showHelp: false,
+			showDescription: Boolean(props.description)
 		};
 
 		// ES6 does not bind these automaticaly
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
 
 		this.handleShowHelpChanged = this.handleShowHelpChanged.bind(this);
+		this.handleShowDescriptionChanged = this.handleShowDescriptionChanged.bind(this);
 	}
 
 	handleDescriptionChange(event) {
@@ -31,12 +33,18 @@ class UniqueTextProcessor extends Component {
 		})
 	}
 
+	handleShowDescriptionChanged() {
+		this.setState({
+			showDescription: !this.state.showDescription
+		})
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor UniqueTextProcessor">
 				<div className="TextProcessor__Header">
 					Unique
-					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged}/>
+					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged} onShowDescriptionClicked={this.handleShowDescriptionChanged}/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>
@@ -47,7 +55,7 @@ class UniqueTextProcessor extends Component {
 							<div className="form-group form-inline">
 							</div>
 						</fieldset>
-						<fieldset className="TextProcessor__Contents__Description">
+						<fieldset className={this.state.showDescription ? "help-block TextProcessor__Contents__Description" : "help-block TextProcessor__Contents__Description TextProcessor__Contents__Description--Hidden"}>
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.state.description} onChange={this.handleDescriptionChange}/>
