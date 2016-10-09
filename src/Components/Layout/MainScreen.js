@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import UserInputText from './UserInputText.js';
 import UserOutputText from './UserOutputText.js';
-import RegexpFlowMetadata from './RegexpFlowMetadata.js';
-import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
-import ReplaceTextProcessor from '../Flow/ReplaceTextProcessor.js';
-import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
-import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
-import UniqueTextProcessor from '../Flow/UniqueTextProcessor.js';
+import RegexpFlow from '../Flow/RegexpFlow.js';
 
 class MainScreen extends Component {
 	render() {
@@ -18,16 +13,7 @@ class MainScreen extends Component {
 						<UserOutputText/>
 					</div>
 					<div className="col-md-4">
-						<div className="RegexpFlow">
-							<RegexpFlowMetadata/>
-							<div className="RegexpFlow__TextProcessors">
-								<MatchLinesTextProcessor/>
-								<FindAllTextProcessor/>
-								<ReplaceTextProcessor/>
-								<MatchInLineTextProcessor/>
-								<UniqueTextProcessor/>
-							</div>
-						</div>
+						<RegexpFlow/>
 					</div>
 				</div>
 			</div>
