@@ -18,13 +18,13 @@ class MatchLinesTextProcessor extends Component {
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
-								<div className="checkbox">
+								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
 										Case Insensitive
 									</label>
 								</div>
-								<div className="checkbox">
+								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
 										<input type="checkbox"/>
 										Invert match?
