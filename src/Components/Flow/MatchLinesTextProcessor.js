@@ -11,7 +11,9 @@ class MatchLinesTextProcessor extends Component {
 			searchRegexp: props.searchRegexp,
 			caseInsensitive: props.caseInsensitive,
 			invertMatch: props.invertMatch,
-			description: props.description
+			description: props.description,
+
+			showHelp: false
 		};
 
 		// ES6 does not bind these automaticaly
@@ -19,6 +21,8 @@ class MatchLinesTextProcessor extends Component {
 		this.handleCaseInsensitiveChange = this.handleCaseInsensitiveChange.bind(this);
 		this.handleInvertMatchChange = this.handleInvertMatchChange.bind(this);
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
+		this.handleShowHelpChanged = this.handleShowHelpChanged.bind(this);
 	}
 
 	handleSearchRegexpChange(event) {
@@ -45,12 +49,18 @@ class MatchLinesTextProcessor extends Component {
 		});
 	}
 
+	handleShowHelpChanged() {
+		this.setState({
+			showHelp: !this.state.showHelp
+		})
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor MatchLinesTextProcessor">
 				<div className="TextProcessor__Header">
 					Match lines with text
-					<TextProcessorControlls/>
+					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged}/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>
@@ -73,7 +83,7 @@ class MatchLinesTextProcessor extends Component {
 										Invert match?
 									</label>
 								</div>
-								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
+								<ul className={this.state.showHelp ? "help-block TextProcessor__Contents__Help" : "help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden"}>
 									<li>returns whole lines that are matched by regular expression</li>
 									<li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
 									<li>lines are returned, joined with \n character - not their original newline character!</li>

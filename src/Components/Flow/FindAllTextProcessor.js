@@ -10,13 +10,17 @@ class FindAllTextProcessor extends Component {
 		this.state = {
 			searchRegexp: props.searchRegexp,
 			caseInsensitive: props.caseInsensitive,
-			description: props.description
+			description: props.description,
+
+			showHelp: false
 		};
 
 		// ES6 does not bind these automaticaly
 		this.handleSearchRegexpChange = this.handleSearchRegexpChange.bind(this);
 		this.handleCaseInsensitiveChange = this.handleCaseInsensitiveChange.bind(this);
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
+		this.handleShowHelpChanged = this.handleShowHelpChanged.bind(this);
 	}
 
 	handleSearchRegexpChange(event) {
@@ -37,12 +41,18 @@ class FindAllTextProcessor extends Component {
 		});
 	}
 
+	handleShowHelpChanged() {
+		this.setState({
+			showHelp: !this.state.showHelp
+		})
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor FindAllTextProcessor">
 				<div className="TextProcessor__Header">
 					Find all matches
-					<TextProcessorControlls/>
+					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged}/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>

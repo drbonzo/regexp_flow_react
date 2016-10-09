@@ -13,7 +13,9 @@ class ReplaceTextProcessor extends Component {
 			caseInsensitive: props.caseInsensitive,
 			multiline: props.multiline,
 			replaceRegexp: props.replaceRegexp,
-			description: props.description
+			description: props.description,
+
+			showHelp: false
 		};
 
 		// ES6 does not bind these automaticaly
@@ -22,6 +24,8 @@ class ReplaceTextProcessor extends Component {
 		this.handleCaseInsensitiveChange = this.handleCaseInsensitiveChange.bind(this);
 		this.handleMultilineChange = this.handleMultilineChange.bind(this);
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
+		this.handleShowHelpChanged = this.handleShowHelpChanged.bind(this);
 	}
 
 	handleSearchRegexpChange(event) {
@@ -60,12 +64,18 @@ class ReplaceTextProcessor extends Component {
 		});
 	}
 
+	handleShowHelpChanged() {
+		this.setState({
+			showHelp: !this.state.showHelp
+		})
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor ReplaceTextProcessor">
 				<div className="TextProcessor__Header">
 					Replace in text
-					<TextProcessorControlls/>
+					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged}/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>
@@ -100,7 +110,7 @@ class ReplaceTextProcessor extends Component {
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">and replace with. (5 replacements)</label>
 								<input type="text" className="form-control input-sm" placeholder="replacement string" value={this.state.replaceRegexp} onChange={this.handleReplaceRegexpChange}/>
-								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
+								<ul className={this.state.showHelp ? "help-block TextProcessor__Contents__Help" : "help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden"}>
 									<li>$1, $2, $3 - for groups.</li>
 									<li>$$ Inserts a "$".</li>
 									<li>$& Inserts the matched substring.</li>

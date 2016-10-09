@@ -8,11 +8,15 @@ class UniqueTextProcessor extends Component {
 		super();
 
 		this.state = {
-			description: props.description
+			description: props.description,
+
+			showHelp: false
 		};
 
 		// ES6 does not bind these automaticaly
 		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+
+		this.handleShowHelpChanged = this.handleShowHelpChanged.bind(this);
 	}
 
 	handleDescriptionChange(event) {
@@ -21,12 +25,18 @@ class UniqueTextProcessor extends Component {
 		});
 	}
 
+	handleShowHelpChanged() {
+		this.setState({
+			showHelp: !this.state.showHelp
+		})
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor UniqueTextProcessor">
 				<div className="TextProcessor__Header">
 					Unique
-					<TextProcessorControlls/>
+					<TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged}/>
 				</div>
 				<div className="TextProcessor__Contents">
 					<form>
@@ -35,10 +45,6 @@ class UniqueTextProcessor extends Component {
 								<label className="TextProcessor__Contents__Checkbox__Label">Show just unique lines (showing 5 of 10 lines)</label>
 							</div>
 							<div className="form-group form-inline">
-								{/* no checkboxes */}
-								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
-									{/* no data*/}
-								</ul>
 							</div>
 						</fieldset>
 						<fieldset className="TextProcessor__Contents__Description">
