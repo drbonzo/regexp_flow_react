@@ -22,9 +22,9 @@ class MatchLinesTextProcessor extends Component {
 	}
 
 	handleSearchRegexpChange(event) {
-		this.setState(
-			{searchRegexp: event.target.value}
-		);
+		this.setState({
+			searchRegexp: event.target.value
+		});
 	}
 
 	handleCaseInsensitiveChange() {
