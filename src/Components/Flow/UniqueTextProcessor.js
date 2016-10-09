@@ -2,6 +2,25 @@ import React, {Component} from 'react';
 import TextProcessorControlls from './TextProcessorControlls.js';
 
 class UniqueTextProcessor extends Component {
+
+	constructor(props) {
+
+		super();
+
+		this.state = {
+			description: props.description
+		};
+
+		// ES6 does not bind these automaticaly
+		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+	}
+
+	handleDescriptionChange(event) {
+		this.setState({
+			description: event.target.value
+		});
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor UniqueTextProcessor">
@@ -25,7 +44,7 @@ class UniqueTextProcessor extends Component {
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
-								<input type="text" className="form-control input-sm"/>
+								<input type="text" className="form-control input-sm" value={this.state.description} onChange={this.handleDescriptionChange}/>
 							</div>
 						</fieldset>
 					</form>
@@ -34,5 +53,9 @@ class UniqueTextProcessor extends Component {
 		);
 	}
 }
+
+UniqueTextProcessor.propTypes = {
+	description: React.PropTypes.string
+};
 
 export default UniqueTextProcessor;
