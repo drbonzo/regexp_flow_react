@@ -16,7 +16,7 @@ class RegexpFlow extends Component {
 				<div className="RegexpFlow__TextProcessors">
 					<MatchLinesTextProcessor searchRegexp="aaaa" caseInsensitive={true} invertMatch={true} description="foo bar 123"/>
 					<FindAllTextProcessor searchRegexp="bbb" caseInsensitive={true} description="some find all"/>
-					<ReplaceTextProcessor/>
+					<ReplaceTextProcessor searchRegexp="ccc" global={true} caseInsensitive={true} multiline={true} replaceRegexp="$1" description="some replacement"/>
 					<MatchInLineTextProcessor/>
 					<UniqueTextProcessor/>
 				</div>

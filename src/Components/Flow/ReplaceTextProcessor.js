@@ -2,6 +2,64 @@ import React, {Component} from 'react';
 import TextProcessorControlls from './TextProcessorControlls.js';
 
 class ReplaceTextProcessor extends Component {
+
+	constructor(props) {
+
+		super();
+
+		this.state = {
+			searchRegexp: props.searchRegexp,
+			global: props.global,
+			caseInsensitive: props.caseInsensitive,
+			multiline: props.multiline,
+			replaceRegexp: props.replaceRegexp,
+			description: props.description
+		};
+
+		// ES6 does not bind these automaticaly
+		this.handleSearchRegexpChange = this.handleSearchRegexpChange.bind(this);
+		this.handleGlobalChange = this.handleGlobalChange.bind(this);
+		this.handleCaseInsensitiveChange = this.handleCaseInsensitiveChange.bind(this);
+		this.handleMultilineChange = this.handleMultilineChange.bind(this);
+		this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
+	}
+
+	handleSearchRegexpChange(event) {
+		this.setState({
+			searchRegexp: event.target.value
+		});
+	}
+
+	handleGlobalChange() {
+		this.setState({
+			global: !this.state.global
+		});
+	}
+
+	handleCaseInsensitiveChange() {
+		this.setState({
+			caseInsensitive: !this.state.caseInsensitive
+		});
+	}
+
+	handleMultilineChange() {
+		this.setState({
+			multiline: !this.state.multiline
+		});
+	}
+
+	handleReplaceRegexpChange(event) {
+		this.setState({
+			replaceRegexp: event.target.value
+		});
+	}
+
+	handleDescriptionChange(event) {
+		this.setState({
+			description: event.target.value
+		});
+	}
+
 	render() {
 		return (
 			<div className="TextProcessor ReplaceTextProcessor">
@@ -14,25 +72,25 @@ class ReplaceTextProcessor extends Component {
 						<fieldset>
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">Search for</label>
-								<input type="text" className="form-control input-sm" placeholder="regular expression"/>
+								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.state.searchRegexp} onChange={this.handleSearchRegexpChange}/>
 								<p className="TextProcessor__Contents__RegexpErrors TextProcessor__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
 								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
-										<input type="checkbox"/>
+										<input type="checkbox" checked={this.state.global} onChange={this.handleGlobalChange}/>
 										Global
 									</label>
 								</div>
 								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
-										<input type="checkbox"/>
+										<input type="checkbox" checked={this.state.multiline} onChange={this.handleMultilineChange}/>
 										Multiline
 									</label>
 								</div>
 								<div className="checkbox TextProcessor__Contents__Checkbox">
 									<label className="TextProcessor__Contents__Checkbox__Label">
-										<input type="checkbox"/>
+										<input type="checkbox" checked={this.state.caseInsensitive} onChange={this.handleCaseInsensitiveChange}/>
 										Case Insensitive
 									</label>
 								</div>
@@ -41,7 +99,7 @@ class ReplaceTextProcessor extends Component {
 						<fieldset>
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">and replace with. (5 replacements)</label>
-								<input type="text" className="form-control input-sm" placeholder="replacement string"/>
+								<input type="text" className="form-control input-sm" placeholder="replacement string" value={this.state.replaceRegexp} onChange={this.handleReplaceRegexpChange}/>
 								<ul className="help-block TextProcessor__Contents__Help TextProcessor__Contents__Help--Hidden">
 									<li>$1, $2, $3 - for groups.</li>
 									<li>$$ Inserts a "$".</li>
@@ -58,7 +116,7 @@ class ReplaceTextProcessor extends Component {
 						<fieldset className="TextProcessor__Contents__Description">
 							<div className="form-group">
 								<label className="TextProcessor__Contents__Checkbox__Label">Description</label>
-								<input type="text" className="form-control input-sm"/>
+								<input type="text" className="form-control input-sm" value={this.state.description} onChange={this.handleDescriptionChange}/>
 							</div>
 						</fieldset>
 					</form>
@@ -67,5 +125,14 @@ class ReplaceTextProcessor extends Component {
 		);
 	}
 }
+
+ReplaceTextProcessor.propTypes = {
+	searchRegexp: React.PropTypes.string,
+	global: React.PropTypes.bool,
+	caseInsensitive: React.PropTypes.bool,
+	multiline: React.PropTypes.bool,
+	replaceRegexp: React.PropTypes.string,
+	description: React.PropTypes.string
+};
 
 export default ReplaceTextProcessor;
