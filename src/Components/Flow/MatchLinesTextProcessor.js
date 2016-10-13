@@ -112,10 +112,10 @@ class MatchLinesTextProcessor extends Component {
 }
 
 MatchLinesTextProcessor.propTypes = {
-	searchRegexp: React.PropTypes.string,
-	caseInsensitive: React.PropTypes.bool,
-	invertMatch: React.PropTypes.bool,
-	description: React.PropTypes.string
+	searchRegexp: React.PropTypes.string.isRequired,
+	caseInsensitive: React.PropTypes.bool.isRequired,
+	invertMatch: React.PropTypes.bool.isRequired,
+	description: React.PropTypes.string.isRequired
 };
 
 export default MatchLinesTextProcessor;

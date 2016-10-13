@@ -69,7 +69,7 @@ class UniqueTextProcessor extends Component {
 }
 
 UniqueTextProcessor.propTypes = {
-	description: React.PropTypes.string
+	description: React.PropTypes.string.isRequired
 };
 
 export default UniqueTextProcessor;

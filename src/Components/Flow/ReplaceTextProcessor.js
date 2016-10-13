@@ -145,12 +145,12 @@ class ReplaceTextProcessor extends Component {
 }
 
 ReplaceTextProcessor.propTypes = {
-	searchRegexp: React.PropTypes.string,
-	global: React.PropTypes.bool,
-	caseInsensitive: React.PropTypes.bool,
-	multiline: React.PropTypes.bool,
-	replaceRegexp: React.PropTypes.string,
-	description: React.PropTypes.string
+	searchRegexp: React.PropTypes.string.isRequired,
+	global: React.PropTypes.bool.isRequired,
+	caseInsensitive: React.PropTypes.bool.isRequired,
+	multiline: React.PropTypes.bool.isRequired,
+	replaceRegexp: React.PropTypes.string.isRequired,
+	description: React.PropTypes.string.isRequired
 };
 
 export default ReplaceTextProcessor;

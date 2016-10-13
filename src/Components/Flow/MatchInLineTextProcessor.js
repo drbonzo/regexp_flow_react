@@ -103,9 +103,9 @@ class MatchInLineTextProcessor extends Component {
 }
 
 MatchInLineTextProcessor.propTypes = {
-	searchRegexp: React.PropTypes.string,
-	caseInsensitive: React.PropTypes.bool,
-	description: React.PropTypes.string
+	searchRegexp: React.PropTypes.string.isRequired,
+	caseInsensitive: React.PropTypes.bool.isRequired,
+	description: React.PropTypes.string.isRequired
 };
 
 export default MatchInLineTextProcessor;
