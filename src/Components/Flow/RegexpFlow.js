@@ -12,7 +12,7 @@ import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
 import RegexpFlowContainer from '../../TextProcessor/RegexpFlowContainer'
 // import RegexpFindAllTextProcessor from '../../TextProcessor/RegexpFindAllTextProcessor'
 // import RegexpMatchInLineTextProcessor from '../../TextProcessor/RegexpMatchInLineTextProcessor'
-import RegexpMatchLineTextProcessor from '../../TextProcessor/RegexpMatchLineTextProcessor'
+import RegexpMatchLinesTextProcessor from '../../TextProcessor/RegexpMatchLinesTextProcessor'
 // import RegexpReplaceTextProcessor from '../../TextProcessor/RegexpReplaceTextProcessor'
 // import RegexpUniqueTextProcessor from '../../TextProcessor/RegexpUniqueTextProcessor'
 
@@ -24,17 +24,17 @@ class RegexpFlow extends Component {
 		var rfc = new RegexpFlowContainer();
 
 		// FIXME read from JSON
-		var tp1 = new RegexpMatchLineTextProcessor();
+		var tp1 = new RegexpMatchLinesTextProcessor();
 		tp1.searchString = '[a-z]';
 		tp1.searchFlagCaseInsensitive = true;
 		tp1.flagInvertMatch = false;
 
-		var tp2 = new RegexpMatchLineTextProcessor();
+		var tp2 = new RegexpMatchLinesTextProcessor();
 		tp2.searchString = '[<>]';
 		tp2.searchFlagCaseInsensitive = true;
 		tp2.flagInvertMatch = false;
 
-		var tp3 = new RegexpMatchLineTextProcessor();
+		var tp3 = new RegexpMatchLinesTextProcessor();
 		tp3.searchString = 'foo';
 		tp3.searchFlagCaseInsensitive = true;
 		tp3.flagInvertMatch = false;
