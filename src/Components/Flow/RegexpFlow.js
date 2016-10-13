@@ -2,19 +2,18 @@ import React, {Component} from 'react';
 
 import RegexpFlowMetadata from './RegexpFlowMetadata.js';
 
+import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
-// FIXME
-// import ReplaceTextProcessor from '../Flow/ReplaceTextProcessor.js';
-// import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
-// import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
-// import UniqueTextProcessor from '../Flow/UniqueTextProcessor.js';
+import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
+import ReplaceTextProcessor from '../Flow/ReplaceTextProcessor.js';
+import UniqueTextProcessor from '../Flow/UniqueTextProcessor.js';
 
 import RegexpFlowContainer from '../../TextProcessor/RegexpFlowContainer'
-// import RegexpFindAllTextProcessor from '../../TextProcessor/RegexpFindAllTextProcessor'
-// import RegexpMatchInLineTextProcessor from '../../TextProcessor/RegexpMatchInLineTextProcessor'
+import RegexpFindAllTextProcessor from '../../TextProcessor/RegexpFindAllTextProcessor'
+import RegexpMatchInLineTextProcessor from '../../TextProcessor/RegexpMatchInLineTextProcessor'
 import RegexpMatchLinesTextProcessor from '../../TextProcessor/RegexpMatchLinesTextProcessor'
-// import RegexpReplaceTextProcessor from '../../TextProcessor/RegexpReplaceTextProcessor'
-// import RegexpUniqueTextProcessor from '../../TextProcessor/RegexpUniqueTextProcessor'
+import RegexpReplaceTextProcessor from '../../TextProcessor/RegexpReplaceTextProcessor'
+import RegexpUniqueTextProcessor from '../../TextProcessor/RegexpUniqueTextProcessor'
 
 class RegexpFlow extends Component {
 
@@ -24,24 +23,18 @@ class RegexpFlow extends Component {
 		var rfc = new RegexpFlowContainer();
 
 		// FIXME read from JSON
-		var tp1 = new RegexpMatchLinesTextProcessor();
-		tp1.searchString = '[a-z]';
-		tp1.searchFlagCaseInsensitive = true;
-		tp1.flagInvertMatch = false;
-
-		var tp2 = new RegexpMatchLinesTextProcessor();
-		tp2.searchString = '[<>]';
-		tp2.searchFlagCaseInsensitive = true;
-		tp2.flagInvertMatch = false;
-
-		var tp3 = new RegexpMatchLinesTextProcessor();
-		tp3.searchString = 'foo';
-		tp3.searchFlagCaseInsensitive = true;
-		tp3.flagInvertMatch = false;
+		var tp1 = new RegexpMatchLinesTextProcessor('</?[a-z-_]+?[\\s>]');
+		var tp2 = new RegexpFindAllTextProcessor('</?[a-z]+?[\\s>]');
+		var tp3 = new RegexpReplaceTextProcessor('</', '<');
+		tp3.searchFlagGlobal = true;
+		var tp4 = new RegexpMatchInLineTextProcessor('<([a-z]+)');
+		var tp5 = new RegexpUniqueTextProcessor();
 
 		rfc.textProcessors.push(tp1);
 		rfc.textProcessors.push(tp2);
 		rfc.textProcessors.push(tp3);
+		rfc.textProcessors.push(tp4);
+		rfc.textProcessors.push(tp5);
 
 		this.state = {
 			regexpFlow: rfc
@@ -63,6 +56,38 @@ class RegexpFlow extends Component {
 		});
 	}
 
+	/**
+	 * @param {TextProcessor} textProcessor
+	 * @param {Number} index
+	 */
+	buildComponentForTextProcessor(textProcessor, index) {
+		switch (textProcessor.typeName) {
+			case 'RegexpFindAllTextProcessor':
+				/** @type {RegexpFindAllTextProcessor} textProcessor */
+				return <FindAllTextProcessor searchRegexp={textProcessor.searchString} caseInsensitive={textProcessor.searchFlagCaseInsensitive} description={textProcessor.description} key={"textProcessor_" + index}/>;
+
+			case 'RegexpMatchLinesTextProcessor':
+				/** @type {RegexpMatchLinesTextProcessor} textProcessor */
+				return <MatchLinesTextProcessor searchRegexp={textProcessor.searchString} caseInsensitive={textProcessor.searchFlagCaseInsensitive} invertMatch={textProcessor.flagInvertMatch} description={textProcessor.description} key={"textProcessor_" + index}/>;
+
+			case 'RegexpMatchInLineTextProcessor':
+				/** @type {RegexpMatchInLineTextProcessor} textProcessor */
+				return <MatchInLineTextProcessor searchRegexp={textProcessor.searchString} caseInsensitive={textProcessor.searchFlagCaseInsensitive} description={textProcessor.description} key={"textProcessor_" + index}/>;
+
+			case 'RegexpReplaceTextProcessor':
+				/** @type {RegexpReplaceTextProcessor} textProcessor */
+				return <ReplaceTextProcessor searchRegexp={textProcessor.searchString} global={textProcessor.searchFlagGlobal} multiline={textProcessor.searchFlagMultiline} caseInsensitive={textProcessor.searchFlagCaseInsensitive} replaceRegexp={textProcessor.replaceString}
+											 description={textProcessor.description} key={"textProcessor_" + index}/>;
+
+			case 'RegexpUniqueTextProcessor':
+				/** @type {RegexpUniqueTextProcessor} textProcessor */
+				return <UniqueTextProcessor description={textProcessor.description} key={"textProcessor_" + index}/>;
+
+			default:
+				return null;
+		}
+	}
+
 	render() {
 
 		return (
@@ -71,12 +96,7 @@ class RegexpFlow extends Component {
 				<div className="RegexpFlow__TextProcessors">
 					{
 						this.state.regexpFlow.textProcessors.map((tp, index) => {
-							// FIXME support for other TextProcessors
-							return <MatchLinesTextProcessor searchRegexp={tp.searchString} caseInsensitive={tp.searchFlagCaseInsensitive} invertMatch={tp.flagInvertMatch} description={tp.description} key={"tp_" + index}/>
-							// {/*<FindAllTextProcessor searchRegexp="bbb" caseInsensitive={true} description="some find all"/>*/}
-							// {/*<ReplaceTextProcessor searchRegexp="ccc" global={true} caseInsensitive={true} multiline={true} replaceRegexp="$1" description="some replacement"/>*/}
-							// {/*<MatchInLineTextProcessor searchRegexp="ddd" caseInsensitive={true} description="some matching in line"/>*/}
-							// {/*<UniqueTextProcessor description="unique!"/>*/}
+							return this.buildComponentForTextProcessor(tp, index)
 						})
 					}
 				</div>
