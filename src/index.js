@@ -9,9 +9,10 @@ import {initialState} from './redux/state'
 
 let store = createStore(mainReducer, initialState);
 
-store.subscribe(function () {
-	console.log(store.getState())
-});
+// TODO remove
+// store.subscribe(function () {
+// 	console.log(store.getState())
+// });
 
 ReactDOM.render(
 	<Provider store={store}>

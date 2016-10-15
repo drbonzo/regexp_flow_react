@@ -19,9 +19,10 @@ export function deleteTextProcessor(id) {
 	}
 }
 
-export function updateRegexpFlowDescription(newDescription) {
+export function updateRegexpFlowDescription(id, newDescription) {
 	return {
 		type: UPDATE_REGEXP_FLOW_DESCRIPTION,
+		id: id,
 		description: newDescription
 	}
 }
@@ -33,9 +34,10 @@ export function updateFindAllTextProcecssorSearchString(searchString) {
 	}
 }
 
-export function updateTextProcecssorDescription(newDescription) {
+export function updateTextProcessorDescription(id, description) {
 	return {
 		type: UPDATE_TEXT_PROCESSOR_DESCRIPTION,
-		description: newDescription
+		id: id,
+		description: description
 	}
 }

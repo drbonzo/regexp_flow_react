@@ -1,8 +1,7 @@
 import {connect} from 'react-redux'
 
 import FindAllTextProcessorComponent from './FindAllTextProcessorComponent'
-
-// FIXME import {setVisibilityFilter} from '../actions'
+import {updateTextProcessorDescription} from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
 	searchString: state.textProcessors[ownProps.id].searchString,
@@ -16,9 +15,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 		console.log('ci', ownProps.id);
 		// FIXME dodaj akcje dispatch(setVisibilityFilter(ownProps.filter))
 	},
-	onDescriptionChange: () => {
-		console.log('desc', ownProps.id);
-		// FIXME dodaj akcje dispatch(setVisibilityFilter(ownProps.filter))
+	onDescriptionChange: (newDescription) => {
+		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
 	},
 	onDeleteClick: () => {
 		console.log('delete', ownProps.id);
