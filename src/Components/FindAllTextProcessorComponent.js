@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onPauseClick, onCaseInsensitiveChange, onDescriptionChange}) => {
+const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onPauseClick, onSearchStringChange, onCaseInsensitiveChange, onDescriptionChange}) => {
 
 	return (
 		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
@@ -8,6 +8,13 @@ const FindAllTextProcessorComponent = ({searchString, caseInsensitive, descripti
 			<button type="button" className="btn btn-default" onClick={onPauseClick}>Pause</button>
 
 			<br/>
+			<label>Search string</label>
+			<input type="text" value={searchString} onChange={(event) => {
+				onSearchStringChange(event.target.value)
+			}}/>
+
+			<br/>
+			<label>Description</label>
 			<input type="text" value={description} onChange={(event) => {
 				onDescriptionChange(event.target.value)
 			}}/>
@@ -27,9 +34,11 @@ FindAllTextProcessorComponent.propTypes = {
 	searchString: PropTypes.string.isRequired,
 	caseInsensitive: PropTypes.bool.isRequired,
 	description: PropTypes.string.isRequired,
+	enabled: PropTypes.bool.isRequired,
 	//
 	onDeleteClick: PropTypes.func.isRequired,
 	onPauseClick: PropTypes.func.isRequired,
+	onSearchStringChange: PropTypes.func.isRequired,
 	onCaseInsensitiveChange: PropTypes.func.isRequired,
 	onDescriptionChange: PropTypes.func.isRequired
 };

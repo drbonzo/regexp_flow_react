@@ -2,6 +2,7 @@ import {connect} from 'react-redux'
 
 import FindAllTextProcessorComponent from './FindAllTextProcessorComponent'
 import {
+	updateTextProcecssorSearchString,
 	updateTextProcessorDescription,
 	updateTextProcessorCaseInsensitive,
 	deleteTextProcessor,
@@ -17,6 +18,9 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
+	onSearchStringChange: (newSearchString) => {
+		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
+	},
 	onCaseInsensitiveChange: () => {
 		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
 	},

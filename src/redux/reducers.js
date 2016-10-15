@@ -22,22 +22,26 @@ function textProcessors(state, action) {
 
 	switch (action.type) {
 		case DELETE_TEXT_PROCESSOR: {
-			// FIXME remove state[action.id]
-			return (state === undefined ? {} : state);
+			let newState = Object.assign({}, state);
+			delete newState[action.id];
+			return newState;
 		}
 		case TOGGLE_TEXT_PROCESSOR_ENABLE: {
 			let id = action.id;
 
 			let newTextProcessor = Object.assign({}, state[id], {enabled: !state[id].enabled});
-			console.log(newTextProcessor);
 			let overwrite = {};
 			overwrite[id] = newTextProcessor;
 			return Object.assign({}, state, overwrite);
 		}
 		case UPDATE_TEXT_PROCESSOR_SEARCH_STRING: {
+			let id = action.id;
+			let searchString = action.searchString;
 
-			// FIXME
-			return (state === undefined ? {} : state);
+			let newTextProcessor = Object.assign({}, state[id], {searchString: searchString});
+			let overwrite = {};
+			overwrite[id] = newTextProcessor;
+			return Object.assign({}, state, overwrite);
 		}
 		case UPDATE_TEXT_PROCESSOR_DESCRIPTION: {
 
@@ -54,7 +58,6 @@ function textProcessors(state, action) {
 			let id = action.id;
 
 			let newTextProcessor = Object.assign({}, state[id], {caseInsensitive: !state[id].caseInsensitive});
-			console.log(newTextProcessor);
 			let overwrite = {};
 			overwrite[id] = newTextProcessor;
 			return Object.assign({}, state, overwrite);
