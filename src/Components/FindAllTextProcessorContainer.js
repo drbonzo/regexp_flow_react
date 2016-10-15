@@ -11,7 +11,8 @@ import {
 const mapStateToProps = (state, ownProps) => ({
 	searchString: state.textProcessors[ownProps.id].searchString,
 	description: state.textProcessors[ownProps.id].description,
-	caseInsensitive: state.textProcessors[ownProps.id].caseInsensitive
+	caseInsensitive: state.textProcessors[ownProps.id].caseInsensitive,
+	enabled: state.textProcessors[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, onDeleteClick, onPauseClick, onCaseInsensitiveChange, onDescriptionChange}) => {
+const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onPauseClick, onCaseInsensitiveChange, onDescriptionChange}) => {
 
 	return (
 		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
@@ -17,7 +17,8 @@ const FindAllTextProcessorComponent = ({searchString, caseInsensitive, descripti
 				<input type="checkbox" checked={caseInsensitive} onChange={onCaseInsensitiveChange}/>
 				Case Insensitive
 			</label>
-
+			<br/>
+			Enabled? {enabled ? 'YES' : 'NO'}
 		</div>
 	)
 };
