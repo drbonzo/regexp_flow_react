@@ -4,19 +4,7 @@ import {
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
 	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE
-} from './actions';
-
-import {combineReducers} from 'redux'
-
-function description(state, action) {
-	return state === undefined ? '' : state;
-	// if (action.type === UPDATE_REGEXP_FLOW_DESCRIPTION) {
-	// 	return action.description
-	// } else {
-	// 	// Reducer "textProcessors" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
-	// 	return state === undefined ? '' : state;
-	// }
-}
+} from './../actions';
 
 function textProcessors(state, action) {
 
@@ -69,9 +57,4 @@ function textProcessors(state, action) {
 	}
 }
 
-const mainReducer = combineReducers({
-	textProcessors: textProcessors,
-	description: description
-});
-
-export default mainReducer;
+export default textProcessors;
