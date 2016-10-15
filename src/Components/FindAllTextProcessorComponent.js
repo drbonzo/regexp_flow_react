@@ -1,11 +1,11 @@
 import React, {PropTypes} from 'react'
 
-const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onPauseClick, onSearchStringChange, onCaseInsensitiveChange, onDescriptionChange}) => {
+const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onEnabledClick, onSearchStringChange, onCaseInsensitiveChange, onDescriptionChange}) => {
 
 	return (
 		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
-			<button type="button" className="btn btn-default" onClick={onDeleteClick}>Delete</button>
-			<button type="button" className="btn btn-default" onClick={onPauseClick}>Pause</button>
+			<button type="button" className="btn btn-default" onClick={onDeleteClick}>[X] Delete</button>
+			<button type="button" className="btn btn-default" onClick={onEnabledClick}>{enabled ? 'Disable' : 'Enable'}</button>
 
 			<br/>
 			<label>Search string</label>
@@ -37,7 +37,7 @@ FindAllTextProcessorComponent.propTypes = {
 	enabled: PropTypes.bool.isRequired,
 	//
 	onDeleteClick: PropTypes.func.isRequired,
-	onPauseClick: PropTypes.func.isRequired,
+	onEnabledClick: PropTypes.func.isRequired,
 	onSearchStringChange: PropTypes.func.isRequired,
 	onCaseInsensitiveChange: PropTypes.func.isRequired,
 	onDescriptionChange: PropTypes.func.isRequired
