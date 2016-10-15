@@ -6,7 +6,8 @@ function description(state, action) {
 	if (action.type === UPDATE_REGEXP_FLOW_DESCRIPTION) {
 		return action.description
 	} else {
-		return state;
+		// Reducer "textProcessors" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
+		return state === undefined ? '' : state;
 	}
 }
 
@@ -28,7 +29,8 @@ function textProcessors(state, action) {
 		return initialState;
 
 	} else {
-		return initialState;
+		// Reducer "textProcessors" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
+		return (state === undefined ? [] : state);
 	}
 }
 
