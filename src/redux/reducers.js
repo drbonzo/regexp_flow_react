@@ -14,15 +14,13 @@ function description(state, action) {
 function textProcessors(state, action) {
 
 	if (action.type === ADD_REPLACE_TEXT_PROCESSOR) {
-		return {
-			textProcessors: [
-				...state.textProcessors,
-				{
-					type: 'ReplaceTextProcessor',
-					searchRegexp: ''
-				}
-			]
-		}
+		return [
+			...state,
+			{
+				type: 'ReplaceTextProcessor',
+				searchRegexp: ''
+			}
+		];
 
 	} else if (action.type === DELETE_TEXT_PROCESSOR) {
 		// FIXME implement
