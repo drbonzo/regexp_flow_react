@@ -47,7 +47,6 @@ class RegexpFlow extends Component {
 
 		// https://facebook.github.io/react/docs/update.html
 		// https://facebook.github.io/immutable-js/docs/#/
-		console.log(event.target.value);
 		var rf = new RegexpFlowContainer();
 		rf.description = event.target.value;
 
