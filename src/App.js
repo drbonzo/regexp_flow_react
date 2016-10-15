@@ -1,24 +1,22 @@
 import React, {Component} from 'react';
-import NavBar from './Components/Layout/NavBar.js';
-import MainScreen from './Components/Layout/MainScreen.js';
+import FindAllTextProcessorContainer from './Components/FindAllTextProcessorContainer'
 
 import './App.css';
 
 class App extends Component {
+
 	render() {
 		return (
 			<div className="App">
-				<NavBar/>
-				<div className="container-fluid">
-					<div className="row">
-						<div className="col-sm-12">
-							<MainScreen/>
-						</div>
-					</div>
-				</div>
+				{/* FIXME wyswietlac dane ze state!!! - wszyskie TP*/}
+				<FindAllTextProcessorContainer id="1"/>
+				<FindAllTextProcessorContainer id="2"/>
+				<FindAllTextProcessorContainer id="3"/>
 			</div>
 		);
 	}
+
 }
+
 
 export default App;
