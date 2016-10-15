@@ -6,11 +6,18 @@ import './App.css';
 class App extends Component {
 
 	render() {
+
+		let textProcessorsCollection = [];
+
+		let textProcessors = this.context.store.getState().textProcessors;
+		for (let index in textProcessors) {
+			if (textProcessors.hasOwnProperty(index)) {
+				textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+			}
+		}
 		return (
 			<div className="App">
-				<FindAllTextProcessorContainer id={1}/>
-				<FindAllTextProcessorContainer id={2}/>
-				<FindAllTextProcessorContainer id={3}/>
+				{textProcessorsCollection}
 			</div>
 		);
 	}

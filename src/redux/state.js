@@ -21,6 +21,13 @@ export const initialState = {
 			caseInsensitive: false,
 			description: 'some description 3',
 			enabled: true
+		},
+		4: {
+			type: 'FindAll',
+			searchString: 'foobar 4',
+			caseInsensitive: false,
+			description: 'some description 4',
+			enabled: true
 		}
 	}
 };
