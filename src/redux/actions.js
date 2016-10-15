@@ -2,7 +2,7 @@
 // export const ADD_REPLACE_TEXT_PROCESSOR = 'ADD_REPLACE_TEXT_PROCESSOR';
 
 export const DELETE_TEXT_PROCESSOR = 'DELETE_TEXT_PROCESSOR';
-export const TOGGLE_TEXT_PROCESSOR_ENABLE = 'TOGGLE_TEXT_PROCESSOR_ENABLE';
+export const TOGGLE_TEXT_PROCESSOR_ENABLED = 'TOGGLE_TEXT_PROCESSOR_ENABLED';
 
 export const UPDATE_TEXT_PROCESSOR_SEARCH_STRING = 'UPDATE_TEXT_PROCESSOR_SEARCH_STRING';
 export const UPDATE_TEXT_PROCESSOR_DESCRIPTION = 'UPDATE_TEXT_PROCESSOR_DESCRIPTION';
@@ -29,9 +29,9 @@ export function deleteTextProcessor(id) {
 	}
 }
 
-export function toggleTextProcessorEnable(id) {
+export function toggleTextProcessorEnabled(id) {
 	return {
-		type: TOGGLE_TEXT_PROCESSOR_ENABLE,
+		type: TOGGLE_TEXT_PROCESSOR_ENABLED,
 		id: id
 	}
 }

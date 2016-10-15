@@ -1,6 +1,6 @@
 import {
 	DELETE_TEXT_PROCESSOR,
-	TOGGLE_TEXT_PROCESSOR_ENABLE,
+	TOGGLE_TEXT_PROCESSOR_ENABLED,
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
 	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE
@@ -26,7 +26,7 @@ function textProcessors(state, action) {
 			delete newState[action.id];
 			return newState;
 		}
-		case TOGGLE_TEXT_PROCESSOR_ENABLE: {
+		case TOGGLE_TEXT_PROCESSOR_ENABLED: {
 			let id = action.id;
 
 			let newTextProcessor = Object.assign({}, state[id], {enabled: !state[id].enabled});

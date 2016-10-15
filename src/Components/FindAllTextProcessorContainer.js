@@ -6,7 +6,7 @@ import {
 	updateTextProcessorDescription,
 	updateTextProcessorCaseInsensitive,
 	deleteTextProcessor,
-	toggleTextProcessorEnable
+	toggleTextProcessorEnabled
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -30,8 +30,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	onDeleteClick: () => {
 		dispatch(deleteTextProcessor(ownProps.id))
 	},
-	onPauseClick: () => {
-		dispatch(toggleTextProcessorEnable(ownProps.id))
+	onEnabledClick: () => {
+		dispatch(toggleTextProcessorEnabled(ownProps.id))
 	}
 });
 
