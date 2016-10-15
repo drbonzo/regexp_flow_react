@@ -1,7 +1,12 @@
 import {connect} from 'react-redux'
 
 import FindAllTextProcessorComponent from './FindAllTextProcessorComponent'
-import {updateTextProcessorDescription} from '../redux/actions'
+import {
+	updateTextProcessorDescription,
+	updateTextProcessorCaseInsensitive,
+	deleteTextProcessor,
+	toggleTextProcessorEnable
+} from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
 	searchString: state.textProcessors[ownProps.id].searchString,
@@ -12,19 +17,16 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 	onCaseInsensitiveChange: () => {
-		console.log('ci', ownProps.id);
-		// FIXME dodaj akcje dispatch(setVisibilityFilter(ownProps.filter))
+		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
 	},
 	onDescriptionChange: (newDescription) => {
 		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
 	},
 	onDeleteClick: () => {
-		console.log('delete', ownProps.id);
-		// FIXME dodaj akcje dispatch(setVisibilityFilter(ownProps.filter))
+		dispatch(deleteTextProcessor(ownProps.id))
 	},
 	onPauseClick: () => {
-		console.log('pause', ownProps.id);
-		// FIXME dodaj akcje dispatch(setVisibilityFilter(ownProps.filter))
+		dispatch(toggleTextProcessorEnable(ownProps.id))
 	}
 });
 
