@@ -11,36 +11,38 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 	}
 
 	return (
-		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
+		<div className="RegexpFlow">
 			<div>
 				<div className="btn-group" role="group">
-					<button type="button" className="btn btn-default" onClick={() => {
+					<button type="button" className="btn btn-default btn-sm" onClick={() => {
 						onAddTextProcessorClick('FindAll')
 					}}>+ FindAll
 					</button>
 
-					<button type="button" className="btn btn-default" onClick={() => {
+					<button type="button" className="btn btn-default btn-sm" onClick={() => {
 						onAddTextProcessorClick('Replace')
 					}}>+ Replace
 					</button>
 
-					<button type="button" className="btn btn-default" onClick={() => {
+					<button type="button" className="btn btn-default btn-sm" onClick={() => {
 						onAddTextProcessorClick('MatchLines')
 					}}>+ MatchLines
 					</button>
 
-					<button type="button" className="btn btn-default" onClick={() => {
+					<button type="button" className="btn btn-default btn-sm" onClick={() => {
 						onAddTextProcessorClick('MatchInLines')
 					}}>+ MatchInLines
 					</button>
 
-					<button type="button" className="btn btn-default" onClick={() => {
+					<button type="button" className="btn btn-default btn-sm" onClick={() => {
 						onAddTextProcessorClick('Unique')
 					}}>+ Unique
 					</button>
 				</div>
 			</div>
-			{textProcessorsCollection}
+			<div className="RegexpFlow__TextProcessors">
+				{textProcessorsCollection}
+			</div>
 		</div>
 	)
 };
