@@ -6,6 +6,12 @@ import {
 	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE
 } from './../actions';
 
+function textProcessorReducer(state, id, replacement) {
+	let newTextProcessor = Object.assign({}, state[id], replacement);
+	let overwrite = {};
+	overwrite[id] = newTextProcessor;
+	return Object.assign({}, state, overwrite);
+}
 function textProcessors(state, action) {
 
 	switch (action.type) {
@@ -16,39 +22,34 @@ function textProcessors(state, action) {
 		}
 		case TOGGLE_TEXT_PROCESSOR_ENABLED: {
 			let id = action.id;
+			let textProcessor = state[id];
 
-			let newTextProcessor = Object.assign({}, state[id], {enabled: !state[id].enabled});
-			let overwrite = {};
-			overwrite[id] = newTextProcessor;
-			return Object.assign({}, state, overwrite);
+			let replacement = {enabled: !textProcessor.enabled};
+
+			return textProcessorReducer(state, id, replacement);
 		}
 		case UPDATE_TEXT_PROCESSOR_SEARCH_STRING: {
 			let id = action.id;
-			let searchString = action.searchString;
 
-			let newTextProcessor = Object.assign({}, state[id], {searchString: searchString});
-			let overwrite = {};
-			overwrite[id] = newTextProcessor;
-			return Object.assign({}, state, overwrite);
+			let searchString = action.searchString;
+			let replacement = {searchString: searchString};
+
+			return textProcessorReducer(state, id, replacement);
 		}
 		case UPDATE_TEXT_PROCESSOR_DESCRIPTION: {
-
 			let id = action.id;
-			let description = action.description;
 
-			let newTextProcessor = Object.assign({}, state[id], {description: description});
-			let overwrite = {};
-			overwrite[id] = newTextProcessor;
-			return Object.assign({}, state, overwrite);
+			let description = action.description;
+			let replacement = {description: description};
+
+			return textProcessorReducer(state, id, replacement);
 		}
 		case UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE: {
-
 			let id = action.id;
 
-			let newTextProcessor = Object.assign({}, state[id], {caseInsensitive: !state[id].caseInsensitive});
-			let overwrite = {};
-			overwrite[id] = newTextProcessor;
-			return Object.assign({}, state, overwrite);
+			let replacement = {caseInsensitive: !state[id].caseInsensitive};
+
+			return textProcessorReducer(state, id, replacement);
 		}
 		default: {
 			// Reducer "textProcessors" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
