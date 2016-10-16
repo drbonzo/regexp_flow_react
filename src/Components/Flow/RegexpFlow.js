@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 
-import RegexpFlowMetadata from './RegexpFlowMetadata.js';
-
 import FindAllTextProcessor from '../Flow/FindAllTextProcessor.js';
 import MatchLinesTextProcessor from '../Flow/MatchLinesTextProcessor.js';
 import MatchInLineTextProcessor from '../Flow/MatchInLineTextProcessor.js';
@@ -91,7 +89,6 @@ class RegexpFlow extends Component {
 
 		return (
 			<div className="RegexpFlow">
-				<RegexpFlowMetadata description={this.state.regexpFlow.description} onDescriptionChange={this.onFlowDescriptionChanged}/>
 				<div className="RegexpFlow__TextProcessors">
 					{
 						this.state.regexpFlow.textProcessors.map((tp, index) => {
