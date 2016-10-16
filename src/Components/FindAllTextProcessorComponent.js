@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onDeleteClick, onEnabledClick, onSearchStringChange, onCaseInsensitiveChange, onDescriptionChange}) => {
+const FindAllTextProcessorComponent = ({searchString, caseInsensitive, description, enabled, onSearchStringChange, onCaseInsensitiveChange, onDescriptionChange, onEnabledClick, onDeleteClick}) => {
 
 	return (
 		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
@@ -34,13 +34,17 @@ FindAllTextProcessorComponent.propTypes = {
 	searchString: PropTypes.string.isRequired,
 	caseInsensitive: PropTypes.bool.isRequired,
 	description: PropTypes.string.isRequired,
+	//
 	enabled: PropTypes.bool.isRequired,
 	//
-	onDeleteClick: PropTypes.func.isRequired,
-	onEnabledClick: PropTypes.func.isRequired,
+	//
+	//
 	onSearchStringChange: PropTypes.func.isRequired,
 	onCaseInsensitiveChange: PropTypes.func.isRequired,
-	onDescriptionChange: PropTypes.func.isRequired
+	onDescriptionChange: PropTypes.func.isRequired,
+	//
+	onEnabledClick: PropTypes.func.isRequired,
+	onDeleteClick: PropTypes.func.isRequired
 };
 
 export default FindAllTextProcessorComponent;

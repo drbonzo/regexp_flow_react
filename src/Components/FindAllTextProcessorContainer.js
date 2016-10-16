@@ -3,16 +3,16 @@ import {connect} from 'react-redux'
 import FindAllTextProcessorComponent from './FindAllTextProcessorComponent'
 import {
 	updateTextProcecssorSearchString,
-	updateTextProcessorDescription,
 	updateTextProcessorCaseInsensitive,
-	deleteTextProcessor,
-	toggleTextProcessorEnabled
+	updateTextProcessorDescription,
+	toggleTextProcessorEnabled,
+	deleteTextProcessor
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
 	searchString: state.textProcessors[ownProps.id].searchString,
-	description: state.textProcessors[ownProps.id].description,
 	caseInsensitive: state.textProcessors[ownProps.id].caseInsensitive,
+	description: state.textProcessors[ownProps.id].description,
 	enabled: state.textProcessors[ownProps.id].enabled
 });
 
@@ -27,11 +27,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	onDescriptionChange: (newDescription) => {
 		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
 	},
-	onDeleteClick: () => {
-		dispatch(deleteTextProcessor(ownProps.id))
-	},
 	onEnabledClick: () => {
 		dispatch(toggleTextProcessorEnabled(ownProps.id))
+	},
+	onDeleteClick: () => {
+		dispatch(deleteTextProcessor(ownProps.id))
 	}
 });
 
