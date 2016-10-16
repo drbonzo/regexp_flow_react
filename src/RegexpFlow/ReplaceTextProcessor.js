@@ -95,21 +95,6 @@ class ReplaceTextProcessor extends TextProcessor {
 			throw this.setupValidationFromError(e);
 		}
 	};
-
-	initializeFromObject(dataObject) {
-		this.copyPropertiesFrom(dataObject, this.getSerializablePropertyNames());
-	};
-
-	getExportObject() {
-		return this.extractPropertiesToObject(this.getSerializablePropertyNames());
-	};
-
-	/**
-	 * @returns {Array|string[]}
-	 */
-	getSerializablePropertyNames() {
-		return ['searchString', 'replaceString', 'searchFlagGlobal', 'searchFlagMultiline', 'searchFlagCaseInsensitive', 'isEnabled', 'description'];
-	};
 }
 
 export default ReplaceTextProcessor;

@@ -113,62 +113,6 @@ describe("TextProcessor", function () {
 
 	});
 
-	describe("copying properties between objects", function () {
-
-		var sourceObject;
-
-		beforeEach(function () {
-			expect(textProcessor.foo).toBeUndefined();
-			expect(textProcessor.bar).toBeUndefined();
-			expect(textProcessor.lorem).toBeUndefined();
-			expect(textProcessor.dolor).toBeUndefined();
-
-			sourceObject = {
-				foo: 123,
-				bar: 'weee',
-				lorem: 'ipsum',
-				dolor: 'sid'
-			};
-		});
-
-		it("copyPropertiesFrom copies specified properties", function () {
-			textProcessor.copyPropertiesFrom(sourceObject, ['foo', 'lorem', 'doesNotExist']);
-
-			expect(textProcessor.foo).toBeDefined();
-			expect(textProcessor.bar).toBeUndefined(); // we havent specified 'bar'
-			expect(textProcessor.lorem).toBeDefined();
-			expect(textProcessor.dolor).toBeUndefined(); // sourceObject does not have 'doesNotExist'
-		});
-
-		it("copyPropertiesFrom copies only properties that exist in sourceObject", function () {
-			textProcessor.copyPropertiesFrom(sourceObject, ['doesNotExist']);
-			expect(textProcessor.doesNotExist).toBeUndefined();
-		});
-	});
-
-	describe("extracting properties to object", function () {
-
-		beforeEach(function () {
-			textProcessor.foo = 'bar';
-			textProcessor.lorem = 'ipsum';
-		});
-
-		it("extractPropertiesToObject exports empty object if no properties are specified", function () {
-			var exportedObject = textProcessor.extractPropertiesToObject([]);
-			expect(exportedObject).toEqual({typeName: ''});
-		});
-
-		it("extractPropertiesToObject exports only specified properties", function () {
-			var exportedObject = textProcessor.extractPropertiesToObject(['foo']);
-			expect(exportedObject).toEqual({typeName: '', foo: 'bar'});
-		});
-
-		it("extractPropertiesToObject exports only existing properties", function () {
-			var exportedObject = textProcessor.extractPropertiesToObject(['foo', 'foobar']);
-			expect(exportedObject).toEqual({typeName: '', foo: 'bar'});
-		});
-	});
-
 	describe("shouldShowDescription()", function () {
 
 		it("by default returns false", function () {

@@ -89,21 +89,6 @@ class MatchInLineTextProcessor extends TextProcessor {
 			throw this.setupValidationFromError(e);
 		}
 	}
-
-	initializeFromObject(dataObject) {
-		this.copyPropertiesFrom(dataObject, this.getSerializablePropertyNames());
-	}
-
-	getExportObject() {
-		return this.extractPropertiesToObject(this.getSerializablePropertyNames());
-	}
-
-	/**
-	 * @returns {Array|string[]}
-	 */
-	getSerializablePropertyNames() {
-		return ['searchString', 'searchFlagCaseInsensitive', 'isEnabled', 'description'];
-	}
 }
 
 

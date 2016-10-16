@@ -67,22 +67,6 @@ class UniqueTextProcessor extends TextProcessor {
 
 		return uniqueLines.join("\n");
 	}
-
-
-	initializeFromObject(dataObject) {
-		this.copyPropertiesFrom(dataObject, this.getSerializablePropertyNames());
-	}
-
-	getExportObject() {
-		return this.extractPropertiesToObject(this.getSerializablePropertyNames());
-	}
-
-	/**
-	 * @returns {Array|string[]}
-	 */
-	getSerializablePropertyNames() {
-		return ['isEnabled', 'description'];
-	}
 }
 
 export default UniqueTextProcessor;

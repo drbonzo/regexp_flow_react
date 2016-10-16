@@ -59,60 +59,6 @@ class TextProcessor {
 		throw new Error("Please implement me!");
 	};
 
-	/**
-	 * Initializes object from generic data object - copies specific fields between objects
-	 * @param {Object} dataObject
-	 */
-	initializeFromObject(dataObject) {
-		throw new Error("Please implement me!");
-	};
-
-	/**
-	 * Returns object to be serialized during export operation
-	 * @return {Object}
-	 */
-	getExportObject() { // FIXME rename to something like serializableObject
-		throw new Error("Please implement me!");
-	};
-
-	/**
-	 * @param {Object} dataObject
-	 * @param {Array|string[]} propertyNames
-	 */
-	copyPropertiesFrom(dataObject, propertyNames) {
-		var p, propertyName;
-		for (p in propertyNames) {
-			if (propertyNames.hasOwnProperty(p)) {
-				propertyName = propertyNames[p];
-				this[propertyName] = dataObject[propertyName];
-			}
-		}
-	};
-
-	/**
-	 * Builds new object, by copying some properties of this object.
-	 *
-	 * @param {Array|string[]} propertyNames
-	 * @return {Object}
-	 */
-	extractPropertiesToObject(propertyNames) {
-		var retval,
-			p,
-			propertyName;
-
-		retval = {};
-		propertyNames.push('typeName'); // always added
-
-		for (p in propertyNames) {
-			if (propertyNames.hasOwnProperty(p)) {
-				propertyName = propertyNames[p];
-				retval[propertyName] = this[propertyName];
-			}
-		}
-
-		return retval;
-	};
-
 	resetRegExpValidation() {
 		this.regexpIsValid = true;
 		this.regexpValidationMessage = '';

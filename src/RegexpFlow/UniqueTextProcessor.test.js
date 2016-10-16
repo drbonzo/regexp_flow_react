@@ -65,44 +65,4 @@ describe("UniqueTextProcessor", function () {
 			});
 		});
 	});
-
-	describe("import/export object", function () {
-
-		describe("initializeFromObject()", function () {
-
-			var sourceObject;
-
-			beforeEach(function () {
-				sourceObject = {
-					isEnabled: true,
-					description: 'foobar'
-				};
-			});
-
-			it("copyPropertiesFrom copies specified properties", function () {
-				uniqueTextProcessor.initializeFromObject(sourceObject);
-
-				expect(uniqueTextProcessor.isEnabled).toEqual(true);
-				expect(uniqueTextProcessor.description).toEqual('foobar');
-			});
-
-		});
-
-		describe("getExportObject()", function () {
-
-			beforeEach(function () {
-				uniqueTextProcessor.isEnabled = true;
-				uniqueTextProcessor.description = 'foobar';
-			});
-
-			it("extractPropertiesToObject exports empty object if no properties are specified", function () {
-				var exportedObject = uniqueTextProcessor.getExportObject();
-				expect(exportedObject).toEqual({
-					typeName: 'UniqueTextProcessor',
-					isEnabled: true,
-					description: 'foobar'
-				});
-			});
-		});
-	});
 });

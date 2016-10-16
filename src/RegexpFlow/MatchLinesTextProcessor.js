@@ -89,21 +89,6 @@ class MatchLinesTextProcessor extends TextProcessor {
 			throw this.setupValidationFromError(e);
 		}
 	}
-
-	initializeFromObject(dataObject) {
-		this.copyPropertiesFrom(dataObject, this.getSerializablePropertyNames());
-	}
-
-	getExportObject() {
-		return this.extractPropertiesToObject(this.getSerializablePropertyNames());
-	}
-
-	/**
-	 * @returns {Array|string[]}
-	 */
-	getSerializablePropertyNames() {
-		return ['searchString', 'searchFlagCaseInsensitive', 'flagInvertMatch', 'isEnabled', 'description'];
-	}
 }
 
 export default MatchLinesTextProcessor;
