@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import TextFieldComponent from './TextFieldComponent'
+import TextFieldComponent from '../Components/TextFieldComponent'
 
 import {
 	updateRegexpFlowDescription

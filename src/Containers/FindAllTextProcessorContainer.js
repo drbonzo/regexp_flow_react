@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import FindAllTextProcessorComponent from './FindAllTextProcessorComponent'
+import FindAllTextProcessorComponent from '../Components/FindAllTextProcessorComponent'
 import {
 	updateTextProcecssorSearchString,
 	updateTextProcessorCaseInsensitive,

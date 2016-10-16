@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import FindAllTextProcessorContainer from './Components/FindAllTextProcessorContainer'
-import RegexpFlowDescriptionContainer from './Components/RegexpFlowDescriptionContainer'
+import FindAllTextProcessorContainer from './Containers/FindAllTextProcessorContainer'
+import RegexpFlowDescriptionContainer from './Containers/RegexpFlowDescriptionContainer'
 
 import './App.css';
 
