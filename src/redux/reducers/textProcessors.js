@@ -27,7 +27,7 @@ function textProcessors(state, action) {
 			let textProcessorType = action.textProcessorType;
 			let newTextProcessor = {
 				id: nextId,
-				type: 'textProcessorType',
+				type: textProcessorType,
 				searchString: '',
 				caseInsensitive: false,
 				description: '',
