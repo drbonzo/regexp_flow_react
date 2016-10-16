@@ -1,5 +1,7 @@
 export const initialState = {
 	description: '',
+	inputText: '',
+	outputText: '',
 	textProcessors: {
 		1: {
 			id: 1,

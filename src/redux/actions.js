@@ -1,13 +1,14 @@
 export const UPDATE_REGEXP_FLOW_DESCRIPTION = 'UPDATE_REGEXP_FLOW_DESCRIPTION';
 export const ADD_TEXT_PROCESSOR = 'ADD_TEXT_PROCESSOR';
 
-
 export const UPDATE_TEXT_PROCESSOR_SEARCH_STRING = 'UPDATE_TEXT_PROCESSOR_SEARCH_STRING';
 export const UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE = 'UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE';
 export const UPDATE_TEXT_PROCESSOR_DESCRIPTION = 'UPDATE_TEXT_PROCESSOR_DESCRIPTION';
 
 export const DELETE_TEXT_PROCESSOR = 'DELETE_TEXT_PROCESSOR';
 export const TOGGLE_TEXT_PROCESSOR_ENABLED = 'TOGGLE_TEXT_PROCESSOR_ENABLED';
+
+export const UPDATE_INPUT_TEXT = 'UPDATE_INPUT_TEXT';
 
 export function updateRegexpFlowDescription(description) {
 	return {
@@ -59,5 +60,12 @@ export function toggleTextProcessorEnabled(id) {
 	return {
 		type: TOGGLE_TEXT_PROCESSOR_ENABLED,
 		id: id
+	}
+}
+
+export function updateInputText(text) {
+	return {
+		type: UPDATE_INPUT_TEXT,
+		text: text
 	}
 }
