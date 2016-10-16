@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import FindAllTextProcessorContainer from './Components/FindAllTextProcessorContainer'
+import RegexpFlowDescriptionContainer from './Components/RegexpFlowDescriptionContainer'
 
 import './App.css';
 
@@ -9,7 +10,8 @@ class App extends Component {
 
 		let textProcessorsCollection = [];
 
-		let textProcessors = this.context.store.getState().textProcessors;
+		let state = this.context.store.getState();
+		let textProcessors = state.textProcessors;
 		for (let index in textProcessors) {
 			if (textProcessors.hasOwnProperty(index)) {
 				textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
@@ -17,7 +19,13 @@ class App extends Component {
 		}
 		return (
 			<div className="App">
-				{textProcessorsCollection}
+				<div>
+					Description:
+					<RegexpFlowDescriptionContainer/>
+				</div>
+				<div>
+					{textProcessorsCollection}
+				</div>
 			</div>
 		);
 	}

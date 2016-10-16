@@ -8,13 +8,13 @@ export const UPDATE_TEXT_PROCESSOR_DESCRIPTION = 'UPDATE_TEXT_PROCESSOR_DESCRIPT
 
 export const DELETE_TEXT_PROCESSOR = 'DELETE_TEXT_PROCESSOR';
 export const TOGGLE_TEXT_PROCESSOR_ENABLED = 'TOGGLE_TEXT_PROCESSOR_ENABLED';
-// export function updateRegexpFlowDescription(id, newDescription) {
-// 	return {
-// 		type: UPDATE_REGEXP_FLOW_DESCRIPTION,
-// 		id: id,
-// 		description: newDescription
-// 	}
-// }
+
+export function updateRegexpFlowDescription(description) {
+	return {
+		type: UPDATE_REGEXP_FLOW_DESCRIPTION,
+		description: description
+	}
+}
 
 // export function addReplaceTextProcessor() {
 // 	return {
