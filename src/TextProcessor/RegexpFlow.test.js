@@ -1,6 +1,6 @@
-import RegexpFlowContainer from './RegexpFlowContainer'
+import RegexpFlow from './RegexpFlow'
 
-describe("RegexpFlowContainer", function () {
+describe("RegexpFlow", function () {
 
 	/**
 	 * {RegexpFlow}
@@ -8,7 +8,7 @@ describe("RegexpFlowContainer", function () {
 	var regexpFlow;
 
 	beforeEach(function () {
-		regexpFlow = new RegexpFlowContainer();
+		regexpFlow = new RegexpFlow();
 	});
 
 	it("by default has no textProcessors", function () {

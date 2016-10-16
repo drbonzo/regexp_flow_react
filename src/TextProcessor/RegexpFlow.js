@@ -1,4 +1,4 @@
-function RegexpFlowContainer() {
+function RegexpFlow() {
 	/**
 	 * @type {Array|TextProcessor[]}
 	 */
@@ -11,8 +11,8 @@ function RegexpFlowContainer() {
 	this.description = '';
 }
 
-RegexpFlowContainer.prototype.removeAllTextProcessors = function () {
+RegexpFlow.prototype.removeAllTextProcessors = function () {
 	this.textProcessors.length = 0;
 };
 
-export default RegexpFlowContainer;
+export default RegexpFlow;
