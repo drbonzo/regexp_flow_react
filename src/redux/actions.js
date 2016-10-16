@@ -1,5 +1,5 @@
 export const UPDATE_REGEXP_FLOW_DESCRIPTION = 'UPDATE_REGEXP_FLOW_DESCRIPTION';
-// export const ADD_REPLACE_TEXT_PROCESSOR = 'ADD_REPLACE_TEXT_PROCESSOR';
+export const ADD_TEXT_PROCESSOR = 'ADD_TEXT_PROCESSOR';
 
 
 export const UPDATE_TEXT_PROCESSOR_SEARCH_STRING = 'UPDATE_TEXT_PROCESSOR_SEARCH_STRING';
@@ -16,11 +16,12 @@ export function updateRegexpFlowDescription(description) {
 	}
 }
 
-// export function addReplaceTextProcessor() {
-// 	return {
-// 		type: ADD_REPLACE_TEXT_PROCESSOR
-// 	};
-// }
+export function addTextProcessor(textProcessorType) {
+	return {
+		type: ADD_TEXT_PROCESSOR,
+		textProcessorType: textProcessorType,
+	};
+}
 
 
 export function updateTextProcecssorSearchString(id, searchString) {

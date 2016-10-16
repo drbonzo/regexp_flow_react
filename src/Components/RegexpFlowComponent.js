@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react'
 import FindAllTextProcessorContainer from '../Containers/FindAllTextProcessorContainer'
 
-const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick, onDeleteTextProcessorClick}) => {
+const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 
 	let textProcessorsCollection = [];
 	for (let index in textProcessors) {
@@ -12,6 +12,34 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick, onDeleteT
 
 	return (
 		<div style={{padding: '10px', border: 'solid 1px #ccc', margin: '10px'}}>
+			<div>
+				<div className="btn-group" role="group">
+					<button type="button" className="btn btn-default" onClick={() => {
+						onAddTextProcessorClick('FindAll')
+					}}>+ FindAll
+					</button>
+
+					<button type="button" className="btn btn-default" onClick={() => {
+						onAddTextProcessorClick('Replace')
+					}}>+ Replace
+					</button>
+
+					<button type="button" className="btn btn-default" onClick={() => {
+						onAddTextProcessorClick('MatchLines')
+					}}>+ MatchLines
+					</button>
+
+					<button type="button" className="btn btn-default" onClick={() => {
+						onAddTextProcessorClick('MatchInLines')
+					}}>+ MatchInLines
+					</button>
+
+					<button type="button" className="btn btn-default" onClick={() => {
+						onAddTextProcessorClick('Unique')
+					}}>+ Unique
+					</button>
+				</div>
+			</div>
 			{textProcessorsCollection}
 		</div>
 	)
@@ -22,8 +50,7 @@ RegexpFlowComponent.propTypes = {
 	//
 	//
 	//
-	onAddTextProcessorClick: PropTypes.func.isRequired,
-	onDeleteTextProcessorClick: PropTypes.func.isRequired,
+	onAddTextProcessorClick: PropTypes.func.isRequired
 };
 
 export default RegexpFlowComponent;

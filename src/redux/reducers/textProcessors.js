@@ -1,5 +1,6 @@
 import {
 	DELETE_TEXT_PROCESSOR,
+	ADD_TEXT_PROCESSOR,
 	TOGGLE_TEXT_PROCESSOR_ENABLED,
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
@@ -12,12 +13,28 @@ function textProcessorReducer(state, id, replacement) {
 	overwrite[id] = newTextProcessor;
 	return Object.assign({}, state, overwrite);
 }
+let nextId = 10;
 function textProcessors(state, action) {
 
 	switch (action.type) {
 		case DELETE_TEXT_PROCESSOR: {
 			let newState = Object.assign({}, state);
 			delete newState[action.id];
+			return newState;
+		}
+		case ADD_TEXT_PROCESSOR: {
+			let newState = Object.assign({}, state);
+			let textProcessorType = action.textProcessorType;
+			let newTextProcessor = {
+				id: nextId,
+				type: 'textProcessorType',
+				searchString: '',
+				caseInsensitive: false,
+				description: '',
+				enabled: true
+			};
+			nextId++;
+			newState[newTextProcessor.id] = newTextProcessor;
 			return newState;
 		}
 		case TOGGLE_TEXT_PROCESSOR_ENABLED: {
