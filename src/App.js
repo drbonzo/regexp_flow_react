@@ -22,8 +22,14 @@ class App extends Component {
 							<div className="col-md-4">
 								{/*<RegexpFlow/> FIXME */}
 								<div>
-									Description:
-									<RegexpFlowDescriptionContainer/>
+									<div className="RegexpFlow__Metadata">
+										<form>
+											<div className="form-group form-group-sm">
+												<label>Description</label>
+												<RegexpFlowDescriptionContainer/>
+											</div>
+										</form>
+									</div>
 								</div>
 								<div>
 									<RegexpFlowContainer/>

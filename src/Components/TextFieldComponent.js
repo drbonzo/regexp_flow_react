@@ -4,7 +4,7 @@ const TextFieldComponent = ({value, onValueChange}) => {
 
 	return (
 		<div>
-			<input type="text" value={value} onChange={(event) => {
+			<input type="text" className="form-control" value={value} onChange={(event) => {
 				onValueChange(event.target.value)
 			}}/>
 		</div>
