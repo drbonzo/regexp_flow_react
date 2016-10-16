@@ -1,22 +1,11 @@
 import React, {Component} from 'react';
-import FindAllTextProcessorContainer from './Containers/FindAllTextProcessorContainer'
 import RegexpFlowDescriptionContainer from './Containers/RegexpFlowDescriptionContainer'
+import RegexpFlowContainer from './Containers/RegexpFlowContainer'
 
 import './App.css';
 
 class App extends Component {
-
 	render() {
-
-		let textProcessorsCollection = [];
-
-		let state = this.context.store.getState();
-		let textProcessors = state.textProcessors;
-		for (let index in textProcessors) {
-			if (textProcessors.hasOwnProperty(index)) {
-				textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
-			}
-		}
 		return (
 			<div className="App">
 				<div>
@@ -24,12 +13,11 @@ class App extends Component {
 					<RegexpFlowDescriptionContainer/>
 				</div>
 				<div>
-					{textProcessorsCollection}
+					<RegexpFlowContainer/>
 				</div>
 			</div>
 		);
 	}
-
 }
 
 App.contextTypes = {
