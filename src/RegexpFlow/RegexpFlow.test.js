@@ -12,15 +12,13 @@ describe("RegexpFlow", function () {
 	});
 
 	it("by default has no textProcessors", function () {
-		expect(regexpFlow.textProcessors.length).toEqual(0);
+		expect(Object.keys(regexpFlow.textProcessors).length).toEqual(0);
 	});
 
 	it("we can add and remove all textProcessors", function () {
-		regexpFlow.textProcessors.push({});
-		regexpFlow.textProcessors.push({});
-		expect(regexpFlow.textProcessors.length).toEqual(2);
-		regexpFlow.removeAllTextProcessors();
-		expect(regexpFlow.textProcessors.length).toEqual(0);
+		regexpFlow.textProcessors[1] = {};
+		regexpFlow.textProcessors[2] = {};
+		expect(Object.keys(regexpFlow.textProcessors).length).toEqual(2);
 	});
 
 	it("has empty description", function () {
