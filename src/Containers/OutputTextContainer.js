@@ -3,7 +3,8 @@ import {connect} from 'react-redux'
 import OutputTextComponent from '../Components/OutputTextComponent'
 
 const mapStateToProps = (state, ownProps) => ({
-	value: state.outputText
+	inputText: state.inputText,
+	textProcessors: state.textProcessors
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({});
