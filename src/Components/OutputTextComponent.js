@@ -1,18 +1,24 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes, Component} from 'react'
 
-const OutputTextComponent = ({inputText, textProcessors}) => {
-	// WTF make class
-	let outputText = inputText + Math.random(); // FIXME do real computation
-	return (
-		<div className="OutputText">
-			<h2>Output</h2>
-			<form className="form">
+class OutputTextComponent extends Component {
+
+	computeOutputText() {
+		return this.props.inputText + Math.random(); // FIXME;
+	}
+
+	render() {
+		let outputText = this.computeOutputText();
+		return (
+			<div className="OutputText">
+				<h2>Output</h2>
+				<form className="form">
 				<textarea className="form-control" rows="10" value={outputText} onChange={()=> {
 				}}/>
-			</form>
-		</div>
-	)
-};
+				</form>
+			</div>
+		)
+	}
+}
 
 OutputTextComponent.propTypes = {
 	inputText: PropTypes.string.isRequired,
