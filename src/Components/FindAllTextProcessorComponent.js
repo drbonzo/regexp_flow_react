@@ -1,4 +1,5 @@
 import React, {PropTypes, Component} from 'react'
+import TextProcessorControlls from './Flow/TextProcessorControlls'
 
 class FindAllTextProcessorComponent extends Component {
 
@@ -32,11 +33,7 @@ class FindAllTextProcessorComponent extends Component {
 				<div className="TextProcessor__Header">
 					Find all matches
 					<div className="btn-group pull-right">
-						{/* FIXME <TextProcessorControlls onShowHelpClicked={this.handleShowHelpChanged} onShowDescriptionClicked={this.handleShowDescriptionChanged}/>*/}
-						<button type="button" className="btn btn-default btn-xs regexpHelpButton" title="Toggle help" onClick={this.toggleShowHelp}>?</button>
-						<button type="button" className="btn btn-info btn-xs" title="Toggle description" onClick={this.toggleShowDescription}><span className="glyphicon glyphicon-pencil"/></button>
-						<button type="button" className="btn btn-default btn-xs" onClick={this.props.onEnabledClick}>{this.props.enabled ? 'Disable' : 'Enable'}</button>
-						<button type="button" className="btn btn-default btn-xs" onClick={this.props.onDeleteClick}>[X] Delete</button>
+						<TextProcessorControlls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick}/>
 					</div>
 				</div>
 				<div className={this.props.enabled ? 'TextProcessor__Contents' : 'TextProcessor__Contents TextProcessor__Contents--Hidden'}>
