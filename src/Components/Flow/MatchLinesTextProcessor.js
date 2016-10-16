@@ -5,7 +5,7 @@ class MatchLinesTextProcessor extends Component {
 
 	constructor(props) {
 
-		super();
+		super(props);
 
 		this.state = {
 			searchRegexp: props.searchRegexp,

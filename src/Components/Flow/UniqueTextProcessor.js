@@ -5,7 +5,7 @@ class UniqueTextProcessor extends Component {
 
 	constructor(props) {
 
-		super();
+		super(props);
 
 		this.state = {
 			description: props.description,

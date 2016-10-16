@@ -5,7 +5,7 @@ class ReplaceTextProcessor extends Component {
 
 	constructor(props) {
 
-		super();
+		super(props);
 
 		this.state = {
 			searchRegexp: props.searchRegexp,
