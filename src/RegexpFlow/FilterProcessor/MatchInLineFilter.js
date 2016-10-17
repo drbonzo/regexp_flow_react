@@ -1,39 +1,6 @@
-import TextProcessor from './TextProcessor';
+import Filter from './Filter';
 
-/**
- * @param {string} searchString
- * @constructor
- */
-class MatchInLineTextProcessor extends TextProcessor {
-
-	constructor(searchString) {
-		super();
-
-
-		this.displayName = 'Match in line';
-		this.typeName = 'MatchInLineTextProcessor';
-
-		/**
-		 * @type {string}
-		 */
-		this.searchString = searchString;
-
-		/**
-		 * @type {boolean}
-		 */
-		this.searchFlagCaseInsensitive = false;
-
-		/**
-		 * @type {number}
-		 */
-		this.totalLinesCount = 0;
-
-		/**
-		 * @type {number}
-		 */
-		this.linesMatchedCount = 0;
-
-	}
+class MatchInLineFilter extends Filter {
 
 	/**
 	 * Splits text into lines.
@@ -41,10 +8,12 @@ class MatchInLineTextProcessor extends TextProcessor {
 	 * - if line matches regular expression - then the match is being returned
 	 *      - if groups were used in regular expression
 	 * - if line does not match regular expression - then that line is being ommited (not included in result)
+	 *
+	 * @param {MatchInLineFilterConfig} filterConfig
 	 * @param {string} inputText
 	 * @returns {string}
 	 */
-	processText(inputText) {
+	processText(filterConfig, inputText) {
 
 		try {
 			var line,
@@ -55,19 +24,19 @@ class MatchInLineTextProcessor extends TextProcessor {
 				lines,
 				l;
 
-			this.resetRegExpValidation();
+			// FIXME this.resetRegExpValidation();
 			lines = this.splitTextIntoLines(inputText);
-			this.totalLinesCount = lines.length;
-			this.linesMatchedCount = 0;
+			filterConfig.totalLinesCount = lines.length;
+			filterConfig.linesMatchedCount = 0;
 
-			if (!this.searchString) {
-				this.linesMatchedCount = this.totalLinesCount;
+			if (!filterConfig.searchString) {
+				filterConfig.linesMatchedCount = filterConfig.totalLinesCount;
 				return inputText; // dont change anything when there is no regular expression
 			}
 
 			matchesInLines = [];
 
-			searchRegexp = this.buildRegExp(this.searchString, this.searchFlagCaseInsensitive, null, null);
+			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.searchFlagCaseInsensitive, null, null);
 
 			// wydziel do metody? zeby lista paramow byla krotsza
 			for (l in lines) {
@@ -82,14 +51,13 @@ class MatchInLineTextProcessor extends TextProcessor {
 				}
 			}
 
-			this.linesMatchedCount = matchesInLines.length;
+			filterConfig.linesMatchedCount = matchesInLines.length;
 
 			return matchesInLines.join("\n");
 		} catch (e) {
-			throw this.setupValidationFromError(e);
+			// FIXME throw this.setupValidationFromError(e);
 		}
 	}
 }
 
-
-export default MatchInLineTextProcessor;
+export default MatchInLineFilter;

@@ -9,7 +9,7 @@ class MatchLinesFilterConfig extends FilterConfig {
 		/**
 		 * @type {string}
 		 */
-		this.searchString = searchString;
+		this.searchString = '';
 
 		/**
 		 * @type {boolean}

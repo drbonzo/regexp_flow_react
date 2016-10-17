@@ -1,24 +1,22 @@
-class TextProcessor {
+class Filter {
 
-	constructor() {
-		this.typeName = '';
-		this.displayName = '';
-		this.isEnabled = true;
-
-		this.regexpIsValid = true;
-		this.regexpValidationMessage = '';
-
-		this.showDescription = false;
-		this.description = '';
-	}
+	/**
+	 * @param {FilterConfig} filterConfig
+	 * @param {string} inputText
+	 *
+	 * @return {string}
+	 */
+	processText(filterConfig, inputText) {
+		throw new Error("Please implement me!");
+	};
 
 	/**
 	 * Builds regular expression from string + flags
 	 *
 	 * @param {string} regularExpressionString
-	 * @param {bool|null} flagCaseInsensitive
-	 * @param {bool|null} flagGlobal if null - then it means FALSE
-	 * @param {bool|null} flagMultiline
+	 * @param {Boolean|null} flagCaseInsensitive
+	 * @param {Boolean|null} flagGlobal if null - then it means FALSE
+	 * @param {Boolean|null} flagMultiline
 	 * @returns {RegExp}
 	 */
 	buildRegExp(regularExpressionString, flagCaseInsensitive, flagGlobal, flagMultiline) {
@@ -50,15 +48,6 @@ class TextProcessor {
 		return inputText.split(/\n/);
 	}
 
-
-	/**
-	 * @param {string} inputText
-	 * @return {string}
-	 */
-	processText(inputText) {
-		throw new Error("Please implement me!");
-	};
-
 	resetRegExpValidation() {
 		this.regexpIsValid = true;
 		this.regexpValidationMessage = '';
@@ -80,4 +69,4 @@ class TextProcessor {
 	};
 }
 
-export default TextProcessor;
+export default Filter;

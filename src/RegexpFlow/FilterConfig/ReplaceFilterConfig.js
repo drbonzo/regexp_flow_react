@@ -2,19 +2,19 @@ import FilterConfig from './FilterConfig';
 
 class ReplaceFilterConfig extends FilterConfig {
 
-	constructor(searchString, replaceString) {
+	constructor() {
 
 		super('Replace');
 
 		/**
 		 * @type {string}
 		 */
-		this.searchString = searchString;
+		this.searchString = '';
 
 		/**
 		 * @type {string}
 		 */
-		this.replaceString = replaceString;
+		this.replaceString = '';
 
 		/**
 		 * We almost always want to replace everything

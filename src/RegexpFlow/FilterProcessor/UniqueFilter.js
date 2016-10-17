@@ -1,30 +1,13 @@
-import TextProcessor from './TextProcessor';
+import Filter from './Filter';
 
-/**
- * @constructor
- */
-class UniqueTextProcessor extends TextProcessor {
-	constructor() {
-		super();
-		this.displayName = 'Unique';
-		this.typeName = 'UniqueTextProcessor';
-
-		/**
-		 * @type {number}
-		 */
-		this.totalLinesCount = 0;
-
-		/**
-		 * @type {number}
-		 */
-		this.linesMatchedCount = 0;
-	}
+class UniqueFilter extends Filter {
 
 	/**
+	 * @param {UniqueFilterConfig} filterConfig
 	 * @param {string} inputText
 	 * @returns {string}
 	 */
-	processText(inputText) {
+	processText(filterConfig, inputText) {
 
 		var lines,
 			line,
@@ -33,15 +16,15 @@ class UniqueTextProcessor extends TextProcessor {
 			uniqueLines,
 			weSeeThisLineForTheFirstTimeAndLineIsNotEmpty;
 
-		this.totalLinesCount = 0;
-		this.linesMatchedCount = 0;
+		filterConfig.totalLinesCount = 0;
+		filterConfig.linesMatchedCount = 0;
 
 		if (inputText.length === 0) {
 			return inputText;
 		}
 
 		lines = this.splitTextIntoLines(inputText);
-		this.totalLinesCount = lines.length;
+		filterConfig.totalLinesCount = lines.length;
 
 		uniqueLinesHash = {};
 
@@ -63,10 +46,10 @@ class UniqueTextProcessor extends TextProcessor {
 			}
 		}
 
-		this.linesMatchedCount = uniqueLines.length;
+		filterConfig.linesMatchedCount = uniqueLines.length;
 
 		return uniqueLines.join("\n");
 	}
 }
 
-export default UniqueTextProcessor;
+export default UniqueFilter;
