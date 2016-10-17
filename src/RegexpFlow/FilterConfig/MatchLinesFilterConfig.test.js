@@ -3,7 +3,7 @@ import MatchLinesFilterConfig from './MatchLinesFilterConfig'
 describe('MatchLinesFilterConfig', function () {
 
 	/**
-	 * {MatchLinesFilterConfig}
+	 * @var {MatchLinesFilterConfig}
 	 */
 	var filterConfig;
 

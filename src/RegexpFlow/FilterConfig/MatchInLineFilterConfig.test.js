@@ -3,7 +3,7 @@ import MatchInLineFilterConfig from './MatchInLineFilterConfig'
 describe('MatchInLineFilterConfig', function () {
 
 	/**
-	 * {MatchInLineFilterConfig}
+	 * @var {MatchInLineFilterConfig}
 	 */
 	var filterConfig;
 

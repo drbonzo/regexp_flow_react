@@ -3,7 +3,7 @@ import TextProcessorRunner from './TextProcessorRunner'
 describe("TextProcessorRunner", function () {
 
 	/**
-	 * {TextProcessorRunner}
+	 * @var {TextProcessorRunner}
 	 */
 	var textProcessorRunner;
 

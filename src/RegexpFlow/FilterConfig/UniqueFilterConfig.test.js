@@ -3,7 +3,7 @@ import UniqueFilterConfig from './UniqueFilterConfig'
 describe('UniqueFilterConfig', function () {
 
 	/**
-	 * {UniqueFilterConfig}
+	 * @var {UniqueFilterConfig}
 	 */
 	var filterConfig;
 

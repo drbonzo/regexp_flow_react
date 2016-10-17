@@ -3,7 +3,7 @@ import ReplaceFilterConfig from './ReplaceFilterConfig'
 describe('ReplaceFilterConfig', function () {
 
 	/**
-	 * {ReplaceFilterConfig}
+	 * @var {ReplaceFilterConfig}
 	 */
 	var filterConfig;
 

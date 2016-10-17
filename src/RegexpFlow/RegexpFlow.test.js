@@ -3,7 +3,7 @@ import RegexpFlow from './RegexpFlow'
 describe("RegexpFlow", function () {
 
 	/**
-	 * {RegexpFlow}
+	 * @var {RegexpFlow}
 	 */
 	var regexpFlow;
 

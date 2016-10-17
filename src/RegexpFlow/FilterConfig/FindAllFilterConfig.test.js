@@ -3,7 +3,7 @@ import FindAllFilterConfig from './FindAllFilterConfig'
 describe('FindAllFilterConfig', function () {
 
 	/**
-	 * {FindAllFilterConfig}
+	 * @var {FindAllFilterConfig}
 	 */
 	var filterConfig;
 
