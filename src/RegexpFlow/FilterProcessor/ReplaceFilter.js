@@ -15,7 +15,7 @@ class ReplaceFilter extends Filter {
 			replacement;
 		try {
 
-			// FIXMEthis.resetRegExpValidation();
+			// FIXME this.resetRegExpValidation();
 			filterConfig.replacementsCount = 0;
 
 			if (!filterConfig.searchString) {
