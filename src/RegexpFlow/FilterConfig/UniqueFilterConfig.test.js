@@ -16,7 +16,7 @@ describe('UniqueFilterConfig', function () {
 		it("should be default", function () {
 			expect(filterConfig.filterType).toEqual('Unique');
 			expect(filterConfig.totalLinesCount).toEqual(0);
-			expect(filterConfig.linesMatchedCount).toEqual(0);
+			expect(filterConfig.matchedLinesCount).toEqual(0);
 		});
 	});
 });

@@ -19,7 +19,7 @@ describe('MatchLinesFilterConfig', function () {
 			expect(filterConfig.searchFlagCaseInsensitive).toEqual(false);
 			expect(filterConfig.flagInvertMatch).toEqual(false);
 			expect(filterConfig.totalLinesCount).toEqual(0);
-			expect(filterConfig.linesMatchedCount).toEqual(0);
+			expect(filterConfig.matchedLinesCount).toEqual(0);
 		});
 	});
 });

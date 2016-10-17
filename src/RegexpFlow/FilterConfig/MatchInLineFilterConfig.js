@@ -24,7 +24,7 @@ class MatchInLineFilterConfig extends FilterConfig {
 		/**
 		 * @type {number}
 		 */
-		this.linesMatchedCount = 0;
+		this.matchedLinesCount = 0;
 
 	}
 }

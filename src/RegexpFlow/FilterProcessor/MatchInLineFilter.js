@@ -27,10 +27,10 @@ class MatchInLineFilter extends Filter {
 			// FIXME this.resetRegExpValidation();
 			lines = this.splitTextIntoLines(inputText);
 			filterConfig.totalLinesCount = lines.length;
-			filterConfig.linesMatchedCount = 0;
+			filterConfig.matchedLinesCount = 0;
 
 			if (!filterConfig.searchString) {
-				filterConfig.linesMatchedCount = filterConfig.totalLinesCount;
+				filterConfig.matchedLinesCount = filterConfig.totalLinesCount;
 				return inputText; // dont change anything when there is no regular expression
 			}
 
@@ -51,7 +51,7 @@ class MatchInLineFilter extends Filter {
 				}
 			}
 
-			filterConfig.linesMatchedCount = matchesInLines.length;
+			filterConfig.matchedLinesCount = matchesInLines.length;
 
 			return matchesInLines.join("\n");
 		} catch (e) {

@@ -27,7 +27,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, '')).toEqual('');
 				expect(filterConfig.totalLinesCount).toEqual(1);
-				expect(filterConfig.linesMatchedCount).toEqual(0);
+				expect(filterConfig.matchedLinesCount).toEqual(0);
 			});
 
 			it("should return input text when regexp is empty", function () {
@@ -36,7 +36,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\nipsum\ndolor');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(3);
+				expect(filterConfig.matchedLinesCount).toEqual(3);
 			});
 		});
 
@@ -49,7 +49,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\ndolor');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(2);
+				expect(filterConfig.matchedLinesCount).toEqual(2);
 			});
 
 			it("should return empty string when no line matches regexp and flagInvertMatch is off", function () {
@@ -59,7 +59,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(0);
+				expect(filterConfig.matchedLinesCount).toEqual(0);
 			});
 
 			it("should return every line when every line matches regexp and flagInvertMatch is off", function () {
@@ -69,7 +69,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\nipsum\ndolor');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(3);
+				expect(filterConfig.matchedLinesCount).toEqual(3);
 			});
 
 			it("should return just lines that do not match regexp when flagInvertMatch is on", function () {
@@ -79,7 +79,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('ipsum');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(1);
+				expect(filterConfig.matchedLinesCount).toEqual(1);
 			});
 
 			it("should return empty string when all lines match regexp and flagInvertMatch is on", function () {
@@ -89,7 +89,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(0);
+				expect(filterConfig.matchedLinesCount).toEqual(0);
 			});
 
 			it("should return every line when no line matches regexp and flagInvertMatch is on", function () {
@@ -99,7 +99,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\nipsum\ndolor');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(3);
+				expect(filterConfig.matchedLinesCount).toEqual(3);
 			});
 
 
@@ -111,7 +111,7 @@ describe("MatchLinesFilter", function () {
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(1);
+				expect(filterConfig.matchedLinesCount).toEqual(1);
 			});
 
 			it("should return just lines that match regexp with any case when searchFlagCaseInsensitive is on", function () {
@@ -122,7 +122,7 @@ describe("MatchLinesFilter", function () {
 				matchLinesFilter = new MatchLinesFilter();
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\ndolor');
 				expect(filterConfig.totalLinesCount).toEqual(3);
-				expect(filterConfig.linesMatchedCount).toEqual(2);
+				expect(filterConfig.matchedLinesCount).toEqual(2);
 			});
 		});
 
@@ -136,7 +136,7 @@ describe("MatchLinesFilter", function () {
 		// 			expect(matchLinesFilter.regexpIsValid).toEqual(false);
 		// 			expect(matchLinesFilter.regexpValidationMessage.length).toBeGreaterThan(0);
 		// 			expect(filterConfig.totalLinesCount).toEqual(2);
-		// 			expect(filterConfig.linesMatchedCount).toEqual(0);
+		// 			expect(filterConfig.matchedLinesCount).toEqual(0);
 		// 		}
 		// 	});
 		// });

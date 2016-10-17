@@ -17,7 +17,7 @@ class UniqueFilter extends Filter {
 			weSeeThisLineForTheFirstTimeAndLineIsNotEmpty;
 
 		filterConfig.totalLinesCount = 0;
-		filterConfig.linesMatchedCount = 0;
+		filterConfig.matchedLinesCount = 0;
 
 		if (inputText.length === 0) {
 			return inputText;
@@ -46,7 +46,7 @@ class UniqueFilter extends Filter {
 			}
 		}
 
-		filterConfig.linesMatchedCount = uniqueLines.length;
+		filterConfig.matchedLinesCount = uniqueLines.length;
 
 		return uniqueLines.join("\n");
 	}

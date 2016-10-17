@@ -14,7 +14,7 @@ class UniqueFilterConfig extends FilterConfig {
 		/**
 		 * @type {number}
 		 */
-		this.linesMatchedCount = 0;
+		this.matchedLinesCount = 0;
 
 	}
 
