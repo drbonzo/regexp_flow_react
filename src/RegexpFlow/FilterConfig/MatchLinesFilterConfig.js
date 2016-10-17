@@ -17,6 +17,12 @@ class MatchLinesFilterConfig extends FilterConfig {
 		this.searchFlagCaseInsensitive = false;
 
 		/**
+		 * If true - then we discard lines matching regexp
+		 * @type {boolean}
+		 */
+		this.flagInvertMatch = false;
+
+		/**
 		 * @type {number}
 		 */
 		this.totalLinesCount = 0;
@@ -26,11 +32,6 @@ class MatchLinesFilterConfig extends FilterConfig {
 		 */
 		this.linesMatchedCount = 0;
 
-		/**
-		 * If true - then we discard lines matching regexp
-		 * @type {boolean}
-		 */
-		this.flagInvertMatch = false;
 	}
 }
 
