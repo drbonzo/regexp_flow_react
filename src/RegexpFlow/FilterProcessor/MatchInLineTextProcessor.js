@@ -1,4 +1,4 @@
-import TextProcessor from './../RegexpFlow/TextProcessor';
+import TextProcessor from './TextProcessor';
 
 /**
  * @param {string} searchString
