@@ -14,7 +14,7 @@ class MatchLinesFilterConfig extends FilterConfig {
 		/**
 		 * @type {boolean}
 		 */
-		this.searchFlagCaseInsensitive = false;
+		this.caseInsensitive = false;
 
 		/**
 		 * If true - then we discard lines matching regexp

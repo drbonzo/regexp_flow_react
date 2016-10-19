@@ -22,7 +22,7 @@ class FindAllFilter extends Filter {
 				return inputText; // dont change anything when there is no regular expression
 			}
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.searchFlagCaseInsensitive, filterConfig.searchFlagGlobal, filterConfig.searchFlagMultiline);
+			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, filterConfig.searchFlagGlobal, filterConfig.searchFlagMultiline);
 			// as this regexp is always with /g flag - then it returns only whole matches (no groups)
 			// 'lorem ipsum dolor sid amet' - so searching for (\w\w)(\w{3}) in this text will return array with five letter words, no matter whether we use groups or not
 			matches = inputText.match(searchRegexp);

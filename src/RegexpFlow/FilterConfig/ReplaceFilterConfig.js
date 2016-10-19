@@ -26,7 +26,7 @@ class ReplaceFilterConfig extends FilterConfig {
 		/**
 		 * @type {boolean}
 		 */
-		this.searchFlagCaseInsensitive = false;
+		this.caseInsensitive = false;
 
 		/**
 		 * @type {boolean}

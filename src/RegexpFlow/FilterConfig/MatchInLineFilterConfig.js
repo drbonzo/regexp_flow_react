@@ -14,7 +14,7 @@ class MatchInLineFilterConfig extends FilterConfig {
 		/**
 		 * @type {boolean}
 		 */
-		this.searchFlagCaseInsensitive = false;
+		this.caseInsensitive = false;
 
 		/**
 		 * @type {number}

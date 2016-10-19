@@ -21,7 +21,7 @@ class FindAllFilterConfig extends FilterConfig {
 		/**
 		 * @type {boolean}
 		 */
-		this.searchFlagCaseInsensitive = false;
+		this.caseInsensitive = false;
 
 		/**
 		 * Always true

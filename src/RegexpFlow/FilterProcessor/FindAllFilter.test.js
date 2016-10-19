@@ -79,7 +79,7 @@ describe("FindAllFilter", function () {
 
 			it("should return just case matched items when case insensivite flag is off", function () {
 				filterConfig.searchString = 'lorem';
-				filterConfig.searchFlagCaseInsensitive = false;
+				filterConfig.caseInsensitive = false;
 				findAllFilter = new FindAllFilter();
 
 				expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('lorem');
@@ -88,7 +88,7 @@ describe("FindAllFilter", function () {
 
 			it("should return all matched items when case insensivite flag is on", function () {
 				filterConfig.searchString = 'lorem';
-				filterConfig.searchFlagCaseInsensitive = true;
+				filterConfig.caseInsensitive = true;
 				findAllFilter = new FindAllFilter();
 
 				expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('Lorem\nLOREM\nLoReM\nloreM\nlorem');

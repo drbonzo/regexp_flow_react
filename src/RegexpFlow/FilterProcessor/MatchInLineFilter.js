@@ -36,7 +36,7 @@ class MatchInLineFilter extends Filter {
 
 			matchesInLines = [];
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.searchFlagCaseInsensitive, null, null);
+			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
 			// wydziel do metody? zeby lista paramow byla krotsza
 			for (l in lines) {

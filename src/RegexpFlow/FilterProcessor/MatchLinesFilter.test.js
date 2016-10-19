@@ -103,10 +103,10 @@ describe("MatchLinesFilter", function () {
 			});
 
 
-			it("should return just lines that match regexp with same case when searchFlagCaseInsensitive is off", function () {
+			it("should return just lines that match regexp with same case when caseInsensitive is off", function () {
 				filterConfig.searchString = 'L';
 				filterConfig.flagInvertMatch = false;
-				filterConfig.searchFlagCaseInsensitive = false;
+				filterConfig.caseInsensitive = false;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem');
@@ -114,10 +114,10 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(1);
 			});
 
-			it("should return just lines that match regexp with any case when searchFlagCaseInsensitive is on", function () {
+			it("should return just lines that match regexp with any case when caseInsensitive is on", function () {
 				filterConfig.searchString = 'L';
 				filterConfig.flagInvertMatch = false;
-				filterConfig.searchFlagCaseInsensitive = true;
+				filterConfig.caseInsensitive = true;
 
 				matchLinesFilter = new MatchLinesFilter();
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\ndolor');

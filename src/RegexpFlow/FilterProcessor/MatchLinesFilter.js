@@ -29,7 +29,7 @@ class MatchLinesFilter extends Filter {
 
 			matchedLines = [];
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.searchFlagCaseInsensitive, null, null);
+			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
 			for (l in lines) {
 				if (lines.hasOwnProperty(l)) {

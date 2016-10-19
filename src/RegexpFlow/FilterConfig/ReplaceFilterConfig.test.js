@@ -18,7 +18,7 @@ describe('ReplaceFilterConfig', function () {
 			expect(filterConfig.searchString).toEqual('');
 			expect(filterConfig.replaceString).toEqual('');
 			expect(filterConfig.searchFlagGlobal).toEqual(true);
-			expect(filterConfig.searchFlagCaseInsensitive).toEqual(false);
+			expect(filterConfig.caseInsensitive).toEqual(false);
 			expect(filterConfig.searchFlagMultiline).toEqual(true);
 			expect(filterConfig.replacementsCount).toEqual(0);
 		});

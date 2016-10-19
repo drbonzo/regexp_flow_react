@@ -89,9 +89,9 @@ describe("MatchInLineFilter", function () {
 		});
 
 		describe('flags', function () {
-			it("should return just lines that match regexp with same case when searchFlagCaseInsensitive is off", function () {
+			it("should return just lines that match regexp with same case when caseInsensitive is off", function () {
 				filterConfig.searchString = '^[A-Z]+';
-				filterConfig.searchFlagCaseInsensitive = false;
+				filterConfig.caseInsensitive = false;
 				matchInLineFilter = new MatchInLineFilter();
 
 				expect(matchInLineFilter.processText(filterConfig, 'LOREM\nipsum\nDOLOR\nsit\nAMET')).toEqual('LOREM\nDOLOR\nAMET');
@@ -99,9 +99,9 @@ describe("MatchInLineFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(3);
 			});
 
-			it("should return just lines that match regexp with any case when searchFlagCaseInsensitive is off", function () {
+			it("should return just lines that match regexp with any case when caseInsensitive is off", function () {
 				filterConfig.searchString = '^[A-Z]+';
-				filterConfig.searchFlagCaseInsensitive = true;
+				filterConfig.caseInsensitive = true;
 				matchInLineFilter = new MatchInLineFilter();
 
 				expect(matchInLineFilter.processText(filterConfig, 'LOREM\nipsum\nDOLOR\nsit\nAMET')).toEqual('LOREM\nipsum\nDOLOR\nsit\nAMET');

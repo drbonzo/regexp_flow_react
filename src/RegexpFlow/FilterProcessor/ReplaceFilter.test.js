@@ -135,7 +135,7 @@ describe("ReplaceFilter", function () {
 				filterConfig.searchString = '[a-z]';
 				filterConfig.replaceString = '[LETTER]';
 				filterConfig.searchFlagGlobal = true;
-				filterConfig.searchFlagCaseInsensitive = false;
+				filterConfig.caseInsensitive = false;
 				replaceFilter = new ReplaceFilter();
 
 				expect(replaceFilter.processText(filterConfig, '12 ab 34 CD 56 eF 78 Gh 90')).toEqual('12 [LETTER][LETTER] 34 CD 56 [LETTER]F 78 G[LETTER] 90');
@@ -146,7 +146,7 @@ describe("ReplaceFilter", function () {
 				filterConfig.searchString = '[a-z]';
 				filterConfig.replaceString = '[LETTER]';
 				filterConfig.searchFlagGlobal = true;
-				filterConfig.searchFlagCaseInsensitive = true;
+				filterConfig.caseInsensitive = true;
 				replaceFilter = new ReplaceFilter();
 
 				expect(replaceFilter.processText(filterConfig, '12 ab 34 CD 56 eF 78 Gh 90')).toEqual('12 [LETTER][LETTER] 34 [LETTER][LETTER] 56 [LETTER][LETTER] 78 [LETTER][LETTER] 90');
