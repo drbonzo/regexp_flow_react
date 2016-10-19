@@ -14,7 +14,7 @@ describe('MatchInLineFilterConfig', function () {
 		});
 
 		it("should be default", function () {
-			expect(filterConfig.filterType).toEqual('MatchInLine');
+			expect(filterConfig.filterType).toEqual('MatchInLines');
 			expect(filterConfig.searchString).toEqual('');
 			expect(filterConfig.caseInsensitive).toEqual(false);
 			expect(filterConfig.totalLinesCount).toEqual(0);

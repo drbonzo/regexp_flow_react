@@ -4,7 +4,7 @@ class MatchInLineFilterConfig extends FilterConfig {
 
 	constructor() {
 		
-		super('MatchInLine');
+		super('MatchInLines');
 
 		/**
 		 * @type {string}

@@ -1,5 +1,6 @@
 import React, {PropTypes} from 'react'
 import FindAllFilterContainer from '../Containers/FindAllFilterContainer'
+import MatchInLineFilterContainer from '../Containers/MatchInLineFilterContainer'
 
 const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 
@@ -17,8 +18,8 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
-				case 'MatchInLine': {
-					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
+				case 'MatchInLines': {
+					textProcessorsCollection.push(<MatchInLineFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Replace': {

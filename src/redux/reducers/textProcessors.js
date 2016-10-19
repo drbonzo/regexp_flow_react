@@ -39,7 +39,7 @@ function createNewTextProcessor(filterType) {
 			config.id = nextId++;
 			return config;
 		}
-		case 'MatchInLine': {
+		case 'MatchInLines': {
 			let config = new MatchInLineFilterConfig();
 			config.searchString = '^.*$';
 			config.id = nextId++;
