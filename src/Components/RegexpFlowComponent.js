@@ -6,7 +6,34 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 	let textProcessorsCollection = [];
 	for (let index in textProcessors) {
 		if (textProcessors.hasOwnProperty(index)) {
-			textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+			let filterConfig = textProcessors[index];
+
+			switch (filterConfig.filterType) {
+				case 'FindAll': {
+					textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					break;
+				}
+				case 'MatchLines': {
+					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					break;
+				}
+				case 'MatchInLine': {
+					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					break;
+				}
+				case 'Replace': {
+					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					break;
+				}
+				case 'Unique': {
+					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					break;
+				}
+				default: {
+					// nothing
+					break;
+				}
+			}
 		}
 	}
 
