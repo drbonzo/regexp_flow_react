@@ -7,6 +7,12 @@ import {
 	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE
 } from './../actions';
 
+import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
+import MatchLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchLinesFilterConfig'
+import MatchInLineFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLineFilterConfig'
+import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig'
+import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig'
+
 function textProcessorReducer(state, id, replacement) {
 	let newTextProcessor = Object.assign({}, state[id], replacement);
 	let overwrite = {};
@@ -15,16 +21,46 @@ function textProcessorReducer(state, id, replacement) {
 }
 let nextId = 1;
 
-function createNewTextProcessor(textProcessorType) {
-	// FIXME use textProcessor type
-	return {
-		id: nextId++,
-		type: textProcessorType,
-		searchString: '',
-		caseInsensitive: false,
-		description: '',
-		enabled: true
-	};
+/**
+ * @param {String} filterType
+ * @returns {FilterConfig|null}
+ */
+function createNewTextProcessor(filterType) {
+	switch (filterType) {
+		case 'FindAll': {
+			let config = new FindAllFilterConfig();
+			config.searchString = '\\b.+?\\b';
+			config.id = nextId++;
+			return config;
+		}
+		case 'MatchLines': {
+			let config = new MatchLinesFilterConfig();
+			config.searchString = '';// will match all lines
+			config.id = nextId++;
+			return config;
+		}
+		case 'MatchInLine': {
+			let config = new MatchInLineFilterConfig();
+			config.searchString = '^.*$';
+			config.id = nextId++;
+			return config;
+		}
+		case 'Replace': {
+			let config = new ReplaceFilterConfig();
+			config.searchString = '^(.+?)$';
+			config.replaceString = '$1';
+			config.id = nextId++;
+			return config;
+		}
+		case 'Unique': {
+			let config = new UniqueFilterConfig();
+			config.id = nextId++;
+			return config;
+		}
+		default: {
+			return null;
+		}
+	}
 }
 function textProcessors(state, action) {
 
