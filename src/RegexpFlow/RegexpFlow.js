@@ -3,7 +3,7 @@ class RegexpFlow {
 	constructor() {
 
 		/**
-		 * @type {Array|TextProcessor[]}
+		 * @type {Array|FilterConfig[]}
 		 */
 		this.textProcessors = {};
 

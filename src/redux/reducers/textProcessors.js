@@ -13,7 +13,19 @@ function textProcessorReducer(state, id, replacement) {
 	overwrite[id] = newTextProcessor;
 	return Object.assign({}, state, overwrite);
 }
-let nextId = 10;
+let nextId = 1;
+
+function createNewTextProcessor(textProcessorType) {
+	// FIXME use textProcessor type
+	return {
+		id: nextId++,
+		type: textProcessorType,
+		searchString: '',
+		caseInsensitive: false,
+		description: '',
+		enabled: true
+	};
+}
 function textProcessors(state, action) {
 
 	switch (action.type) {
@@ -24,16 +36,7 @@ function textProcessors(state, action) {
 		}
 		case ADD_TEXT_PROCESSOR: {
 			let newState = Object.assign({}, state);
-			let textProcessorType = action.textProcessorType;
-			let newTextProcessor = {
-				id: nextId,
-				type: textProcessorType,
-				searchString: '',
-				caseInsensitive: false,
-				description: '',
-				enabled: true
-			};
-			nextId++;
+			let newTextProcessor = createNewTextProcessor(action.textProcessorType);
 			newState[newTextProcessor.id] = newTextProcessor;
 			return newState;
 		}
@@ -46,6 +49,7 @@ function textProcessors(state, action) {
 			return textProcessorReducer(state, id, replacement);
 		}
 		case UPDATE_TEXT_PROCESSOR_SEARCH_STRING: {
+			// FIXME nie działa dla każdego z typów
 			let id = action.id;
 
 			let searchString = action.searchString;
@@ -63,7 +67,7 @@ function textProcessors(state, action) {
 		}
 		case UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE: {
 			let id = action.id;
-
+			// FIXME nie działa dla każdego z typów
 			let replacement = {caseInsensitive: !state[id].caseInsensitive};
 
 			return textProcessorReducer(state, id, replacement);

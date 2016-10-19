@@ -4,6 +4,7 @@ class FilterConfig {
 
 		this.filterType = filterType;
 
+		this.id = null;
 		this.isEnabled = true;
 		this.description = '';
 		
