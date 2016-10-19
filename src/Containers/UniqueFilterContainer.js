@@ -1,29 +1,19 @@
 import {connect} from 'react-redux'
 
-import FindAllFilterComponent from '../Components/FindAllFilterComponent'
+import UniqueFilterComponent from '../Components/UniqueFilterComponent'
 import {
-	updateTextProcecssorSearchString,
-	updateTextProcessorCaseInsensitive,
 	updateTextProcessorDescription,
 	toggleTextProcessorEnabled,
 	deleteTextProcessor
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
-	searchString: state.textProcessors[ownProps.id].searchString,
-	caseInsensitive: state.textProcessors[ownProps.id].caseInsensitive,
 	description: state.textProcessors[ownProps.id].description,
 	enabled: state.textProcessors[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
-	onSearchStringChange: (newSearchString) => {
-		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
-	},
-	onCaseInsensitiveChange: () => {
-		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
-	},
 	onDescriptionChange: (newDescription) => {
 		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
 	},
@@ -35,9 +25,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	}
 });
 
-const FindAllFilterContainer = connect(
+const UniqueFilterContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(FindAllFilterComponent);
+)(UniqueFilterComponent);
 
-export default FindAllFilterContainer;
+export default UniqueFilterContainer;
