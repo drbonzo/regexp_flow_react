@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import FindAllTextProcessorContainer from '../Containers/FindAllTextProcessorContainer'
+import FindAllFilterContainer from '../Containers/FindAllFilterContainer'
 
 const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 
@@ -10,23 +10,23 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 
 			switch (filterConfig.filterType) {
 				case 'FindAll': {
-					textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'MatchLines': {
-					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'MatchInLine': {
-					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Replace': {
-					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Unique': {
-					// FIXME implement textProcessorsCollection.push(<FindAllTextProcessorContainer id={index} key={'tp_' + index}/>);
+					// FIXME implement textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				default: {

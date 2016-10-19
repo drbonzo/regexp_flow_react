@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import FindAllTextProcessorComponent from '../Components/FindAllTextProcessorComponent'
+import FindAllFilterComponent from '../Components/FindAllFilterComponent'
 import {
 	updateTextProcecssorSearchString,
 	updateTextProcessorCaseInsensitive,
@@ -35,11 +35,11 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	}
 });
 
-const FindAllTextProcessorContainer = connect(
+const FindAllFilterContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(FindAllTextProcessorComponent);
+)(FindAllFilterComponent);
 
-export default FindAllTextProcessorContainer;
+export default FindAllFilterContainer;
 
 

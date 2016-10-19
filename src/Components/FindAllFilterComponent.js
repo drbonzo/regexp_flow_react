@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react'
 import TextProcessorControlls from './Flow/TextProcessorControlls'
 
-class FindAllTextProcessorComponent extends Component {
+class FindAllFilterComponent extends Component {
 
 	constructor(props) {
 		super(props);
@@ -70,7 +70,7 @@ class FindAllTextProcessorComponent extends Component {
 	}
 }
 
-FindAllTextProcessorComponent.propTypes = {
+FindAllFilterComponent.propTypes = {
 	searchString: PropTypes.string.isRequired,
 	caseInsensitive: PropTypes.bool.isRequired,
 	description: PropTypes.string.isRequired,
@@ -87,4 +87,4 @@ FindAllTextProcessorComponent.propTypes = {
 	onDeleteClick: PropTypes.func.isRequired
 };
 
-export default FindAllTextProcessorComponent;
+export default FindAllFilterComponent;
