@@ -17,10 +17,10 @@ export function updateRegexpFlowDescription(description) {
 	}
 }
 
-export function addTextProcessor(textProcessorType) {
+export function addTextProcessor(filterType) {
 	return {
 		type: ADD_TEXT_PROCESSOR,
-		textProcessorType: textProcessorType,
+		textProcessorType: filterType,
 	};
 }
 

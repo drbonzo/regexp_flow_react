@@ -7,8 +7,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	onAddTextProcessorClick: (textProcessorType) => {
-		dispatch(addTextProcessor(textProcessorType));
+	onAddTextProcessorClick: (filterType) => {
+		dispatch(addTextProcessor(filterType));
 	}
 });
 
