@@ -21,7 +21,7 @@ class TextProcessorRunner {
 				 */
 				textProcessor = regexpFlow.textProcessors[tp];
 
-				if (textProcessor.isEnabled) {
+				if (textProcessor.enabled) {
 					outputText = textProcessor.processText(inputText);
 					inputText = outputText;
 				}

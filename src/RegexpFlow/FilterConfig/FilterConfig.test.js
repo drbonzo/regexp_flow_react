@@ -16,7 +16,7 @@ describe('FilterConfig', function () {
 
 			filterConfig = new FilterConfig('fooBar');
 
-			expect(filterConfig.isEnabled).toEqual(true);
+			expect(filterConfig.enabled).toEqual(true);
 			expect(filterConfig.description).toEqual('');
 		});
 	});

@@ -5,7 +5,7 @@ class FilterConfig {
 		this.filterType = filterType;
 
 		this.id = null;
-		this.isEnabled = true;
+		this.enabled = true;
 		this.description = '';
 		
 	}
