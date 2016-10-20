@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react'
 import TextProcessorControlls from './Flow/TextProcessorControlls'
 import FilterComponent from './FilterComponent'
 
-class MatchInLineFilterComponent extends FilterComponent {
+class MatchInLinesFilterComponent extends FilterComponent {
 
 	render() {
 		return (
@@ -47,7 +47,7 @@ class MatchInLineFilterComponent extends FilterComponent {
 	}
 }
 
-MatchInLineFilterComponent.propTypes = {
+MatchInLinesFilterComponent.propTypes = {
 	searchString: PropTypes.string.isRequired,
 	caseInsensitive: PropTypes.bool.isRequired,
 	description: PropTypes.string.isRequired,
@@ -64,4 +64,4 @@ MatchInLineFilterComponent.propTypes = {
 	onDeleteClick: PropTypes.func.isRequired
 };
 
-export default MatchInLineFilterComponent;
+export default MatchInLinesFilterComponent;

@@ -1,16 +1,16 @@
-import MatchInLineFilterConfig from './MatchInLineFilterConfig'
+import MatchInLinesFilterConfig from './MatchInLinesFilterConfig'
 
-describe('MatchInLineFilterConfig', function () {
+describe('MatchInLinesFilterConfig', function () {
 
 	/**
-	 * @var {MatchInLineFilterConfig}
+	 * @var {MatchInLinesFilterConfig}
 	 */
 	var filterConfig;
 
 	describe("defaults", function () {
 
 		beforeEach(function () {
-			filterConfig = new MatchInLineFilterConfig();
+			filterConfig = new MatchInLinesFilterConfig();
 		});
 
 		it("should be default", function () {

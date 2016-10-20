@@ -1,6 +1,6 @@
 import Filter from './Filter';
 
-class MatchInLineFilter extends Filter {
+class MatchInLinesFilter extends Filter {
 
 	/**
 	 * Splits text into lines.
@@ -9,7 +9,7 @@ class MatchInLineFilter extends Filter {
 	 *      - if groups were used in regular expression
 	 * - if line does not match regular expression - then that line is being ommited (not included in result)
 	 *
-	 * @param {MatchInLineFilterConfig} filterConfig
+	 * @param {MatchInLinesFilterConfig} filterConfig
 	 * @param {string} inputText
 	 * @returns {string}
 	 */
@@ -60,4 +60,4 @@ class MatchInLineFilter extends Filter {
 	}
 }
 
-export default MatchInLineFilter;
+export default MatchInLinesFilter;

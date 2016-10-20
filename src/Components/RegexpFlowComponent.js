@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import FindAllFilterContainer from '../Containers/FindAllFilterContainer'
-import MatchInLineFilterContainer from '../Containers/MatchInLineFilterContainer'
+import MatchInLinesFilterContainer from '../Containers/MatchInLinesFilterContainer'
 import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer'
 import ReplaceFilterContainer from '../Containers/ReplaceFilterContainer'
 import UniqueFilterContainer from '../Containers/UniqueFilterContainer'
@@ -22,7 +22,7 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 					break;
 				}
 				case 'MatchInLines': {
-					textProcessorsCollection.push(<MatchInLineFilterContainer id={index} key={'tp_' + index}/>);
+					textProcessorsCollection.push(<MatchInLinesFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Replace': {

@@ -13,7 +13,7 @@ import {
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
 import MatchLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchLinesFilterConfig'
-import MatchInLineFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLineFilterConfig'
+import MatchInLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLinesFilterConfig'
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig'
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig'
 
@@ -44,7 +44,7 @@ function createNewTextProcessor(filterType) {
 			return config;
 		}
 		case 'MatchInLines': {
-			let config = new MatchInLineFilterConfig();
+			let config = new MatchInLinesFilterConfig();
 			config.searchString = '^.*$';
 			config.id = nextId++;
 			return config;

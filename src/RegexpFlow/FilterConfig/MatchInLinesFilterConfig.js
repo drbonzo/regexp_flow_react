@@ -1,6 +1,6 @@
 import FilterConfig from './FilterConfig';
 
-class MatchInLineFilterConfig extends FilterConfig {
+class MatchInLinesFilterConfig extends FilterConfig {
 
 	constructor() {
 		
@@ -29,4 +29,4 @@ class MatchInLineFilterConfig extends FilterConfig {
 	}
 }
 
-export default MatchInLineFilterConfig;
+export default MatchInLinesFilterConfig;

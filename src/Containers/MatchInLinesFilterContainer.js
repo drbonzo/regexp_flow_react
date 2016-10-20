@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 
-import MatchInLineFilterComponent from '../Components/MatchInLineFilterComponent'
+import MatchInLinesFilterComponent from '../Components/MatchInLinesFilterComponent'
 import {
 	updateTextProcecssorSearchString,
 	updateTextProcessorCaseInsensitive,
@@ -35,9 +35,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 	}
 });
 
-const MatchInLineFilterContainer = connect(
+const MatchInLinesFilterContainer = connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(MatchInLineFilterComponent);
+)(MatchInLinesFilterComponent);
 
-export default MatchInLineFilterContainer;
+export default MatchInLinesFilterContainer;
