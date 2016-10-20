@@ -4,7 +4,8 @@ import {
 	TOGGLE_TEXT_PROCESSOR_ENABLED,
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
-	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE
+	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE,
+	UPDATE_MATCH_LINES_INVERT_MATCH
 } from './../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
@@ -105,6 +106,13 @@ function textProcessors(state, action) {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {caseInsensitive: !state[id].caseInsensitive};
+
+			return textProcessorReducer(state, id, replacement);
+		}
+		case UPDATE_MATCH_LINES_INVERT_MATCH: {
+			let id = action.id;
+			// FIXME nie działa dla każdego z typów
+			let replacement = {invertMatch: !state[id].invertMatch};
 
 			return textProcessorReducer(state, id, replacement);
 		}
