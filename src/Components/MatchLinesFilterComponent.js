@@ -29,7 +29,7 @@ class MatchLinesFilterComponent extends Component {
 
 	render() {
 		return (
-			<div className="TextProcessor MatchInLinesTextProcessor">
+			<div className="TextProcessor MatchLinesTextProcessor">
 				<div className="TextProcessor__Header">
 					Match lines with text
 					<div className="btn-group pull-right">
