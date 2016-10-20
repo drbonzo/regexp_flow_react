@@ -20,7 +20,7 @@ class MatchLinesFilterConfig extends FilterConfig {
 		 * If true - then we discard lines matching regexp
 		 * @type {boolean}
 		 */
-		this.flagInvertMatch = false;
+		this.invertMatch = false;
 
 		/**
 		 * @type {number}

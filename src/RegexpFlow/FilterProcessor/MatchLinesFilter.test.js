@@ -42,9 +42,9 @@ describe("MatchLinesFilter", function () {
 
 		describe('matching and flags', function () {
 
-			it("should return just lines that match regexp when flagInvertMatch is off", function () {
+			it("should return just lines that match regexp when invertMatch is off", function () {
 				filterConfig.searchString = 'o';
-				filterConfig.flagInvertMatch = false;
+				filterConfig.invertMatch = false;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\ndolor');
@@ -52,9 +52,9 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(2);
 			});
 
-			it("should return empty string when no line matches regexp and flagInvertMatch is off", function () {
+			it("should return empty string when no line matches regexp and invertMatch is off", function () {
 				filterConfig.searchString = 'xxx';
-				filterConfig.flagInvertMatch = false;
+				filterConfig.invertMatch = false;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('');
@@ -62,9 +62,9 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(0);
 			});
 
-			it("should return every line when every line matches regexp and flagInvertMatch is off", function () {
+			it("should return every line when every line matches regexp and invertMatch is off", function () {
 				filterConfig.searchString = '[a-z]';
-				filterConfig.flagInvertMatch = false;
+				filterConfig.invertMatch = false;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\nipsum\ndolor');
@@ -72,9 +72,9 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(3);
 			});
 
-			it("should return just lines that do not match regexp when flagInvertMatch is on", function () {
+			it("should return just lines that do not match regexp when invertMatch is on", function () {
 				filterConfig.searchString = 'o';
-				filterConfig.flagInvertMatch = true;
+				filterConfig.invertMatch = true;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('ipsum');
@@ -82,9 +82,9 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(1);
 			});
 
-			it("should return empty string when all lines match regexp and flagInvertMatch is on", function () {
+			it("should return empty string when all lines match regexp and invertMatch is on", function () {
 				filterConfig.searchString = '[a-z]';
-				filterConfig.flagInvertMatch = true;
+				filterConfig.invertMatch = true;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('');
@@ -92,9 +92,9 @@ describe("MatchLinesFilter", function () {
 				expect(filterConfig.matchedLinesCount).toEqual(0);
 			});
 
-			it("should return every line when no line matches regexp and flagInvertMatch is on", function () {
+			it("should return every line when no line matches regexp and invertMatch is on", function () {
 				filterConfig.searchString = 'xxx';
-				filterConfig.flagInvertMatch = true;
+				filterConfig.invertMatch = true;
 				matchLinesFilter = new MatchLinesFilter();
 
 				expect(matchLinesFilter.processText(filterConfig, 'Lorem\nipsum\ndolor')).toEqual('Lorem\nipsum\ndolor');
@@ -105,7 +105,7 @@ describe("MatchLinesFilter", function () {
 
 			it("should return just lines that match regexp with same case when caseInsensitive is off", function () {
 				filterConfig.searchString = 'L';
-				filterConfig.flagInvertMatch = false;
+				filterConfig.invertMatch = false;
 				filterConfig.caseInsensitive = false;
 				matchLinesFilter = new MatchLinesFilter();
 
@@ -116,7 +116,7 @@ describe("MatchLinesFilter", function () {
 
 			it("should return just lines that match regexp with any case when caseInsensitive is on", function () {
 				filterConfig.searchString = 'L';
-				filterConfig.flagInvertMatch = false;
+				filterConfig.invertMatch = false;
 				filterConfig.caseInsensitive = true;
 
 				matchLinesFilter = new MatchLinesFilter();

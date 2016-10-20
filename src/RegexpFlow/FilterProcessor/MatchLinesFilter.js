@@ -35,7 +35,7 @@ class MatchLinesFilter extends Filter {
 				if (lines.hasOwnProperty(l)) {
 					line = lines[l];
 
-					if (filterConfig.flagInvertMatch) {
+					if (filterConfig.invertMatch) {
 						if (!line.match(searchRegexp)) {
 							matchedLines.push(line);
 						}
