@@ -61,7 +61,7 @@ describe("FindAllFilter", function () {
 
 			it("should return just first match when global flag is off", function () {
 				filterConfig.searchString = '\\d+';
-				filterConfig.searchFlagGlobal = false;
+				filterConfig.global = false;
 				findAllFilter = new FindAllFilter();
 
 				expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2');
@@ -70,7 +70,7 @@ describe("FindAllFilter", function () {
 
 			it("should return all matches when global flag is on", function () {
 				filterConfig.searchString = '\\d+';
-				filterConfig.searchFlagGlobal = true;
+				filterConfig.global = true;
 				findAllFilter = new FindAllFilter();
 
 				expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');

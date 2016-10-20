@@ -21,7 +21,7 @@ class ReplaceFilterConfig extends FilterConfig {
 		 *
 		 * @type {boolean}
 		 */
-		this.searchFlagGlobal = true;
+		this.global = true;
 
 		/**
 		 * @type {boolean}
@@ -31,7 +31,7 @@ class ReplaceFilterConfig extends FilterConfig {
 		/**
 		 * @type {boolean}
 		 */
-		this.searchFlagMultiline = true;
+		this.multiline = true;
 
 		/**
 		 * @type {number}

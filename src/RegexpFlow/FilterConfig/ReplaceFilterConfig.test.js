@@ -17,9 +17,9 @@ describe('ReplaceFilterConfig', function () {
 			expect(filterConfig.filterType).toEqual('Replace');
 			expect(filterConfig.searchString).toEqual('');
 			expect(filterConfig.replaceString).toEqual('');
-			expect(filterConfig.searchFlagGlobal).toEqual(true);
+			expect(filterConfig.global).toEqual(true);
 			expect(filterConfig.caseInsensitive).toEqual(false);
-			expect(filterConfig.searchFlagMultiline).toEqual(true);
+			expect(filterConfig.multiline).toEqual(true);
 			expect(filterConfig.replacementsCount).toEqual(0);
 		});
 	});

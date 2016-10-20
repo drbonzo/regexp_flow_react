@@ -114,7 +114,7 @@ describe("ReplaceFilter", function () {
 			it("should replace just first match when global flag is off", function () {
 				filterConfig.searchString = '\\d+';
 				filterConfig.replaceString = '[DIGIT]';
-				filterConfig.searchFlagGlobal = false;
+				filterConfig.global = false;
 				replaceFilter = new ReplaceFilter();
 
 				expect(replaceFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('Lor[DIGIT]em ips542um 534 dolor s2333id amet');
@@ -124,7 +124,7 @@ describe("ReplaceFilter", function () {
 			it("should replace all matches when global flag is on", function () {
 				filterConfig.searchString = '\\d+';
 				filterConfig.replaceString = '[DIGIT]';
-				filterConfig.searchFlagGlobal = true;
+				filterConfig.global = true;
 				replaceFilter = new ReplaceFilter();
 
 				expect(replaceFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('Lor[DIGIT]em ips[DIGIT]um [DIGIT] dolor s[DIGIT]id amet');
@@ -134,7 +134,7 @@ describe("ReplaceFilter", function () {
 			it("should replace just matches with same case when case insensitivity flag is off", function () {
 				filterConfig.searchString = '[a-z]';
 				filterConfig.replaceString = '[LETTER]';
-				filterConfig.searchFlagGlobal = true;
+				filterConfig.global = true;
 				filterConfig.caseInsensitive = false;
 				replaceFilter = new ReplaceFilter();
 
@@ -145,7 +145,7 @@ describe("ReplaceFilter", function () {
 			it("should replace all matches when case insensitivity flag is on", function () {
 				filterConfig.searchString = '[a-z]';
 				filterConfig.replaceString = '[LETTER]';
-				filterConfig.searchFlagGlobal = true;
+				filterConfig.global = true;
 				filterConfig.caseInsensitive = true;
 				replaceFilter = new ReplaceFilter();
 
@@ -156,8 +156,8 @@ describe("ReplaceFilter", function () {
 			it("should replace in first line when multiline flag is off", function () {
 				filterConfig.searchString = '^([a-zA-Z])';
 				filterConfig.replaceString = '[$1]';
-				filterConfig.searchFlagGlobal = true;
-				filterConfig.searchFlagMultiline = false;
+				filterConfig.global = true;
+				filterConfig.multiline = false;
 				replaceFilter = new ReplaceFilter();
 
 				var inputText, expectedText;
@@ -177,8 +177,8 @@ describe("ReplaceFilter", function () {
 			it("should replace in each line when multiline flag is on", function () {
 				filterConfig.searchString = '^([a-zA-Z])';
 				filterConfig.replaceString = '[$1]';
-				filterConfig.searchFlagGlobal = true;
-				filterConfig.searchFlagMultiline = true;
+				filterConfig.global = true;
+				filterConfig.multiline = true;
 				replaceFilter = new ReplaceFilter();
 
 				var inputText, expectedText;

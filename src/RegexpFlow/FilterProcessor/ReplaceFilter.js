@@ -22,7 +22,7 @@ class ReplaceFilter extends Filter {
 				return inputText; // dont change anything when there is no regular expression
 			}
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, filterConfig.searchFlagGlobal, filterConfig.searchFlagMultiline);
+			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, filterConfig.global, filterConfig.multiline);
 			matches = inputText.match(searchRegexp);
 			filterConfig.replacementsCount = (matches ? matches.length : 0); // matches is null when no match is found
 

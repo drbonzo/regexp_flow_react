@@ -16,7 +16,7 @@ class FindAllFilterConfig extends FilterConfig {
 		 *
 		 * @type {boolean}
 		 */
-		this.searchFlagGlobal = true;
+		this.global = true;
 
 		/**
 		 * @type {boolean}
@@ -27,7 +27,7 @@ class FindAllFilterConfig extends FilterConfig {
 		 * Always true
 		 * @type {boolean}
 		 */
-		this.searchFlagMultiline = true;
+		this.multiline = true;
 
 		/**
 		 * @type {number}
