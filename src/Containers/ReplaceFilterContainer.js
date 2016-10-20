@@ -5,7 +5,9 @@ import {
 	updateTextProcecssorSearchString,
 	updateTextProcessorCaseInsensitive,
 	updateTextProcessorDescription,
-
+	updateReplaceFilterGlobalChange,
+	updateReplaceFilterMultilineChange,
+	updateReplaceFilterReplaceStringChange,
 	toggleTextProcessorEnabled,
 	deleteTextProcessor
 } from '../redux/actions'
@@ -26,16 +28,16 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
 	},
 	onGlobalChange: () => {
-		// dispatch(updateReplaceFilterGlobalChange(ownProps.id)); // FIXME
+		dispatch(updateReplaceFilterGlobalChange(ownProps.id));
 	},
 	onCaseInsensitiveChange: () => {
 		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
 	},
 	onMultilineChange: () => {
-		// dispatch(updateReplaceFilterMultilineChange(ownProps.id)); // FIXME
+		dispatch(updateReplaceFilterMultilineChange(ownProps.id));
 	},
 	onReplaceStringChange: (newReplaceString) => {
-		// dispatch(updateReplaceFilterReplaceStringChange(ownProps.id, newReplaceString));// FIXME
+		dispatch(updateReplaceFilterReplaceStringChange(ownProps.id, newReplaceString));
 	},
 	onDescriptionChange: (newDescription) => {
 		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));

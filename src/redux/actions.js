@@ -5,6 +5,9 @@ export const UPDATE_TEXT_PROCESSOR_SEARCH_STRING = 'UPDATE_TEXT_PROCESSOR_SEARCH
 export const UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE = 'UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE';
 export const UPDATE_TEXT_PROCESSOR_DESCRIPTION = 'UPDATE_TEXT_PROCESSOR_DESCRIPTION';
 export const UPDATE_MATCH_LINES_INVERT_MATCH = 'UPDATE_MATCH_LINES_INVERT_MATCH';
+export const UPDATE_TEXT_PROCESSOR_REPLACE_STRING = 'UPDATE_TEXT_PROCESSOR_REPLACE_STRING';
+export const UPDATE_TEXT_PROCESSOR_GLOBAL = 'UPDATE_TEXT_PROCESSOR_GLOBAL';
+export const UPDATE_TEXT_PROCESSOR_MULTILINE = 'UPDATE_TEXT_PROCESSOR_MULTILINE';
 
 export const DELETE_TEXT_PROCESSOR = 'DELETE_TEXT_PROCESSOR';
 export const TOGGLE_TEXT_PROCESSOR_ENABLED = 'TOGGLE_TEXT_PROCESSOR_ENABLED';
@@ -31,6 +34,28 @@ export function updateTextProcecssorSearchString(id, searchString) {
 		type: UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 		id: id,
 		searchString: searchString
+	}
+}
+
+export function updateReplaceFilterGlobalChange(id) {
+	return {
+		type: UPDATE_TEXT_PROCESSOR_GLOBAL,
+		id: id
+	}
+}
+
+export function updateReplaceFilterMultilineChange(id) {
+	return {
+		type: UPDATE_TEXT_PROCESSOR_MULTILINE,
+		id: id
+	}
+}
+
+export function updateReplaceFilterReplaceStringChange(id, replaceString) {
+	return {
+		type: UPDATE_TEXT_PROCESSOR_REPLACE_STRING,
+		id: id,
+		replaceString: replaceString
 	}
 }
 

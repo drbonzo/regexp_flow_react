@@ -5,7 +5,10 @@ import {
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
 	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE,
-	UPDATE_MATCH_LINES_INVERT_MATCH
+	UPDATE_MATCH_LINES_INVERT_MATCH,
+	UPDATE_TEXT_PROCESSOR_REPLACE_STRING,
+	UPDATE_TEXT_PROCESSOR_GLOBAL,
+	UPDATE_TEXT_PROCESSOR_MULTILINE
 } from './../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
@@ -113,6 +116,28 @@ function textProcessors(state, action) {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {invertMatch: !state[id].invertMatch};
+
+			return textProcessorReducer(state, id, replacement);
+		}
+		case UPDATE_TEXT_PROCESSOR_REPLACE_STRING: {
+			let id = action.id;
+
+			let replaceString = action.replaceString;
+			let replacement = {replaceString: replaceString};
+
+			return textProcessorReducer(state, id, replacement);
+		}
+		case UPDATE_TEXT_PROCESSOR_GLOBAL: {
+			let id = action.id;
+			// FIXME nie działa dla każdego z typów
+			let replacement = {global: !state[id].global};
+
+			return textProcessorReducer(state, id, replacement);
+		}
+		case UPDATE_TEXT_PROCESSOR_MULTILINE: {
+			let id = action.id;
+			// FIXME nie działa dla każdego z typów
+			let replacement = {multiline: !state[id].multiline};
 
 			return textProcessorReducer(state, id, replacement);
 		}
