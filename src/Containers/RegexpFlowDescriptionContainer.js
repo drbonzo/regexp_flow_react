@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import TextFieldComponent from '../Components/TextFieldComponent'
 
 import {
-	updateRegexpFlowDescription
+	regxpFlowUpdateDescription
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onValueChange: (description) => {
-		dispatch(updateRegexpFlowDescription(description));
+		dispatch(regxpFlowUpdateDescription(description));
 	}
 });
 

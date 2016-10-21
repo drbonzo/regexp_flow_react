@@ -1,6 +1,6 @@
 import {
-	DELETE_TEXT_PROCESSOR,
-	ADD_TEXT_PROCESSOR,
+	REGEXP_FLOW_DELETE_FILTER,
+	REGEXP_FLOW_ADD_FILTER,
 	TOGGLE_TEXT_PROCESSOR_ENABLED,
 	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
 	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
@@ -69,12 +69,12 @@ function createNewTextProcessor(filterType) {
 function textProcessors(state, action) {
 
 	switch (action.type) {
-		case DELETE_TEXT_PROCESSOR: {
+		case REGEXP_FLOW_DELETE_FILTER: {
 			let newState = Object.assign({}, state);
 			delete newState[action.id];
 			return newState;
 		}
-		case ADD_TEXT_PROCESSOR: {
+		case REGEXP_FLOW_ADD_FILTER: {
 			let newState = Object.assign({}, state);
 			let newTextProcessor = createNewTextProcessor(action.textProcessorType);
 			newState[newTextProcessor.id] = newTextProcessor;

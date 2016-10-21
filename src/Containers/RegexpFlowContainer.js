@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import RegexpFlowComponent from '../Components/RegexpFlowComponent'
-import {addTextProcessor} from '../redux/actions'
+import {regexpFlowAddFilter} from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
 	textProcessors: state.textProcessors
@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 	onAddTextProcessorClick: (filterType) => {
-		dispatch(addTextProcessor(filterType));
+		dispatch(regexpFlowAddFilter(filterType));
 	}
 });
 

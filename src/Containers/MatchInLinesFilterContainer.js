@@ -6,7 +6,7 @@ import {
 	updateTextProcessorCaseInsensitive,
 	updateTextProcessorDescription,
 	toggleTextProcessorEnabled,
-	deleteTextProcessor
+	regexpFlowDeleteFilter
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 		dispatch(toggleTextProcessorEnabled(ownProps.id))
 	},
 	onDeleteClick: () => {
-		dispatch(deleteTextProcessor(ownProps.id))
+		dispatch(regexpFlowDeleteFilter(ownProps.id))
 	}
 });
 
