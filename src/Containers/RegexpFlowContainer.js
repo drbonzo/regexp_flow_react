@@ -3,7 +3,7 @@ import RegexpFlowComponent from '../Components/RegexpFlowComponent'
 import {regexpFlowAddFilter} from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
-	textProcessors: state.textProcessors
+	textProcessors: state.filterConfigs
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -4,7 +4,7 @@ import OutputTextComponent from '../Components/OutputTextComponent'
 
 const mapStateToProps = (state, ownProps) => ({
 	inputText: state.inputText,
-	textProcessors: state.textProcessors
+	textProcessors: state.filterConfigs
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({});

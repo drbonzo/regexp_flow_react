@@ -1,10 +1,10 @@
 import description from './description'
-import textProcessors from './textProcessors'
+import filterConfigs from './filterConfigs'
 import inputText from './inputText'
 import {combineReducers} from 'redux'
 
 const mainReducer = combineReducers({
-	textProcessors: textProcessors,
+	filterConfigs: filterConfigs,
 	description: description,
 	inputText: inputText,
 });
