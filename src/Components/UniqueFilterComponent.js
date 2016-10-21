@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react'
-import TextProcessorControlls from './Flow/TextProcessorControlls'
+import FilterConfigControlls from './FilterConfigControlls'
 import FilterComponent from './FilterComponent'
 
 class UniqueFilterComponent extends FilterComponent {
@@ -10,7 +10,7 @@ class UniqueFilterComponent extends FilterComponent {
 				<div className="TextProcessor__Header">
 					Unique
 					<div className="btn-group pull-right">
-						<TextProcessorControlls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick}/>
+						<FilterConfigControlls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick}/>
 					</div>
 				</div>
 				<div className={this.props.enabled ? 'TextProcessor__Contents' : 'TextProcessor__Contents TextProcessor__Contents--Hidden'}>

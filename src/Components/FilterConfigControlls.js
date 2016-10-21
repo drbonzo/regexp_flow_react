@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class TextProcessorControlls extends Component {
+class FilterConfigControlls extends Component {
 	render() {
 		return (
 			<div className="btn-group pull-right">
@@ -13,11 +13,11 @@ class TextProcessorControlls extends Component {
 	}
 }
 
-TextProcessorControlls.propTypes = {
+FilterConfigControlls.propTypes = {
 	toggleShowHelp: React.PropTypes.func,
 	toggleShowDescription: React.PropTypes.func,
 	onEnabledClick: React.PropTypes.func,
 	onDeleteClick: React.PropTypes.func
 };
 
-export default TextProcessorControlls;
+export default FilterConfigControlls;
