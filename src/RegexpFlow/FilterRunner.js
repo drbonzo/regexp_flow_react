@@ -1,4 +1,4 @@
-class TextProcessorRunner {
+class FilterRunner {
 
 	/**
 	 * @param {RegexpFlow} regexpFlow
@@ -17,7 +17,7 @@ class TextProcessorRunner {
 			if (regexpFlow.textProcessors.hasOwnProperty(tp)) {
 
 				/**
-				 * @type {TextProcessor} textProcessor
+				 * @type {Filter} textProcessor
 				 */
 				textProcessor = regexpFlow.textProcessors[tp];
 
@@ -32,4 +32,4 @@ class TextProcessorRunner {
 	};
 }
 
-export default TextProcessorRunner;
+export default FilterRunner;
