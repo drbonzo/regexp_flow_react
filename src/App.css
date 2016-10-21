@@ -12,55 +12,55 @@
     margin-top: 5px;
 }
 
-.TextProcessor__Header {
+.FilterConfig__Header {
     font-size: 16px;
     background-color: #ccc;
     padding: 3px;
     height: 28px;
 }
 
-.TextProcessor__Contents {
+.FilterConfig__Contents {
     padding: 5px;
     background-color: #f0f0f0;
 }
 
-.TextProcessor__Contents--Hidden {
+.FilterConfig__Contents--Hidden {
     display: none;
 }
 
-.TextProcessor__Contents__Help {
+.FilterConfig__Contents__Help {
     font-size: 0.9em;
 }
 
-.TextProcessor__Contents__Help--Hidden {
+.FilterConfig__Contents__Help--Hidden {
     display: none;
 }
 
-.TextProcessor__Contents__RegexpErrors {
+.FilterConfig__Contents__RegexpErrors {
 
 }
 
-.TextProcessor__Contents__RegexpErrors--Hidden {
+.FilterConfig__Contents__RegexpErrors--Hidden {
     display: none;
 }
 
-.TextProcessor__Contents__Checkbox {
+.FilterConfig__Contents__Checkbox {
     margin-right: 10px;
 }
 
-.TextProcessor__Contents__Checkbox__Label {
+.FilterConfig__Contents__Checkbox__Label {
     font-weight: normal;
 }
 
-.TextProcessor__Contents__Checkbox__Label input[type=checkbox] {
+.FilterConfig__Contents__Checkbox__Label input[type=checkbox] {
     margin-right: 2px;
 }
 
-.TextProcessor__Contents__Description {
+.FilterConfig__Contents__Description {
 
 }
 
-.TextProcessor__Contents__Description--Hidden {
+.FilterConfig__Contents__Description--Hidden {
     display: none;
 }
 
