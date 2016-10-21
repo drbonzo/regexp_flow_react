@@ -18,9 +18,9 @@ import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConf
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig'
 
 function textProcessorReducer(state, id, replacement) {
-	let newTextProcessor = Object.assign({}, state[id], replacement);
+	let newFilterConfig = Object.assign({}, state[id], replacement);
 	let overwrite = {};
-	overwrite[id] = newTextProcessor;
+	overwrite[id] = newFilterConfig;
 	return Object.assign({}, state, overwrite);
 }
 let nextId = 1;
@@ -76,8 +76,8 @@ function filterConfigs(state, action) {
 		}
 		case REGEXP_FLOW_ADD_FILTER: {
 			let newState = Object.assign({}, state);
-			let newTextProcessor = createNewTextProcessor(action.textProcessorType);
-			newState[newTextProcessor.id] = newTextProcessor;
+			let newFilterConfig = createNewTextProcessor(action.textProcessorType);
+			newState[newFilterConfig.id] = newFilterConfig;
 			return newState;
 		}
 		case FILTER_TOGGLE_ENABLED: {
