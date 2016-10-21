@@ -29,7 +29,7 @@ let nextId = 1;
  * @param {String} filterType
  * @returns {FilterConfig|null}
  */
-function createNewTextProcessor(filterType) {
+function createNewFilterConfig(filterType) {
 	switch (filterType) {
 		case 'FindAll': {
 			let config = new FindAllFilterConfig();
@@ -76,7 +76,7 @@ function filterConfigs(state, action) {
 		}
 		case REGEXP_FLOW_ADD_FILTER: {
 			let newState = Object.assign({}, state);
-			let newFilterConfig = createNewTextProcessor(action.textProcessorType);
+			let newFilterConfig = createNewFilterConfig(action.textProcessorType);
 			newState[newFilterConfig.id] = newFilterConfig;
 			return newState;
 		}

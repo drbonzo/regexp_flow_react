@@ -5,7 +5,7 @@ import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer'
 import ReplaceFilterContainer from '../Containers/ReplaceFilterContainer'
 import UniqueFilterContainer from '../Containers/UniqueFilterContainer'
 
-const RegexpFlowComponent = ({filterConfigs, onAddTextProcessorClick}) => {
+const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
 
 	let filterConfigsCollection = [];
 	for (let index in filterConfigs) {
@@ -46,27 +46,27 @@ const RegexpFlowComponent = ({filterConfigs, onAddTextProcessorClick}) => {
 			<div>
 				<div className="btn-group" role="group">
 					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-						onAddTextProcessorClick('FindAll')
+						onAddFilterConfigClick('FindAll')
 					}}>+ FindAll
 					</button>
 
 					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-						onAddTextProcessorClick('Replace')
+						onAddFilterConfigClick('Replace')
 					}}>+ Replace
 					</button>
 
 					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-						onAddTextProcessorClick('MatchLines')
+						onAddFilterConfigClick('MatchLines')
 					}}>+ MatchLines
 					</button>
 
 					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-						onAddTextProcessorClick('MatchInLines')
+						onAddFilterConfigClick('MatchInLines')
 					}}>+ MatchInLines
 					</button>
 
 					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-						onAddTextProcessorClick('Unique')
+						onAddFilterConfigClick('Unique')
 					}}>+ Unique
 					</button>
 				</div>
@@ -83,7 +83,7 @@ RegexpFlowComponent.propTypes = {
 	//
 	//
 	//
-	onAddTextProcessorClick: PropTypes.func.isRequired
+	onAddFilterConfigClick: PropTypes.func.isRequired
 };
 
 export default RegexpFlowComponent;

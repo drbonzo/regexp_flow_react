@@ -7,7 +7,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	onAddTextProcessorClick: (filterType) => {
+	onAddFilterConfigClick: (filterType) => {
 		dispatch(regexpFlowAddFilter(filterType));
 	}
 });
