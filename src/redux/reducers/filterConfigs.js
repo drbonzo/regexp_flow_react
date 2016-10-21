@@ -17,7 +17,7 @@ import MatchInLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLines
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig'
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig'
 
-function textProcessorReducer(state, id, replacement) {
+function filterConfigReducer(state, id, replacement) {
 	let newFilterConfig = Object.assign({}, state[id], replacement);
 	let overwrite = {};
 	overwrite[id] = newFilterConfig;
@@ -76,17 +76,17 @@ function filterConfigs(state, action) {
 		}
 		case REGEXP_FLOW_ADD_FILTER: {
 			let newState = Object.assign({}, state);
-			let newFilterConfig = createNewFilterConfig(action.textProcessorType);
+			let newFilterConfig = createNewFilterConfig(action.filterType);
 			newState[newFilterConfig.id] = newFilterConfig;
 			return newState;
 		}
 		case FILTER_TOGGLE_ENABLED: {
 			let id = action.id;
-			let textProcessor = state[id];
+			let filterConfig = state[id];
 
-			let replacement = {enabled: !textProcessor.enabled};
+			let replacement = {enabled: !filterConfig.enabled};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_UPDATE_SEARCH_STRING: {
 			// FIXME nie działa dla każdego z typów
@@ -95,7 +95,7 @@ function filterConfigs(state, action) {
 			let searchString = action.searchString;
 			let replacement = {searchString: searchString};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_UPDATE_DESCRIPTION: {
 			let id = action.id;
@@ -103,21 +103,21 @@ function filterConfigs(state, action) {
 			let description = action.description;
 			let replacement = {description: description};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_CASE_INSENSITIVE: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {caseInsensitive: !state[id].caseInsensitive};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_INVERT_MATCH: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {invertMatch: !state[id].invertMatch};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_UPDATE_REPLACE_STRING: {
 			let id = action.id;
@@ -125,21 +125,21 @@ function filterConfigs(state, action) {
 			let replaceString = action.replaceString;
 			let replacement = {replaceString: replaceString};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_GLOBAL: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {global: !state[id].global};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_MULTILINE: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {multiline: !state[id].multiline};
 
-			return textProcessorReducer(state, id, replacement);
+			return filterConfigReducer(state, id, replacement);
 		}
 		default: {
 			// Reducer "filterConfigs" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.

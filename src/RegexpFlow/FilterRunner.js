@@ -8,7 +8,7 @@ class FilterRunner {
 	processString(regexpFlow, inputText) {
 
 		var outputText;
-		var textProcessor;
+		var filter;
 		var tp;
 
 		outputText = inputText;
@@ -17,12 +17,12 @@ class FilterRunner {
 			if (regexpFlow.filterConfigs.hasOwnProperty(tp)) {
 
 				/**
-				 * @type {Filter} textProcessor
+				 * @type {Filter} filter
 				 */
-				textProcessor = regexpFlow.filterConfigs[tp];
+				filter = regexpFlow.filterConfigs[tp];
 
-				if (textProcessor.enabled) {
-					outputText = textProcessor.processText(inputText);
+				if (filter.enabled) {
+					outputText = filter.processText(inputText);
 					inputText = outputText;
 				}
 			}

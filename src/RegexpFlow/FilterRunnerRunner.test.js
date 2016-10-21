@@ -5,10 +5,10 @@ describe("FilterRunner", function () {
 	/**
 	 * @var {FilterRunner}
 	 */
-	var textProcessorRunner;
+	var filterRunner;
 
 	beforeEach(function () {
-		textProcessorRunner = new FilterRunner();
+		filterRunner = new FilterRunner();
 	});
 
 	it("fixme", function () { // FIXME implement me

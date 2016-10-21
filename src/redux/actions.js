@@ -15,7 +15,7 @@ export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 export function regexpFlowAddFilter(filterType) {
 	return {
 		type: REGEXP_FLOW_ADD_FILTER,
-		textProcessorType: filterType,
+		filterType: filterType,
 	};
 }
 
