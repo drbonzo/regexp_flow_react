@@ -2,11 +2,11 @@ import {connect} from 'react-redux'
 
 import MatchLinesFilterComponent from '../Components/MatchLinesFilterComponent'
 import {
-	updateTextProcecssorSearchString,
-	updateTextProcessorCaseInsensitive,
-	updateTextProcessorDescription,
-	updateMatchLinesInvertMatchChange,
-	toggleTextProcessorEnabled,
+	filterUpdateSearchString,
+	filterToggleCaseInsensitive,
+	filterUpdateDescription,
+	filterToggleInvertMatch,
+	filterToggleEnabled,
 	regexpFlowDeleteFilter
 } from '../redux/actions'
 
@@ -21,19 +21,19 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 	onSearchStringChange: (newSearchString) => {
-		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
+		dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
 	},
 	onCaseInsensitiveChange: () => {
-		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
+		dispatch(filterToggleCaseInsensitive(ownProps.id))
 	},
 	onInvertMatchChange: () => {
-		dispatch(updateMatchLinesInvertMatchChange(ownProps.id))
+		dispatch(filterToggleInvertMatch(ownProps.id))
 	},
 	onDescriptionChange: (newDescription) => {
-		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
+		dispatch(filterUpdateDescription(ownProps.id, newDescription));
 	},
 	onEnabledClick: () => {
-		dispatch(toggleTextProcessorEnabled(ownProps.id))
+		dispatch(filterToggleEnabled(ownProps.id))
 	},
 	onDeleteClick: () => {
 		dispatch(regexpFlowDeleteFilter(ownProps.id))

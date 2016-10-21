@@ -1,14 +1,14 @@
 import {
 	REGEXP_FLOW_DELETE_FILTER,
 	REGEXP_FLOW_ADD_FILTER,
-	TOGGLE_TEXT_PROCESSOR_ENABLED,
-	UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
-	UPDATE_TEXT_PROCESSOR_DESCRIPTION,
-	UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE,
-	UPDATE_MATCH_LINES_INVERT_MATCH,
-	UPDATE_TEXT_PROCESSOR_REPLACE_STRING,
-	UPDATE_TEXT_PROCESSOR_GLOBAL,
-	UPDATE_TEXT_PROCESSOR_MULTILINE
+	FILTER_TOGGLE_ENABLED,
+	FILTER_UPDATE_SEARCH_STRING,
+	FILTER_UPDATE_DESCRIPTION,
+	FILTER_TOGGLE_CASE_INSENSITIVE,
+	FILTER_TOGGLE_INVERT_MATCH,
+	FILTER_UPDATE_REPLACE_STRING,
+	FILTER_TOGGLE_GLOBAL,
+	FILTER_TOGGLE_MULTILINE
 } from './../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
@@ -80,7 +80,7 @@ function textProcessors(state, action) {
 			newState[newTextProcessor.id] = newTextProcessor;
 			return newState;
 		}
-		case TOGGLE_TEXT_PROCESSOR_ENABLED: {
+		case FILTER_TOGGLE_ENABLED: {
 			let id = action.id;
 			let textProcessor = state[id];
 
@@ -88,7 +88,7 @@ function textProcessors(state, action) {
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_SEARCH_STRING: {
+		case FILTER_UPDATE_SEARCH_STRING: {
 			// FIXME nie działa dla każdego z typów
 			let id = action.id;
 
@@ -97,7 +97,7 @@ function textProcessors(state, action) {
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_DESCRIPTION: {
+		case FILTER_UPDATE_DESCRIPTION: {
 			let id = action.id;
 
 			let description = action.description;
@@ -105,21 +105,21 @@ function textProcessors(state, action) {
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE: {
+		case FILTER_TOGGLE_CASE_INSENSITIVE: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {caseInsensitive: !state[id].caseInsensitive};
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_MATCH_LINES_INVERT_MATCH: {
+		case FILTER_TOGGLE_INVERT_MATCH: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {invertMatch: !state[id].invertMatch};
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_REPLACE_STRING: {
+		case FILTER_UPDATE_REPLACE_STRING: {
 			let id = action.id;
 
 			let replaceString = action.replaceString;
@@ -127,14 +127,14 @@ function textProcessors(state, action) {
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_GLOBAL: {
+		case FILTER_TOGGLE_GLOBAL: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {global: !state[id].global};
 
 			return textProcessorReducer(state, id, replacement);
 		}
-		case UPDATE_TEXT_PROCESSOR_MULTILINE: {
+		case FILTER_TOGGLE_MULTILINE: {
 			let id = action.id;
 			// FIXME nie działa dla każdego z typów
 			let replacement = {multiline: !state[id].multiline};

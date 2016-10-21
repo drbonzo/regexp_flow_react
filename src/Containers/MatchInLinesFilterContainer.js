@@ -2,10 +2,10 @@ import {connect} from 'react-redux'
 
 import MatchInLinesFilterComponent from '../Components/MatchInLinesFilterComponent'
 import {
-	updateTextProcecssorSearchString,
-	updateTextProcessorCaseInsensitive,
-	updateTextProcessorDescription,
-	toggleTextProcessorEnabled,
+	filterUpdateSearchString,
+	filterToggleCaseInsensitive,
+	filterUpdateDescription,
+	filterToggleEnabled,
 	regexpFlowDeleteFilter
 } from '../redux/actions'
 
@@ -19,16 +19,16 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 	onSearchStringChange: (newSearchString) => {
-		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
+		dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
 	},
 	onCaseInsensitiveChange: () => {
-		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
+		dispatch(filterToggleCaseInsensitive(ownProps.id))
 	},
 	onDescriptionChange: (newDescription) => {
-		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
+		dispatch(filterUpdateDescription(ownProps.id, newDescription));
 	},
 	onEnabledClick: () => {
-		dispatch(toggleTextProcessorEnabled(ownProps.id))
+		dispatch(filterToggleEnabled(ownProps.id))
 	},
 	onDeleteClick: () => {
 		dispatch(regexpFlowDeleteFilter(ownProps.id))

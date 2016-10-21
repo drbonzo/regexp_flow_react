@@ -2,8 +2,8 @@ import {connect} from 'react-redux'
 
 import UniqueFilterComponent from '../Components/UniqueFilterComponent'
 import {
-	updateTextProcessorDescription,
-	toggleTextProcessorEnabled,
+	filterUpdateDescription,
+	filterToggleEnabled,
 	regexpFlowDeleteFilter
 } from '../redux/actions'
 
@@ -15,10 +15,10 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 	onDescriptionChange: (newDescription) => {
-		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
+		dispatch(filterUpdateDescription(ownProps.id, newDescription));
 	},
 	onEnabledClick: () => {
-		dispatch(toggleTextProcessorEnabled(ownProps.id))
+		dispatch(filterToggleEnabled(ownProps.id))
 	},
 	onDeleteClick: () => {
 		dispatch(regexpFlowDeleteFilter(ownProps.id))

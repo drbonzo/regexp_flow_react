@@ -2,13 +2,13 @@ import {connect} from 'react-redux'
 
 import ReplaceFilterComponent from '../Components/ReplaceFilterComponent'
 import {
-	updateTextProcecssorSearchString,
-	updateTextProcessorCaseInsensitive,
-	updateTextProcessorDescription,
-	updateReplaceFilterGlobalChange,
-	updateReplaceFilterMultilineChange,
-	updateReplaceFilterReplaceStringChange,
-	toggleTextProcessorEnabled,
+	filterUpdateSearchString,
+	filterToggleCaseInsensitive,
+	filterUpdateDescription,
+	filterToggleGlobal,
+	filterToggleMultiline,
+	filterUpdateReplaceString,
+	filterToggleEnabled,
 	regexpFlowDeleteFilter
 } from '../redux/actions'
 
@@ -25,25 +25,25 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
 	onSearchStringChange: (newSearchString) => {
-		dispatch(updateTextProcecssorSearchString(ownProps.id, newSearchString));
+		dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
 	},
 	onGlobalChange: () => {
-		dispatch(updateReplaceFilterGlobalChange(ownProps.id));
+		dispatch(filterToggleGlobal(ownProps.id));
 	},
 	onCaseInsensitiveChange: () => {
-		dispatch(updateTextProcessorCaseInsensitive(ownProps.id))
+		dispatch(filterToggleCaseInsensitive(ownProps.id))
 	},
 	onMultilineChange: () => {
-		dispatch(updateReplaceFilterMultilineChange(ownProps.id));
+		dispatch(filterToggleMultiline(ownProps.id));
 	},
 	onReplaceStringChange: (newReplaceString) => {
-		dispatch(updateReplaceFilterReplaceStringChange(ownProps.id, newReplaceString));
+		dispatch(filterUpdateReplaceString(ownProps.id, newReplaceString));
 	},
 	onDescriptionChange: (newDescription) => {
-		dispatch(updateTextProcessorDescription(ownProps.id, newDescription));
+		dispatch(filterUpdateDescription(ownProps.id, newDescription));
 	},
 	onEnabledClick: () => {
-		dispatch(toggleTextProcessorEnabled(ownProps.id))
+		dispatch(filterToggleEnabled(ownProps.id))
 	},
 	onDeleteClick: () => {
 		dispatch(regexpFlowDeleteFilter(ownProps.id))

@@ -3,14 +3,14 @@ export const REGEXP_FLOW_DELETE_FILTER = 'REGEXP_FLOW_DELETE_FILTER';
 export const REGEXP_FLOW_UPDATE_DESCRIPTION = 'REGEXP_FLOW_UPDATE_DESCRIPTION';
 export const UPDATE_INPUT_TEXT = 'UPDATE_INPUT_TEXT';
 
-export const UPDATE_TEXT_PROCESSOR_SEARCH_STRING = 'UPDATE_TEXT_PROCESSOR_SEARCH_STRING';
-export const UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE = 'UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE';
-export const UPDATE_TEXT_PROCESSOR_DESCRIPTION = 'UPDATE_TEXT_PROCESSOR_DESCRIPTION';
-export const UPDATE_MATCH_LINES_INVERT_MATCH = 'UPDATE_MATCH_LINES_INVERT_MATCH';
-export const UPDATE_TEXT_PROCESSOR_REPLACE_STRING = 'UPDATE_TEXT_PROCESSOR_REPLACE_STRING';
-export const UPDATE_TEXT_PROCESSOR_GLOBAL = 'UPDATE_TEXT_PROCESSOR_GLOBAL';
-export const UPDATE_TEXT_PROCESSOR_MULTILINE = 'UPDATE_TEXT_PROCESSOR_MULTILINE';
-export const TOGGLE_TEXT_PROCESSOR_ENABLED = 'TOGGLE_TEXT_PROCESSOR_ENABLED';
+export const FILTER_TOGGLE_ENABLED = 'FILTER_TOGGLE_ENABLED';
+export const FILTER_TOGGLE_CASE_INSENSITIVE = 'FILTER_TOGGLE_CASE_INSENSITIVE';
+export const FILTER_TOGGLE_INVERT_MATCH = 'FILTER_TOGGLE_INVERT_MATCH';
+export const FILTER_TOGGLE_GLOBAL = 'FILTER_TOGGLE_GLOBAL';
+export const FILTER_TOGGLE_MULTILINE = 'FILTER_TOGGLE_MULTILINE';
+export const FILTER_UPDATE_DESCRIPTION = 'FILTER_UPDATE_DESCRIPTION';
+export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
+export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 
 export function regexpFlowAddFilter(filterType) {
 	return {
@@ -40,62 +40,62 @@ export function updateInputText(text) {
 	}
 }
 
-export function updateTextProcecssorSearchString(id, searchString) {
+export function filterToggleEnabled(id) {
 	return {
-		type: UPDATE_TEXT_PROCESSOR_SEARCH_STRING,
-		id: id,
-		searchString: searchString
-	}
-}
-
-export function updateReplaceFilterGlobalChange(id) {
-	return {
-		type: UPDATE_TEXT_PROCESSOR_GLOBAL,
+		type: FILTER_TOGGLE_ENABLED,
 		id: id
 	}
 }
 
-export function updateReplaceFilterMultilineChange(id) {
+export function filterToggleCaseInsensitive(id, caseInsensitive) {
 	return {
-		type: UPDATE_TEXT_PROCESSOR_MULTILINE,
-		id: id
-	}
-}
-
-export function updateReplaceFilterReplaceStringChange(id, replaceString) {
-	return {
-		type: UPDATE_TEXT_PROCESSOR_REPLACE_STRING,
-		id: id,
-		replaceString: replaceString
-	}
-}
-
-export function updateTextProcessorCaseInsensitive(id, caseInsensitive) {
-	return {
-		type: UPDATE_TEXT_PROCESSOR_CASE_INSENSITIVE,
+		type: FILTER_TOGGLE_CASE_INSENSITIVE,
 		id: id,
 		caseInsensitive: caseInsensitive
 	}
 }
 
-export function updateTextProcessorDescription(id, description) {
+export function filterToggleInvertMatch(id) {
 	return {
-		type: UPDATE_TEXT_PROCESSOR_DESCRIPTION,
+		type: FILTER_TOGGLE_INVERT_MATCH,
+		id: id
+	}
+}
+
+export function filterToggleGlobal(id) {
+	return {
+		type: FILTER_TOGGLE_GLOBAL,
+		id: id
+	}
+}
+
+export function filterToggleMultiline(id) {
+	return {
+		type: FILTER_TOGGLE_MULTILINE,
+		id: id
+	}
+}
+
+export function filterUpdateDescription(id, description) {
+	return {
+		type: FILTER_UPDATE_DESCRIPTION,
 		id: id,
 		description: description
 	}
 }
 
-export function updateMatchLinesInvertMatchChange(id) {
+export function filterUpdateSearchString(id, searchString) {
 	return {
-		type: UPDATE_MATCH_LINES_INVERT_MATCH,
-		id: id
+		type: FILTER_UPDATE_SEARCH_STRING,
+		id: id,
+		searchString: searchString
 	}
 }
 
-export function toggleTextProcessorEnabled(id) {
+export function filterUpdateReplaceString(id, replaceString) {
 	return {
-		type: TOGGLE_TEXT_PROCESSOR_ENABLED,
-		id: id
+		type: FILTER_UPDATE_REPLACE_STRING,
+		id: id,
+		replaceString: replaceString
 	}
 }
