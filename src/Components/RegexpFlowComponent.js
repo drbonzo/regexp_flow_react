@@ -71,7 +71,7 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 					</button>
 				</div>
 			</div>
-			<div className="RegexpFlow__TextProcessors">
+			<div className="RegexpFlow__FilterConfigs">
 				{textProcessorsCollection}
 			</div>
 		</div>
