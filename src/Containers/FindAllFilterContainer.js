@@ -10,10 +10,10 @@ import {
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
-	searchString: state.textProcessors[ownProps.id].searchString,
-	caseInsensitive: state.textProcessors[ownProps.id].caseInsensitive,
-	description: state.textProcessors[ownProps.id].description,
-	enabled: state.textProcessors[ownProps.id].enabled
+	searchString: state.filterConfigs[ownProps.id].searchString,
+	caseInsensitive: state.filterConfigs[ownProps.id].caseInsensitive,
+	description: state.filterConfigs[ownProps.id].description,
+	enabled: state.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

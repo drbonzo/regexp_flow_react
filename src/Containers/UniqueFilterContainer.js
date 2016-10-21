@@ -8,8 +8,8 @@ import {
 } from '../redux/actions'
 
 const mapStateToProps = (state, ownProps) => ({
-	description: state.textProcessors[ownProps.id].description,
-	enabled: state.textProcessors[ownProps.id].enabled
+	description: state.filterConfigs[ownProps.id].description,
+	enabled: state.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

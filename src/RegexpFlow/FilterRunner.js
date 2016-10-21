@@ -13,13 +13,13 @@ class FilterRunner {
 
 		outputText = inputText;
 
-		for (tp in regexpFlow.textProcessors) {
-			if (regexpFlow.textProcessors.hasOwnProperty(tp)) {
+		for (tp in regexpFlow.filterConfigs) {
+			if (regexpFlow.filterConfigs.hasOwnProperty(tp)) {
 
 				/**
 				 * @type {Filter} textProcessor
 				 */
-				textProcessor = regexpFlow.textProcessors[tp];
+				textProcessor = regexpFlow.filterConfigs[tp];
 
 				if (textProcessor.enabled) {
 					outputText = textProcessor.processText(inputText);

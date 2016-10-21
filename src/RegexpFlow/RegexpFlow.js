@@ -5,7 +5,7 @@ class RegexpFlow {
 		/**
 		 * @type {Array|FilterConfig[]}
 		 */
-		this.textProcessors = {};
+		this.filterConfigs = {};
 
 		/**
 		 * @type {string}

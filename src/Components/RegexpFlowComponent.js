@@ -5,32 +5,32 @@ import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer'
 import ReplaceFilterContainer from '../Containers/ReplaceFilterContainer'
 import UniqueFilterContainer from '../Containers/UniqueFilterContainer'
 
-const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
+const RegexpFlowComponent = ({filterConfigs, onAddTextProcessorClick}) => {
 
-	let textProcessorsCollection = [];
-	for (let index in textProcessors) {
-		if (textProcessors.hasOwnProperty(index)) {
-			let filterConfig = textProcessors[index];
+	let filterConfigsCollection = [];
+	for (let index in filterConfigs) {
+		if (filterConfigs.hasOwnProperty(index)) {
+			let filterConfig = filterConfigs[index];
 
 			switch (filterConfig.filterType) {
 				case 'FindAll': {
-					textProcessorsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
+					filterConfigsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'MatchLines': {
-					textProcessorsCollection.push(<MatchLinesFilterContainer id={index} key={'tp_' + index}/>);
+					filterConfigsCollection.push(<MatchLinesFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'MatchInLines': {
-					textProcessorsCollection.push(<MatchInLinesFilterContainer id={index} key={'tp_' + index}/>);
+					filterConfigsCollection.push(<MatchInLinesFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Replace': {
-					textProcessorsCollection.push(<ReplaceFilterContainer id={index} key={'tp_' + index}/>);
+					filterConfigsCollection.push(<ReplaceFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				case 'Unique': {
-					textProcessorsCollection.push(<UniqueFilterContainer id={index} key={'tp_' + index}/>);
+					filterConfigsCollection.push(<UniqueFilterContainer id={index} key={'tp_' + index}/>);
 					break;
 				}
 				default: {
@@ -72,14 +72,14 @@ const RegexpFlowComponent = ({textProcessors, onAddTextProcessorClick}) => {
 				</div>
 			</div>
 			<div className="RegexpFlow__FilterConfigs">
-				{textProcessorsCollection}
+				{filterConfigsCollection}
 			</div>
 		</div>
 	)
 };
 
 RegexpFlowComponent.propTypes = {
-	textProcessors: PropTypes.objectOf(Object), // FIXME create class for these text processors + subclasses
+	filterConfigs: PropTypes.objectOf(Object), // FIXME create class for these text processors + subclasses
 	//
 	//
 	//

@@ -22,7 +22,7 @@ class OutputTextComponent extends Component {
 
 OutputTextComponent.propTypes = {
 	inputText: PropTypes.string.isRequired,
-	textProcessors: PropTypes.objectOf(Object) // FIXME create class for these text processors + subclasses
+	filterConfigs: PropTypes.objectOf(Object) // FIXME create class for these text processors + subclasses
 };
 
 export default OutputTextComponent;

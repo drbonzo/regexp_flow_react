@@ -66,7 +66,7 @@ function createNewTextProcessor(filterType) {
 		}
 	}
 }
-function textProcessors(state, action) {
+function filterConfigs(state, action) {
 
 	switch (action.type) {
 		case REGEXP_FLOW_DELETE_FILTER: {
@@ -142,10 +142,10 @@ function textProcessors(state, action) {
 			return textProcessorReducer(state, id, replacement);
 		}
 		default: {
-			// Reducer "textProcessors" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
+			// Reducer "filterConfigs" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
 			return (state === undefined ? {} : state);
 		}
 	}
 }
 
-export default textProcessors;
+export default filterConfigs;
