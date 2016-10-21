@@ -6,7 +6,7 @@ class ReplaceFilterComponent extends FilterComponent {
 
 	render() {
 		return (
-			<div className="TextProcessor ReplaceTextProcessor">
+			<div className="FilterConfig ReplaceTextProcessor">
 				<div className="TextProcessor__Header">
 					Replace in text
 					<div className="btn-group pull-right">

@@ -6,7 +6,7 @@ class UniqueFilterComponent extends FilterComponent {
 
 	render() {
 		return (
-			<div className="TextProcessor FindAllTextProcessor">
+			<div className="FilterConfig FindAllTextProcessor">
 				<div className="TextProcessor__Header">
 					Unique
 					<div className="btn-group pull-right">

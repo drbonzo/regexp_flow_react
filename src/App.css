@@ -2,13 +2,13 @@
     margin-bottom: 0;
 }
 
-.TextProcessor {
+.FilterConfig {
     border: solid 1px #aaa;
     font-size: 0.9em;
 
 }
 
-.TextProcessor + .TextProcessor {
+.FilterConfig + .FilterConfig {
     margin-top: 5px;
 }
 

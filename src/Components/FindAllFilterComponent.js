@@ -6,7 +6,7 @@ class FindAllFilterComponent extends FilterComponent {
 
 	render() {
 		return (
-			<div className="TextProcessor FindAllTextProcessor">
+			<div className="FilterConfig FindAllTextProcessor">
 				<div className="TextProcessor__Header">
 					Find all matches
 					<div className="btn-group pull-right">

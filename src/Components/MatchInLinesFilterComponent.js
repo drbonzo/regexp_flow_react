@@ -6,7 +6,7 @@ class MatchInLinesFilterComponent extends FilterComponent {
 
 	render() {
 		return (
-			<div className="TextProcessor MatchInLinesTextProcessor">
+			<div className="FilterConfig MatchInLinesTextProcessor">
 				<div className="TextProcessor__Header">
 					Match in lines
 					<div className="btn-group pull-right">
