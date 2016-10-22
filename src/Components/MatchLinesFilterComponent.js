@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import FilterConfigControlls from './FilterConfigControlls'
 import FilterComponent from './FilterComponent'
+import HelpForFilterComponent from './Layout/HelpForFilterComponent'
 
 class MatchLinesFilterComponent extends FilterComponent {
 
@@ -36,13 +37,15 @@ class MatchLinesFilterComponent extends FilterComponent {
 										Invert match
 									</label>
 								</div>
-								<ul className={this.state.showHelp ? "help-block FilterConfig__Contents__Help" : "help-block FilterConfig__Contents__Help FilterConfig__Contents__Help--Hidden"}>
-									<li>returns whole lines that are matched by regular expression</li>
-									<li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
-									<li>lines are returned, joined with \n character - not their original newline character!</li>
-								</ul>
 							</div>
 						</fieldset>
+
+						<HelpForFilterComponent showHelp={this.state.showHelp}>
+							<li>returns whole lines that are matched by regular expression</li>
+							<li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
+							<li>lines are returned, joined with \n character - not their original newline character!</li>
+						</HelpForFilterComponent>
+
 						<fieldset className={this.state.showDescription ? "help-block FilterConfig__Contents__Description" : "help-block FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
@@ -61,7 +64,7 @@ class MatchLinesFilterComponent extends FilterComponent {
 MatchLinesFilterComponent.propTypes = {
 	searchString: PropTypes.string.isRequired,
 	caseInsensitive: PropTypes.bool.isRequired,
-	invertMatch: React.PropTypes.bool.isRequired,
+	invertMatch: PropTypes.bool.isRequired,
 	description: PropTypes.string.isRequired,
 	//
 	enabled: PropTypes.bool.isRequired,

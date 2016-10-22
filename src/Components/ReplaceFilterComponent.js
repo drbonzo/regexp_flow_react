@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import FilterConfigControlls from './FilterConfigControlls'
 import FilterComponent from './FilterComponent'
+import HelpForFilterComponent from './Layout/HelpForFilterComponent'
 
 class ReplaceFilterComponent extends FilterComponent {
 
@@ -42,11 +43,6 @@ class ReplaceFilterComponent extends FilterComponent {
 										Case Insensitive
 									</label>
 								</div>
-								<ul className={this.state.showHelp ? "help-block FilterConfig__Contents__Help" : "help-block FilterConfig__Contents__Help FilterConfig__Contents__Help--Hidden"}>
-									<li>returns whole lines that are matched by regular expression</li>
-									<li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
-									<li>lines are returned, joined with \n character - not their original newline character!</li>
-								</ul>
 							</div>
 						</fieldset>
 
@@ -56,18 +52,19 @@ class ReplaceFilterComponent extends FilterComponent {
 								<input type="text" className="form-control input-sm" placeholder="replacement string" value={this.props.replaceString} onChange={(event) => {
 									this.props.onReplaceStringChange(event.target.value)
 								}}/>
-								<ul className={this.state.showHelp ? "help-block FilterConfig__Contents__Help" : "help-block FilterConfig__Contents__Help FilterConfig__Contents__Help--Hidden"}>
-									<li>$1, $2, $3 - for groups.</li>
-									<li>$$ Inserts a "$".</li>
-									<li>$& Inserts the matched substring.</li>
-									<li>$` Inserts the portion of the string that precedes the matched substring.</li>
-									<li>$' Inserts the portion of the string that follows the matched substring.</li>
-									<li>$n or $nn</li>
-									<li>Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.</li>
-									<li>\t, \n - to insert tab/newline characters</li>
-								</ul>
 							</div>
 						</fieldset>
+
+						<HelpForFilterComponent showHelp={this.state.showHelp}>
+							<li>$1, $2, $3 - for groups.</li>
+							<li>$$ Inserts a "$".</li>
+							<li>$& Inserts the matched substring.</li>
+							<li>$` Inserts the portion of the string that precedes the matched substring.</li>
+							<li>$' Inserts the portion of the string that follows the matched substring.</li>
+							<li>$n or $nn</li>
+							<li>Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.</li>
+							<li>\t, \n - to insert tab/newline characters</li>
+						</HelpForFilterComponent>
 
 						<fieldset className={this.state.showDescription ? "help-block FilterConfig__Contents__Description" : "help-block FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
 							<div className="form-group">

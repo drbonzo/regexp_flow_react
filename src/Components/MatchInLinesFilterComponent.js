@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import FilterConfigControlls from './FilterConfigControlls'
 import FilterComponent from './FilterComponent'
+import HelpForFilterComponent from './Layout/HelpForFilterComponent'
 
 class MatchInLinesFilterComponent extends FilterComponent {
 
@@ -32,6 +33,18 @@ class MatchInLinesFilterComponent extends FilterComponent {
 								</div>
 							</div>
 						</fieldset>
+
+						<HelpForFilterComponent showHelp={this.state.showHelp}>
+							<li>checks each line of input - if it matches regular expression</li>
+							<li>if line matches regular expression - then the match from regular expression is being returned
+								<ul>
+									<li>if regular expression had no groups - then full match is being returned ($&/$0)</li>
+									<li>if regular expression did had groups - then only first group is being returned ($1)</li>
+								</ul>
+							</li>
+							<li>if line does not match - then it is being ommited in result</li>
+						</HelpForFilterComponent>
+
 						<fieldset className={this.state.showDescription ? "help-block FilterConfig__Contents__Description" : "help-block FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
