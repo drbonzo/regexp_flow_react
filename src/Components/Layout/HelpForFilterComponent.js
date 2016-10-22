@@ -4,7 +4,7 @@ class HelpForFilterComponent extends Component {
 
 	render() {
 		return (
-			<ul className={this.props.showHelp ? "help-block FilterConfig__Contents__Help" : "help-block FilterConfig__Contents__Help FilterConfig__Contents__Help--Hidden"}>
+			<ul className={this.props.showHelp ? "FilterConfig__Contents__Help" : "FilterConfig__Contents__Help FilterConfig__Contents__Help--Hidden"}>
 				{this.props.children}
 			</ul>
 		)
