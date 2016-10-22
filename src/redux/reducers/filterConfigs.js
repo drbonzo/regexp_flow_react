@@ -89,7 +89,6 @@ function filterConfigs(state, action) {
 			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_UPDATE_SEARCH_STRING: {
-			// FIXME nie działa dla każdego z typów
 			let id = action.id;
 
 			let searchString = action.searchString;
@@ -107,14 +106,12 @@ function filterConfigs(state, action) {
 		}
 		case FILTER_TOGGLE_CASE_INSENSITIVE: {
 			let id = action.id;
-			// FIXME nie działa dla każdego z typów
 			let replacement = {caseInsensitive: !state[id].caseInsensitive};
 
 			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_INVERT_MATCH: {
 			let id = action.id;
-			// FIXME nie działa dla każdego z typów
 			let replacement = {invertMatch: !state[id].invertMatch};
 
 			return filterConfigReducer(state, id, replacement);
@@ -129,14 +126,12 @@ function filterConfigs(state, action) {
 		}
 		case FILTER_TOGGLE_GLOBAL: {
 			let id = action.id;
-			// FIXME nie działa dla każdego z typów
 			let replacement = {global: !state[id].global};
 
 			return filterConfigReducer(state, id, replacement);
 		}
 		case FILTER_TOGGLE_MULTILINE: {
 			let id = action.id;
-			// FIXME nie działa dla każdego z typów
 			let replacement = {multiline: !state[id].multiline};
 
 			return filterConfigReducer(state, id, replacement);
