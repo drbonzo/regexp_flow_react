@@ -46,7 +46,7 @@ class MatchLinesFilterComponent extends FilterComponent {
 							<li>lines are returned, joined with \n character - not their original newline character!</li>
 						</HelpForFilterComponent>
 
-						<fieldset className={this.state.showDescription ? "help-block FilterConfig__Contents__Description" : "help-block FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
+						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
