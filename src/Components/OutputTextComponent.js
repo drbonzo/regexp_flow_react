@@ -1,9 +1,14 @@
 import React, {PropTypes, Component} from 'react'
+import FilterRunner from '../RegexpFlow/FilterRunner'
 
 class OutputTextComponent extends Component {
 
 	computeOutputText() {
-		return this.props.inputText + Math.random(); // FIXME;
+
+		let inputText = this.props.inputText;
+		let runner = new FilterRunner();
+		// FIXME update totals/counters in filter configs
+		return runner.processString(this.props.filterConfigs, inputText);
 	}
 
 	render() {
