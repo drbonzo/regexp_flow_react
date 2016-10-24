@@ -1,8 +1,8 @@
-import FindAllFilter from './FilterProcessor/FindAllFilter'
-import MatchLinesFilter from './FilterProcessor/MatchLinesFilter'
-import MatchInLinesFilter from './FilterProcessor/MatchInLinesFilter'
-import ReplaceFilter from './FilterProcessor/ReplaceFilter'
-import UniqueFilter from './FilterProcessor/UniqueFilter'
+import FindAllFilter from './Filter/FindAllFilter'
+import MatchLinesFilter from './Filter/MatchLinesFilter'
+import MatchInLinesFilter from './Filter/MatchInLinesFilter'
+import ReplaceFilter from './Filter/ReplaceFilter'
+import UniqueFilter from './Filter/UniqueFilter'
 
 class FilterRunner {
 
