@@ -6,6 +6,16 @@ import UniqueFilter from './FilterProcessor/UniqueFilter'
 
 class FilterRunner {
 
+	constructor() {
+		this.filters = {
+			FindAll: new FindAllFilter(),
+			MatchLines: new MatchLinesFilter(),
+			MatchInLines: new MatchInLinesFilter(),
+			Replace: new ReplaceFilter(),
+			Unique: new UniqueFilter()
+		};
+	}
+
 	/**
 	 * @param {FilterConfig[]} filterConfigs
 	 * @param {String} inputText
@@ -42,18 +52,7 @@ class FilterRunner {
 	 * @returns {Filter}
 	 */
 	getFilterForFilterConfig(filterConfig) {
-
-		// FIXME optimize - build filters once, and then return existing objects -> move to contructor?
-		var filters = {
-			FindAll: new FindAllFilter(),
-			MatchLines: new MatchLinesFilter(),
-			MatchInLines: new MatchInLinesFilter(),
-			Replace: new ReplaceFilter(),
-			Unique: new UniqueFilter()
-		};
-
-		// FIXME handle invalid filterType
-		return filters[filterConfig.filterType];
+		return this.filters[filterConfig.filterType];
 	}
 }
 
