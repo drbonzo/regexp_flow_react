@@ -20,7 +20,6 @@ class App extends Component {
 								<OutputTextContainer/>
 							</div>
 							<div className="col-md-4">
-								{/*<RegexpFlow/> FIXME */}
 								<div>
 									<div className="RegexpFlow__Metadata">
 										<form>
