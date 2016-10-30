@@ -1,5 +1,4 @@
 import React, {PropTypes, Component} from 'react'
-import FilterRunner from '../RegexpFlow/FilterRunner'
 
 class OutputTextComponent extends Component {
 
