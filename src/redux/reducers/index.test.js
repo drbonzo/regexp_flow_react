@@ -17,6 +17,7 @@ describe("mainReducer", function () {
 			filterConfigs: {},
 			description: '',
 			inputText: '',
+			outputText: ''
 		};
 	});
 
@@ -25,7 +26,7 @@ describe("mainReducer", function () {
 		expectedState.inputText = 'new inputText';
 
 		let newState = mainReducer(state, updateInputText('new inputText'));
-		expect(newState).toEqual(expectedState);
+		expect(newState.inputText).toEqual('new inputText');
 	});
 
 	it('should handle description', function () {

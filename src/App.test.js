@@ -8,7 +8,7 @@ it('renders without crashing', () => {
 
 	let store = createStore(function (state, action) {
 		return state
-	}, {description: '', filterConfigs: {}, inputText: ''});
+	}, {description: '', filterConfigs: {}, inputText: '', outputText: ''});
 
 	const div = document.createElement('div');
 	ReactDOM.render(
