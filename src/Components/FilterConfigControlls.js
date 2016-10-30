@@ -7,7 +7,7 @@ class FilterConfigControlls extends Component {
 				<button type="button" className="btn btn-default btn-xs regexpHelpButton" title="Toggle help" onClick={this.props.toggleShowHelp}>?</button>
 				<button type="button" className="btn btn-info btn-xs" title="Toggle description" onClick={this.props.toggleShowDescription}><span className="glyphicon glyphicon-pencil"/></button>
 				<button type="button" className="btn btn-default btn-xs" onClick={this.props.onEnabledClick}>||</button>
-				<button type="button" className="btn btn-default btn-xs" onClick={this.props.onDeleteClick}>[X] Delete</button>
+				<button type="button" className="btn btn-danger btn-xs" onClick={this.props.onDeleteClick}><span className="glyphicon glyphicon-remove"/>Delete</button>
 			</div>
 		);
 	}
