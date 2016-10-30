@@ -71,4 +71,22 @@ let example_2 = {
 };
 examples.push(example_2);
 
+examples.push({
+	name: 'Build JS constants',
+	actions: [
+		{
+			type: "UPDATE_INPUT_TEXT",
+			text: "<type>FOO</type>\n"
+			+ "<type>BAR</type>\n"
+			+ "<type>FOOBAR</type>\n"
+			+ "<type>LOREM</type>\n"
+			+ "<type>IPSUM</type>"
+		},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "MatchInLines"},
+		{type: "FILTER_UPDATE_SEARCH_STRING", id: "1", searchString: "<type>(.+?)</type>"},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "Replace"},
+		{type: "FILTER_UPDATE_REPLACE_STRING", id: "2", replaceString: 'const $1 = "$1";'}
+	]
+});
+
 export default examples;
