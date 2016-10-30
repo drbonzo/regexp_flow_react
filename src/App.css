@@ -68,3 +68,13 @@
 .form-group {
     margin-bottom: 5px;
 }
+
+.InputText textarea {
+    font-family: Menlo, monospace;
+    font-size: 9pt;
+}
+
+.OutputText textarea {
+    font-family: Menlo, monospace;
+    font-size: 9pt;
+}
