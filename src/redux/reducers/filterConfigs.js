@@ -1,6 +1,7 @@
 import {
 	REGEXP_FLOW_DELETE_FILTER,
 	REGEXP_FLOW_ADD_FILTER,
+	REMOVE_ALL_FILTERS,
 	FILTER_TOGGLE_ENABLED,
 	FILTER_UPDATE_SEARCH_STRING,
 	FILTER_UPDATE_DESCRIPTION,
@@ -79,6 +80,9 @@ function filterConfigs(state, action) {
 			let newFilterConfig = createNewFilterConfig(action.filterType);
 			newState[newFilterConfig.id] = newFilterConfig;
 			return newState;
+		}
+		case REMOVE_ALL_FILTERS : {
+			return {}
 		}
 		case FILTER_TOGGLE_ENABLED: {
 			let id = action.id;

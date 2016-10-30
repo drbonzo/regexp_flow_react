@@ -2,6 +2,7 @@ export const REGEXP_FLOW_ADD_FILTER = 'REGEXP_FLOW_ADD_FILTER';
 export const REGEXP_FLOW_DELETE_FILTER = 'REGEXP_FLOW_DELETE_FILTER';
 export const REGEXP_FLOW_UPDATE_DESCRIPTION = 'REGEXP_FLOW_UPDATE_DESCRIPTION';
 export const UPDATE_INPUT_TEXT = 'UPDATE_INPUT_TEXT';
+export const REMOVE_ALL_FILTERS = 'REMOVE_ALL_FILTERS';
 
 export const FILTER_TOGGLE_ENABLED = 'FILTER_TOGGLE_ENABLED';
 export const FILTER_TOGGLE_CASE_INSENSITIVE = 'FILTER_TOGGLE_CASE_INSENSITIVE';
@@ -37,6 +38,12 @@ export function updateInputText(text) {
 	return {
 		type: UPDATE_INPUT_TEXT,
 		text: text
+	}
+}
+
+export function removeAllFilterConfigs() {
+	return {
+		type: REMOVE_ALL_FILTERS
 	}
 }
 
