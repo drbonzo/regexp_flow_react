@@ -47,11 +47,10 @@ export function filterToggleEnabled(id) {
 	}
 }
 
-export function filterToggleCaseInsensitive(id, caseInsensitive) {
+export function filterToggleCaseInsensitive(id) {
 	return {
 		type: FILTER_TOGGLE_CASE_INSENSITIVE,
-		id: id,
-		caseInsensitive: caseInsensitive
+		id: id
 	}
 }
 
