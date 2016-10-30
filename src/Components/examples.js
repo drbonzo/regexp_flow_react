@@ -1,6 +1,6 @@
 let examples = [];
 
-let example_1 = {
+examples.push({
 	name: 'Find words and convert to JS array',
 	actions: [
 		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "FindAll"},
@@ -44,10 +44,9 @@ let example_1 = {
 			"Phasellus laoreet id purus id semper. "
 		},
 	]
-};
-examples.push(example_1);
+});
 
-let example_2 = {
+examples.push({
 	name: 'Convert Excel to JSON',
 	actions: [
 		{
@@ -68,8 +67,7 @@ let example_2 = {
 		{type: "FILTER_UPDATE_SEARCH_STRING", id: "1", searchString: "^(.+?)\\t(.+?)\\t(.+?)\\t(.+?)$"},
 		{type: "FILTER_UPDATE_REPLACE_STRING", id: "1", replaceString: '{"id":$1, "name": "$2", "startedAt": "$3", "total": $4}'},
 	]
-};
-examples.push(example_2);
+});
 
 examples.push({
 	name: 'Build JS constants',
