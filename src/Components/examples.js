@@ -65,7 +65,7 @@ let example_2 = {
 			"11	Kkk	2016-10-30	17\n"
 		},
 		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "Replace"},
-		{type: "FILTER_UPDATE_SEARCH_STRING", id: "1", searchString: "^(.+?)\t(.+?)\t(.+?)\t(.+?)$"},
+		{type: "FILTER_UPDATE_SEARCH_STRING", id: "1", searchString: "^(.+?)\\t(.+?)\\t(.+?)\\t(.+?)$"},
 		{type: "FILTER_UPDATE_REPLACE_STRING", id: "1", replaceString: '{"id":$1, "name": "$2", "startedAt": "$3", "total": $4}'},
 	]
 };
