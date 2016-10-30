@@ -82,6 +82,7 @@ function filterConfigs(state, action) {
 			return newState;
 		}
 		case REMOVE_ALL_FILTERS : {
+			nextId = 1; // reset numbering
 			return {}
 		}
 		case FILTER_TOGGLE_ENABLED: {
