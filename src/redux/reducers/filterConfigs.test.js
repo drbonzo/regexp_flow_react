@@ -16,14 +16,14 @@ describe("filterConfigs reducer", function () {
 
 		it('should delete existing filter', function () {
 			let state_0 = {};
-			state_0[1] = new FindAllFilterConfig(); // FIXME DRY
+			state_0[1] = new FindAllFilterConfig();
 			let newState = filterConfigs(state_0, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 1});
 			expect('1' in newState).toBe(false);
 		});
 		//
 		// it('should not delete not existing filter', function () {
 		// 	let state = {};
-		// 	state[1] = new FindAllFilterConfig(); // FIXME DRY
+		// 	state[1] = new FindAllFilterConfig();
 		// 	let newState = filterConfigs(state, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 5});
 		// 	expect(5 in newState).toBe(false);
 		// });
@@ -34,7 +34,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should toggle enabled flag', function () {
 				let state_0 = {};
-				state_0[1] = new FindAllFilterConfig(); // FIXME DRY
+				state_0[1] = new FindAllFilterConfig();
 				state_0[1].enabled = true;
 
 				expect(state_0[1].enabled).toBe(true);
@@ -48,7 +48,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should toggle global flag', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].global = true;
 
 				expect(state_0[1].global).toBe(true);
@@ -62,7 +62,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should toggle multiline flag', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].multiline = true;
 
 				expect(state_0[1].multiline).toBe(true);
@@ -76,7 +76,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should toggle multiline flag', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].multiline = true;
 
 				expect(state_0[1].multiline).toBe(true);
@@ -90,7 +90,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should toggle FILTER_TOGGLE_CASE_INSENSITIVE flag', function () {
 				let state_0 = {};
-				state_0[1] = new MatchLinesFilterConfig(); // FIXME DRY
+				state_0[1] = new MatchLinesFilterConfig();
 				state_0[1].caseInsensitive = true;
 
 				expect(state_0[1].caseInsensitive).toBe(true);
@@ -106,7 +106,7 @@ describe("filterConfigs reducer", function () {
 		describe('updating settings', function () {
 			it('should update searchString', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].searchString = 'abc';
 
 				expect(state_0[1].searchString).toBe('abc');
@@ -117,7 +117,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should update searchString', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].description = 'foo';
 
 				expect(state_0[1].description).toBe('foo');
@@ -128,7 +128,7 @@ describe("filterConfigs reducer", function () {
 
 			it('should update replaceString', function () {
 				let state_0 = {};
-				state_0[1] = new ReplaceFilterConfig(); // FIXME DRY
+				state_0[1] = new ReplaceFilterConfig();
 				state_0[1].replaceString = 'abc';
 
 				expect(state_0[1].replaceString).toBe('abc');
