@@ -13,7 +13,7 @@ class NavBar extends Component {
 								<span className="icon-bar"/>
 								<span className="icon-bar"/>
 							</button>
-							<a className="navbar-brand" href="#">RegexpFlow 2.0</a>
+							<a className="navbar-brand" href="#">RegexpFlow - ReactJS</a>
 						</div>
 
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
