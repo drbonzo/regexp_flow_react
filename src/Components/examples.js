@@ -106,4 +106,114 @@ examples.push({
 	]
 });
 
+examples.push({
+	name: 'Revert modified files with git',
+	actions: [
+		{type: "REGEXP_FLOW_UPDATE_DESCRIPTION", description: "Find all modified files matching \"percona\", revert changes in them with git"},
+		{
+			type: "UPDATE_INPUT_TEXT",
+			text: "	modified:   alternatives/my.cnf\n" +
+			"	modified:   apparmor.d/abstractions/dbus-session-strict\n" +
+			"	modified:   apparmor.d/abstractions/ibus\n" +
+			"	modified:   apparmor.d/cache/sbin.dhclient\n" +
+			"	modified:   apparmor.d/cache/usr.sbin.mysqld\n" +
+			"	modified:   apparmor.d/cache/usr.sbin.tcpdump\n" +
+			"	modified:   apt/apt.conf.d/01autoremove-kernels\n" +
+			"	modified:   apt/trusted.gpg\n" +
+			"	modified:   console-setup/cached.kmap.gz\n" +
+			"	modified:   console-setup/compose.ISO-8859-1.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-13.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-14.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-15.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-2.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-3.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-4.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-7.inc\n" +
+			"	modified:   console-setup/compose.ISO-8859-9.inc\n" +
+			"	modified:   dovecot/dovecot-dict-auth.conf.ext\n" +
+			"	modified:   dovecot/dovecot-dict-sql.conf.ext\n" +
+			"	modified:   dovecot/dovecot-sql.conf.ext\n" +
+			"	modified:   init.d/.depend.boot\n" +
+			"	modified:   init.d/.depend.start\n" +
+			"	modified:   init.d/.depend.stop\n" +
+			"	modified:   init.d/apparmor\n" +
+			"	modified:   init/apparmor.conf\n" +
+			"	modified:   issue\n" +
+			"	modified:   issue.net\n" +
+			"	modified:   ld.so.cache\n" +
+			"	deleted:    logcheck/ignore.d.paranoid/mysql-server-5_6\n" +
+			"	deleted:    logcheck/ignore.d.server/mysql-server-5_6\n" +
+			"	deleted:    logcheck/ignore.d.workstation/mysql-server-5_6\n" +
+			"	modified:   lsb-release\n" +
+			"	deleted:    mysql/conf.d/my5.6.cnf\n" +
+			"	deleted:    mysql/conf.d/mysqld_safe_syslog.cnf\n" +
+			"	modified:   mysql/debian-start\n" +
+			"	modified:   mysql/debian.cnf\n" +
+			"	deleted:    mysql/my.cnf-1\n" +
+			"	modified:   mysql/mysql.conf.d/mysqld.cnf\n" +
+			"	modified:   network/if-up.d/openssh-server\n" +
+			"	deleted:    percona-toolkit/pt-archiver.conf\n" +
+			"	deleted:    percona-toolkit/pt-collect.conf\n" +
+			"	deleted:    percona-toolkit/pt-config-diff.conf\n" +
+			"	deleted:    percona-toolkit/pt-deadlock-logger.conf\n" +
+			"	deleted:    percona-toolkit/pt-diskstats.conf\n" +
+			"	deleted:    percona-toolkit/pt-duplicate-key-checker.conf\n" +
+			"	deleted:    percona-toolkit/pt-fifo-split.conf\n" +
+			"	deleted:    percona-toolkit/pt-find.conf\n" +
+			"	deleted:    percona-toolkit/pt-fk-error-logger.conf\n" +
+			"	deleted:    percona-toolkit/pt-heartbeat.conf\n" +
+			"	deleted:    percona-toolkit/pt-index-usage.conf\n" +
+			"	deleted:    percona-toolkit/pt-kill.conf\n" +
+			"	deleted:    percona-toolkit/pt-log-player.conf\n" +
+			"	deleted:    percona-toolkit/pt-mext.conf\n" +
+			"	deleted:    percona-toolkit/pt-mysql-summary.conf\n" +
+			"	deleted:    percona-toolkit/pt-online-schema-change.conf\n" +
+			"	deleted:    percona-toolkit/pt-pmp.conf\n" +
+			"	deleted:    percona-toolkit/pt-query-advisor.conf\n" +
+			"	deleted:    percona-toolkit/pt-query-digest.conf\n" +
+			"	deleted:    percona-toolkit/pt-show-grants.conf\n" +
+			"	deleted:    percona-toolkit/pt-sift.conf\n" +
+			"	deleted:    percona-toolkit/pt-slave-delay.conf\n" +
+			"	deleted:    percona-toolkit/pt-slave-find.conf\n" +
+			"	deleted:    percona-toolkit/pt-slave-restart.conf\n" +
+			"	deleted:    percona-toolkit/pt-stalk.conf\n" +
+			"	deleted:    percona-toolkit/pt-summary.conf\n" +
+			"	deleted:    percona-toolkit/pt-table-checksum.conf\n" +
+			"	deleted:    percona-toolkit/pt-table-sync.conf\n" +
+			"	deleted:    percona-toolkit/pt-tcp-model.conf\n" +
+			"	deleted:    percona-toolkit/pt-trend.conf\n" +
+			"	deleted:    percona-toolkit/pt-upgrade.conf\n" +
+			"	deleted:    percona-toolkit/pt-variable-advisor.conf\n" +
+			"	deleted:    percona-toolkit/pt-visual-explain.conf\n" +
+			"	deleted:    rcS.d/S04mountdevsubfs.sh\n" +
+			"	deleted:    rcS.d/S04procps\n" +
+			"	deleted:    rcS.d/S05hwclock.sh\n" +
+			"	deleted:    rcS.d/S06checkroot.sh\n" +
+			"	deleted:    rcS.d/S07checkfs.sh\n" +
+			"	deleted:    rcS.d/S08checkroot-bootclean.sh\n" +
+			"	deleted:    rcS.d/S08kmod\n" +
+			"	deleted:    rcS.d/S08urandom\n" +
+			"	deleted:    rcS.d/S09mountall.sh\n" +
+			"	deleted:    rcS.d/S09networking\n" +
+			"	deleted:    rcS.d/S10mountall-bootclean.sh\n" +
+			"	deleted:    rcS.d/S10mountnfs.sh\n" +
+			"	deleted:    rcS.d/S11mountnfs-bootclean.sh\n" +
+			"	deleted:    rcS.d/S12bootmisc.sh\n" +
+			"	modified:   skel/.profile\n" +
+			"	modified:   sudoers\n" +
+			"	modified:   systemd/system.conf\n" +
+			"	deleted:    systemd/system/mysql.service\n" +
+			"	modified:   update-motd.d/10-help-text\n"
+		},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "MatchLines"},
+		{type: "FILTER_UPDATE_SEARCH_STRING", id: "1", searchString: "deleted"},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "MatchInLines"},
+		{type: "FILTER_UPDATE_SEARCH_STRING", id: "2", searchString: "deleted:\\s+(.+?)$"},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "MatchLines"},
+		{type: "FILTER_UPDATE_SEARCH_STRING", id: "3", searchString: "percona"},
+		{type: "REGEXP_FLOW_ADD_FILTER", filterType: "Replace"},
+		{type: "FILTER_UPDATE_REPLACE_STRING", id: "4", replaceString: "git checkout -- \"$1\""},
+	]
+});
+
 export default examples;
