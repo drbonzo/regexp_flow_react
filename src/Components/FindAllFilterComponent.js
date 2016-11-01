@@ -17,7 +17,7 @@ class FindAllFilterComponent extends FilterComponent {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="FilterConfig__Contents__Checkbox__Label">Find all matches (Found: 0)</label>
+								<label className="FilterConfig__Contents__Checkbox__Label">Find all matches {/* FIXME implement (Found: 0)*/}</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
 									this.props.onSearchStringChange(event.target.value)
 								}}/>

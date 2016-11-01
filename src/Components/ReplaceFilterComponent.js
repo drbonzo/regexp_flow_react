@@ -48,7 +48,7 @@ class ReplaceFilterComponent extends FilterComponent {
 
 						<fieldset>
 							<div className="form-group">
-								<label className="FilterConfig__Contents__Checkbox__Label">and replace with. (5 replacements)</label>
+								<label className="FilterConfig__Contents__Checkbox__Label">and replace with{/* FIXME implement (5 replacements) */}:</label>
 								<input type="text" className="form-control input-sm" placeholder="replacement string" value={this.props.replaceString} onChange={(event) => {
 									this.props.onReplaceStringChange(event.target.value)
 								}}/>

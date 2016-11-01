@@ -18,7 +18,7 @@ class MatchLinesFilterComponent extends FilterComponent {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="FilterConfig__Contents__Checkbox__Label">Get lines {this.props.invertMatch ? "not" : ""} matching (showing 1 of 1 lines)</label>
+								<label className="FilterConfig__Contents__Checkbox__Label">Get lines {this.props.invertMatch ? "not" : ""} matching {/* FIXME implement (showing 1 of 1 lines)*/}</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
 									this.props.onSearchStringChange(event.target.value)
 								}}/>

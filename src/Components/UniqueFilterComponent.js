@@ -17,7 +17,7 @@ class UniqueFilterComponent extends FilterComponent {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="FilterConfig__Contents__Checkbox__Label">Show just unique lines (showing 0 of 0 lines)</label>
+								<label className="FilterConfig__Contents__Checkbox__Label">Show just unique lines {/* FIXME implement (showing 0 of 0 lines) */}</label>
 							</div>
 							<div className="form-group form-inline">
 							</div>
