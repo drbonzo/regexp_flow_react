@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react'
 import FilterConfigControlls from './FilterConfigControlls'
 import FilterComponent from './FilterComponent'
+import HelpForFilterComponent from './Layout/HelpForFilterComponent'
 
 class FindAllFilterComponent extends FilterComponent {
 
@@ -32,6 +33,11 @@ class FindAllFilterComponent extends FilterComponent {
 								</div>
 							</div>
 						</fieldset>
+
+						<HelpForFilterComponent showHelp={this.state.showHelp}>
+							<li>returns each match in a separate line</li>
+						</HelpForFilterComponent>
+
 						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
