@@ -27,8 +27,8 @@ class ExamplesLoaderComponent extends Component {
 			exampleElements.push(<li key={"example_" + i}><a href="#" onClick={(event) => this.loadExample(i)}>{example.name}</a></li>);
 		}
 		return (
-			<div className="btn-group">
-				<button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<div className="btn-group ExamplesLoader">
+				<button type="button" className="btn btn-default dropdown-toggle ExamplesLoader__Button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Load an example <span className="caret"></span>
 				</button>
 				<ul className="dropdown-menu">
