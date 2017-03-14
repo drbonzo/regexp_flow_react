@@ -13,51 +13,51 @@ class MatchInLinesFilter extends Filter {
 	 * @param {string} inputText
 	 * @returns {string}
 	 */
-	processText(filterConfig, inputText) {
+    processText(filterConfig, inputText) {
 
-		try {
-			var line,
-				matchesInLines,
-				searchRegexp,
-				match,
-				matchedText,
-				lines,
-				l;
+        try {
+            var line,
+                matchesInLines,
+                searchRegexp,
+                match,
+                matchedText,
+                lines,
+                l;
 
 			// FIXME this.resetRegExpValidation();
-			lines = this.splitTextIntoLines(inputText);
-			filterConfig.totalLinesCount = lines.length;
-			filterConfig.matchedLinesCount = 0;
+            lines = this.splitTextIntoLines(inputText);
+            filterConfig.totalLinesCount = lines.length;
+            filterConfig.matchedLinesCount = 0;
 
-			if (!filterConfig.searchString) {
-				filterConfig.matchedLinesCount = filterConfig.totalLinesCount;
-				return inputText; // dont change anything when there is no regular expression
-			}
+            if (!filterConfig.searchString) {
+                filterConfig.matchedLinesCount = filterConfig.totalLinesCount;
+                return inputText; // dont change anything when there is no regular expression
+            }
 
-			matchesInLines = [];
+            matchesInLines = [];
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
+            searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
 			// wydziel do metody? zeby lista paramow byla krotsza
-			for (l in lines) {
-				if (lines.hasOwnProperty(l)) {
-					line = lines[l];
-					match = line.match(searchRegexp);
+            for (l in lines) {
+                if (lines.hasOwnProperty(l)) {
+                    line = lines[l];
+                    match = line.match(searchRegexp);
 
-					if (match) {
-						matchedText = match[1] || match[0]; // when no groups were used - then $0 is used, else first group is used
-						matchesInLines.push(matchedText);
-					}
-				}
-			}
+                    if (match) {
+                        matchedText = match[1] || match[0]; // when no groups were used - then $0 is used, else first group is used
+                        matchesInLines.push(matchedText);
+                    }
+                }
+            }
 
-			filterConfig.matchedLinesCount = matchesInLines.length;
+            filterConfig.matchedLinesCount = matchesInLines.length;
 
-			return matchesInLines.join("\n");
-		} catch (e) {
+            return matchesInLines.join('\n');
+        } catch (e) {
 			// FIXME throw this.setupValidationFromError(e);
-		}
-	}
+        }
+    }
 }
 
 export default MatchInLinesFilter;

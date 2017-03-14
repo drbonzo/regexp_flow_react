@@ -8,51 +8,51 @@ class ReplaceFilter extends Filter {
 	 *
 	 * @returns {string}
 	 */
-	processText(filterConfig, inputText) {
+    processText(filterConfig, inputText) {
 
-		var searchRegexp,
-			matches,
-			replacement;
-		try {
+        var searchRegexp,
+            matches,
+            replacement;
+        try {
 
 			// FIXME this.resetRegExpValidation();
-			filterConfig.replacementsCount = 0;
+            filterConfig.replacementsCount = 0;
 
-			if (!filterConfig.searchString) {
-				return inputText; // dont change anything when there is no regular expression
-			}
+            if (!filterConfig.searchString) {
+                return inputText; // dont change anything when there is no regular expression
+            }
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, filterConfig.global, filterConfig.multiline);
-			matches = inputText.match(searchRegexp);
-			filterConfig.replacementsCount = (matches ? matches.length : 0); // matches is null when no match is found
+            searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, filterConfig.global, filterConfig.multiline);
+            matches = inputText.match(searchRegexp);
+            filterConfig.replacementsCount = (matches ? matches.length : 0); // matches is null when no match is found
 
-			replacement = filterConfig.replaceString;
+            replacement = filterConfig.replaceString;
 
 			// replace \n with newline character (same with \t - tab character)
 			// but dont replace \\n (nor \\t)
-			replacement = replacement.replace(/(\\)?(\\[nt])/g, function (group1, group2) {
+            replacement = replacement.replace(/(\\)?(\\[nt])/g, function (group1, group2) {
 				// if (\\)? group has been found then we have two values: group1 and group2 - then dont change anything, as we got \\n
 				// if this group has NOT been found - then group2 is undefined - we can replace \n with newline character
 
-				if (group2) {
+                if (group2) {
 					// return unchanged string, as it found \\n
-					return group1 + group2;
-				}
+                    return group1 + group2;
+                }
 
 				// replace just \n with newline character
-				if (group1 === '\\n') {
-					return "\n";
-				}
+                if (group1 === '\\n') {
+                    return '\n';
+                }
 
 				// if not \\n then it must be \\t
-				return "\t";
-			});
+                return '\t';
+            });
 
-			return inputText.replace(searchRegexp, replacement);
-		} catch (e) {
+            return inputText.replace(searchRegexp, replacement);
+        } catch (e) {
 			// FIXME throw this.setupValidationFromError(e);
-		}
-	};
+        }
+    }
 }
 
 export default ReplaceFilter;

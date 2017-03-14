@@ -1,24 +1,24 @@
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
-import InputTextComponent from '../Components/InputTextComponent'
+import InputTextComponent from '../Components/InputTextComponent';
 
 import {
 	updateInputText
-} from '../redux/actions'
+} from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-	value: state.inputText
+    value: state.inputText
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-	onValueChange: (text) => {
-		dispatch(updateInputText(text));
-	}
+    onValueChange: (text) => {
+        dispatch(updateInputText(text));
+    }
 });
 
 const InputTextContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+ mapDispatchToProps
 )(InputTextComponent);
 
 export default InputTextContainer;

@@ -2,42 +2,42 @@ import FilterConfig from './FilterConfig';
 
 class ReplaceFilterConfig extends FilterConfig {
 
-	constructor() {
+    constructor() {
 
-		super('Replace');
-
-		/**
-		 * @type {string}
-		 */
-		this.searchString = '';
+        super('Replace');
 
 		/**
 		 * @type {string}
 		 */
-		this.replaceString = '';
+        this.searchString = '';
+
+		/**
+		 * @type {string}
+		 */
+        this.replaceString = '';
 
 		/**
 		 * We almost always want to replace everything
 		 *
 		 * @type {boolean}
 		 */
-		this.global = true;
+        this.global = true;
 
 		/**
 		 * @type {boolean}
 		 */
-		this.caseInsensitive = false;
+        this.caseInsensitive = false;
 
 		/**
 		 * @type {boolean}
 		 */
-		this.multiline = true;
+        this.multiline = true;
 
 		/**
 		 * @type {number}
 		 */
-		this.replacementsCount = 0;
-	}
+        this.replacementsCount = 0;
+    }
 }
 
 export default ReplaceFilterConfig;

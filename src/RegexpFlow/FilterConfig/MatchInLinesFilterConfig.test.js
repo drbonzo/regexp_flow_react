@@ -1,24 +1,24 @@
-import MatchInLinesFilterConfig from './MatchInLinesFilterConfig'
+import MatchInLinesFilterConfig from './MatchInLinesFilterConfig';
 
 describe('MatchInLinesFilterConfig', function () {
 
 	/**
 	 * @var {MatchInLinesFilterConfig}
 	 */
-	var filterConfig;
+    var filterConfig;
 
-	describe("defaults", function () {
+    describe('defaults', function () {
 
-		beforeEach(function () {
-			filterConfig = new MatchInLinesFilterConfig();
-		});
+        beforeEach(function () {
+            filterConfig = new MatchInLinesFilterConfig();
+        });
 
-		it("should be default", function () {
-			expect(filterConfig.filterType).toEqual('MatchInLines');
-			expect(filterConfig.searchString).toEqual('');
-			expect(filterConfig.caseInsensitive).toEqual(false);
-			expect(filterConfig.totalLinesCount).toEqual(0);
-			expect(filterConfig.matchedLinesCount).toEqual(0);
-		});
-	});
+        it('should be default', function () {
+            expect(filterConfig.filterType).toEqual('MatchInLines');
+            expect(filterConfig.searchString).toEqual('');
+            expect(filterConfig.caseInsensitive).toEqual(false);
+            expect(filterConfig.totalLinesCount).toEqual(0);
+            expect(filterConfig.matchedLinesCount).toEqual(0);
+        });
+    });
 });

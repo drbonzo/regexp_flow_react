@@ -1,100 +1,100 @@
-import FindAllFilter from './FindAllFilter'
-import FindAllFilterConfig from '../FilterConfig/FindAllFilterConfig'
+import FindAllFilter from './FindAllFilter';
+import FindAllFilterConfig from '../FilterConfig/FindAllFilterConfig';
 
-describe("FindAllFilter", function () {
+describe('FindAllFilter', function () {
 
 	/**
 	 * @var {FindAllFilter}
 	 */
-	var findAllFilter;
+    var findAllFilter;
 
 	/**
 	 * @var {FindAllFilterConfig}
 	 */
-	var filterConfig;
+    var filterConfig;
 
-	describe("processText", function () {
+    describe('processText', function () {
 
-		beforeEach(function () {
-			findAllFilter = new FindAllFilter();
-			filterConfig = new FindAllFilterConfig();
-		});
+        beforeEach(function () {
+            findAllFilter = new FindAllFilter();
+            filterConfig = new FindAllFilterConfig();
+        });
 
-		describe("empty values", function () {
-			it("should return empty string if input is empty", function () {
-				filterConfig.searchString = '\\d+';
-				findAllFilter = new FindAllFilter();
+        describe('empty values', function () {
+            it('should return empty string if input is empty', function () {
+                filterConfig.searchString = '\\d+';
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, '')).toEqual('');
-				expect(filterConfig.matchesCount).toEqual(0);
-			});
+                expect(findAllFilter.processText(filterConfig, '')).toEqual('');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
 
-			it("should return input text when regexp is empty", function () {
-				filterConfig.searchString = '';
-				findAllFilter = new FindAllFilter();
+            it('should return input text when regexp is empty', function () {
+                filterConfig.searchString = '';
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('Lorem ipsum dolor sit amet');
-				expect(filterConfig.matchesCount).toEqual(0);
-			});
-		});
+                expect(findAllFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('Lorem ipsum dolor sit amet');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
+        });
 
-		describe("normal matching", function () {
+        describe('normal matching', function () {
 
-			it("should return found matches, each in new line", function () {
-				filterConfig.searchString = '\\d+';
-				findAllFilter = new FindAllFilter();
+            it('should return found matches, each in new line', function () {
+                filterConfig.searchString = '\\d+';
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
-				expect(filterConfig.matchesCount).toEqual(4);
-			});
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
+                expect(filterConfig.matchesCount).toEqual(4);
+            });
 
-			it("should return empty string when no matches are found", function () {
-				filterConfig.searchString = '\\d+';
-				findAllFilter = new FindAllFilter();
+            it('should return empty string when no matches are found', function () {
+                filterConfig.searchString = '\\d+';
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('');
-				expect(filterConfig.matchesCount).toEqual(0);
-			});
-		});
+                expect(findAllFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
+        });
 
-		describe("flags", function () {
+        describe('flags', function () {
 
-			it("should return just first match when global flag is off", function () {
-				filterConfig.searchString = '\\d+';
-				filterConfig.global = false;
-				findAllFilter = new FindAllFilter();
+            it('should return just first match when global flag is off', function () {
+                filterConfig.searchString = '\\d+';
+                filterConfig.global = false;
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2');
-				expect(filterConfig.matchesCount).toEqual(1);
-			});
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2');
+                expect(filterConfig.matchesCount).toEqual(1);
+            });
 
-			it("should return all matches when global flag is on", function () {
-				filterConfig.searchString = '\\d+';
-				filterConfig.global = true;
-				findAllFilter = new FindAllFilter();
+            it('should return all matches when global flag is on', function () {
+                filterConfig.searchString = '\\d+';
+                filterConfig.global = true;
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
-				expect(filterConfig.matchesCount).toEqual(4);
-			});
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
+                expect(filterConfig.matchesCount).toEqual(4);
+            });
 
-			it("should return just case matched items when case insensivite flag is off", function () {
-				filterConfig.searchString = 'lorem';
-				filterConfig.caseInsensitive = false;
-				findAllFilter = new FindAllFilter();
+            it('should return just case matched items when case insensivite flag is off', function () {
+                filterConfig.searchString = 'lorem';
+                filterConfig.caseInsensitive = false;
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('lorem');
-				expect(filterConfig.matchesCount).toEqual(1);
-			});
+                expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('lorem');
+                expect(filterConfig.matchesCount).toEqual(1);
+            });
 
-			it("should return all matched items when case insensivite flag is on", function () {
-				filterConfig.searchString = 'lorem';
-				filterConfig.caseInsensitive = true;
-				findAllFilter = new FindAllFilter();
+            it('should return all matched items when case insensivite flag is on', function () {
+                filterConfig.searchString = 'lorem';
+                filterConfig.caseInsensitive = true;
+                findAllFilter = new FindAllFilter();
 
-				expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('Lorem\nLOREM\nLoReM\nloreM\nlorem');
-				expect(filterConfig.matchesCount).toEqual(5);
-			});
-		});
+                expect(findAllFilter.processText(filterConfig, 'Lorem LOREM LoReM loreM lorem')).toEqual('Lorem\nLOREM\nLoReM\nloreM\nlorem');
+                expect(filterConfig.matchesCount).toEqual(5);
+            });
+        });
 
 		//
 		// 	FIXME: describe("errors", function () {
@@ -110,5 +110,5 @@ describe("FindAllFilter", function () {
 		// 			}
 		// 		});
 		//
-	});
+    });
 });

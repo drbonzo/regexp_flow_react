@@ -1,6 +1,6 @@
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
-import MatchLinesFilterComponent from '../Components/MatchLinesFilterComponent'
+import MatchLinesFilterComponent from '../Components/MatchLinesFilterComponent';
 import {
 	filterUpdateSearchString,
 	filterToggleCaseInsensitive,
@@ -8,41 +8,41 @@ import {
 	filterToggleInvertMatch,
 	filterToggleEnabled,
 	regexpFlowDeleteFilter
-} from '../redux/actions'
+} from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-	searchString: state.filterConfigs[ownProps.id].searchString,
-	caseInsensitive: state.filterConfigs[ownProps.id].caseInsensitive,
-	invertMatch: state.filterConfigs[ownProps.id].invertMatch,
-	description: state.filterConfigs[ownProps.id].description,
-	enabled: state.filterConfigs[ownProps.id].enabled
+    searchString: state.filterConfigs[ownProps.id].searchString,
+    caseInsensitive: state.filterConfigs[ownProps.id].caseInsensitive,
+    invertMatch: state.filterConfigs[ownProps.id].invertMatch,
+    description: state.filterConfigs[ownProps.id].description,
+    enabled: state.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
-	onSearchStringChange: (newSearchString) => {
-		dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
-	},
-	onCaseInsensitiveChange: () => {
-		dispatch(filterToggleCaseInsensitive(ownProps.id))
-	},
-	onInvertMatchChange: () => {
-		dispatch(filterToggleInvertMatch(ownProps.id))
-	},
-	onDescriptionChange: (newDescription) => {
-		dispatch(filterUpdateDescription(ownProps.id, newDescription));
-	},
-	onEnabledClick: () => {
-		dispatch(filterToggleEnabled(ownProps.id))
-	},
-	onDeleteClick: () => {
-		dispatch(regexpFlowDeleteFilter(ownProps.id))
-	}
+    onSearchStringChange: (newSearchString) => {
+        dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
+    },
+    onCaseInsensitiveChange: () => {
+        dispatch(filterToggleCaseInsensitive(ownProps.id));
+    },
+    onInvertMatchChange: () => {
+        dispatch(filterToggleInvertMatch(ownProps.id));
+    },
+    onDescriptionChange: (newDescription) => {
+        dispatch(filterUpdateDescription(ownProps.id, newDescription));
+    },
+    onEnabledClick: () => {
+        dispatch(filterToggleEnabled(ownProps.id));
+    },
+    onDeleteClick: () => {
+        dispatch(regexpFlowDeleteFilter(ownProps.id));
+    }
 });
 
 const MatchLinesFilterContainer = connect(
 	mapStateToProps,
-	mapDispatchToProps
+ mapDispatchToProps
 )(MatchLinesFilterComponent);
 
 export default MatchLinesFilterContainer;

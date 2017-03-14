@@ -8,52 +8,52 @@ class MatchLinesFilter extends Filter {
 	 *
 	 * @returns {string}
 	 */
-	processText(filterConfig, inputText) {
+    processText(filterConfig, inputText) {
 
-		var line,
-			lines,
-			matchedLines,
-			searchRegexp,
-			l;
-		try {
+        var line,
+            lines,
+            matchedLines,
+            searchRegexp,
+            l;
+        try {
 
 			//  FIXME this.resetRegExpValidation();
-			lines = this.splitTextIntoLines(inputText);
-			filterConfig.totalLinesCount = lines.length;
-			filterConfig.matchedLinesCount = 0;
+            lines = this.splitTextIntoLines(inputText);
+            filterConfig.totalLinesCount = lines.length;
+            filterConfig.matchedLinesCount = 0;
 
-			if (!filterConfig.searchString) {
-				filterConfig.matchedLinesCount = filterConfig.totalLinesCount;
-				return inputText; // dont change anything when there is no regular expression
-			}
+            if (!filterConfig.searchString) {
+                filterConfig.matchedLinesCount = filterConfig.totalLinesCount;
+                return inputText; // dont change anything when there is no regular expression
+            }
 
-			matchedLines = [];
+            matchedLines = [];
 
-			searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
+            searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
-			for (l in lines) {
-				if (lines.hasOwnProperty(l)) {
-					line = lines[l];
+            for (l in lines) {
+                if (lines.hasOwnProperty(l)) {
+                    line = lines[l];
 
-					if (filterConfig.invertMatch) {
-						if (!line.match(searchRegexp)) {
-							matchedLines.push(line);
-						}
-					} else {
-						if (line.match(searchRegexp)) {
-							matchedLines.push(line);
-						}
-					}
-				}
-			}
+                    if (filterConfig.invertMatch) {
+                        if (!line.match(searchRegexp)) {
+                            matchedLines.push(line);
+                        }
+                    } else {
+                        if (line.match(searchRegexp)) {
+                            matchedLines.push(line);
+                        }
+                    }
+                }
+            }
 
-			filterConfig.matchedLinesCount = matchedLines.length;
+            filterConfig.matchedLinesCount = matchedLines.length;
 
-			return matchedLines.join("\n");
-		} catch (e) {
+            return matchedLines.join('\n');
+        } catch (e) {
 			// FIXME throw this.setupValidationFromError(e);
-		}
-	}
+        }
+    }
 }
 
 export default MatchLinesFilter;

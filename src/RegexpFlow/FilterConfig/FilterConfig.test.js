@@ -1,23 +1,23 @@
-import FilterConfig from './FilterConfig'
+import FilterConfig from './FilterConfig';
 
 describe('FilterConfig', function () {
 
 	/**
 	 * @var {FilterConfig}
 	 */
-	var filterConfig;
+    var filterConfig;
 
-	describe("defaults", function () {
+    describe('defaults', function () {
 
-		beforeEach(function () {
-		});
+        beforeEach(function () {
+        });
 
-		it("filterType in constructor", function () {
+        it('filterType in constructor', function () {
 
-			filterConfig = new FilterConfig('fooBar');
+            filterConfig = new FilterConfig('fooBar');
 
-			expect(filterConfig.enabled).toEqual(true);
-			expect(filterConfig.description).toEqual('');
-		});
-	});
+            expect(filterConfig.enabled).toEqual(true);
+            expect(filterConfig.description).toEqual('');
+        });
+    });
 });

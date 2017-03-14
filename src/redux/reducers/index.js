@@ -1,23 +1,23 @@
-import description from './description'
-import filterConfigs from './filterConfigs'
-import inputText from './inputText'
-import FilterRunner from '../../RegexpFlow/FilterRunner'
+import description from './description';
+import filterConfigs from './filterConfigs';
+import inputText from './inputText';
+import FilterRunner from '../../RegexpFlow/FilterRunner';
 
 const mainReducer = function (state, action) {
-	let filterConfigsNew = filterConfigs(state.filterConfigs, action);
-	let descriptionNew = description(state.description, action);
-	let inputTextNew = inputText(state.inputText, action);
+    let filterConfigsNew = filterConfigs(state.filterConfigs, action);
+    let descriptionNew = description(state.description, action);
+    let inputTextNew = inputText(state.inputText, action);
 
-	let runner = new FilterRunner();
+    let runner = new FilterRunner();
 	// FIXME update totals/counters in filter configs
-	let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
+    let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
 
-	return Object.assign({}, state, {
-		filterConfigs: filterConfigsNew,
-		description: descriptionNew,
-		inputText: inputTextNew,
-		outputText: outputTextNew
-	});
+    return Object.assign({}, state, {
+        filterConfigs: filterConfigsNew,
+        description: descriptionNew,
+        inputText: inputTextNew,
+        outputText: outputTextNew
+    });
 };
 
 export default mainReducer;

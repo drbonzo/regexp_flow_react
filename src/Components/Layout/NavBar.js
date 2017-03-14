@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
 class NavBar extends Component {
-	render() {
-		return (
+    render() {
+        return (
 			<div className="NavBar">
 				<nav className="navbar navbar-default navbar--no-bottom-margin">
 					<div className="container-fluid">
@@ -31,8 +31,8 @@ class NavBar extends Component {
 					</div>
 				</nav>
 			</div>
-		)
-	}
+        );
+    }
 }
 
 export default NavBar;

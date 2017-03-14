@@ -2,38 +2,38 @@ import FilterConfig from './FilterConfig';
 
 class FindAllFilterConfig extends FilterConfig {
 
-	constructor() {
+    constructor() {
 
-		super('FindAll');
+        super('FindAll');
 
 		/**
 		 * @type {string}
 		 */
-		this.searchString = '';
+        this.searchString = '';
 
 		/**
 		 * Always true
 		 *
 		 * @type {boolean}
 		 */
-		this.global = true;
+        this.global = true;
 
 		/**
 		 * @type {boolean}
 		 */
-		this.caseInsensitive = false;
+        this.caseInsensitive = false;
 
 		/**
 		 * Always true
 		 * @type {boolean}
 		 */
-		this.multiline = true;
+        this.multiline = true;
 
 		/**
 		 * @type {number}
 		 */
-		this.matchesCount = 0;
-	}
+        this.matchesCount = 0;
+    }
 }
 
 export default FindAllFilterConfig;

@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react'
-import FilterConfigControlls from './FilterConfigControlls'
-import FilterComponent from './FilterComponent'
-import HelpForFilterComponent from './Layout/HelpForFilterComponent'
+import React, {PropTypes} from 'react';
+import FilterConfigControlls from './FilterConfigControlls';
+import FilterComponent from './FilterComponent';
+import HelpForFilterComponent from './Layout/HelpForFilterComponent';
 
 class MatchInLinesFilterComponent extends FilterComponent {
 
-	render() {
-		return (
+    render() {
+        return (
 			<div className="FilterConfig MatchInLinesFilterConfig">
 				<div className="FilterConfig__Header">
 					Match in lines
@@ -20,8 +20,8 @@ class MatchInLinesFilterComponent extends FilterComponent {
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">From each line, extract text matching {/* FIXME implement (showing 10 of 200 lines) */}</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
-									this.props.onSearchStringChange(event.target.value)
-								}}/>
+    this.props.onSearchStringChange(event.target.value);
+}}/>
 								<p className="FilterConfig__Contents__RegexpErrors FilterConfig__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
@@ -45,36 +45,36 @@ class MatchInLinesFilterComponent extends FilterComponent {
 							<li>if line does not match - then it is being ommited in result</li>
 						</HelpForFilterComponent>
 
-						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
+						<fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
-									this.props.onDescriptionChange(event.target.value)
-								}}/>
+    this.props.onDescriptionChange(event.target.value);
+}}/>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
-		)
-	}
+        );
+    }
 }
 
 MatchInLinesFilterComponent.propTypes = {
-	searchString: PropTypes.string.isRequired,
-	caseInsensitive: PropTypes.bool.isRequired,
-	description: PropTypes.string.isRequired,
+    searchString: PropTypes.string.isRequired,
+    caseInsensitive: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
 	//
-	enabled: PropTypes.bool.isRequired,
+    enabled: PropTypes.bool.isRequired,
 	//
 	//
 	//
-	onSearchStringChange: PropTypes.func.isRequired,
-	onCaseInsensitiveChange: PropTypes.func.isRequired,
-	onDescriptionChange: PropTypes.func.isRequired,
+    onSearchStringChange: PropTypes.func.isRequired,
+    onCaseInsensitiveChange: PropTypes.func.isRequired,
+    onDescriptionChange: PropTypes.func.isRequired,
 	//
-	onEnabledClick: PropTypes.func.isRequired,
-	onDeleteClick: PropTypes.func.isRequired
+    onEnabledClick: PropTypes.func.isRequired,
+    onDeleteClick: PropTypes.func.isRequired
 };
 
 export default MatchInLinesFilterComponent;

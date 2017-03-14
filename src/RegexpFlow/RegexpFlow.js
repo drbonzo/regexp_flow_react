@@ -1,17 +1,17 @@
 class RegexpFlow {
 
-	constructor() {
+    constructor() {
 
 		/**
 		 * @type {Array|FilterConfig[]}
 		 */
-		this.filterConfigs = {};
+        this.filterConfigs = {};
 
 		/**
 		 * @type {string}
 		 */
-		this.description = '';
-	}
+        this.description = '';
+    }
 }
 
 export default RegexpFlow;

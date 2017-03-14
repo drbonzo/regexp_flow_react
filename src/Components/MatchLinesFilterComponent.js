@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react'
-import FilterConfigControlls from './FilterConfigControlls'
-import FilterComponent from './FilterComponent'
-import HelpForFilterComponent from './Layout/HelpForFilterComponent'
+import React, {PropTypes} from 'react';
+import FilterConfigControlls from './FilterConfigControlls';
+import FilterComponent from './FilterComponent';
+import HelpForFilterComponent from './Layout/HelpForFilterComponent';
 
 class MatchLinesFilterComponent extends FilterComponent {
 
-	render() {
-		return (
+    render() {
+        return (
 			<div className="FilterConfig MatchLinesFilterConfig">
 				<div className="FilterConfig__Header">
 					Match lines with text
@@ -18,10 +18,10 @@ class MatchLinesFilterComponent extends FilterComponent {
 					<form>
 						<fieldset>
 							<div className="form-group">
-								<label className="FilterConfig__Contents__Checkbox__Label">Get lines {this.props.invertMatch ? "not" : ""} matching {/* FIXME implement (showing 1 of 1 lines)*/}</label>
+								<label className="FilterConfig__Contents__Checkbox__Label">Get lines {this.props.invertMatch ? 'not' : ''} matching {/* FIXME implement (showing 1 of 1 lines)*/}</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
-									this.props.onSearchStringChange(event.target.value)
-								}}/>
+    this.props.onSearchStringChange(event.target.value);
+}}/>
 								<p className="FilterConfig__Contents__RegexpErrors FilterConfig__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
@@ -46,38 +46,38 @@ class MatchLinesFilterComponent extends FilterComponent {
 							<li>lines are returned, joined with \n character - not their original newline character!</li>
 						</HelpForFilterComponent>
 
-						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
+						<fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
-									this.props.onDescriptionChange(event.target.value)
-								}}/>
+    this.props.onDescriptionChange(event.target.value);
+}}/>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
-		)
-	}
+        );
+    }
 }
 
 MatchLinesFilterComponent.propTypes = {
-	searchString: PropTypes.string.isRequired,
-	caseInsensitive: PropTypes.bool.isRequired,
-	invertMatch: PropTypes.bool.isRequired,
-	description: PropTypes.string.isRequired,
+    searchString: PropTypes.string.isRequired,
+    caseInsensitive: PropTypes.bool.isRequired,
+    invertMatch: PropTypes.bool.isRequired,
+    description: PropTypes.string.isRequired,
 	//
-	enabled: PropTypes.bool.isRequired,
+    enabled: PropTypes.bool.isRequired,
 	//
 	//
 	//
-	onSearchStringChange: PropTypes.func.isRequired,
-	onCaseInsensitiveChange: PropTypes.func.isRequired,
-	onInvertMatchChange: PropTypes.func.isRequired,
-	onDescriptionChange: PropTypes.func.isRequired,
+    onSearchStringChange: PropTypes.func.isRequired,
+    onCaseInsensitiveChange: PropTypes.func.isRequired,
+    onInvertMatchChange: PropTypes.func.isRequired,
+    onDescriptionChange: PropTypes.func.isRequired,
 	//
-	onEnabledClick: PropTypes.func.isRequired,
-	onDeleteClick: PropTypes.func.isRequired
+    onEnabledClick: PropTypes.func.isRequired,
+    onDeleteClick: PropTypes.func.isRequired
 };
 
 export default MatchLinesFilterComponent;

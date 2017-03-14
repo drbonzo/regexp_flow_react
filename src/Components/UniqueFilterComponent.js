@@ -1,11 +1,11 @@
-import React, {PropTypes} from 'react'
-import FilterConfigControlls from './FilterConfigControlls'
-import FilterComponent from './FilterComponent'
+import React, {PropTypes} from 'react';
+import FilterConfigControlls from './FilterConfigControlls';
+import FilterComponent from './FilterComponent';
 
 class UniqueFilterComponent extends FilterComponent {
 
-	render() {
-		return (
+    render() {
+        return (
 			<div className="FilterConfig FindAllFilterConfig">
 				<div className="FilterConfig__Header">
 					Unique
@@ -22,32 +22,32 @@ class UniqueFilterComponent extends FilterComponent {
 							<div className="form-group form-inline">
 							</div>
 						</fieldset>
-						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
+						<fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
-									this.props.onDescriptionChange(event.target.value)
-								}}/>
+    this.props.onDescriptionChange(event.target.value);
+}}/>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
-		)
-	}
+        );
+    }
 }
 
 UniqueFilterComponent.propTypes = {
-	description: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 	//
-	enabled: PropTypes.bool.isRequired,
+    enabled: PropTypes.bool.isRequired,
 	//
 	//
 	//
-	onDescriptionChange: PropTypes.func.isRequired,
+    onDescriptionChange: PropTypes.func.isRequired,
 	//
-	onEnabledClick: PropTypes.func.isRequired,
-	onDeleteClick: PropTypes.func.isRequired
+    onEnabledClick: PropTypes.func.isRequired,
+    onDeleteClick: PropTypes.func.isRequired
 };
 
 export default UniqueFilterComponent;

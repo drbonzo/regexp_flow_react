@@ -1,14 +1,14 @@
 class FilterConfig {
 
-	constructor(filterType) {
+    constructor(filterType) {
 
-		this.filterType = filterType;
+        this.filterType = filterType;
 
-		this.id = null;
-		this.enabled = true;
-		this.description = '';
+        this.id = null;
+        this.enabled = true;
+        this.description = '';
 		
-	}
+    }
 }
 
 export default FilterConfig;

@@ -2,31 +2,31 @@ import FilterConfig from './FilterConfig';
 
 class MatchInLinesFilterConfig extends FilterConfig {
 
-	constructor() {
+    constructor() {
 		
-		super('MatchInLines');
+        super('MatchInLines');
 
 		/**
 		 * @type {string}
 		 */
-		this.searchString = '';
+        this.searchString = '';
 
 		/**
 		 * @type {boolean}
 		 */
-		this.caseInsensitive = false;
+        this.caseInsensitive = false;
 
 		/**
 		 * @type {number}
 		 */
-		this.totalLinesCount = 0;
+        this.totalLinesCount = 0;
 
 		/**
 		 * @type {number}
 		 */
-		this.matchedLinesCount = 0;
+        this.matchedLinesCount = 0;
 
-	}
+    }
 }
 
 export default MatchInLinesFilterConfig;

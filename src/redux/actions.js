@@ -14,94 +14,94 @@ export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
 export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 
 export function regexpFlowAddFilter(filterType) {
-	return {
-		type: REGEXP_FLOW_ADD_FILTER,
-		filterType: filterType,
-	};
+    return {
+        type: REGEXP_FLOW_ADD_FILTER,
+        filterType: filterType,
+    };
 }
 
 export function regexpFlowDeleteFilter(id) {
-	return {
-		type: REGEXP_FLOW_DELETE_FILTER,
-		id: id
-	}
+    return {
+        type: REGEXP_FLOW_DELETE_FILTER,
+        id: id
+    };
 }
 
 export function regxpFlowUpdateDescription(description) {
-	return {
-		type: REGEXP_FLOW_UPDATE_DESCRIPTION,
-		description: description
-	}
+    return {
+        type: REGEXP_FLOW_UPDATE_DESCRIPTION,
+        description: description
+    };
 }
 
 export function updateInputText(text) {
-	return {
-		type: UPDATE_INPUT_TEXT,
-		text: text
-	}
+    return {
+        type: UPDATE_INPUT_TEXT,
+        text: text
+    };
 }
 
 export function removeAllFilterConfigs() {
-	return {
-		type: REMOVE_ALL_FILTERS
-	}
+    return {
+        type: REMOVE_ALL_FILTERS
+    };
 }
 
 export function filterToggleEnabled(id) {
-	return {
-		type: FILTER_TOGGLE_ENABLED,
-		id: id
-	}
+    return {
+        type: FILTER_TOGGLE_ENABLED,
+        id: id
+    };
 }
 
 export function filterToggleCaseInsensitive(id) {
-	return {
-		type: FILTER_TOGGLE_CASE_INSENSITIVE,
-		id: id
-	}
+    return {
+        type: FILTER_TOGGLE_CASE_INSENSITIVE,
+        id: id
+    };
 }
 
 export function filterToggleInvertMatch(id) {
-	return {
-		type: FILTER_TOGGLE_INVERT_MATCH,
-		id: id
-	}
+    return {
+        type: FILTER_TOGGLE_INVERT_MATCH,
+        id: id
+    };
 }
 
 export function filterToggleGlobal(id) {
-	return {
-		type: FILTER_TOGGLE_GLOBAL,
-		id: id
-	}
+    return {
+        type: FILTER_TOGGLE_GLOBAL,
+        id: id
+    };
 }
 
 export function filterToggleMultiline(id) {
-	return {
-		type: FILTER_TOGGLE_MULTILINE,
-		id: id
-	}
+    return {
+        type: FILTER_TOGGLE_MULTILINE,
+        id: id
+    };
 }
 
 export function filterUpdateDescription(id, description) {
-	return {
-		type: FILTER_UPDATE_DESCRIPTION,
-		id: id,
-		description: description
-	}
+    return {
+        type: FILTER_UPDATE_DESCRIPTION,
+        id: id,
+        description: description
+    };
 }
 
 export function filterUpdateSearchString(id, searchString) {
-	return {
-		type: FILTER_UPDATE_SEARCH_STRING,
-		id: id,
-		searchString: searchString
-	}
+    return {
+        type: FILTER_UPDATE_SEARCH_STRING,
+        id: id,
+        searchString: searchString
+    };
 }
 
 export function filterUpdateReplaceString(id, replaceString) {
-	return {
-		type: FILTER_UPDATE_REPLACE_STRING,
-		id: id,
-		replaceString: replaceString
-	}
+    return {
+        type: FILTER_UPDATE_REPLACE_STRING,
+        id: id,
+        replaceString: replaceString
+    };
 }

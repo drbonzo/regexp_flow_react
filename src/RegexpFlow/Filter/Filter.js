@@ -6,9 +6,9 @@ class Filter {
 	 *
 	 * @return {string}
 	 */
-	processText(filterConfig, inputText) {
-		throw new Error("Please implement me!");
-	};
+    processText(filterConfig, inputText) {
+        throw new Error('Please implement me!');
+    }
 
 	/**
 	 * Builds regular expression from string + flags
@@ -19,54 +19,54 @@ class Filter {
 	 * @param {Boolean|null} flagMultiline
 	 * @returns {RegExp}
 	 */
-	buildRegExp(regularExpressionString, flagCaseInsensitive, flagGlobal, flagMultiline) {
-		var flags = [];
-		if (flagGlobal) {
-			flags.push('g');
-		}
+    buildRegExp(regularExpressionString, flagCaseInsensitive, flagGlobal, flagMultiline) {
+        var flags = [];
+        if (flagGlobal) {
+            flags.push('g');
+        }
 
-		if (flagCaseInsensitive) {
-			flags.push('i');
-		}
+        if (flagCaseInsensitive) {
+            flags.push('i');
+        }
 
-		if (flagMultiline) {
-			flags.push('m');
-		}
+        if (flagMultiline) {
+            flags.push('m');
+        }
 
-		return new RegExp(regularExpressionString, flags.join(''));
-	}
+        return new RegExp(regularExpressionString, flags.join(''));
+    }
 
 	/**
 	 * @param {string} inputText
 	 * @return {Array|string[]}
 	 */
-	splitTextIntoLines(inputText) {
+    splitTextIntoLines(inputText) {
 		// regexp without ?: will mess this split
-		inputText = inputText.replace(/\r\n/, "\n"); // CRNL => NL
-		inputText = inputText.replace(/\r/, "\n"); // CR => NL
+        inputText = inputText.replace(/\r\n/, '\n'); // CRNL => NL
+        inputText = inputText.replace(/\r/, '\n'); // CR => NL
 
-		return inputText.split(/\n/);
-	}
+        return inputText.split(/\n/);
+    }
 
-	resetRegExpValidation() {
-		this.regexpIsValid = true;
-		this.regexpValidationMessage = '';
-	};
+    resetRegExpValidation() {
+        this.regexpIsValid = true;
+        this.regexpValidationMessage = '';
+    }
 
 	/**
 	 *
 	 * @param error exception thrown
 	 * @returns {*} the same exception
 	 */
-	setupValidationFromError(error) {
-		this.regexpIsValid = false;
-		this.regexpValidationMessage = error.toString();
-		return error;
-	};
+    setupValidationFromError(error) {
+        this.regexpIsValid = false;
+        this.regexpValidationMessage = error.toString();
+        return error;
+    }
 
-	shouldShowDescription() {
-		return this.showDescription;
-	};
+    shouldShowDescription() {
+        return this.showDescription;
+    }
 }
 
 export default Filter;

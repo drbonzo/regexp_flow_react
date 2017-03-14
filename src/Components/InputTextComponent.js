@@ -1,25 +1,25 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes} from 'react';
 
 const InputTextComponent = ({value, onValueChange}) => {
 
-	return (
+    return (
 		<div className="InputText">
 			<h2>Input</h2>
 			<form className="form">
 			<textarea className="form-control" rows="10" value={value} onChange={(event) => {
-				onValueChange(event.target.value)
-			}}/>
+    onValueChange(event.target.value);
+}}/>
 			</form>
 		</div>
-	)
+    );
 };
 
 InputTextComponent.propTypes = {
-	value: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
 	//
 	//
 	//
-	onValueChange: PropTypes.func.isRequired,
+    onValueChange: PropTypes.func.isRequired,
 };
 
 export default InputTextComponent;

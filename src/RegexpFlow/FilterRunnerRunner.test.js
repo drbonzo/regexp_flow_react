@@ -1,17 +1,17 @@
-import FilterRunner from './FilterRunner'
+import FilterRunner from './FilterRunner';
 
-describe("FilterRunner", function () {
+describe('FilterRunner', function () {
 
 	/**
 	 * @var {FilterRunner}
 	 */
-	var filterRunner;
+    var filterRunner;
 
-	beforeEach(function () {
-		filterRunner = new FilterRunner();
-	});
+    beforeEach(function () {
+        filterRunner = new FilterRunner();
+    });
 
-	it("fixme", function () { // FIXME implement me
-		expect(true).toBeTruthy();
-	});
+    it('fixme', function () { // FIXME implement me
+        expect(true).toBeTruthy();
+    });
 });

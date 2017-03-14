@@ -1,12 +1,12 @@
-import React, {PropTypes} from 'react'
-import FilterConfigControlls from './FilterConfigControlls'
-import FilterComponent from './FilterComponent'
-import HelpForFilterComponent from './Layout/HelpForFilterComponent'
+import React, {PropTypes} from 'react';
+import FilterConfigControlls from './FilterConfigControlls';
+import FilterComponent from './FilterComponent';
+import HelpForFilterComponent from './Layout/HelpForFilterComponent';
 
 class ReplaceFilterComponent extends FilterComponent {
 
-	render() {
-		return (
+    render() {
+        return (
 			<div className="FilterConfig ReplaceFilterConfig">
 				<div className="FilterConfig__Header">
 					Replace in text
@@ -20,8 +20,8 @@ class ReplaceFilterComponent extends FilterComponent {
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Search for</label>
 								<input type="text" className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
-									this.props.onSearchStringChange(event.target.value)
-								}}/>
+    this.props.onSearchStringChange(event.target.value);
+}}/>
 								<p className="FilterConfig__Contents__RegexpErrors FilterConfig__Contents__RegexpErrors--Hidden"/>
 							</div>
 							<div className="form-group form-inline">
@@ -50,8 +50,8 @@ class ReplaceFilterComponent extends FilterComponent {
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">and replace with{/* FIXME implement (5 replacements) */}:</label>
 								<input type="text" className="form-control input-sm" placeholder="replacement string" value={this.props.replaceString} onChange={(event) => {
-									this.props.onReplaceStringChange(event.target.value)
-								}}/>
+    this.props.onReplaceStringChange(event.target.value);
+}}/>
 							</div>
 						</fieldset>
 
@@ -66,42 +66,42 @@ class ReplaceFilterComponent extends FilterComponent {
 							<li>\t, \n - to insert tab/newline characters</li>
 						</HelpForFilterComponent>
 
-						<fieldset className={this.state.showDescription ? "FilterConfig__Contents__Description" : "FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden"}>
+						<fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Description</label>
 								<input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
-									this.props.onDescriptionChange(event.target.value)
-								}}/>
+    this.props.onDescriptionChange(event.target.value);
+}}/>
 							</div>
 						</fieldset>
 					</form>
 				</div>
 			</div>
-		)
-	}
+        );
+    }
 }
 
 ReplaceFilterComponent.propTypes = {
-	searchString: PropTypes.string.isRequired,
-	global: PropTypes.bool.isRequired,
-	caseInsensitive: PropTypes.bool.isRequired,
-	multiline: PropTypes.bool.isRequired,
-	replaceString: PropTypes.string.isRequired,
-	description: PropTypes.string.isRequired,
+    searchString: PropTypes.string.isRequired,
+    global: PropTypes.bool.isRequired,
+    caseInsensitive: PropTypes.bool.isRequired,
+    multiline: PropTypes.bool.isRequired,
+    replaceString: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
 	//
-	enabled: PropTypes.bool.isRequired,
+    enabled: PropTypes.bool.isRequired,
 	//
 	//
 	//
-	onSearchStringChange: PropTypes.func.isRequired,
-	onGlobalChange: PropTypes.func.isRequired,
-	onCaseInsensitiveChange: PropTypes.func.isRequired,
-	onMultilineChange: PropTypes.func.isRequired,
-	onReplaceStringChange: PropTypes.func.isRequired,
-	onDescriptionChange: PropTypes.func.isRequired,
+    onSearchStringChange: PropTypes.func.isRequired,
+    onGlobalChange: PropTypes.func.isRequired,
+    onCaseInsensitiveChange: PropTypes.func.isRequired,
+    onMultilineChange: PropTypes.func.isRequired,
+    onReplaceStringChange: PropTypes.func.isRequired,
+    onDescriptionChange: PropTypes.func.isRequired,
 	//
-	onEnabledClick: PropTypes.func.isRequired,
-	onDeleteClick: PropTypes.func.isRequired
+    onEnabledClick: PropTypes.func.isRequired,
+    onDeleteClick: PropTypes.func.isRequired
 };
 
 export default ReplaceFilterComponent;

@@ -1,49 +1,49 @@
-import mainReducer from './index'
+import mainReducer from './index';
 
 import {
 	updateInputText,
 	regxpFlowUpdateDescription,
 	regexpFlowAddFilter
-} from '../actions'
+} from '../actions';
 
-import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig'
+import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';
 
-describe("mainReducer", function () {
+describe('mainReducer', function () {
 
-	var state;
+    var state;
 
-	beforeEach(function () {
-		state = {
-			filterConfigs: {},
-			description: '',
-			inputText: '',
-			outputText: ''
-		};
-	});
+    beforeEach(function () {
+        state = {
+            filterConfigs: {},
+            description: '',
+            inputText: '',
+            outputText: ''
+        };
+    });
 
-	it('should handle inputText', function () {
-		let expectedState = Object.assign({}, state);
-		expectedState.inputText = 'new inputText';
+    it('should handle inputText', function () {
+        let expectedState = Object.assign({}, state);
+        expectedState.inputText = 'new inputText';
 
-		let newState = mainReducer(state, updateInputText('new inputText'));
-		expect(newState.inputText).toEqual('new inputText');
-	});
+        let newState = mainReducer(state, updateInputText('new inputText'));
+        expect(newState.inputText).toEqual('new inputText');
+    });
 
-	it('should handle description', function () {
-		let expectedState = Object.assign({}, state);
-		expectedState.description = 'new description';
+    it('should handle description', function () {
+        let expectedState = Object.assign({}, state);
+        expectedState.description = 'new description';
 
-		let newState = mainReducer(state, regxpFlowUpdateDescription('new description'));
-		expect(newState).toEqual(expectedState);
-	});
+        let newState = mainReducer(state, regxpFlowUpdateDescription('new description'));
+        expect(newState).toEqual(expectedState);
+    });
 
-	it('should handle filterConfigs', function () {
-		let expectedState = Object.assign({}, state);
-		expectedState.filterConfigs[1] = new FindAllFilterConfig();
-		expectedState.filterConfigs[1].id = 1;
-		expectedState.filterConfigs[1].searchString = "\\b.+?\\b";
+    it('should handle filterConfigs', function () {
+        let expectedState = Object.assign({}, state);
+        expectedState.filterConfigs[1] = new FindAllFilterConfig();
+        expectedState.filterConfigs[1].id = 1;
+        expectedState.filterConfigs[1].searchString = '\\b.+?\\b';
 
-		let newState = mainReducer(state, regexpFlowAddFilter('FindAll'));
-		expect(newState).toEqual(expectedState);
-	});
+        let newState = mainReducer(state, regexpFlowAddFilter('FindAll'));
+        expect(newState).toEqual(expectedState);
+    });
 });
