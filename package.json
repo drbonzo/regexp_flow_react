@@ -1,9 +1,9 @@
 {
   "name": "regexp_flow_react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.6.1"
+    "react-scripts": "^0.9.5"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
