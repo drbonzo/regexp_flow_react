@@ -1,0 +1,16 @@
+NEW
+
+0.2.0 2017.03.14
+
+- [Added] Adding new Filter focuses on its first `<input>` element
+- [Added] Added EditorConfig
+- [Added] Added ESLint
+- [Changed] Updated react-scripts to ^0.9.5
+
+0.1.1 2016.11.01
+
+- [Added] README updated
+
+0.1.0 2016.11.01
+
+- [Added] Initial release

@@ -12,6 +12,19 @@ class FilterComponent extends Component {
 
         this.toggleShowHelp = this.toggleShowHelp.bind(this);
         this.toggleShowDescription = this.toggleShowDescription.bind(this);
+
+        this.firstInput = null;
+    }
+
+    focusOnFirstInput() {
+        if (this.firstInput) {
+            this.firstInput.focus();
+            this.firstInput.setSelectionRange(0, this.firstInput.value.length);
+        }
+    }
+
+    componentDidMount() {
+        this.focusOnFirstInput();
     }
 
     toggleShowHelp() {
