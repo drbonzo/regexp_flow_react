@@ -3,6 +3,7 @@ NEW
 0.3.0 NEXT
 
 - [Removed] Removed usage of RegexpFlowDescriptionContainer, as we are not saving Flows right now
+- [Removed] Removed top menu with New, Save, etc
 
 0.2.0 2017.03.14
 
