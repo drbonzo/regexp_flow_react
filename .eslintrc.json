@@ -34,10 +34,12 @@
     "env": {
         "browser": true,
         "es6": true,
+        "jest/globals": true,
         "node": true
     },
     "plugins": [
-        "react"
+        "react",
+        "jest"
     ],
     "extends": ["eslint:recommended", "plugin:react/recommended"],
     "rules": {
