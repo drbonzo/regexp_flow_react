@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ExamplesLoaderContainer from '../../Containers/ExamplesLoaderContainer';
 
 class NavBar extends Component {
     render() {
@@ -15,7 +16,12 @@ class NavBar extends Component {
 							</button>
 							<a className="navbar-brand" href="#">RegexpFlow - ReactJS</a>
 						</div>
-						{/*
+
+                        <div className="pull-right">
+                            <ExamplesLoaderContainer/>
+                        </div>
+
+                        {/*
 						We do not have Save, Export, New, ... functionality right now
 						<div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul className="nav navbar-nav">

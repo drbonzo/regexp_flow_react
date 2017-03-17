@@ -4,6 +4,7 @@ NEW
 
 - [Removed] Removed usage of RegexpFlowDescriptionContainer, as we are not saving Flows right now
 - [Removed] Removed top menu with New, Save, etc
+- [Changed] Moved ExamplesLoaderContainer to navbar
 
 0.2.0 2017.03.14
 
