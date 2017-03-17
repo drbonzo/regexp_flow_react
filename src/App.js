@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import RegexpFlowDescriptionContainer from './Containers/RegexpFlowDescriptionContainer';
 import RegexpFlowContainer from './Containers/RegexpFlowContainer';
 import NavBar from './Components/Layout/NavBar';
 import InputTextContainer from './Containers/InputTextContainer';
@@ -25,14 +24,6 @@ class App extends Component {
 									<ExamplesLoaderContainer/>
 								</div>
 								<div>
-									<div className="RegexpFlow__Metadata">
-										<form>
-											<div className="form-group form-group-sm">
-												<label>Description</label>
-												<RegexpFlowDescriptionContainer/>
-											</div>
-										</form>
-									</div>
 								</div>
 								<div>
 									<RegexpFlowContainer/>
