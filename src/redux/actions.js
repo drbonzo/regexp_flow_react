@@ -9,6 +9,7 @@ export const FILTER_TOGGLE_CASE_INSENSITIVE = 'FILTER_TOGGLE_CASE_INSENSITIVE';
 export const FILTER_TOGGLE_INVERT_MATCH = 'FILTER_TOGGLE_INVERT_MATCH';
 export const FILTER_TOGGLE_GLOBAL = 'FILTER_TOGGLE_GLOBAL';
 export const FILTER_TOGGLE_MULTILINE = 'FILTER_TOGGLE_MULTILINE';
+export const FILTER_TOGGLE_ADD_COUNTER = 'FILTER_TOGGLE_ADD_COUNTER';
 export const FILTER_UPDATE_DESCRIPTION = 'FILTER_UPDATE_DESCRIPTION';
 export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
 export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
@@ -78,6 +79,13 @@ export function filterToggleGlobal(id) {
 export function filterToggleMultiline(id) {
     return {
         type: FILTER_TOGGLE_MULTILINE,
+        id: id
+    };
+}
+
+export function filterToggleAddCounter(id){
+    return {
+        type: FILTER_TOGGLE_ADD_COUNTER,
         id: id
     };
 }

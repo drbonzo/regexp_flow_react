@@ -2,18 +2,23 @@ import {connect} from 'react-redux';
 
 import UniqueFilterComponent from '../Components/UniqueFilterComponent';
 import {
-	filterUpdateDescription,
-	filterToggleEnabled,
-	regexpFlowDeleteFilter
+    filterUpdateDescription,
+    filterToggleEnabled,
+    filterToggleAddCounter,
+    regexpFlowDeleteFilter
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
+    addCounter: state.filterConfigs[ownProps.id].addCounter,
     description: state.filterConfigs[ownProps.id].description,
     enabled: state.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
 
+    onAddCounterChange: () => {
+        dispatch(filterToggleAddCounter(ownProps.id));
+    },
     onDescriptionChange: (newDescription) => {
         dispatch(filterUpdateDescription(ownProps.id, newDescription));
     },
@@ -26,8 +31,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const UniqueFilterContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(UniqueFilterComponent);
 
 export default UniqueFilterContainer;

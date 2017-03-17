@@ -2,19 +2,19 @@ import Filter from './Filter';
 
 class UniqueFilter extends Filter {
 
-	/**
-	 * @param {UniqueFilterConfig} filterConfig
-	 * @param {string} inputText
-	 * @returns {string}
-	 */
+    /**
+     * @param {UniqueFilterConfig} filterConfig
+     * @param {string} inputText
+     * @returns {string}
+     */
     processText(filterConfig, inputText) {
 
         var lines,
             line,
             l,
-            uniqueLinesHash,
+            uniqueLinesCounters,
             uniqueLines,
-            weSeeThisLineForTheFirstTimeAndLineIsNotEmpty;
+            weSeeThisLineForTheFirstTime;
 
         filterConfig.totalLinesCount = 0;
         filterConfig.matchedLinesCount = 0;
@@ -26,23 +26,33 @@ class UniqueFilter extends Filter {
         lines = this.splitTextIntoLines(inputText);
         filterConfig.totalLinesCount = lines.length;
 
-        uniqueLinesHash = {};
+        uniqueLinesCounters = {};
 
         for (l in lines) {
             if (lines.hasOwnProperty(l)) {
                 line = lines[l];
 
-                weSeeThisLineForTheFirstTimeAndLineIsNotEmpty = (!uniqueLinesHash.hasOwnProperty(line) && line.length > 0);
-                if (weSeeThisLineForTheFirstTimeAndLineIsNotEmpty) {
-                    uniqueLinesHash[line] = line;
+                if (line.length === 0) {
+                    continue;
+                }
+
+                weSeeThisLineForTheFirstTime = !uniqueLinesCounters.hasOwnProperty(line);
+                if (weSeeThisLineForTheFirstTime) {
+                    uniqueLinesCounters[line] = 1;
+                } else {
+                    uniqueLinesCounters[line]++
                 }
             }
         }
 
         uniqueLines = [];
-        for (l in uniqueLinesHash) {
-            if (uniqueLinesHash.hasOwnProperty(l)) {
-                uniqueLines.push(uniqueLinesHash[l]);
+        for (l in uniqueLinesCounters) {
+            if (uniqueLinesCounters.hasOwnProperty(l)) {
+                if (filterConfig.addCounter) {
+                    uniqueLines.push(`${uniqueLinesCounters[l]}\t${l}`);
+                } else {
+                    uniqueLines.push(l);
+                }
             }
         }
 

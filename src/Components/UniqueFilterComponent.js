@@ -19,8 +19,16 @@ class UniqueFilterComponent extends FilterComponent {
 							<div className="form-group">
 								<label className="FilterConfig__Contents__Checkbox__Label">Show just unique lines {/* FIXME implement (showing 0 of 0 lines) */}</label>
 							</div>
-							<div className="form-group form-inline">
-							</div>
+                            <div className="form-group form-inline">
+                                <div className="checkbox FilterConfig__Contents__Checkbox">
+                                    <label className="FilterConfig__Contents__Checkbox__Label">
+                                        <input type="checkbox" checked={this.props.addCounter} onChange={this.props.onAddCounterChange}/>
+                                        Add counter
+                                    </label>
+                                </div>
+                                {/* FIXME add other configs */}
+                            </div>
+
 						</fieldset>
 						<fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
 							<div className="form-group">
@@ -39,11 +47,13 @@ class UniqueFilterComponent extends FilterComponent {
 
 UniqueFilterComponent.propTypes = {
     description: PropTypes.string.isRequired,
+    addCounter: PropTypes.bool.isRequired,
 	//
     enabled: PropTypes.bool.isRequired,
 	//
 	//
 	//
+    onAddCounterChange: PropTypes.func.isRequired,
     onDescriptionChange: PropTypes.func.isRequired,
 	//
     onEnabledClick: PropTypes.func.isRequired,

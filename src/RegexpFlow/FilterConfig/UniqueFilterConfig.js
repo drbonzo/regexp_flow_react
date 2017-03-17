@@ -6,6 +6,11 @@ class UniqueFilterConfig extends FilterConfig {
 
         super('Unique');
 
+        /**
+         * @type {boolean}
+         */
+        this.addCounter = false;
+
 		/**
 		 * @type {number}
 		 */
