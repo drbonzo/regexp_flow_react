@@ -2,9 +2,9 @@ import UniqueFilterConfig from './UniqueFilterConfig';
 
 describe('UniqueFilterConfig', function () {
 
-	/**
-	 * @var {UniqueFilterConfig}
-	 */
+    /**
+     * @var {UniqueFilterConfig}
+     */
     let filterConfig;
 
     describe('defaults', function () {
@@ -17,6 +17,7 @@ describe('UniqueFilterConfig', function () {
             expect(filterConfig.filterType).toEqual('Unique');
             expect(filterConfig.totalLinesCount).toEqual(0);
             expect(filterConfig.matchedLinesCount).toEqual(0);
+            expect(filterConfig.addCounter).toBe(false);
         });
     });
 });
