@@ -18,7 +18,7 @@ class UniqueFilterComponent extends FilterComponent {
                     <form>
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Checkbox__Label">Show just unique lines {/* FIXME implement (showing 0 of 0 lines) */}</label>
+                                <label className="FilterConfig__Contents__Label">Show just unique lines {/* FIXME implement (showing 0 of 0 lines) */}</label>
                             </div>
                             <div className="form-group form-inline">
 
@@ -45,7 +45,7 @@ class UniqueFilterComponent extends FilterComponent {
                         </fieldset>
                         <fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Checkbox__Label">Description</label>
+                                <label className="FilterConfig__Contents__Label">Description</label>
                                 <input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
                                     this.props.onDescriptionChange(event.target.value);
                                 }}/>

@@ -18,7 +18,7 @@ class ReplaceFilterComponent extends FilterComponent {
                     <form>
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Checkbox__Label">Search for</label>
+                                <label className="FilterConfig__Contents__Label">Search for</label>
                                 <input type="text" ref={input => this.firstInput = input} className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
                                     this.props.onSearchStringChange(event.target.value);
                                 }}/>
@@ -48,7 +48,7 @@ class ReplaceFilterComponent extends FilterComponent {
 
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Checkbox__Label">and replace with{/* FIXME implement (5 replacements) */}:</label>
+                                <label className="FilterConfig__Contents__Label">and replace with{/* FIXME implement (5 replacements) */}:</label>
                                 <input type="text" className="form-control input-sm" placeholder="replacement string" value={this.props.replaceString} onChange={(event) => {
                                     this.props.onReplaceStringChange(event.target.value);
                                 }}/>
@@ -68,7 +68,7 @@ class ReplaceFilterComponent extends FilterComponent {
 
                         <fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Checkbox__Label">Description</label>
+                                <label className="FilterConfig__Contents__Label">Description</label>
                                 <input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
                                     this.props.onDescriptionChange(event.target.value);
                                 }}/>

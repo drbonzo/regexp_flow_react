@@ -49,6 +49,10 @@
     margin-right: 10px;
 }
 
+.FilterConfig__Contents__Label {
+    font-weight: normal;
+}
+
 .FilterConfig__Contents__Checkbox__Label {
     font-weight: normal;
 }
