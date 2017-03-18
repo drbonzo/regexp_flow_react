@@ -6,7 +6,7 @@ import App from './App';
 
 it('renders without crashing', () => {
 
-    let store = createStore(function (state, action) {
+    let store = createStore(function (state) {
         return state;
     }, {description: '', filterConfigs: {}, inputText: '', outputText: ''});
 

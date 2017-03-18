@@ -5,7 +5,7 @@ describe('Filter', function () {
 	/**
 	 * @var {Filter}
 	 */
-    var filter;
+    let filter;
 
     beforeEach(function () {
         filter = new Filter();
@@ -14,12 +14,12 @@ describe('Filter', function () {
     describe('buildingRegExp', function () {
 
         it('should build RegExp object with no flags when given all flags arguments to false', function () {
-            var actual = filter.buildRegExp('foobar', false, false, false);
+            let actual = filter.buildRegExp('foobar', false, false, false);
             expect(actual).toEqual(/foobar/);
         });
 
         it('should build RegExp object with all flags when all flags are set to true', function () {
-            var actual = filter.buildRegExp('foobar', true, true, true);
+            let actual = filter.buildRegExp('foobar', true, true, true);
             expect(actual).toEqual(/foobar/gim);
         });
 

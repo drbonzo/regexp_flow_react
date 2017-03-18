@@ -12,8 +12,8 @@ class FindAllFilter extends Filter {
 
         try {
 
-            var searchRegexp;
-            var matches;
+            let searchRegexp;
+            let matches;
 
 			// FIXME this.resetRegExpValidation();
             filterConfig.matchesCount = 0;

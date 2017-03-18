@@ -18,8 +18,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const ExamplesLoaderContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ExamplesLoaderComponent);
 
 export default ExamplesLoaderContainer;

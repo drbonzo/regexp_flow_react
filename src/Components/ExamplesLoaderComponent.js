@@ -24,7 +24,7 @@ class ExamplesLoaderComponent extends Component {
 
         for (let i = 0; i < this.state.examples.length; i++) {
             let example = this.state.examples[i];
-            exampleElements.push(<li key={'example_' + i}><a href="#" onClick={(event) => this.loadExample(i)}>{example.name}</a></li>);
+            exampleElements.push(<li key={'example_' + i}><a href="#" onClick={() => this.loadExample(i)}>{example.name}</a></li>);
         }
         return (
 			<div className="btn-group ExamplesLoader">

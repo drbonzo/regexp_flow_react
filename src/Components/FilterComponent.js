@@ -1,4 +1,4 @@
-import {Component} from 'react';
+import {Component, PropTypes} from 'react';
 
 class FilterComponent extends Component {
 
@@ -39,5 +39,9 @@ class FilterComponent extends Component {
         });
     }
 }
+
+FilterComponent.propTypes = {
+    description: PropTypes.string.isRequired,
+};
 
 export default FilterComponent;

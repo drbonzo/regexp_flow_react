@@ -2,23 +2,18 @@ import Filter from './Filter';
 
 class MatchLinesFilter extends Filter {
 
-	/**
-	 * @param {MatchLinesFilterConfig} filterConfig
-	 * @param {string} inputText
-	 *
-	 * @returns {string}
-	 */
+    /**
+     * @param {MatchLinesFilterConfig} filterConfig
+     * @param {string} inputText
+     *
+     * @returns {string}
+     */
     processText(filterConfig, inputText) {
 
-        var line,
-            lines,
-            matchedLines,
-            searchRegexp,
-            l;
         try {
 
-			//  FIXME this.resetRegExpValidation();
-            lines = this.splitTextIntoLines(inputText);
+            //  FIXME this.resetRegExpValidation();
+            let lines = this.splitTextIntoLines(inputText);
             filterConfig.totalLinesCount = lines.length;
             filterConfig.matchedLinesCount = 0;
 
@@ -27,13 +22,13 @@ class MatchLinesFilter extends Filter {
                 return inputText; // dont change anything when there is no regular expression
             }
 
-            matchedLines = [];
+            let matchedLines = [];
 
-            searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
+            let searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
-            for (l in lines) {
+            for (let l in lines) {
                 if (lines.hasOwnProperty(l)) {
-                    line = lines[l];
+                    let line = lines[l];
 
                     if (filterConfig.invertMatch) {
                         if (!line.match(searchRegexp)) {
@@ -51,7 +46,7 @@ class MatchLinesFilter extends Filter {
 
             return matchedLines.join('\n');
         } catch (e) {
-			// FIXME throw this.setupValidationFromError(e);
+            // FIXME throw this.setupValidationFromError(e);
         }
     }
 }

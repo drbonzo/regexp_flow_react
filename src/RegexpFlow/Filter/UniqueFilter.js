@@ -9,13 +9,6 @@ class UniqueFilter extends Filter {
      */
     processText(filterConfig, inputText) {
 
-        var lines,
-            line,
-            l,
-            uniqueLinesCounters,
-            uniqueLines,
-            weSeeThisLineForTheFirstTime;
-
         filterConfig.totalLinesCount = 0;
         filterConfig.matchedLinesCount = 0;
 
@@ -23,30 +16,30 @@ class UniqueFilter extends Filter {
             return inputText;
         }
 
-        lines = this.splitTextIntoLines(inputText);
+        let lines = this.splitTextIntoLines(inputText);
         filterConfig.totalLinesCount = lines.length;
 
-        uniqueLinesCounters = {};
+        let uniqueLinesCounters = {};
 
-        for (l in lines) {
+        for (let l in lines) {
             if (lines.hasOwnProperty(l)) {
-                line = lines[l];
+                let line = lines[l];
 
                 if (line.length === 0) {
                     continue;
                 }
 
-                weSeeThisLineForTheFirstTime = !uniqueLinesCounters.hasOwnProperty(line);
+                let weSeeThisLineForTheFirstTime = !uniqueLinesCounters.hasOwnProperty(line);
                 if (weSeeThisLineForTheFirstTime) {
                     uniqueLinesCounters[line] = 1;
                 } else {
-                    uniqueLinesCounters[line]++
+                    uniqueLinesCounters[line]++;
                 }
             }
         }
 
-        uniqueLines = [];
-        for (l in uniqueLinesCounters) {
+        let uniqueLines = [];
+        for (let l in uniqueLinesCounters) {
             if (uniqueLinesCounters.hasOwnProperty(l)) {
                 if (filterConfig.addCounter) {
                     uniqueLines.push(`${uniqueLinesCounters[l]}\t${l}`);

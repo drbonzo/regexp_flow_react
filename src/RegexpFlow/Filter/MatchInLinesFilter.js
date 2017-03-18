@@ -2,30 +2,22 @@ import Filter from './Filter';
 
 class MatchInLinesFilter extends Filter {
 
-	/**
-	 * Splits text into lines.
-	 * Processes each line
-	 * - if line matches regular expression - then the match is being returned
-	 *      - if groups were used in regular expression
-	 * - if line does not match regular expression - then that line is being ommited (not included in result)
-	 *
-	 * @param {MatchInLinesFilterConfig} filterConfig
-	 * @param {string} inputText
-	 * @returns {string}
-	 */
+    /**
+     * Splits text into lines.
+     * Processes each line
+     * - if line matches regular expression - then the match is being returned
+     *      - if groups were used in regular expression
+     * - if line does not match regular expression - then that line is being ommited (not included in result)
+     *
+     * @param {MatchInLinesFilterConfig} filterConfig
+     * @param {string} inputText
+     * @returns {string}
+     */
     processText(filterConfig, inputText) {
 
         try {
-            var line,
-                matchesInLines,
-                searchRegexp,
-                match,
-                matchedText,
-                lines,
-                l;
-
-			// FIXME this.resetRegExpValidation();
-            lines = this.splitTextIntoLines(inputText);
+            // FIXME this.resetRegExpValidation();
+            let lines = this.splitTextIntoLines(inputText);
             filterConfig.totalLinesCount = lines.length;
             filterConfig.matchedLinesCount = 0;
 
@@ -34,18 +26,18 @@ class MatchInLinesFilter extends Filter {
                 return inputText; // dont change anything when there is no regular expression
             }
 
-            matchesInLines = [];
+            let matchesInLines = [];
 
-            searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
+            let searchRegexp = this.buildRegExp(filterConfig.searchString, filterConfig.caseInsensitive, null, null);
 
-			// wydziel do metody? zeby lista paramow byla krotsza
-            for (l in lines) {
+            // wydziel do metody? zeby lista paramow byla krotsza
+            for (let l in lines) {
                 if (lines.hasOwnProperty(l)) {
-                    line = lines[l];
-                    match = line.match(searchRegexp);
+                    let line = lines[l];
+                    let match = line.match(searchRegexp);
 
                     if (match) {
-                        matchedText = match[1] || match[0]; // when no groups were used - then $0 is used, else first group is used
+                        let matchedText = match[1] || match[0]; // when no groups were used - then $0 is used, else first group is used
                         matchesInLines.push(matchedText);
                     }
                 }
@@ -55,7 +47,7 @@ class MatchInLinesFilter extends Filter {
 
             return matchesInLines.join('\n');
         } catch (e) {
-			// FIXME throw this.setupValidationFromError(e);
+            // FIXME throw this.setupValidationFromError(e);
         }
     }
 }

@@ -6,12 +6,12 @@ describe('UniqueFilter', function () {
 	/**
 	 * @var {UniqueFilter}
 	 */
-    var uniqueFilter;
+    let uniqueFilter;
 
 	/**
 	 * @var {UniqueFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('processText', function () {
 

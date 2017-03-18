@@ -10,7 +10,7 @@ import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConf
 
 describe('mainReducer', function () {
 
-    var state;
+    let state;
 
     beforeEach(function () {
         state = {

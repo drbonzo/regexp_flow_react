@@ -5,7 +5,7 @@ describe('MatchInLinesFilterConfig', function () {
 	/**
 	 * @var {MatchInLinesFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('defaults', function () {
 

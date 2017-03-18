@@ -5,7 +5,7 @@ describe('UniqueFilterConfig', function () {
 	/**
 	 * @var {UniqueFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('defaults', function () {
 

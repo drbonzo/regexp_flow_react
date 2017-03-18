@@ -6,12 +6,12 @@ describe('ReplaceFilter', function () {
 	/**
 	 * @var {ReplaceFilter}
 	 */
-    var replaceFilter;
+    let replaceFilter;
 
 	/**
 	 * @var {ReplaceFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('processText', function () {
 
@@ -160,7 +160,8 @@ describe('ReplaceFilter', function () {
                 filterConfig.multiline = false;
                 replaceFilter = new ReplaceFilter();
 
-                var inputText, expectedText;
+                let inputText;
+                let expectedText;
                 inputText = 'Lorem ipsum dolor sit amet\n' +
 					'consectetur adipiscing elit\n' +
 					'Nunc in felis tincidunt\n' +
@@ -181,7 +182,8 @@ describe('ReplaceFilter', function () {
                 filterConfig.multiline = true;
                 replaceFilter = new ReplaceFilter();
 
-                var inputText, expectedText;
+                let inputText;
+                let expectedText;
                 inputText = 'Lorem ipsum dolor sit amet\n' +
 					'consectetur adipiscing elit\n' +
 					'Nunc in felis tincidunt\n' +

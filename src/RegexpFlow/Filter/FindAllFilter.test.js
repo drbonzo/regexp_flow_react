@@ -6,12 +6,12 @@ describe('FindAllFilter', function () {
 	/**
 	 * @var {FindAllFilter}
 	 */
-    var findAllFilter;
+    let findAllFilter;
 
 	/**
 	 * @var {FindAllFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('processText', function () {
 

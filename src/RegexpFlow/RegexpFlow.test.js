@@ -5,7 +5,7 @@ describe('RegexpFlow', function () {
 	/**
 	 * @var {RegexpFlow}
 	 */
-    var regexpFlow;
+    let regexpFlow;
 
     beforeEach(function () {
         regexpFlow = new RegexpFlow();

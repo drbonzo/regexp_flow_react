@@ -67,6 +67,7 @@
             }
         ],
         "no-use-before-define": "error",
+        "no-var":"error",
         "quotes": [
             "warn",
             "single"

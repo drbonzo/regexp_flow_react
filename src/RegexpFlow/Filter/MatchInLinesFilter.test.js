@@ -7,12 +7,12 @@ describe('MatchInLinesFilter', function () {
 	/**
 	 * @var {MatchInLinesFilter}
 	 */
-    var matchInLinesFilter;
+    let matchInLinesFilter;
 
 	/**
 	 * @var {MatchInLinesFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('processText', function () {
 

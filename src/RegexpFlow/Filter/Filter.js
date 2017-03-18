@@ -20,7 +20,7 @@ class Filter {
 	 * @returns {RegExp}
 	 */
     buildRegExp(regularExpressionString, flagCaseInsensitive, flagGlobal, flagMultiline) {
-        var flags = [];
+        let flags = [];
         if (flagGlobal) {
             flags.push('g');
         }

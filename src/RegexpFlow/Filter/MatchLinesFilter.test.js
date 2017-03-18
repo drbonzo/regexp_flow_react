@@ -6,12 +6,12 @@ describe('MatchLinesFilter', function () {
 	/**
 	 * @var {MatchLinesFilter}
 	 */
-    var matchLinesFilter;
+    let matchLinesFilter;
 
 	/**
 	 * @var {MatchLinesFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('processText', function () {
 

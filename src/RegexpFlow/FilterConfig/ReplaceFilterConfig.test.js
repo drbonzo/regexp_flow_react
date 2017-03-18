@@ -5,7 +5,7 @@ describe('ReplaceFilterConfig', function () {
 	/**
 	 * @var {ReplaceFilterConfig}
 	 */
-    var filterConfig;
+    let filterConfig;
 
     describe('defaults', function () {
 

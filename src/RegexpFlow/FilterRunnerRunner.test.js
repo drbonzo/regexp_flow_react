@@ -5,7 +5,7 @@ describe('FilterRunner', function () {
 	/**
 	 * @var {FilterRunner}
 	 */
-    var filterRunner;
+    let filterRunner;
 
     beforeEach(function () {
         filterRunner = new FilterRunner();

@@ -23,11 +23,9 @@ class FilterRunner {
 	 */
     processString(filterConfigs, inputText) {
 
-        var outputText;
+        let outputText = inputText;
 
-        outputText = inputText;
-
-        for (var fc in filterConfigs) {
+        for (let fc in filterConfigs) {
 
             if (filterConfigs.hasOwnProperty(fc)) {
 
