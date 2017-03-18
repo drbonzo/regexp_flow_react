@@ -16,11 +16,11 @@ class FilterRunner {
         };
     }
 
-	/**
-	 * @param {FilterConfig[]} filterConfigs
-	 * @param {String} inputText
-	 * @returns {String}
-	 */
+    /**
+     * @param {FilterConfig[]} filterConfigs
+     * @param {String} inputText
+     * @returns {String}
+     */
     processString(filterConfigs, inputText) {
 
         let outputText = inputText;
@@ -32,9 +32,9 @@ class FilterRunner {
                 let filterConfig = filterConfigs[fc];
 
                 if (filterConfig.enabled) {
-					/**
-					 * @type {Filter} filter
-					 */
+                    /**
+                     * @type {Filter} filter
+                     */
                     let filter = this.getFilterForFilterConfig(filterConfig);
                     outputText = filter.processText(filterConfig, inputText);
                     inputText = outputText;
@@ -45,10 +45,10 @@ class FilterRunner {
         return outputText;
     }
 
-	/**
-	 * @param filterConfig
-	 * @returns {Filter}
-	 */
+    /**
+     * @param filterConfig
+     * @returns {Filter}
+     */
     getFilterForFilterConfig(filterConfig) {
         return this.filters[filterConfig.filterType];
     }

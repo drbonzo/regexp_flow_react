@@ -11,14 +11,14 @@ class UniqueFilterConfig extends FilterConfig {
          */
         this.addCounter = false;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.totalLinesCount = 0;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.matchedLinesCount = 0;
 
     }

@@ -10,8 +10,8 @@ import {initialState} from './redux/state';
 let store = createStore(mainReducer, initialState);
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
- document.getElementById('root')
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );

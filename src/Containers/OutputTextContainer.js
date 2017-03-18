@@ -11,8 +11,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({});
 
 const OutputTextContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(OutputTextComponent);
 
 export default OutputTextContainer;

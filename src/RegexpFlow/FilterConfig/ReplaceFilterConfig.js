@@ -6,36 +6,36 @@ class ReplaceFilterConfig extends FilterConfig {
 
         super('Replace');
 
-		/**
-		 * @type {string}
-		 */
+        /**
+         * @type {string}
+         */
         this.searchString = '';
 
-		/**
-		 * @type {string}
-		 */
+        /**
+         * @type {string}
+         */
         this.replaceString = '';
 
-		/**
-		 * We almost always want to replace everything
-		 *
-		 * @type {boolean}
-		 */
+        /**
+         * We almost always want to replace everything
+         *
+         * @type {boolean}
+         */
         this.global = true;
 
-		/**
-		 * @type {boolean}
-		 */
+        /**
+         * @type {boolean}
+         */
         this.caseInsensitive = false;
 
-		/**
-		 * @type {boolean}
-		 */
+        /**
+         * @type {boolean}
+         */
         this.multiline = true;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.replacementsCount = 0;
     }
 }

@@ -2,14 +2,14 @@ class RegexpFlow {
 
     constructor() {
 
-		/**
-		 * @type {Array|FilterConfig[]}
-		 */
+        /**
+         * @type {Array|FilterConfig[]}
+         */
         this.filterConfigs = {};
 
-		/**
-		 * @type {string}
-		 */
+        /**
+         * @type {string}
+         */
         this.description = '';
     }
 }

@@ -1,15 +1,15 @@
 import {
-	REGEXP_FLOW_DELETE_FILTER,
-	REGEXP_FLOW_ADD_FILTER,
-	REMOVE_ALL_FILTERS,
-	FILTER_TOGGLE_ENABLED,
-	FILTER_UPDATE_SEARCH_STRING,
-	FILTER_UPDATE_DESCRIPTION,
-	FILTER_TOGGLE_CASE_INSENSITIVE,
-	FILTER_TOGGLE_INVERT_MATCH,
-	FILTER_UPDATE_REPLACE_STRING,
-	FILTER_TOGGLE_GLOBAL,
-	FILTER_TOGGLE_MULTILINE,
+    REGEXP_FLOW_DELETE_FILTER,
+    REGEXP_FLOW_ADD_FILTER,
+    REMOVE_ALL_FILTERS,
+    FILTER_TOGGLE_ENABLED,
+    FILTER_UPDATE_SEARCH_STRING,
+    FILTER_UPDATE_DESCRIPTION,
+    FILTER_TOGGLE_CASE_INSENSITIVE,
+    FILTER_TOGGLE_INVERT_MATCH,
+    FILTER_UPDATE_REPLACE_STRING,
+    FILTER_TOGGLE_GLOBAL,
+    FILTER_TOGGLE_MULTILINE,
     FILTER_TOGGLE_ADD_COUNTER
 } from './../actions';
 
@@ -149,7 +149,7 @@ function filterConfigs(state, action) {
             return filterConfigReducer(state, id, replacement);
         }
         default: {
-			// Reducer "filterConfigs" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
+            // Reducer "filterConfigs" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
             return (state === undefined ? {} : state);
         }
     }

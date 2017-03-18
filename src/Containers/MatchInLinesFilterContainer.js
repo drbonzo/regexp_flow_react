@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 
 import MatchInLinesFilterComponent from '../Components/MatchInLinesFilterComponent';
 import {
-	filterUpdateSearchString,
-	filterToggleCaseInsensitive,
-	filterUpdateDescription,
-	filterToggleEnabled,
-	regexpFlowDeleteFilter
+    filterUpdateSearchString,
+    filterToggleCaseInsensitive,
+    filterUpdateDescription,
+    filterToggleEnabled,
+    regexpFlowDeleteFilter
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -36,8 +36,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const MatchInLinesFilterContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(MatchInLinesFilterComponent);
 
 export default MatchInLinesFilterContainer;

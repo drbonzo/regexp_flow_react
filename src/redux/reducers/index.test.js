@@ -1,9 +1,9 @@
 import mainReducer from './index';
 
 import {
-	updateInputText,
-	regxpFlowUpdateDescription,
-	regexpFlowAddFilter
+    updateInputText,
+    regxpFlowUpdateDescription,
+    regexpFlowAddFilter
 } from '../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';

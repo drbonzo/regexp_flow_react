@@ -34,7 +34,7 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
                     break;
                 }
                 default: {
-					// nothing
+                    // nothing
                     break;
                 }
             }
@@ -42,47 +42,47 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
     }
 
     return (
-		<div className="RegexpFlow">
-			<div>
-				<div className="btn-group" role="group">
-					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-    onAddFilterConfigClick('FindAll');
-}}>+ FindAll
-					</button>
+        <div className="RegexpFlow">
+            <div>
+                <div className="btn-group" role="group">
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('FindAll');
+                    }}>+ FindAll
+                    </button>
 
-					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-    onAddFilterConfigClick('Replace');
-}}>+ Replace
-					</button>
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('Replace');
+                    }}>+ Replace
+                    </button>
 
-					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-    onAddFilterConfigClick('MatchLines');
-}}>+ MatchLines
-					</button>
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('MatchLines');
+                    }}>+ MatchLines
+                    </button>
 
-					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-    onAddFilterConfigClick('MatchInLines');
-}}>+ MatchInLines
-					</button>
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('MatchInLines');
+                    }}>+ MatchInLines
+                    </button>
 
-					<button type="button" className="btn btn-default btn-sm" onClick={() => {
-    onAddFilterConfigClick('Unique');
-}}>+ Unique
-					</button>
-				</div>
-			</div>
-			<div className="RegexpFlow__FilterConfigs">
-				{filterConfigsCollection}
-			</div>
-		</div>
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('Unique');
+                    }}>+ Unique
+                    </button>
+                </div>
+            </div>
+            <div className="RegexpFlow__FilterConfigs">
+                {filterConfigsCollection}
+            </div>
+        </div>
     );
 };
 
 RegexpFlowComponent.propTypes = {
     filterConfigs: PropTypes.objectOf(Object), // FIXME create class for these text processors + subclasses
-	//
-	//
-	//
+    //
+    //
+    //
     onAddFilterConfigClick: PropTypes.func.isRequired
 };
 

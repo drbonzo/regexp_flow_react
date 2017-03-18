@@ -2,9 +2,9 @@ import FindAllFilterConfig from './FindAllFilterConfig';
 
 describe('FindAllFilterConfig', function () {
 
-	/**
-	 * @var {FindAllFilterConfig}
-	 */
+    /**
+     * @var {FindAllFilterConfig}
+     */
     let filterConfig;
 
     describe('defaults', function () {

@@ -2,9 +2,9 @@ import FilterRunner from './FilterRunner';
 
 describe('FilterRunner', function () {
 
-	/**
-	 * @var {FilterRunner}
-	 */
+    /**
+     * @var {FilterRunner}
+     */
     let filterRunner;
 
     beforeEach(function () {

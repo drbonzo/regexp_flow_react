@@ -2,9 +2,9 @@ import Filter from './Filter';
 
 describe('Filter', function () {
 
-	/**
-	 * @var {Filter}
-	 */
+    /**
+     * @var {Filter}
+     */
     let filter;
 
     beforeEach(function () {

@@ -13,8 +13,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const RegexpFlowContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(RegexpFlowComponent);
 
 export default RegexpFlowContainer;

@@ -4,14 +4,14 @@ import MatchInLinesFilterConfig from '../FilterConfig/MatchInLinesFilterConfig';
 
 describe('MatchInLinesFilter', function () {
 
-	/**
-	 * @var {MatchInLinesFilter}
-	 */
+    /**
+     * @var {MatchInLinesFilter}
+     */
     let matchInLinesFilter;
 
-	/**
-	 * @var {MatchInLinesFilterConfig}
-	 */
+    /**
+     * @var {MatchInLinesFilterConfig}
+     */
     let filterConfig;
 
     describe('processText', function () {

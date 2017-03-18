@@ -2,14 +2,14 @@ import {connect} from 'react-redux';
 
 import ReplaceFilterComponent from '../Components/ReplaceFilterComponent';
 import {
-	filterUpdateSearchString,
-	filterToggleCaseInsensitive,
-	filterUpdateDescription,
-	filterToggleGlobal,
-	filterToggleMultiline,
-	filterUpdateReplaceString,
-	filterToggleEnabled,
-	regexpFlowDeleteFilter
+    filterUpdateSearchString,
+    filterToggleCaseInsensitive,
+    filterUpdateDescription,
+    filterToggleGlobal,
+    filterToggleMultiline,
+    filterUpdateReplaceString,
+    filterToggleEnabled,
+    regexpFlowDeleteFilter
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -51,8 +51,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const ReplaceFilterContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ReplaceFilterComponent);
 
 export default ReplaceFilterContainer;

@@ -9,7 +9,7 @@ const mainReducer = function (state, action) {
     let inputTextNew = inputText(state.inputText, action);
 
     let runner = new FilterRunner();
-	// FIXME update totals/counters in filter configs
+    // FIXME update totals/counters in filter configs
     let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
 
     return Object.assign({}, state, {

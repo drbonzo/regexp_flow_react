@@ -2,9 +2,9 @@ import MatchLinesFilterConfig from './MatchLinesFilterConfig';
 
 describe('MatchLinesFilterConfig', function () {
 
-	/**
-	 * @var {MatchLinesFilterConfig}
-	 */
+    /**
+     * @var {MatchLinesFilterConfig}
+     */
     let filterConfig;
 
     describe('defaults', function () {

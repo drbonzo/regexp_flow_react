@@ -3,14 +3,14 @@ import UniqueFilterConfig from '../FilterConfig/UniqueFilterConfig';
 
 describe('UniqueFilter', function () {
 
-	/**
-	 * @var {UniqueFilter}
-	 */
+    /**
+     * @var {UniqueFilter}
+     */
     let uniqueFilter;
 
-	/**
-	 * @var {UniqueFilterConfig}
-	 */
+    /**
+     * @var {UniqueFilterConfig}
+     */
     let filterConfig;
 
     describe('processText', function () {

@@ -7,7 +7,7 @@ class FilterConfig {
         this.id = null;
         this.enabled = true;
         this.description = '';
-		
+
     }
 }
 

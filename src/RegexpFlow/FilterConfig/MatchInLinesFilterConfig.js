@@ -3,27 +3,27 @@ import FilterConfig from './FilterConfig';
 class MatchInLinesFilterConfig extends FilterConfig {
 
     constructor() {
-		
+
         super('MatchInLines');
 
-		/**
-		 * @type {string}
-		 */
+        /**
+         * @type {string}
+         */
         this.searchString = '';
 
-		/**
-		 * @type {boolean}
-		 */
+        /**
+         * @type {boolean}
+         */
         this.caseInsensitive = false;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.totalLinesCount = 0;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.matchedLinesCount = 0;
 
     }

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import InputTextComponent from '../Components/InputTextComponent';
 
 import {
-	updateInputText
+    updateInputText
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const InputTextContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(InputTextComponent);
 
 export default InputTextContainer;

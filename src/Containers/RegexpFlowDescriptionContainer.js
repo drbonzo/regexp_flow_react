@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import TextFieldComponent from '../Components/TextFieldComponent';
 
 import {
-	regxpFlowUpdateDescription
+    regxpFlowUpdateDescription
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -17,8 +17,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const RegexpFlowDescriptionContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(TextFieldComponent);
 
 export default RegexpFlowDescriptionContainer;

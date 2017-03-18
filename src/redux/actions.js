@@ -83,7 +83,7 @@ export function filterToggleMultiline(id) {
     };
 }
 
-export function filterToggleAddCounter(id){
+export function filterToggleAddCounter(id) {
     return {
         type: FILTER_TOGGLE_ADD_COUNTER,
         id: id

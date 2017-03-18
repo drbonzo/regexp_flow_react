@@ -2,12 +2,12 @@ import {connect} from 'react-redux';
 
 import MatchLinesFilterComponent from '../Components/MatchLinesFilterComponent';
 import {
-	filterUpdateSearchString,
-	filterToggleCaseInsensitive,
-	filterUpdateDescription,
-	filterToggleInvertMatch,
-	filterToggleEnabled,
-	regexpFlowDeleteFilter
+    filterUpdateSearchString,
+    filterToggleCaseInsensitive,
+    filterUpdateDescription,
+    filterToggleInvertMatch,
+    filterToggleEnabled,
+    regexpFlowDeleteFilter
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -41,8 +41,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const MatchLinesFilterContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(MatchLinesFilterComponent);
 
 export default MatchLinesFilterContainer;

@@ -2,9 +2,9 @@ import RegexpFlow from './RegexpFlow';
 
 describe('RegexpFlow', function () {
 
-	/**
-	 * @var {RegexpFlow}
-	 */
+    /**
+     * @var {RegexpFlow}
+     */
     let regexpFlow;
 
     beforeEach(function () {

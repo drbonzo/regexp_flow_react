@@ -2,11 +2,11 @@ import {connect} from 'react-redux';
 
 import FindAllFilterComponent from '../Components/FindAllFilterComponent';
 import {
-	filterUpdateSearchString,
-	filterToggleCaseInsensitive,
-	filterUpdateDescription,
-	filterToggleEnabled,
-	regexpFlowDeleteFilter
+    filterUpdateSearchString,
+    filterToggleCaseInsensitive,
+    filterUpdateDescription,
+    filterToggleEnabled,
+    regexpFlowDeleteFilter
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -36,8 +36,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const FindAllFilterContainer = connect(
-	mapStateToProps,
- mapDispatchToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(FindAllFilterComponent);
 
 export default FindAllFilterContainer;

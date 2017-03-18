@@ -3,14 +3,14 @@ import ReplaceFilterConfig from '../FilterConfig/ReplaceFilterConfig';
 
 describe('ReplaceFilter', function () {
 
-	/**
-	 * @var {ReplaceFilter}
-	 */
+    /**
+     * @var {ReplaceFilter}
+     */
     let replaceFilter;
 
-	/**
-	 * @var {ReplaceFilterConfig}
-	 */
+    /**
+     * @var {ReplaceFilterConfig}
+     */
     let filterConfig;
 
     describe('processText', function () {
@@ -71,8 +71,8 @@ describe('ReplaceFilter', function () {
                 expect(filterConfig.replacementsCount).toEqual(2);
             });
 
-			// user enters string (two characters): \n
-			// which would be entered in code as: '\\n'
+            // user enters string (two characters): \n
+            // which would be entered in code as: '\\n'
             it('backslash+n also is replaced with newline', function () {
                 filterConfig.searchString = '\\d+';
                 filterConfig.replaceString = '\\n';
@@ -163,13 +163,13 @@ describe('ReplaceFilter', function () {
                 let inputText;
                 let expectedText;
                 inputText = 'Lorem ipsum dolor sit amet\n' +
-					'consectetur adipiscing elit\n' +
-					'Nunc in felis tincidunt\n' +
-					'pretium mi et, bibendum nisi\n';
+                    'consectetur adipiscing elit\n' +
+                    'Nunc in felis tincidunt\n' +
+                    'pretium mi et, bibendum nisi\n';
                 expectedText = '[L]orem ipsum dolor sit amet\n' +
-					'consectetur adipiscing elit\n' +
-					'Nunc in felis tincidunt\n' +
-					'pretium mi et, bibendum nisi\n';
+                    'consectetur adipiscing elit\n' +
+                    'Nunc in felis tincidunt\n' +
+                    'pretium mi et, bibendum nisi\n';
                 expect(replaceFilter.processText(filterConfig, inputText)).toEqual(expectedText);
 
                 expect(filterConfig.replacementsCount).toEqual(1);
@@ -185,37 +185,37 @@ describe('ReplaceFilter', function () {
                 let inputText;
                 let expectedText;
                 inputText = 'Lorem ipsum dolor sit amet\n' +
-					'consectetur adipiscing elit\n' +
-					'Nunc in felis tincidunt\n' +
-					'pretium mi et, bibendum nisi\n';
+                    'consectetur adipiscing elit\n' +
+                    'Nunc in felis tincidunt\n' +
+                    'pretium mi et, bibendum nisi\n';
                 expectedText = '[L]orem ipsum dolor sit amet\n' +
-					'[c]onsectetur adipiscing elit\n' +
-					'[N]unc in felis tincidunt\n' +
-					'[p]retium mi et, bibendum nisi\n';
+                    '[c]onsectetur adipiscing elit\n' +
+                    '[N]unc in felis tincidunt\n' +
+                    '[p]retium mi et, bibendum nisi\n';
                 expect(replaceFilter.processText(filterConfig, inputText)).toEqual(expectedText);
 
                 expect(filterConfig.replacementsCount).toEqual(4);
             });
         });
 
-		// FIXME describe("errors", function () {
-		//
-		// 	it("invalid regexp sets up validation errors and throws exception", function () {
-		// 		try {
-		// 			filterConfig.searchString = '\\d+';
-		// 			filterConfig.replaceString = '[DIGITS]';
-		// 			replaceFilter = new ReplaceFilter();
-		//
-		// 			replaceFilter = new ReplaceFilter('foo[ReplaceFilterSpec.js', '--- $1 ---');
-		// 			replaceFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet foo[');
-		// 			expect(true).toEqual(false);
-		// 		} catch (e) {
-		// 			expect(replaceFilter.regexpIsValid).toEqual(false);
-		// 			expect(replaceFilter.regexpValidationMessage.length).toBeGreaterThan(1);
-		// 			expect(filterConfig.replacementsCount).toEqual(0);
-		// 		}
-		// 	});
-		// });
-		//
+        // FIXME describe("errors", function () {
+        //
+        // 	it("invalid regexp sets up validation errors and throws exception", function () {
+        // 		try {
+        // 			filterConfig.searchString = '\\d+';
+        // 			filterConfig.replaceString = '[DIGITS]';
+        // 			replaceFilter = new ReplaceFilter();
+        //
+        // 			replaceFilter = new ReplaceFilter('foo[ReplaceFilterSpec.js', '--- $1 ---');
+        // 			replaceFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet foo[');
+        // 			expect(true).toEqual(false);
+        // 		} catch (e) {
+        // 			expect(replaceFilter.regexpIsValid).toEqual(false);
+        // 			expect(replaceFilter.regexpValidationMessage.length).toBeGreaterThan(1);
+        // 			expect(filterConfig.replacementsCount).toEqual(0);
+        // 		}
+        // 	});
+        // });
+        //
     });
 });

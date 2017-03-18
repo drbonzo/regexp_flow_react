@@ -2,9 +2,9 @@ import ReplaceFilterConfig from './ReplaceFilterConfig';
 
 describe('ReplaceFilterConfig', function () {
 
-	/**
-	 * @var {ReplaceFilterConfig}
-	 */
+    /**
+     * @var {ReplaceFilterConfig}
+     */
     let filterConfig;
 
     describe('defaults', function () {

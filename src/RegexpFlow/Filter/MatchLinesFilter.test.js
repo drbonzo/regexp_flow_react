@@ -3,14 +3,14 @@ import MatchLinesFilterConfig from '../FilterConfig/MatchLinesFilterConfig';
 
 describe('MatchLinesFilter', function () {
 
-	/**
-	 * @var {MatchLinesFilter}
-	 */
+    /**
+     * @var {MatchLinesFilter}
+     */
     let matchLinesFilter;
 
-	/**
-	 * @var {MatchLinesFilterConfig}
-	 */
+    /**
+     * @var {MatchLinesFilterConfig}
+     */
     let filterConfig;
 
     describe('processText', function () {
@@ -126,19 +126,19 @@ describe('MatchLinesFilter', function () {
             });
         });
 
-		// FIXME describe("errors", function () {
-		// 	it("invalid regexp sets up validation errors and throws exception", function () {
-		// 		try {
-		// 			matchLinesFilter = new MatchLinesFilter('foo[');
-		// 			matchLinesFilter.processText(filterConfig, 'Lorem ipsum\ndolor sit amet foo[');
-		// 			expect(true).toEqual(false);
-		// 		} catch (e) {
-		// 			expect(matchLinesFilter.regexpIsValid).toEqual(false);
-		// 			expect(matchLinesFilter.regexpValidationMessage.length).toBeGreaterThan(0);
-		// 			expect(filterConfig.totalLinesCount).toEqual(2);
-		// 			expect(filterConfig.matchedLinesCount).toEqual(0);
-		// 		}
-		// 	});
-		// });
+        // FIXME describe("errors", function () {
+        // 	it("invalid regexp sets up validation errors and throws exception", function () {
+        // 		try {
+        // 			matchLinesFilter = new MatchLinesFilter('foo[');
+        // 			matchLinesFilter.processText(filterConfig, 'Lorem ipsum\ndolor sit amet foo[');
+        // 			expect(true).toEqual(false);
+        // 		} catch (e) {
+        // 			expect(matchLinesFilter.regexpIsValid).toEqual(false);
+        // 			expect(matchLinesFilter.regexpValidationMessage.length).toBeGreaterThan(0);
+        // 			expect(filterConfig.totalLinesCount).toEqual(2);
+        // 			expect(filterConfig.matchedLinesCount).toEqual(0);
+        // 		}
+        // 	});
+        // });
     });
 });

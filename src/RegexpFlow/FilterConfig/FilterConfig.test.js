@@ -2,9 +2,9 @@ import FilterConfig from './FilterConfig';
 
 describe('FilterConfig', function () {
 
-	/**
-	 * @var {FilterConfig}
-	 */
+    /**
+     * @var {FilterConfig}
+     */
     let filterConfig;
 
     describe('defaults', function () {

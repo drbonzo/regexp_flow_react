@@ -3,14 +3,14 @@ import FindAllFilterConfig from '../FilterConfig/FindAllFilterConfig';
 
 describe('FindAllFilter', function () {
 
-	/**
-	 * @var {FindAllFilter}
-	 */
+    /**
+     * @var {FindAllFilter}
+     */
     let findAllFilter;
 
-	/**
-	 * @var {FindAllFilterConfig}
-	 */
+    /**
+     * @var {FindAllFilterConfig}
+     */
     let filterConfig;
 
     describe('processText', function () {
@@ -96,19 +96,19 @@ describe('FindAllFilter', function () {
             });
         });
 
-		//
-		// 	FIXME: describe("errors", function () {
-		// 		it("invalid regexp sets up validation errors and throws exception", function () {
-		// 			try {
-		// 				findAllFilter = new FindAllFilter('foo[');
-		// 				findAllFilter.processText(findAllFilterConfig, 'Lorem ipsum dolor sit amet foo[');
-		// 				expect(true).toEqual(false);
-		// 			} catch (e) {
-		// 				expect(findAllFilter.regexpIsValid).toEqual(false);
-		// 				expect(findAllFilter.regexpValidationMessage.length).toBeGreaterThan(0);
-		// 				expect(findAllFilterConfig.matchesCount).toEqual(0);
-		// 			}
-		// 		});
-		//
+        //
+        // 	FIXME: describe("errors", function () {
+        // 		it("invalid regexp sets up validation errors and throws exception", function () {
+        // 			try {
+        // 				findAllFilter = new FindAllFilter('foo[');
+        // 				findAllFilter.processText(findAllFilterConfig, 'Lorem ipsum dolor sit amet foo[');
+        // 				expect(true).toEqual(false);
+        // 			} catch (e) {
+        // 				expect(findAllFilter.regexpIsValid).toEqual(false);
+        // 				expect(findAllFilter.regexpValidationMessage.length).toBeGreaterThan(0);
+        // 				expect(findAllFilterConfig.matchesCount).toEqual(0);
+        // 			}
+        // 		});
+        //
     });
 });

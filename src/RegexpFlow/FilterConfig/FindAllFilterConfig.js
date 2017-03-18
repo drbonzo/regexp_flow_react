@@ -6,32 +6,32 @@ class FindAllFilterConfig extends FilterConfig {
 
         super('FindAll');
 
-		/**
-		 * @type {string}
-		 */
+        /**
+         * @type {string}
+         */
         this.searchString = '';
 
-		/**
-		 * Always true
-		 *
-		 * @type {boolean}
-		 */
+        /**
+         * Always true
+         *
+         * @type {boolean}
+         */
         this.global = true;
 
-		/**
-		 * @type {boolean}
-		 */
+        /**
+         * @type {boolean}
+         */
         this.caseInsensitive = false;
 
-		/**
-		 * Always true
-		 * @type {boolean}
-		 */
+        /**
+         * Always true
+         * @type {boolean}
+         */
         this.multiline = true;
 
-		/**
-		 * @type {number}
-		 */
+        /**
+         * @type {number}
+         */
         this.matchesCount = 0;
     }
 }

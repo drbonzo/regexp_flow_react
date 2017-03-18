@@ -20,13 +20,13 @@ describe('filterConfigs reducer', function () {
             let newState = filterConfigs(state_0, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 1});
             expect('1' in newState).toBe(false);
         });
-		//
-		// it('should not delete not existing filter', function () {
-		// 	let state = {};
-		// 	state[1] = new FindAllFilterConfig();
-		// 	let newState = filterConfigs(state, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 5});
-		// 	expect(5 in newState).toBe(false);
-		// });
+        //
+        // it('should not delete not existing filter', function () {
+        // 	let state = {};
+        // 	state[1] = new FindAllFilterConfig();
+        // 	let newState = filterConfigs(state, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 5});
+        // 	expect(5 in newState).toBe(false);
+        // });
     });
 
     describe('manipulation on single FilterConfig', function () {
