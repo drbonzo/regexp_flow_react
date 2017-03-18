@@ -6,11 +6,11 @@ import {
     updateInputText
 } from '../redux/actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     value: state.inputText
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
     onValueChange: (text) => {
         dispatch(updateInputText(text));
     }

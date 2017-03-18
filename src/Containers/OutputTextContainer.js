@@ -2,17 +2,15 @@ import {connect} from 'react-redux';
 
 import OutputTextComponent from '../Components/OutputTextComponent';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     inputText: state.inputText,
     filterConfigs: state.filterConfigs,
     outputText: state.outputText
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({});
-
 const OutputTextContainer = connect(
     mapStateToProps,
-    mapDispatchToProps
+    null
 )(OutputTextComponent);
 
 export default OutputTextContainer;

@@ -4,9 +4,7 @@ import ExamplesLoaderComponent from '../Components/ExamplesLoaderComponent';
 
 import {removeAllFilterConfigs} from '../redux/actions';
 
-const mapStateToProps = (state, ownProps) => ({});
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
     loadExampleHandler: (example) => {
         dispatch(removeAllFilterConfigs());
 
@@ -18,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 });
 
 const ExamplesLoaderContainer = connect(
-    mapStateToProps,
+    null,
     mapDispatchToProps
 )(ExamplesLoaderComponent);
 

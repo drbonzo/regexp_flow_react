@@ -6,11 +6,11 @@ import {
     regxpFlowUpdateDescription
 } from '../redux/actions';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = (state) => ({
     value: state.description
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch) => ({
     onValueChange: (description) => {
         dispatch(regxpFlowUpdateDescription(description));
     }

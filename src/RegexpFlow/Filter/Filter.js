@@ -1,5 +1,6 @@
 class Filter {
 
+    /* eslint-disable no-unused-vars */
     /**
      * @param {FilterConfig} filterConfig
      * @param {string} inputText
