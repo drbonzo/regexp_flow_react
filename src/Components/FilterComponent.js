@@ -14,12 +14,17 @@ class FilterComponent extends Component {
         this.toggleShowDescription = this.toggleShowDescription.bind(this);
 
         this.firstInput = null;
+        this.firstCheckbox = null;
     }
 
     focusOnFirstInput() {
         if (this.firstInput) {
             this.firstInput.focus();
             this.firstInput.setSelectionRange(0, this.firstInput.value.length);
+        }
+
+        if (this.firstCheckbox) {
+            this.firstCheckbox.focus();
         }
     }
 

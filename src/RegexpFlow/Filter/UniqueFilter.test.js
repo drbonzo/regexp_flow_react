@@ -100,4 +100,68 @@ describe('UniqueFilter', function () {
             });
         });
     });
+
+    describe('processText with adding counters with different separator', function () {
+
+        beforeEach(function () {
+            uniqueFilter = new UniqueFilter();
+            filterConfig = new UniqueFilterConfig();
+            filterConfig.addCounter = true;
+        });
+
+        describe('normal processing', function () {
+            it('should use default counter separator', function () {
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3\tAaaa\n2\tBbbb\n2\tCccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should use TAB counter separator', function () {
+                filterConfig.counterSeparator = UniqueFilterConfig.COUNTER_SEPARATOR_TAB;
+
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3\tAaaa\n2\tBbbb\n2\tCccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should use SEMICOLON counter separator', function () {
+                filterConfig.counterSeparator = UniqueFilterConfig.COUNTER_SEPARATOR_SEMICOLON;
+
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3;Aaaa\n2;Bbbb\n2;Cccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should use COMMA counter separator', function () {
+                filterConfig.counterSeparator = UniqueFilterConfig.COUNTER_SEPARATOR_COMMA;
+
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3,Aaaa\n2,Bbbb\n2,Cccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should use SPACE counter separator', function () {
+                filterConfig.counterSeparator = UniqueFilterConfig.COUNTER_SEPARATOR_SPACE;
+
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3 Aaaa\n2 Bbbb\n2 Cccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should use TAB counter separator, when setting is invalid', function () {
+                filterConfig.counterSeparator = 'INVALID VALUE';
+
+                uniqueFilter = new UniqueFilter();
+                expect(uniqueFilter.processText(filterConfig, 'Aaaa\nAaaa\nBbbb\nCccc\nAaaa\nCccc\nBbbb')).toEqual('3\tAaaa\n2\tBbbb\n2\tCccc');
+                expect(filterConfig.totalLinesCount).toEqual(7);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+        });
+    });
 });

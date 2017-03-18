@@ -12,6 +12,11 @@ class UniqueFilterConfig extends FilterConfig {
         this.addCounter = false;
 
         /**
+         * @type {string}
+         */
+        this.counterSeparator = UniqueFilterConfig.COUNTER_SEPARATOR_TAB;
+
+        /**
          * @type {number}
          */
         this.totalLinesCount = 0;
@@ -24,5 +29,10 @@ class UniqueFilterConfig extends FilterConfig {
     }
 
 }
+
+UniqueFilterConfig.COUNTER_SEPARATOR_TAB = 'TAB';
+UniqueFilterConfig.COUNTER_SEPARATOR_SEMICOLON = 'SEMICOLON';
+UniqueFilterConfig.COUNTER_SEPARATOR_COMMA = 'COMMA';
+UniqueFilterConfig.COUNTER_SEPARATOR_SPACE = 'SPACE';
 
 export default UniqueFilterConfig;

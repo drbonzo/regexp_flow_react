@@ -1,4 +1,5 @@
 import Filter from './Filter';
+import UniqueFilterConfig from '../FilterConfig/UniqueFilterConfig';
 
 class UniqueFilter extends Filter {
 
@@ -39,10 +40,11 @@ class UniqueFilter extends Filter {
         }
 
         let uniqueLines = [];
+        let counterSeparatorCharacter = this.buildCounterSeparatorCharacter(filterConfig.counterSeparator);
         for (let l in uniqueLinesCounters) {
             if (uniqueLinesCounters.hasOwnProperty(l)) {
                 if (filterConfig.addCounter) {
-                    uniqueLines.push(`${uniqueLinesCounters[l]}\t${l}`);
+                    uniqueLines.push(`${uniqueLinesCounters[l]}${counterSeparatorCharacter}${l}`);
                 } else {
                     uniqueLines.push(l);
                 }
@@ -52,6 +54,16 @@ class UniqueFilter extends Filter {
         filterConfig.matchedLinesCount = uniqueLines.length;
 
         return uniqueLines.join('\n');
+    }
+
+    buildCounterSeparatorCharacter(counterSeparator) {
+
+        let characterMap = {};
+        characterMap[UniqueFilterConfig.COUNTER_SEPARATOR_TAB] = '\t';
+        characterMap[UniqueFilterConfig.COUNTER_SEPARATOR_SEMICOLON] = ';';
+        characterMap[UniqueFilterConfig.COUNTER_SEPARATOR_COMMA] = ',';
+        characterMap[UniqueFilterConfig.COUNTER_SEPARATOR_SPACE] = ' ';
+        return characterMap[counterSeparator] || '\t';
     }
 }
 

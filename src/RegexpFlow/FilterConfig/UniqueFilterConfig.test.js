@@ -18,6 +18,7 @@ describe('UniqueFilterConfig', function () {
             expect(filterConfig.totalLinesCount).toEqual(0);
             expect(filterConfig.matchedLinesCount).toEqual(0);
             expect(filterConfig.addCounter).toBe(false);
+            expect(filterConfig.counterSeparator).toBe(UniqueFilterConfig.COUNTER_SEPARATOR_TAB);
         });
     });
 });

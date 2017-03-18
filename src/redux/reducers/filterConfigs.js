@@ -10,7 +10,8 @@ import {
     FILTER_UPDATE_REPLACE_STRING,
     FILTER_TOGGLE_GLOBAL,
     FILTER_TOGGLE_MULTILINE,
-    FILTER_TOGGLE_ADD_COUNTER
+    FILTER_TOGGLE_ADD_COUNTER,
+    FILTER_SET_COUNTER_SEPARATOR
 } from './../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';
@@ -145,6 +146,12 @@ function filterConfigs(state, action) {
         case FILTER_TOGGLE_ADD_COUNTER: {
             let id = action.id;
             let replacement = {addCounter: !state[id].addCounter};
+
+            return filterConfigReducer(state, id, replacement);
+        }
+        case FILTER_SET_COUNTER_SEPARATOR: {
+            let id = action.id;
+            let replacement = {counterSeparator: action.counterSeparator};
 
             return filterConfigReducer(state, id, replacement);
         }
