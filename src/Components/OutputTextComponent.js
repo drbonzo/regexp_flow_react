@@ -7,8 +7,8 @@ class OutputTextComponent extends Component {
             <div className="OutputText">
                 <h2>Output</h2>
                 <form className="form">
-				<textarea className="form-control" rows="10" value={this.props.outputText} onChange={() => {
-                }}/>
+                    <textarea className="form-control" rows="10" value={this.props.outputText} onChange={() => {
+                    }}/>
                 </form>
             </div>
         );
