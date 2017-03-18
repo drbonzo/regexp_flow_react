@@ -26,12 +26,6 @@ class UniqueFilterComponent extends FilterComponent {
                                         Add counter
                                     </label>
                                 </div>
-                                <div className="checkbox FilterConfig__Contents__Checkbox">
-                                    <label className="FilterConfig__Contents__Checkbox__Label">
-                                        <input type="checkbox" checked={this.props.addCounter} onChange={this.props.onAddCounterChange}/>
-                                        Add counter
-                                    </label>
-                                </div>
                                 {/* FIXME add other configs */}
                             </div>
 
