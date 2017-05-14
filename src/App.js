@@ -1,32 +1,47 @@
 import React, {Component} from 'react';
-import RegexpFlowContainer from './Containers/RegexpFlowContainer';
+import {
+    BrowserRouter,
+    Route,
+    Switch
+} from 'react-router-dom';
 import NavBar from './Components/Layout/NavBar';
-import InputTextContainer from './Containers/InputTextContainer';
-import OutputTextContainer from './Containers/OutputTextContainer';
 
 import './App.css';
+
+import FlowsListScreen from './Components/Layout/FlowsListScreen';
+import flowsListScreenContainer from './Containers/FlowsListScreenContainer';
+
+const flowsListScreen = flowsListScreenContainer(FlowsListScreen);
+
+const NewFlowScreen = () => {
+    return <div>
+        <h1>New Flow Screen</h1>
+    </div>;
+};
+
+const EditFlowScreen = ({match}) => {
+    return <div>
+        <h1>Edit Flow Screen: {match.params.id}</h1>
+    </div>;
+};
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <NavBar/>
-                <div className="container-fluid">
-                    <div className="MainScreen">
-                        <div className="row">
-                            <div className="col-md-8">
-                                <InputTextContainer/>
-                                <OutputTextContainer/>
-                            </div>
-                            <div className="col-md-4">
-                                <div>
-                                    <RegexpFlowContainer/>
-                                </div>
-                            </div>
-                        </div>
+            <BrowserRouter>
+                <div className="App">
+                    <NavBar/>
+                    <div className="container-fluid">
+                        {/*<Redirect from='/' to='/flows/new'/>*/}
+                        <Switch>
+                            <Route exact path="/" component={NewFlowScreen}/>
+                            <Route exact path="/flows" component={flowsListScreen}/>
+                            <Route path="/flows/new" component={NewFlowScreen}/>
+                            <Route path="/flows/:id" component={EditFlowScreen}/>
+                        </Switch>
                     </div>
                 </div>
-            </div>
+            </BrowserRouter>
         );
     }
 }

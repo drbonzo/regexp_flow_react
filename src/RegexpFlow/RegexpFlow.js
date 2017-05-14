@@ -3,6 +3,11 @@ class RegexpFlow {
     constructor() {
 
         /**
+         * @type {Number}
+         */
+        this.id = null;
+
+        /**
          * @type {Array|FilterConfig[]}
          */
         this.filterConfigs = {};
