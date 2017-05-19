@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    BrowserRouter,
+    HashRouter,
     Route,
     Switch
 } from 'react-router-dom';
@@ -10,25 +10,15 @@ import './App.css';
 
 import FlowsListScreen from './Components/Layout/FlowsListScreen';
 import flowsListScreenContainer from './Containers/FlowsListScreenContainer';
-
 const flowsListScreen = flowsListScreenContainer(FlowsListScreen);
 
-const NewFlowScreen = () => {
-    return <div>
-        <h1>New Flow Screen</h1>
-    </div>;
-};
-
-const EditFlowScreen = ({match}) => {
-    return <div>
-        <h1>Edit Flow Screen: {match.params.id}</h1>
-    </div>;
-};
+import NewFlowScreen from './Components/Layout/NewFlowScreen';
+import EditFlowScreen from './Components/Layout/EditFlowScreen';
 
 class App extends Component {
     render() {
         return (
-            <BrowserRouter>
+            <HashRouter>
                 <div className="App">
                     <NavBar/>
                     <div className="container-fluid">
@@ -41,7 +31,7 @@ class App extends Component {
                         </Switch>
                     </div>
                 </div>
-            </BrowserRouter>
+            </HashRouter>
         );
     }
 }
