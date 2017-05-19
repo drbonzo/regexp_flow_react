@@ -11,11 +11,11 @@ import {
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    searchString: state.filterConfigs[ownProps.id].searchString,
-    caseInsensitive: state.filterConfigs[ownProps.id].caseInsensitive,
-    invertMatch: state.filterConfigs[ownProps.id].invertMatch,
-    description: state.filterConfigs[ownProps.id].description,
-    enabled: state.filterConfigs[ownProps.id].enabled
+    searchString: state.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
+    caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
+    invertMatch: state.currentRegexpFlow.filterConfigs[ownProps.id].invertMatch,
+    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -10,10 +10,10 @@ import {
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    addCounter: state.filterConfigs[ownProps.id].addCounter,
-    counterSeparator: state.filterConfigs[ownProps.id].counterSeparator,
-    description: state.filterConfigs[ownProps.id].description,
-    enabled: state.filterConfigs[ownProps.id].enabled
+    addCounter: state.currentRegexpFlow.filterConfigs[ownProps.id].addCounter,
+    counterSeparator: state.currentRegexpFlow.filterConfigs[ownProps.id].counterSeparator,
+    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

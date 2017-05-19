@@ -8,7 +8,12 @@ it('renders without crashing', () => {
 
     let store = createStore(function (state) {
         return state;
-    }, {description: '', filterConfigs: {}, inputText: '', outputText: ''});
+    }, {
+        currentRegexpFlow: {
+            description: '', filterConfigs: {}, inputText: '', outputText: ''
+        },
+        regexpFlows: []
+    });
 
     const div = document.createElement('div');
     ReactDOM.render(

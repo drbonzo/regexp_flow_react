@@ -13,13 +13,13 @@ import {
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
-    searchString: state.filterConfigs[ownProps.id].searchString,
-    global: state.filterConfigs[ownProps.id].global,
-    caseInsensitive: state.filterConfigs[ownProps.id].caseInsensitive,
-    multiline: state.filterConfigs[ownProps.id].multiline,
-    replaceString: state.filterConfigs[ownProps.id].replaceString,
-    description: state.filterConfigs[ownProps.id].description,
-    enabled: state.filterConfigs[ownProps.id].enabled,
+    searchString: state.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
+    global: state.currentRegexpFlow.filterConfigs[ownProps.id].global,
+    caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
+    multiline: state.currentRegexpFlow.filterConfigs[ownProps.id].multiline,
+    replaceString: state.currentRegexpFlow.filterConfigs[ownProps.id].replaceString,
+    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

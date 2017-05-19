@@ -1,6 +1,9 @@
 export const initialState = {
-    description: '',
-    inputText: '',
-    outputText: '',
-    filterConfigs: {}
+    currentRegexpFlow: {
+        description: '',
+        inputText: '',
+        outputText: '',
+        filterConfigs: {}
+    },
+    regexpFlows: []
 };

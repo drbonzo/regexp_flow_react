@@ -7,7 +7,7 @@ import {
 } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
-    value: state.description
+    value: state.currentRegexpFlow.description
 });
 
 const mapDispatchToProps = (dispatch) => ({

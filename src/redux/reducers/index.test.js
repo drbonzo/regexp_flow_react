@@ -14,10 +14,13 @@ describe('mainReducer', function () {
 
     beforeEach(function () {
         state = {
-            filterConfigs: {},
-            description: '',
-            inputText: '',
-            outputText: ''
+            currentRegexpFlow: {
+                filterConfigs: {},
+                description: '',
+                inputText: '',
+                outputText: ''
+            },
+            regexpFlows: []
         };
     });
 
@@ -26,12 +29,12 @@ describe('mainReducer', function () {
         expectedState.inputText = 'new inputText';
 
         let newState = mainReducer(state, updateInputText('new inputText'));
-        expect(newState.inputText).toEqual('new inputText');
+        expect(newState.currentRegexpFlow.inputText).toEqual('new inputText');
     });
 
     it('should handle description', function () {
         let expectedState = Object.assign({}, state);
-        expectedState.description = 'new description';
+        expectedState.currentRegexpFlow.description = 'new description';
 
         let newState = mainReducer(state, regxpFlowUpdateDescription('new description'));
         expect(newState).toEqual(expectedState);
@@ -39,9 +42,9 @@ describe('mainReducer', function () {
 
     it('should handle filterConfigs', function () {
         let expectedState = Object.assign({}, state);
-        expectedState.filterConfigs[1] = new FindAllFilterConfig();
-        expectedState.filterConfigs[1].id = 1;
-        expectedState.filterConfigs[1].searchString = '\\b.+?\\b';
+        expectedState.currentRegexpFlow.filterConfigs[1] = new FindAllFilterConfig();
+        expectedState.currentRegexpFlow.filterConfigs[1].id = 1;
+        expectedState.currentRegexpFlow.filterConfigs[1].searchString = '\\b.+?\\b';
 
         let newState = mainReducer(state, regexpFlowAddFilter('FindAll'));
         expect(newState).toEqual(expectedState);
