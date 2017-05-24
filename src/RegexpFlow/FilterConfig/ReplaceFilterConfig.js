@@ -4,7 +4,7 @@ class ReplaceFilterConfig extends FilterConfig {
 
     constructor() {
 
-        super('Replace');
+        super(ReplaceFilterConfig.FILTER_TYPE);
 
         /**
          * @type {string}
@@ -39,5 +39,7 @@ class ReplaceFilterConfig extends FilterConfig {
         this.replacementsCount = 0;
     }
 }
+
+ReplaceFilterConfig.FILTER_TYPE = 'Replace';
 
 export default ReplaceFilterConfig;

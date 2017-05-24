@@ -4,7 +4,7 @@ class FindAllFilterConfig extends FilterConfig {
 
     constructor() {
 
-        super('FindAll');
+        super(FindAllFilterConfig.FILTER_TYPE);
 
         /**
          * @type {string}
@@ -35,5 +35,7 @@ class FindAllFilterConfig extends FilterConfig {
         this.matchesCount = 0;
     }
 }
+
+FindAllFilterConfig.FILTER_TYPE = 'FindAll';
 
 export default FindAllFilterConfig;

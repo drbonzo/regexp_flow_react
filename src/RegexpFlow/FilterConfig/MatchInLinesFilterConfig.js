@@ -4,7 +4,7 @@ class MatchInLinesFilterConfig extends FilterConfig {
 
     constructor() {
 
-        super('MatchInLines');
+        super(MatchInLinesFilterConfig.FILTER_TYPE);
 
         /**
          * @type {string}
@@ -28,5 +28,7 @@ class MatchInLinesFilterConfig extends FilterConfig {
 
     }
 }
+
+MatchInLinesFilterConfig.FILTER_TYPE = 'MatchInLines';
 
 export default MatchInLinesFilterConfig;

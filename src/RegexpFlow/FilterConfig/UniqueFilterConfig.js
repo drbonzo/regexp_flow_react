@@ -4,7 +4,7 @@ class UniqueFilterConfig extends FilterConfig {
 
     constructor() {
 
-        super('Unique');
+        super(UniqueFilterConfig.FILTER_TYPE);
 
         /**
          * @type {boolean}
@@ -29,6 +29,8 @@ class UniqueFilterConfig extends FilterConfig {
     }
 
 }
+
+UniqueFilterConfig.FILTER_TYPE = 'Unique';
 
 UniqueFilterConfig.COUNTER_SEPARATOR_TAB = 'TAB';
 UniqueFilterConfig.COUNTER_SEPARATOR_SEMICOLON = 'SEMICOLON';
