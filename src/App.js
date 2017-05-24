@@ -8,9 +8,7 @@ import NavBar from './Components/Layout/NavBar';
 
 import './App.css';
 
-import FlowsListScreen from './Components/Layout/FlowsListScreen';
-import flowsListScreenContainer from './Containers/FlowsListScreenContainer';
-const flowsListScreen = flowsListScreenContainer(FlowsListScreen);
+import FlowsListScreenContainer from './Containers/Layout/FlowsListScreenContainer';
 
 import NewFlowScreen from './Components/Layout/NewFlowScreen';
 import EditFlowScreen from './Components/Layout/EditFlowScreen';
@@ -25,7 +23,7 @@ class App extends Component {
                         {/*<Redirect from='/' to='/flows/new'/>*/}
                         <Switch>
                             <Route exact path="/" component={NewFlowScreen}/>
-                            <Route exact path="/flows" component={flowsListScreen}/>
+                            <Route exact path="/flows" component={FlowsListScreenContainer}/>
                             <Route path="/flows/new" component={NewFlowScreen}/>
                             <Route path="/flows/:id" component={EditFlowScreen}/>
                         </Switch>
