@@ -13,10 +13,10 @@
         "react-redux": "^4.4.5",
         "react-router-dom": "^4.1.1",
         "react-scripts": "^0.9.5",
-        "redux": "^3.6.0"
+        "redux": "^3.6.0",
+        "redux-persist": "^4.8.0"
     },
-    "dependencies": {
-    },
+    "dependencies": {},
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",

@@ -4,6 +4,9 @@ import inputText from './inputText';
 import FilterRunner from '../../RegexpFlow/FilterRunner';
 
 const mainReducer = function (state, action) {
+    if (action.type === 'persist/REHYDRATE') {
+        return Object.assign({}, state);
+    }
     let filterConfigsNew = filterConfigs(state.currentRegexpFlow.filterConfigs, action);
     let descriptionNew = description(state.currentRegexpFlow.description, action);
     let inputTextNew = inputText(state.currentRegexpFlow.inputText, action);

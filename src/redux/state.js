@@ -5,5 +5,6 @@ export const initialState = {
         outputText: '',
         filterConfigs: {}
     },
-    regexpFlows: []
+    regexpFlows: [],
+    nextRegexpFlowIndex: 1
 };
