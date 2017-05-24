@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import OutputTextComponent from '../Components/OutputTextComponent';
 
 const mapStateToProps = (state) => ({
-    inputText: state.currentRegexpFlow.inputText,
+    inputText: state.inputText,
     filterConfigs: state.currentRegexpFlow.filterConfigs,
-    outputText: state.currentRegexpFlow.outputText
+    outputText: state.outputText
 });
 
 const OutputTextContainer = connect(

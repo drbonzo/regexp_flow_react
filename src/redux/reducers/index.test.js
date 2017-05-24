@@ -7,21 +7,14 @@ import {
 } from '../actions';
 
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';
+import {initialState} from '../state';
 
 describe('mainReducer', function () {
 
     let state;
 
     beforeEach(function () {
-        state = {
-            currentRegexpFlow: {
-                filterConfigs: {},
-                description: '',
-                inputText: '',
-                outputText: ''
-            },
-            regexpFlows: []
-        };
+        state = Object.assign({}, initialState);
     });
 
     it('should handle inputText', function () {
@@ -29,7 +22,7 @@ describe('mainReducer', function () {
         expectedState.inputText = 'new inputText';
 
         let newState = mainReducer(state, updateInputText('new inputText'));
-        expect(newState.currentRegexpFlow.inputText).toEqual('new inputText');
+        expect(newState.inputText).toEqual('new inputText');
     });
 
     it('should handle description', function () {

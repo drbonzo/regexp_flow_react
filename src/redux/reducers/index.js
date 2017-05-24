@@ -9,20 +9,22 @@ const mainReducer = function (state, action) {
     }
     let filterConfigsNew = filterConfigs(state.currentRegexpFlow.filterConfigs, action);
     let descriptionNew = description(state.currentRegexpFlow.description, action);
-    let inputTextNew = inputText(state.currentRegexpFlow.inputText, action);
+    let inputTextNew = inputText(state.inputText, action);
 
     let runner = new FilterRunner();
     // FIXME update totals/counters in filter configs
     let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
 
     return Object.assign({}, state, {
+        inputText: inputTextNew,
+        outputText: outputTextNew,
         currentRegexpFlow: {
+            id: state.currentRegexpFlow.id, // FIXME
             filterConfigs: filterConfigsNew,
             description: descriptionNew,
-            inputText: inputTextNew,
-            outputText: outputTextNew
         },
-        regexpFlows: state.regexpFlows
+        regexpFlows: state.regexpFlows,
+        nextRegexpFlowIndex: state.nextRegexpFlowIndex, // FIXME
     });
 };
 
