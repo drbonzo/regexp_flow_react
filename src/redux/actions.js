@@ -15,6 +15,9 @@ export const FILTER_UPDATE_DESCRIPTION = 'FILTER_UPDATE_DESCRIPTION';
 export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
 export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 
+export const LOAD_REGEXP_FLOW = 'LOAD_REGEXP_FLOW';
+export const SAVE_REGEXP_FLOW = 'SAVE_REGEXP_FLOW';
+
 export function regexpFlowAddFilter(filterType) {
     return {
         type: REGEXP_FLOW_ADD_FILTER,
@@ -120,5 +123,23 @@ export function filterUpdateReplaceString(id, replaceString) {
         type: FILTER_UPDATE_REPLACE_STRING,
         id: id,
         replaceString: replaceString
+    };
+}
+
+export function loadRegexpFlow(id) {
+    return {
+        type: LOAD_REGEXP_FLOW,
+        id: id
+    };
+}
+
+/**
+ * @param {Number|null} id
+ * @returns {{type: String, id: Number|null}}
+ */
+export function saveRegexpFlow(id) {
+    return {
+        type: SAVE_REGEXP_FLOW,
+        id: id
     };
 }

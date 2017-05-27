@@ -2,6 +2,8 @@ import description from './description';
 import filterConfigs from './filterConfigs';
 import inputText from './inputText';
 import FilterRunner from '../../RegexpFlow/FilterRunner';
+import regexpFlowSaver from './regexpFlowSaver';
+import regexpFlowLoader from './regexpFlowLoader';
 
 const mainReducer = function (state, action) {
     if (action.type === 'persist/REHYDRATE') {
@@ -15,7 +17,7 @@ const mainReducer = function (state, action) {
     // FIXME update totals/counters in filter configs
     let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
 
-    return Object.assign({}, state, {
+    let newState = Object.assign({}, state, {
         inputText: inputTextNew,
         outputText: outputTextNew,
         currentRegexpFlow: {
@@ -26,6 +28,16 @@ const mainReducer = function (state, action) {
         regexpFlows: state.regexpFlows,
         nextRegexpFlowIndex: state.nextRegexpFlowIndex, // FIXME
     });
+
+    // changes .currentRegexpFlow, .regexpFlows
+    const newState2 = regexpFlowSaver(newState, action);
+    Object.assign(newState, newState2);
+
+    // changes .currentRegexpFlow
+    const newState3 = regexpFlowLoader(newState, action);
+    Object.assign(newState, newState3);
+
+    return newState;
 };
 
 export default mainReducer;
