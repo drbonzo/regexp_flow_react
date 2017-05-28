@@ -137,7 +137,7 @@ export function loadRegexpFlow(id) {
  * @param {Number|null} id
  * @returns {{type: String, id: Number|null}}
  */
-export function saveRegexpFlow(id) {
+export function saveRegexpFlow(id) { // FIXME maybe remove `id` param? as it is NOT needed (state.currentRegexpFlow.id)
     return {
         type: SAVE_REGEXP_FLOW,
         id: id
