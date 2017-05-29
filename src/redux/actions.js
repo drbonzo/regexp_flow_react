@@ -15,6 +15,7 @@ export const FILTER_UPDATE_DESCRIPTION = 'FILTER_UPDATE_DESCRIPTION';
 export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
 export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 
+export const CLEAR_REGEXP_FLOW = 'CLEAR_REGEXP_FLOW';
 export const LOAD_REGEXP_FLOW = 'LOAD_REGEXP_FLOW';
 export const SAVE_REGEXP_FLOW = 'SAVE_REGEXP_FLOW';
 
@@ -123,6 +124,12 @@ export function filterUpdateReplaceString(id, replaceString) {
         type: FILTER_UPDATE_REPLACE_STRING,
         id: id,
         replaceString: replaceString
+    };
+}
+
+export function clearRegexpFlow(){
+    return {
+        type: CLEAR_REGEXP_FLOW
     };
 }
 
