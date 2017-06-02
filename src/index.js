@@ -1,6 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {
+    applyMiddleware,
+    createStore,
+    compose
+} from 'redux';
+import logger from 'redux-logger';
 import {Provider} from 'react-redux';
 import App from './App';
 import './index.css';
@@ -12,7 +17,10 @@ import {persistStore, autoRehydrate} from 'redux-persist';
 const store = createStore(
     mainReducer,
     initialState,
-    autoRehydrate()
+    compose(
+        applyMiddleware(logger),
+        autoRehydrate()
+    )
 );
 
 // begin periodically persisting the store
