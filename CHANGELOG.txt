@@ -1,5 +1,14 @@
 NEW
 
+0.4.0 (NEXT)
+
+- [Changed] CSS for menu
+- [Added] RegexpFlow loading and saving
+- [Added] react-router for navigation
+- [Added] redux-persist to store redux state in localStorage
+- [Added] react-logger to log state changes
+- [Changed] Refactored State
+
 0.3.0 2017.03.18
 
 - [Removed] Removed usage of RegexpFlowDescriptionContainer, as we are not saving Flows right now
