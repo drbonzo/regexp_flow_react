@@ -10,7 +10,7 @@ import './App.css';
 
 import FlowsListScreenContainer from './Containers/Layout/FlowsListScreenContainer';
 
-import NewFlowScreen from './Components/Layout/NewFlowScreen';
+import NewFlowScreenContainer from './Components/Layout/NewFlowScreen';
 import EditFlowScreen from './Components/Layout/EditFlowScreen';
 
 class App extends Component {
@@ -22,9 +22,9 @@ class App extends Component {
                     <div className="container-fluid">
                         {/*<Redirect from='/' to='/flows/new'/>*/}
                         <Switch>
-                            <Route exact path="/" component={NewFlowScreen}/>
+                            <Route exact path="/" component={NewFlowScreenContainer}/>
                             <Route exact path="/flows" component={FlowsListScreenContainer}/>
-                            <Route path="/flows/new" component={NewFlowScreen}/>
+                            <Route path="/flows/new" component={NewFlowScreenContainer}/>
                             <Route path="/flows/:id" component={EditFlowScreen}/>
                         </Switch>
                     </div>

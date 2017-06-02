@@ -4,6 +4,7 @@ import inputText from './inputText';
 import FilterRunner from '../../RegexpFlow/FilterRunner';
 import regexpFlowSaver from './regexpFlowSaver';
 import regexpFlowLoader from './regexpFlowLoader';
+import regexpFlowClearer from './regexpFlowClearer';
 
 const mainReducer = function (state, action) {
     if (action.type === 'persist/REHYDRATE') {
@@ -36,6 +37,10 @@ const mainReducer = function (state, action) {
     // changes .currentRegexpFlow
     const newState3 = regexpFlowLoader(newState, action);
     Object.assign(newState, newState3);
+
+    // changes .currentRegexpFlow
+    const newState4 = regexpFlowClearer(newState, action);
+    Object.assign(newState, newState4);
 
     return newState;
 };
