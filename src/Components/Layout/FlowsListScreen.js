@@ -11,7 +11,7 @@ class FlowsListScreen extends Component {
                 <h1>Saved Regexp Flows</h1>
 
                 <ul>
-                    {this.props.regexpFlows.map((flow) => <li key={'flow_' + flow.id}><Link to={'/flows/' + flow.id}>Flow #{flow.id}</Link></li>)}
+                    {this.props.regexpFlows.map((flow) => <li key={'flow_' + flow.id}><Link to={'/flows/' + flow.id}>Flow #{flow.id}</Link> - {flow.description}</li>)}
                 </ul>
             </div>
         );
