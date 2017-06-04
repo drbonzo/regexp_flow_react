@@ -90,7 +90,7 @@ describe('regexpFlowSaver reducer', function () {
         let newState;
         beforeEach(function () {
             state.currentRegexpFlow.id = null;
-            newState = regexpFlowSaver(state, saveRegexpFlow(state.currentRegexpFlow.id));
+            newState = regexpFlowSaver(state, saveRegexpFlow());
         });
 
         it('old state should have currentRegexpFlow.id set to null', () => {
@@ -131,7 +131,7 @@ describe('regexpFlowSaver reducer', function () {
 
             beforeEach(function () {
                 state.currentRegexpFlow.id = existingRegexpFlowId;
-                newState = regexpFlowSaver(state, saveRegexpFlow(state.currentRegexpFlow.id));
+                newState = regexpFlowSaver(state, saveRegexpFlow());
             });
 
             it('old state should have currentRegexpFlow.id set to existing value', () => {
@@ -172,7 +172,7 @@ describe('regexpFlowSaver reducer', function () {
             let newState;
             beforeEach(function () {
                 state.currentRegexpFlow.id = missingRegexpFlowId;
-                newState = regexpFlowSaver(state, saveRegexpFlow(state.currentRegexpFlow.id));
+                newState = regexpFlowSaver(state, saveRegexpFlow());
             });
 
             it('old state should have currentRegexpFlow.id set to value, but value not present in regexpFlows array', () => {

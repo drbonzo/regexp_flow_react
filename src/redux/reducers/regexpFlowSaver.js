@@ -15,9 +15,11 @@ function regexpFlowSaver(state, action) {
         newState.currentRegexpFlow = Object.assign({}, state.currentRegexpFlow);
         newState.regexpFlows = [...state.regexpFlows];
 
+        const regexpFlowId = state.currentRegexpFlow.id;
+
         let regexpFlowIndexToUpdate = undefined;
         state.regexpFlows.forEach((regexpFlow, index) => {
-            if (regexpFlow.id === action.id) {
+            if (regexpFlow.id === regexpFlowId) {
                 regexpFlowIndexToUpdate = index;
             }
         });

@@ -49,7 +49,8 @@ const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
     onSaveRegexpFlow: () => {
-        dispatch(saveRegexpFlow(null));
+        // this sets ID
+        dispatch(saveRegexpFlow());
     }
 });
 
