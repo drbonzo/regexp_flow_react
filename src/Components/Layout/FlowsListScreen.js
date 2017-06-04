@@ -2,7 +2,6 @@ import React, {PropTypes, Component} from 'react';
 import {
     Link
 } from 'react-router-dom';
-import RegexpFlow from '../../RegexpFlow/RegexpFlow';
 
 class FlowsListScreen extends Component {
     render() {
@@ -19,7 +18,8 @@ class FlowsListScreen extends Component {
 }
 
 FlowsListScreen.propTypes = {
-    regexpFlows: PropTypes.arrayOf(PropTypes.instanceOf(RegexpFlow))
+    // regexpFlows: PropTypes.arrayOf(PropTypes.instanceOf(RegexpFlow)) // FIXME rehydrate returns RAW objects not RegexpFlow
+    regexpFlows: PropTypes.arrayOf(PropTypes.object)
 };
 
 export default FlowsListScreen;

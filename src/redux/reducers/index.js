@@ -5,11 +5,20 @@ import FilterRunner from '../../RegexpFlow/FilterRunner';
 import regexpFlowSaver from './regexpFlowSaver';
 import regexpFlowLoader from './regexpFlowLoader';
 import regexpFlowClearer from './regexpFlowClearer';
+import {NAVIGATE_TO_EDIT_FLOW_SCREEN} from '../actions';
+import history from '../../history';
+
+function navigatorRedirector(state, action) {
+    if (action.type === NAVIGATE_TO_EDIT_FLOW_SCREEN) {
+        history.push('/flows/' + state.currentRegexpFlow.id);
+    }
+}
 
 const mainReducer = function (state, action) {
     if (action.type === 'persist/REHYDRATE') {
         return Object.assign({}, state);
     }
+    navigatorRedirector(state, action);
     let filterConfigsNew = filterConfigs(state.currentRegexpFlow.filterConfigs, action);
     let descriptionNew = description(state.currentRegexpFlow.description, action);
     let inputTextNew = inputText(state.inputText, action);

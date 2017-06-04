@@ -8,6 +8,7 @@ NEW
 - [Added] redux-persist to store redux state in localStorage
 - [Added] react-logger to log state changes
 - [Changed] Refactored State
+- [Added] Saving and loading saved RegexpFlows
 
 0.3.0 2017.03.18
 

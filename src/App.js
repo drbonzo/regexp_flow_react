@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {
-    HashRouter,
+    Router,
     Route,
     Switch
 } from 'react-router-dom';
+import history from './history';
 import NavBarContainer from './Components/Layout/NavBar';
 
 import './App.css';
@@ -17,7 +18,7 @@ class App extends Component {
 
     render() {
         return (
-            <HashRouter>
+            <Router history={history}>
                 <div className="App">
                     <NavBarContainer/>
                     <div className="container-fluid">
@@ -30,7 +31,7 @@ class App extends Component {
                         </Switch>
                     </div>
                 </div>
-            </HashRouter>
+            </Router>
         );
     }
 }

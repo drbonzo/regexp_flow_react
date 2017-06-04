@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {
     NavLink
 } from 'react-router-dom';
-import {saveRegexpFlow} from '../../redux/actions';
+import {saveRegexpFlow, navigateToEditFlowScreen} from '../../redux/actions';
 import ExamplesLoaderContainer from '../../Containers/ExamplesLoaderContainer';
 
 class NavBar extends Component {
@@ -30,7 +30,7 @@ class NavBar extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
                                 <li><NavLink exact to="/flows/new">New</NavLink></li>
-                                <li><a href="#" onClick={() => this.props.onSaveRegexpFlow()}>Save</a></li>
+                                <li><a onClick={() => this.props.onSaveRegexpFlow()}>Save #{this.props.currentRegexpFlowId}</a></li>
                                 <li><NavLink exact to="/flows">Library</NavLink></li>
                             </ul>
                         </div>
@@ -42,15 +42,18 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = {
-    onSaveRegexpFlow: PropTypes.func.isRequired
+    onSaveRegexpFlow: PropTypes.func.isRequired,
+    currentRegexpFlowId: PropTypes.number
 };
 
-const mapStateToProps = () => ({});
+const mapStateToProps = (state) => ({
+    currentRegexpFlowId: state.currentRegexpFlow.id
+});
 
 const mapDispatchToProps = (dispatch) => ({
     onSaveRegexpFlow: () => {
-        // this sets ID
         dispatch(saveRegexpFlow());
+        dispatch(navigateToEditFlowScreen());
     }
 });
 
