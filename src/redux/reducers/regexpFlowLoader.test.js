@@ -156,6 +156,15 @@ describe('regexpFlowLoader reducer', function () {
             });
         });
 
+        describe('when requested ID is a string', function () {
+
+            it('should load existing RegexpFlow normally', function () {
+                const newState = regexpFlowLoader(state, loadRegexpFlow(String(existingRegexpFlowId)));
+                expect(newState.currentRegexpFlow.id).toBe(2);
+            });
+        });
+
+
         describe('when state does not have RegexpFlow', function () {
 
             it('should do nothing', function () {
