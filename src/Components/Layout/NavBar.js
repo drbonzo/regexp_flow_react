@@ -1,10 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import {
     NavLink
 } from 'react-router-dom';
+import {saveRegexpFlow} from '../../redux/actions';
 import ExamplesLoaderContainer from '../../Containers/ExamplesLoaderContainer';
 
 class NavBar extends Component {
+
     render() {
         return (
             <div className="NavBar">
@@ -27,7 +30,7 @@ class NavBar extends Component {
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
                                 <li><NavLink exact to="/flows/new">New</NavLink></li>
-                                <li><NavLink exact to="/save">Save</NavLink></li>
+                                <li><a href="#" onClick={() => this.props.onSaveRegexpFlow()}>Save</a></li>
                                 <li><NavLink exact to="/flows">Library</NavLink></li>
                             </ul>
                         </div>
@@ -38,4 +41,21 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar;
+NavBar.propTypes = {
+    onSaveRegexpFlow: PropTypes.func.isRequired
+};
+
+const mapStateToProps = () => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+    onSaveRegexpFlow: () => {
+        dispatch(saveRegexpFlow(null));
+    }
+});
+
+const NavBarContainer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(NavBar);
+
+export default NavBarContainer;
