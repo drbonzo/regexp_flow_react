@@ -11,7 +11,7 @@ import './App.css';
 
 import FlowsListScreenContainer from './Containers/Layout/FlowsListScreenContainer';
 
-import NewFlowScreenContainer from './Components/Layout/NewFlowScreen';
+import NewFlowScreenContainer from './Containers/NewFlowScreenContainer';
 import EditFlowScreen from './Components/Layout/EditFlowScreen';
 
 class App extends Component {
