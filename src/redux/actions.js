@@ -18,6 +18,7 @@ export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
 export const CLEAR_REGEXP_FLOW = 'CLEAR_REGEXP_FLOW';
 export const LOAD_REGEXP_FLOW = 'LOAD_REGEXP_FLOW';
 export const SAVE_REGEXP_FLOW = 'SAVE_REGEXP_FLOW';
+export const DELETE_REGEXP_FLOW = 'DELETE_REGEXP_FLOW';
 
 export const NAVIGATE_TO_EDIT_FLOW_SCREEN = 'NAVIGATE_TO_EDIT_FLOW_SCREEN';
 
@@ -154,5 +155,12 @@ export function saveRegexpFlow() {
 export function navigateToEditFlowScreen() {
     return {
         type: NAVIGATE_TO_EDIT_FLOW_SCREEN
+    };
+}
+
+export function deleteRegexpFlow(id) {
+    return {
+        type: DELETE_REGEXP_FLOW,
+        id: id
     };
 }
