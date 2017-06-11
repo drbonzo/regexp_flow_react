@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {
+    Redirect,
     Router,
     Route,
     Switch
@@ -20,9 +21,8 @@ class App extends Component {
                 <div className="App">
                     <NavBarContainer/>
                     <div className="container-fluid">
-                        {/*<Redirect from='/' to='/flows/new'/>*/}
+                        <Redirect from='/' to='/flows/new'/>
                         <Switch>
-                            <Route exact path="/" component={EditFlowScreenContainer}/>
                             <Route exact path="/flows" component={FlowsListScreenContainer}/>
                             <Route path="/flows/new" component={EditFlowScreenContainer}/>
                             <Route path="/flows/:id" component={EditFlowScreenContainer}/>

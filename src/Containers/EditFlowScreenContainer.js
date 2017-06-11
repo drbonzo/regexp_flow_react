@@ -1,12 +1,15 @@
 import {connect} from 'react-redux';
 import EditFlowScreen from '../Components/EditFlowScreenComponent';
-import {loadRegexpFlow} from '../redux/actions';
+import {loadRegexpFlow, clearRegexpFlow} from '../redux/actions';
 
 const mapStateToProps = () => ({});
 
 const mapDispatchToProps = (dispatch) => ({
     loadRegexpFlow: (id) => {
         dispatch(loadRegexpFlow(id));
+    },
+    resetCurrentRegexpFlow: () => {
+        dispatch(clearRegexpFlow());
     }
 });
 

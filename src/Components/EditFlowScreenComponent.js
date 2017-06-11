@@ -4,7 +4,12 @@ import FlowScreen from './FlowScreen';
 class EditFlowScreen extends Component {
 
     componentDidMount() {
-        this.props.loadRegexpFlow(this.props.match.params.id);
+        const regexpFlowId = this.props.match.params.id;
+        if (regexpFlowId === 'new') {
+            this.props.resetCurrentRegexpFlow();
+        } else {
+            this.props.loadRegexpFlow(regexpFlowId);
+        }
     }
 
     render() {
@@ -19,7 +24,8 @@ class EditFlowScreen extends Component {
 
 EditFlowScreen.propTypes = {
     match: React.PropTypes.object,
-    loadRegexpFlow: PropTypes.func.isRequired
+    loadRegexpFlow: PropTypes.func.isRequired,
+    resetCurrentRegexpFlow: PropTypes.func.isRequired
 };
 
 export default EditFlowScreen;
