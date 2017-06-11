@@ -1,7 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
-import {loadRegexpFlow} from '../../redux/actions';
-import FlowScreen from './FlowScreen';
+import FlowScreen from './Layout/FlowScreen';
 
 class EditFlowScreen extends Component {
 
@@ -24,19 +22,4 @@ EditFlowScreen.propTypes = {
     loadRegexpFlow: PropTypes.func.isRequired
 };
 
-// =========
-
-const mapStateToProps = () => ({});
-
-const mapDispatchToProps = (dispatch) => ({
-    loadRegexpFlow: (id) => {
-        dispatch(loadRegexpFlow(id));
-    }
-});
-
-const EditFlowScreenContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(EditFlowScreen);
-
-export default EditFlowScreenContainer;
+export default EditFlowScreen;

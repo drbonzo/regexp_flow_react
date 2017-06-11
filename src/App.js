@@ -10,9 +10,8 @@ import NavBarContainer from './Containers/NavBarContainer';
 import './App.css';
 
 import FlowsListScreenContainer from './Containers/Layout/FlowsListScreenContainer';
-
 import NewFlowScreenContainer from './Containers/NewFlowScreenContainer';
-import EditFlowScreen from './Components/Layout/EditFlowScreen';
+import EditFlowScreenContainer from './Containers/EditFlowScreenContainer';
 
 class App extends Component {
 
@@ -27,7 +26,7 @@ class App extends Component {
                             <Route exact path="/" component={NewFlowScreenContainer}/>
                             <Route exact path="/flows" component={FlowsListScreenContainer}/>
                             <Route path="/flows/new" component={NewFlowScreenContainer}/>
-                            <Route path="/flows/:id" component={EditFlowScreen}/>
+                            <Route path="/flows/:id" component={EditFlowScreenContainer}/>
                         </Switch>
                     </div>
                 </div>
