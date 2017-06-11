@@ -5,6 +5,7 @@ import FilterRunner from '../../RegexpFlow/FilterRunner';
 import regexpFlowSaver from './regexpFlowSaver';
 import regexpFlowLoader from './regexpFlowLoader';
 import regexpFlowClearer from './regexpFlowClearer';
+import regexpFlowDeleter from './regexpFlowDeleter';
 import {NAVIGATE_TO_EDIT_FLOW_SCREEN} from '../actions';
 import history from '../../history';
 
@@ -50,6 +51,10 @@ const mainReducer = function (state, action) {
     // changes .currentRegexpFlow
     const newState4 = regexpFlowClearer(newState, action);
     Object.assign(newState, newState4);
+
+    // changes .currentRegexpFlow
+    const newState5 = regexpFlowDeleter(newState, action);
+    Object.assign(newState, newState5);
 
     return newState;
 };
