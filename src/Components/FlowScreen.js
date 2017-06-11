@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import RegexpFlowDescriptionContainer from '../../Containers/RegexpFlowDescriptionContainer';
-import RegexpFlowContainer from '../../Containers/RegexpFlowContainer';
-import InputTextContainer from '../../Containers/InputTextContainer';
-import OutputTextContainer from '../../Containers/OutputTextContainer';
+import RegexpFlowDescriptionContainer from '../Containers/RegexpFlowDescriptionContainer';
+import RegexpFlowContainer from '../Containers/RegexpFlowContainer';
+import InputTextContainer from '../Containers/InputTextContainer';
+import OutputTextContainer from '../Containers/OutputTextContainer';
 
 class FlowScreen extends Component {
 

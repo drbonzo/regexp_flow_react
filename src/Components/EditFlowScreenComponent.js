@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import FlowScreen from './Layout/FlowScreen';
+import FlowScreen from './FlowScreen';
 
 class EditFlowScreen extends Component {
 
