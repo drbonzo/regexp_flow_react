@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {
     NavLink
 } from 'react-router-dom';
-import ExamplesLoaderContainer from '../../Containers/ExamplesLoaderContainer';
+import ExamplesLoaderContainer from '../Containers/ExamplesLoaderContainer';
 
 class NavBarComponent extends Component {
 

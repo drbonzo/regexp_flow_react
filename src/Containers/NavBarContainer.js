@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {saveRegexpFlow, navigateToEditFlowScreen} from '../redux/actions';
-import NavBarComponent from '../Components/Layout/NavBarComponent';
+import NavBarComponent from '../Components/NavBarComponent';
 
 const mapStateToProps = (state) => ({
     currentRegexpFlowId: state.currentRegexpFlow.id
