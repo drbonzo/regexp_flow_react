@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import FlowsListScreen from '../../Components/Layout/FlowsListScreen';
+import FlowsListScreenComponent from '../Components/FlowsListScreenComponent';
 // import {
 //     filterUpdateSearchString,
 //     filterToggleCaseInsensitive,
@@ -23,6 +23,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const FlowsListScreenContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(FlowsListScreen);
+)(FlowsListScreenComponent);
 
 export default FlowsListScreenContainer;

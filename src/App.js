@@ -9,7 +9,7 @@ import NavBarContainer from './Containers/NavBarContainer';
 
 import './App.css';
 
-import FlowsListScreenContainer from './Containers/Layout/FlowsListScreenContainer';
+import FlowsListScreenContainer from './Containers/FlowsListScreenContainer';
 import NewFlowScreenContainer from './Containers/NewFlowScreenContainer';
 import EditFlowScreenContainer from './Containers/EditFlowScreenContainer';
 

@@ -3,7 +3,7 @@ import {
     Link
 } from 'react-router-dom';
 
-class FlowsListScreen extends Component {
+class FlowsListScreenComponent extends Component {
     render() {
         return (
             <div className="MainScreen">
@@ -17,9 +17,9 @@ class FlowsListScreen extends Component {
     }
 }
 
-FlowsListScreen.propTypes = {
+FlowsListScreenComponent.propTypes = {
     // regexpFlows: PropTypes.arrayOf(PropTypes.instanceOf(RegexpFlow)) // FIXME rehydrate returns RAW objects not RegexpFlow
     regexpFlows: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default FlowsListScreen;
+export default FlowsListScreenComponent;
