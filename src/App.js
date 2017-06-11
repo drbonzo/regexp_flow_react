@@ -5,7 +5,7 @@ import {
     Switch
 } from 'react-router-dom';
 import history from './history';
-import NavBarContainer from './Components/Layout/NavBar';
+import NavBarContainer from './Containers/NavBarContainer';
 
 import './App.css';
 

@@ -1,12 +1,10 @@
 import React, {Component, PropTypes} from 'react';
-import {connect} from 'react-redux';
 import {
     NavLink
 } from 'react-router-dom';
-import {saveRegexpFlow, navigateToEditFlowScreen} from '../../redux/actions';
 import ExamplesLoaderContainer from '../../Containers/ExamplesLoaderContainer';
 
-class NavBar extends Component {
+class NavBarComponent extends Component {
 
     render() {
         return (
@@ -41,25 +39,9 @@ class NavBar extends Component {
     }
 }
 
-NavBar.propTypes = {
+NavBarComponent.propTypes = {
     onSaveRegexpFlow: PropTypes.func.isRequired,
     currentRegexpFlowId: PropTypes.number
 };
 
-const mapStateToProps = (state) => ({
-    currentRegexpFlowId: state.currentRegexpFlow.id
-});
-
-const mapDispatchToProps = (dispatch) => ({
-    onSaveRegexpFlow: () => {
-        dispatch(saveRegexpFlow());
-        dispatch(navigateToEditFlowScreen());
-    }
-});
-
-const NavBarContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NavBar);
-
-export default NavBarContainer;
+export default NavBarComponent;
