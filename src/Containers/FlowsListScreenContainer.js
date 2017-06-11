@@ -13,7 +13,7 @@ const mapStateToProps = (state) => ({
     regexpFlows: state.regexpFlows
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (/* dispatch, ownProps */) => ({
     // FIXME load current regexpFlow!!!
     // onDeleteClick: () => {
     //     dispatch(regexpFlowDeleteFilter(ownProps.id));
