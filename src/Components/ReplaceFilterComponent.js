@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import FilterConfigControlls from './FilterConfigControlls';
 import FilterComponent from './FilterComponent';
-import HelpForFilterComponent from './Layout/HelpForFilterComponent';
+import HelpForFilterComponent from './HelpForFilterComponent';
 
 class ReplaceFilterComponent extends FilterComponent {
 
