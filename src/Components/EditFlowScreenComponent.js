@@ -15,7 +15,7 @@ class EditFlowScreen extends Component {
     render() {
         return (
             <div>
-                <h1>EDIT Flow Screen: #{this.props.match.params.id}</h1>
+                <h1>Edit RegexpFlow</h1>
                 <FlowScreen/>
             </div>
         );

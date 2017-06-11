@@ -27,8 +27,11 @@ class NavBarComponent extends Component {
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li><NavLink exact to="/flows/new">New</NavLink></li>
-                                <li><a onClick={() => this.props.onSaveRegexpFlow()}>Save #{this.props.currentRegexpFlowId}</a></li>
+                                <li><NavLink exact to="/flows/new">Editor</NavLink></li>
+                                <li><a href="#save" onClick={(e) => {
+                                    this.props.onSaveRegexpFlow();
+                                    e.preventDefault();
+                                }}>Save #{this.props.currentRegexpFlowId}</a></li>
                                 <li><NavLink exact to="/flows">Library</NavLink></li>
                             </ul>
                         </div>

@@ -24,7 +24,6 @@ class App extends Component {
                         <Redirect from='/' to='/flows/new'/>
                         <Switch>
                             <Route exact path="/flows" component={FlowsListScreenContainer}/>
-                            <Route path="/flows/new" component={EditFlowScreenContainer}/>
                             <Route path="/flows/:id" component={EditFlowScreenContainer}/>
                         </Switch>
                     </div>
