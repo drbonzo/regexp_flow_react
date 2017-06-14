@@ -17,7 +17,9 @@ function navigatorRedirector(state, action) {
 
 const mainReducer = function (state, action) {
     if (action.type === 'persist/REHYDRATE') {
-        return Object.assign({}, state);
+        return Object.assign({}, state, action.payload);
+        // state gives inputText, outputText
+        // action.payload gives other data
     }
     navigatorRedirector(state, action);
     let filterConfigsNew = filterConfigs(state.currentRegexpFlow.filterConfigs, action);
