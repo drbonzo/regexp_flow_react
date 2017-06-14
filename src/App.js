@@ -16,26 +16,35 @@ import EditFlowScreenContainer from './Containers/EditFlowScreenContainer';
 class App extends Component {
 
     render() {
-        return (
-            <Router history={history}>
-                <div className="App">
-                    <NavBarContainer/>
-                    <div className="container-fluid">
-                        <Redirect from='/' to='/flows/new'/>
-                        <Switch>
-                            <Route exact path="/flows" component={FlowsListScreenContainer}/>
-                            <Route path="/flows/:id" component={EditFlowScreenContainer}/>
-                        </Switch>
+        if (this.props.isRehydrated) {
+            return (
+                <Router history={history}>
+                    <div className="App">
+                        <NavBarContainer/>
+                        <div className="container-fluid">
+                            <Redirect exact from='/' to='/flows'/>
+                            <Switch>
+                                <Route exact path="/flows" component={FlowsListScreenContainer}/>
+                                <Route path="/flows/:id" component={EditFlowScreenContainer}/>
+                            </Switch>
+                        </div>
                     </div>
-                </div>
-            </Router>
-        );
+                </Router>
+            );
+
+        } else {
+            return <div>LOADING...</div>;
+        }
     }
 }
 
 App.contextTypes = {
     // TODO remove?
     store: React.PropTypes.object
+};
+
+App.propTypes = {
+    isRehydrated: React.PropTypes.bool.isRequired
 };
 
 export default App;

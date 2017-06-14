@@ -7,5 +7,6 @@ export const initialState = {
         filterConfigs: {}
     },
     regexpFlows: [],
-    nextRegexpFlowIndex: 1
+    nextRegexpFlowIndex: 1,
+    rehydrated: false
 };

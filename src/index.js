@@ -6,7 +6,7 @@ import {
     compose
 } from 'redux';
 import logger from 'redux-logger';
-import {Provider} from 'react-redux';
+import {Provider, connect} from 'react-redux';
 import App from './App';
 import './index.css';
 import mainReducer from './redux/reducers';
@@ -34,9 +34,19 @@ persistStore(store, {
     debounce: 1000
 });
 
+const mapStateToProps = (state) => ({
+    isRehydrated: state.rehydrated
+});
+
+const AppContainer = connect(
+    mapStateToProps,
+    null
+)(App);
+
+
 ReactDOM.render(
     <Provider store={store}>
-        <App />
+        <AppContainer />
     </Provider>,
     document.getElementById('root')
 );
