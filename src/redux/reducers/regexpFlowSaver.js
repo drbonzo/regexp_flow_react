@@ -24,7 +24,7 @@ function regexpFlowSaver(state, action) {
             }
         });
 
-        if (regexpFlowIndexToUpdate) {
+        if (regexpFlowIndexToUpdate !== undefined) {
             // we have existing RegexpFlow with the same ID
             const clonedRegexpFlow = new RegexpFlow();
             clonedRegexpFlow.id = state.currentRegexpFlow.id;
