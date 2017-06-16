@@ -6,6 +6,18 @@ import ExamplesLoaderContainer from '../Containers/ExamplesLoaderContainer';
 
 class NavBarComponent extends Component {
 
+    getURLForEditor() {
+        return '/flows/' + (this.props.currentRegexpFlowId || 'new');
+    }
+
+    getSaveButtonLabel() {
+        if (this.props.currentRegexpFlowId) {
+            return `Save #${this.props.currentRegexpFlowId}`;
+        } else {
+            return 'Save';
+        }
+    }
+
     render() {
         return (
             <div className="NavBar">
@@ -27,12 +39,13 @@ class NavBarComponent extends Component {
 
                         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul className="nav navbar-nav">
-                                <li><NavLink exact to="/flows/new">Editor</NavLink></li>
+                                <li><NavLink exact to={this.getURLForEditor()}>Editor</NavLink></li>
                                 <li><a href="#save" onClick={(e) => {
                                     this.props.onSaveRegexpFlow();
                                     e.preventDefault();
-                                }}>Save #{this.props.currentRegexpFlowId}</a></li>
+                                }}>{this.getSaveButtonLabel()}</a></li>
                                 <li><NavLink exact to="/flows">Library</NavLink></li>
+                                <li><NavLink exact to="/flows/new">New</NavLink></li>
                             </ul>
                         </div>
                     </div>
