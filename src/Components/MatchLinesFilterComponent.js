@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import FilterConfigControlls from './FilterConfigControlls';
+import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
 
@@ -11,7 +11,7 @@ class MatchLinesFilterComponent extends FilterComponent {
                 <div className="FilterConfig__Header">
                     Match lines with text
                     <div className="btn-group pull-right">
-                        <FilterConfigControlls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick} enabled={this.props.enabled}/>
+                        <FilterConfigControls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick} enabled={this.props.enabled}/>
                     </div>
                 </div>
                 <div className={this.props.enabled ? 'FilterConfig__Contents' : 'FilterConfig__Contents FilterConfig__Contents--Hidden'}>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class FilterConfigControlls extends Component {
+class FilterConfigControls extends Component {
     render() {
         return (
             <div className="btn-group pull-right">
@@ -13,7 +13,7 @@ class FilterConfigControlls extends Component {
     }
 }
 
-FilterConfigControlls.propTypes = {
+FilterConfigControls.propTypes = {
     enabled: React.PropTypes.bool,
     toggleShowHelp: React.PropTypes.func,
     toggleShowDescription: React.PropTypes.func,
@@ -21,4 +21,4 @@ FilterConfigControlls.propTypes = {
     onDeleteClick: React.PropTypes.func
 };
 
-export default FilterConfigControlls;
+export default FilterConfigControls;
