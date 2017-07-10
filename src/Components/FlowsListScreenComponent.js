@@ -23,20 +23,37 @@ class FlowsListScreenComponent extends Component {
     render() {
         return (
             <div className="MainScreen">
-                <h1>Saved Regexp Flows</h1>
-
-                <table className="table table-condensed table-striped table-bordered">
-                    <tbody>
-                    <tr>
-                        <th>ID</th>
-                        <th>Description</th>
-                        <th>Delete</th>
-                    </tr>
-                    {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
-                    </tbody>
-                </table>
+                {this.renderSavedRegexpFlows()}
             </div>
         );
+    }
+
+    renderSavedRegexpFlows() {
+        if (this.props.regexpFlows.length > 0) {
+            return (
+                <div>
+                    <h1>Saved Regexp Flows</h1>
+                    <table className="table table-condensed table-striped table-bordered">
+                        <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Delete</th>
+                        </tr>
+                        {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
+                        </tbody>
+                    </table>
+                </div>);
+        } else {
+            return (
+                <div>
+                    <h1>You have no saved RegexpFlows</h1>
+
+                    <Link to={'/flows/new'} className="btn btn-success">
+                        Add new RegexpFlow
+                    </Link>
+                </div>);
+        }
     }
 }
 
