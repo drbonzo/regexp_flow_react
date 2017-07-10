@@ -5,7 +5,7 @@ class OutputTextComponent extends Component {
     render() {
         return (
             <div className="OutputText">
-                <h2>Output</h2>
+                <h2 className="Screen__Subtitle">Output</h2>
                 <form className="form">
                     <textarea className="form-control" rows="10" value={this.props.outputText} onChange={() => {
                     }}/>

@@ -6,6 +6,7 @@
     background-color: #666;
     color: #eee;
 }
+
 .navbar-default .navbar-nav > li > a:hover {
     background-color: #ccc;
     color: #000;
@@ -98,4 +99,18 @@
 
 .ExamplesLoader__Button {
     background-color: #F8F8F8;
+}
+
+.Screen {
+
+}
+
+.Screen__Title {
+    font-size: 18pt;
+}
+
+.Screen__Subtitle {
+    font-size: 14pt;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }

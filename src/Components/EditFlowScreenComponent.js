@@ -31,8 +31,8 @@ class EditFlowScreen extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Edit RegexpFlow</h1>
+            <div className="Screen">
+                <h1 className="Screen__Title">Edit RegexpFlow</h1>
                 <FlowScreen/>
             </div>
         );

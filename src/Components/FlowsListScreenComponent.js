@@ -31,8 +31,8 @@ class FlowsListScreenComponent extends Component {
     renderSavedRegexpFlows() {
         if (this.props.regexpFlows.length > 0) {
             return (
-                <div>
-                    <h1>Saved Regexp Flows</h1>
+                <div className="Screen">
+                    <h1 className="Screen__Title">Saved Regexp Flows</h1>
                     <table className="table table-condensed table-striped table-bordered">
                         <tbody>
                         <tr>
@@ -46,8 +46,8 @@ class FlowsListScreenComponent extends Component {
                 </div>);
         } else {
             return (
-                <div>
-                    <h1>You have no saved RegexpFlows</h1>
+                <div className="Screen">
+                    <h1 className="Screen__Title">You have no saved RegexpFlows</h1>
 
                     <Link to={'/flows/new'} className="btn btn-success">
                         Add new RegexpFlow
