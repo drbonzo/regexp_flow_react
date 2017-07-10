@@ -9,11 +9,11 @@ class FlowsListScreenComponent extends Component {
         return (
             <tr key={'flow_' + flow.id}>
                 <td><Link to={'/flows/' + flow.id}>#{flow.id}</Link></td>
-                <td><Link to={'/flows/' + flow.id}>{flow.description ? flow.description : "(no description)"}</Link></td>
+                <td><Link to={'/flows/' + flow.id}>{flow.description ? flow.description : '(no description)'}</Link></td>
                 <td>
                     <button type="button" className="btn btn-danger btn-xs" onClick={() => {
                         this.props.onDeleteRegexpFlow(flow.id);
-                    } }>X
+                    } }>Delete
                     </button>
                 </td>
             </tr>
