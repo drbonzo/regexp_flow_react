@@ -29,19 +29,19 @@ const mainReducer = function (state, action) {
     let inputTextNew = inputText(state.inputText, action);
 
     let runner = new FilterRunner();
-    // FIXME update totals/counters in filter configs
+
     let outputTextNew = runner.processString(filterConfigsNew, inputTextNew);
 
     let newState = Object.assign({}, state, {
         inputText: inputTextNew,
         outputText: outputTextNew,
         currentRegexpFlow: {
-            id: state.currentRegexpFlow.id, // FIXME
+            id: state.currentRegexpFlow.id,
             filterConfigs: filterConfigsNew,
             description: descriptionNew,
         },
         regexpFlows: state.regexpFlows,
-        nextRegexpFlowIndex: state.nextRegexpFlowIndex, // FIXME
+        nextRegexpFlowIndex: state.nextRegexpFlowIndex,
     });
 
     // changes .currentRegexpFlow, .regexpFlows
