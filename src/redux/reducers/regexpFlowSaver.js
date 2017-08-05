@@ -24,16 +24,7 @@ function regexpFlowSaver(state, action) {
             }
         });
 
-        if (regexpFlowIndexToUpdate !== undefined) {
-            // we have existing RegexpFlow with the same ID
-            const clonedRegexpFlow = new RegexpFlow();
-            clonedRegexpFlow.id = state.currentRegexpFlow.id;
-            clonedRegexpFlow.description = state.currentRegexpFlow.description;
-            clonedRegexpFlow.filterConfigs = cloneFilterConfigs(state.currentRegexpFlow.filterConfigs);
-
-            newState.regexpFlows[regexpFlowIndexToUpdate] = clonedRegexpFlow;
-
-        } else {
+        if (regexpFlowIndexToUpdate === undefined) {
             // save new object
             const newId = state.nextRegexpFlowIndex;
             newState.currentRegexpFlow.id = newId;
@@ -45,6 +36,14 @@ function regexpFlowSaver(state, action) {
 
             newState.regexpFlows.push(persistedRegexpFlow);
             newState.nextRegexpFlowIndex++;
+        } else {
+            // we have existing RegexpFlow with the same ID
+            const clonedRegexpFlow = new RegexpFlow();
+            clonedRegexpFlow.id = state.currentRegexpFlow.id;
+            clonedRegexpFlow.description = state.currentRegexpFlow.description;
+            clonedRegexpFlow.filterConfigs = cloneFilterConfigs(state.currentRegexpFlow.filterConfigs);
+
+            newState.regexpFlows[regexpFlowIndexToUpdate] = clonedRegexpFlow;
         }
 
         return newState;
