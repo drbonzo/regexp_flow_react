@@ -11,7 +11,7 @@ import history from '../../history';
 
 function navigatorRedirector(state, action) {
     if (action.type === NAVIGATE_TO_EDIT_FLOW_SCREEN) {
-        history.push('/flows/' + state.currentRegexpFlow.id);
+        history.push('/editor');
     }
 }
 

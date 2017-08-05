@@ -1,14 +1,11 @@
 import React, {Component, PropTypes} from 'react';
 import {
+    Link,
     NavLink
 } from 'react-router-dom';
 import ExamplesLoaderContainer from '../Containers/ExamplesLoaderContainer';
 
 class NavBarComponent extends Component {
-
-    getURLForEditor() {
-        return '/flows/' + (this.props.currentRegexpFlowId || 'new');
-    }
 
     getSaveButtonLabel() {
         if (this.props.currentRegexpFlowId) {
@@ -30,26 +27,45 @@ class NavBarComponent extends Component {
                                 <span className="icon-bar"/>
                                 <span className="icon-bar"/>
                             </button>
-                            <a className="navbar-brand" href="#">RegexpFlow - ReactJS</a>
+                            <Link exact to="/" className="navbar-brand">RegexpFlow - ReactJS</Link>
                         </div>
 
-                        <div className="pull-right">
-                            <ExamplesLoaderContainer/>
-                        </div>
+                        {this.renderExamplesLoaderComboBox()}
 
-                        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul className="nav navbar-nav">
-                                <li><NavLink exact to={this.getURLForEditor()}>Editor</NavLink></li>
-                                <li><a href="#save" onClick={(e) => {
-                                    this.props.onSaveRegexpFlow();
-                                    e.preventDefault();
-                                }}>{this.getSaveButtonLabel()}</a></li>
-                                <li><NavLink exact to="/flows">Library</NavLink></li>
-                                <li><NavLink exact to="/flows/new">New</NavLink></li>
-                            </ul>
-                        </div>
+                        {this.renderNavigationButtons()}
                     </div>
                 </nav>
+            </div>
+        );
+    }
+
+    renderExamplesLoaderComboBox() {
+        return (
+            <div className="pull-right">
+                <ExamplesLoaderContainer/>
+            </div>
+        );
+    }
+
+    renderNavigationButtons() {
+        return (
+            <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul className="nav navbar-nav">
+                    <li><NavLink exact to="/editor">Editor</NavLink></li>
+                    <li><a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        this.props.onSaveRegexpFlow();
+                    }}>{this.getSaveButtonLabel()}</a></li>
+                    <li><NavLink exact to="/library">Library</NavLink></li>
+                    <li>
+                        <a href="#" onClick={(e) => {
+                            e.preventDefault();
+                            this.props.onCreateNewRegexpFlow();
+                        }}>
+                            New
+                        </a>
+                    </li>
+                </ul>
             </div>
         );
     }
@@ -57,6 +73,7 @@ class NavBarComponent extends Component {
 
 NavBarComponent.propTypes = {
     onSaveRegexpFlow: PropTypes.func.isRequired,
+    onCreateNewRegexpFlow: PropTypes.func.isRequired,
     currentRegexpFlowId: PropTypes.number
 };
 

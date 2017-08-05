@@ -8,12 +8,26 @@ class FlowsListScreenComponent extends Component {
     renderRegexpFlowItem(flow) {
         return (
             <tr key={'flow_' + flow.id}>
-                <td><Link to={'/flows/' + flow.id}>#{flow.id}</Link></td>
-                <td><Link to={'/flows/' + flow.id}>{flow.description ? flow.description : '(no description)'}</Link></td>
                 <td>
-                    <button type="button" className="btn btn-danger btn-xs" onClick={() => {
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        this.props.onLoadRegexpFlow(flow.id);
+                    }}>
+                        #{flow.id}
+                    </a>
+                </td>
+                <td>
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        this.props.onLoadRegexpFlow(flow.id);
+                    }}>
+                        {flow.description ? flow.description : '(no description)'}
+                    </a>
+                </td>
+                <td>
+                    <button className="btn btn-danger btn-xs" onClick={() => {
                         this.props.onDeleteRegexpFlow(flow.id);
-                    } }>Delete
+                    }}>Delete
                     </button>
                 </td>
             </tr>
@@ -49,7 +63,7 @@ class FlowsListScreenComponent extends Component {
                 <div className="Screen">
                     <h1 className="Screen__Title">You have no saved RegexpFlows</h1>
 
-                    <Link to={'/flows/new'} className="btn btn-success">
+                    <Link to={'/editor'} className="btn btn-success">
                         Add new RegexpFlow
                     </Link>
                 </div>);
@@ -60,7 +74,8 @@ class FlowsListScreenComponent extends Component {
 FlowsListScreenComponent.propTypes = {
     // regexpFlows: PropTypes.arrayOf(PropTypes.instanceOf(RegexpFlow)) // FIXME rehydrate returns RAW objects not RegexpFlow
     regexpFlows: PropTypes.arrayOf(PropTypes.object),
-    onDeleteRegexpFlow: PropTypes.func.isRequired
+    onDeleteRegexpFlow: PropTypes.func.isRequired,
+    onLoadRegexpFlow: PropTypes.func.isRequired
 };
 
 export default FlowsListScreenComponent;

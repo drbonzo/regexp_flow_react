@@ -2,7 +2,9 @@ import {connect} from 'react-redux';
 
 import FlowsListScreenComponent from '../Components/FlowsListScreenComponent';
 import {
-    deleteRegexpFlow
+    deleteRegexpFlow,
+    loadRegexpFlow,
+    navigateToEditFlowScreen
 } from '../redux/actions';
 
 const mapStateToProps = (state) => ({
@@ -12,6 +14,11 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
     onDeleteRegexpFlow: (id) => {
         dispatch(deleteRegexpFlow(id));
+    },
+
+    onLoadRegexpFlow: (id) => {
+        dispatch(loadRegexpFlow(id));
+        dispatch(navigateToEditFlowScreen());
     }
 });
 
