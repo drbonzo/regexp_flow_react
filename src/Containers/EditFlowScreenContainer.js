@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import EditFlowScreen from '../Components/EditFlowScreenComponent';
+import EditFlowScreenComponent from '../Components/EditFlowScreenComponent';
 import {loadRegexpFlow, clearRegexpFlow} from '../redux/actions';
 
 const mapStateToProps = (state) => ({
@@ -18,6 +18,6 @@ const mapDispatchToProps = (dispatch) => ({
 const EditFlowScreenContainer = connect(
     mapStateToProps,
     mapDispatchToProps
-)(EditFlowScreen);
+)(EditFlowScreenComponent);
 
 export default EditFlowScreenContainer;

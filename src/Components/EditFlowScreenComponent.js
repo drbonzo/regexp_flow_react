@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import FlowScreen from './FlowScreen';
 
-class EditFlowScreen extends Component {
+class EditFlowScreenComponent extends Component {
 
     componentDidMount() {
         const id = this.props.match.params.id;
@@ -39,11 +39,11 @@ class EditFlowScreen extends Component {
     }
 }
 
-EditFlowScreen.propTypes = {
+EditFlowScreenComponent.propTypes = {
     match: React.PropTypes.object,
     loadRegexpFlow: PropTypes.func.isRequired,
     resetCurrentRegexpFlow: PropTypes.func.isRequired,
     currentRegexpFlowId: PropTypes.number // optional
 };
 
-export default EditFlowScreen;
+export default EditFlowScreenComponent;
