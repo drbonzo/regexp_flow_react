@@ -35,11 +35,11 @@ describe('Filter', function () {
             expect(filter.splitTextIntoLines('foo\r\nbar')).toEqual(['foo', 'bar']);
         });
 
-        it('should treat \\n\\n as single separator', function () { // FIXME wtf? why split treats \n\n as single separator?
+        it('should not treat \\n\\n as single separator', function () {
             expect(filter.splitTextIntoLines('foo\n\nbar')).toEqual(['foo', '', 'bar']);
         });
 
-        it('should treat \\n\\r as single separator', function () { // FIXME wtf? why split treats \n\n as single separator?
+        it('should not treat \\n\\r as single separator', function () {
             expect(filter.splitTextIntoLines('foo\n\rbar')).toEqual(['foo', '', 'bar']);
         });
 
