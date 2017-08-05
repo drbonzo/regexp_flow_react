@@ -17,7 +17,7 @@ class EditFlowScreenComponent extends Component {
         if (this.props.currentRegexpFlowId === null) {
             // do nothing
         } else {
-            this.props.resetCurrentRegexpFlow();
+            this.props.clearCurrentRegexpFlow();
         }
     }
 
@@ -42,7 +42,7 @@ class EditFlowScreenComponent extends Component {
 EditFlowScreenComponent.propTypes = {
     match: React.PropTypes.object,
     loadRegexpFlow: PropTypes.func.isRequired,
-    resetCurrentRegexpFlow: PropTypes.func.isRequired,
+    clearCurrentRegexpFlow: PropTypes.func.isRequired,
     currentRegexpFlowId: PropTypes.number // optional
 };
 

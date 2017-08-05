@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
     loadRegexpFlow: (id) => {
         dispatch(loadRegexpFlow(id));
     },
-    resetCurrentRegexpFlow: () => {
+    clearCurrentRegexpFlow: () => {
         dispatch(clearRegexpFlow());
     }
 });
