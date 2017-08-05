@@ -112,7 +112,6 @@ describe('regexpFlowDeleter reducer', function () {
         });
     });
 
-    // FIXME nie działa, kurwa
     describe('when state does not have RegexpFlow', function () {
         it('it should do nothing', function () {
             const newState = regexpFlowDeleter(state, deleteRegexpFlow(missingRegexpFlowId));
