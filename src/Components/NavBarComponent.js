@@ -27,7 +27,7 @@ class NavBarComponent extends Component {
                                 <span className="icon-bar"/>
                                 <span className="icon-bar"/>
                             </button>
-                            <Link exact to="/" className="navbar-brand">RegexpFlow - ReactJS</Link>
+                            <Link to="/" className="navbar-brand">RegexpFlow - ReactJS</Link>
                         </div>
 
                         {this.renderExamplesLoaderComboBox()}
