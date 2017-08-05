@@ -2,7 +2,7 @@ import {
     CLEAR_REGEXP_FLOW,
 } from './../actions';
 
-function regexpFlowLoader(state, action) {
+function regexpFlowClearer(state, action) {
     if (action.type === CLEAR_REGEXP_FLOW) {
 
         const newState = Object.assign({}, state);
@@ -23,4 +23,4 @@ function regexpFlowLoader(state, action) {
     }
 }
 
-export default regexpFlowLoader;
+export default regexpFlowClearer;
