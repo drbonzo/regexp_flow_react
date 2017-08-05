@@ -1,14 +1,14 @@
 NEW
 
-0.4.0 (NEXT)
+0.4.0 2017.08.05
 
-- [Changed] CSS for menu
 - [Added] RegexpFlow loading and saving
 - [Added] react-router for navigation
 - [Added] redux-persist to store redux state in localStorage
 - [Added] react-logger to log state changes
 - [Changed] Refactored State
 - [Added] Saving and loading saved RegexpFlows
+- [Changed] CSS for menu
 
 0.3.0 2017.03.18
 
