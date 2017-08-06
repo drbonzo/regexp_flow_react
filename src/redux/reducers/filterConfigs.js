@@ -28,6 +28,7 @@ function filterConfigReducer(state, id, replacement) {
     overwrite[id] = newFilterConfig;
     return Object.assign({}, state, overwrite);
 }
+
 let nextId = 1;
 
 /**
@@ -36,37 +37,37 @@ let nextId = 1;
  */
 function createNewFilterConfig(filterType) {
     switch (filterType) {
-        case 'FindAll': {
+        case FindAllFilterConfig.FILTER_TYPE: {
             let config = new FindAllFilterConfig();
             config.searchString = '\\b.+?\\b';
             config.id = nextId++;
             return config;
         }
-        case 'MatchLines': {
+        case MatchLinesFilterConfig.FILTER_TYPE: {
             let config = new MatchLinesFilterConfig();
             config.searchString = '';// will match all lines
             config.id = nextId++;
             return config;
         }
-        case 'MatchInLines': {
+        case MatchInLinesFilterConfig.FILTER_TYPE: {
             let config = new MatchInLinesFilterConfig();
             config.searchString = '^.*$';
             config.id = nextId++;
             return config;
         }
-        case 'Replace': {
+        case ReplaceFilterConfig.FILTER_TYPE: {
             let config = new ReplaceFilterConfig();
             config.searchString = '^(.+?)$';
             config.replaceString = '$1';
             config.id = nextId++;
             return config;
         }
-        case 'Unique': {
+        case UniqueFilterConfig.FILTER_TYPE: {
             let config = new UniqueFilterConfig();
             config.id = nextId++;
             return config;
         }
-        case 'SortLines': {
+        case SortLinesFilterConfig.FILTER_TYPE: {
             let config = new SortLinesFilterConfig();
             config.id = nextId++;
             return config;
@@ -76,6 +77,7 @@ function createNewFilterConfig(filterType) {
         }
     }
 }
+
 function filterConfigs(state, action) {
 
     switch (action.type) {
