@@ -23,8 +23,6 @@ describe('SortLinesFilter', function () {
         describe('empty values', function () {
             it('should return empty text when input text is empty', function () {
                 expect(sortLinesFilter.processText(filterConfig, '')).toEqual('');
-                expect(filterConfig.totalLinesCount).toEqual(0);
-                expect(filterConfig.matchedLinesCount).toEqual(0);
             });
         });
 
@@ -42,8 +40,6 @@ describe('SortLinesFilter', function () {
                     'zzzz'
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(3);
-                expect(filterConfig.matchedLinesCount).toEqual(3);
             });
 
             it('should sort numbers like a text', function () {
@@ -61,8 +57,6 @@ describe('SortLinesFilter', function () {
                     '3'
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(4);
-                expect(filterConfig.matchedLinesCount).toEqual(4);
             });
 
             it('should preserve whitespace', function () {
@@ -84,8 +78,6 @@ describe('SortLinesFilter', function () {
                     'ccc',
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(6);
-                expect(filterConfig.matchedLinesCount).toEqual(6);
             });
         });
 
@@ -108,8 +100,6 @@ describe('SortLinesFilter', function () {
                     'aaaa',
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(3);
-                expect(filterConfig.matchedLinesCount).toEqual(3);
             });
 
             it('should sort numbers like a text', function () {
@@ -127,8 +117,6 @@ describe('SortLinesFilter', function () {
                     '1',
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(4);
-                expect(filterConfig.matchedLinesCount).toEqual(4);
             });
 
             it('should preserve whitespace', function () {
@@ -150,8 +138,6 @@ describe('SortLinesFilter', function () {
                     ' aaaX',
                 ].join('\n');
                 expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
-                expect(filterConfig.totalLinesCount).toEqual(6);
-                expect(filterConfig.matchedLinesCount).toEqual(6);
             });
         });
 

@@ -17,7 +17,7 @@ class SortLinesFilterComponent extends FilterComponent {
                     <form>
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Label">Sorts lines {/* FIXME implement (showing 0 lines) */}</label>
+                                <label className="FilterConfig__Contents__Label">Sorts lines</label>
                             </div>
                             <div className="form-group form-inline">
 

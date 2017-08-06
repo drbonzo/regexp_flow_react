@@ -10,8 +10,6 @@ class SortLinesFilter extends Filter {
     processText(filterConfig, inputText) {
 
         if (inputText === '') {
-            filterConfig.totalLinesCount = 0;
-            filterConfig.matchedLinesCount = 0;
             return inputText;
         }
 
@@ -19,8 +17,6 @@ class SortLinesFilter extends Filter {
 
         const compareFunction = (filterConfig.invertOrder ? this._sortInDescendingOrder : this._sortInAscendingOrder);
         const outputText = textLines.sort(compareFunction).join('\n');
-        filterConfig.totalLinesCount = textLines.length;
-        filterConfig.matchedLinesCount = textLines.length;
 
         return outputText;
     }

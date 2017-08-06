@@ -10,17 +10,6 @@ class SortLinesFilterConfig extends FilterConfig {
          * @type {boolean}
          */
         this.invertOrder = false;
-
-        /**
-         * @type {number}
-         */
-        this.totalLinesCount = 0;
-
-        /**
-         * @type {number}
-         */
-        this.matchedLinesCount = 0;
-
     }
 
 }
