@@ -3,6 +3,7 @@ import MatchLinesFilter from './Filter/MatchLinesFilter';
 import MatchInLinesFilter from './Filter/MatchInLinesFilter';
 import ReplaceFilter from './Filter/ReplaceFilter';
 import UniqueFilter from './Filter/UniqueFilter';
+import SortLinesFilter from './Filter/SortLinesFilter';
 
 class FilterRunner {
 
@@ -12,7 +13,8 @@ class FilterRunner {
             MatchLines: new MatchLinesFilter(),
             MatchInLines: new MatchInLinesFilter(),
             Replace: new ReplaceFilter(),
-            Unique: new UniqueFilter()
+            Unique: new UniqueFilter(),
+            SortLines: new SortLinesFilter(),
         };
     }
 

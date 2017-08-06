@@ -19,6 +19,7 @@ import MatchLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchLinesFilt
 import MatchInLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLinesFilterConfig';
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig';
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig';
+import SortLinesFilterConfig from '../../RegexpFlow/FilterConfig/SortLinesFilterConfig';
 
 function filterConfigReducer(state, id, replacement) {
     let newFilterConfig = Object.assign({}, state[id], replacement);
@@ -61,6 +62,11 @@ function createNewFilterConfig(filterType) {
         }
         case 'Unique': {
             let config = new UniqueFilterConfig();
+            config.id = nextId++;
+            return config;
+        }
+        case 'SortLines': {
+            let config = new SortLinesFilterConfig();
             config.id = nextId++;
             return config;
         }

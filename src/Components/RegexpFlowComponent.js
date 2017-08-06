@@ -4,6 +4,7 @@ import MatchInLinesFilterContainer from '../Containers/MatchInLinesFilterContain
 import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer';
 import ReplaceFilterContainer from '../Containers/ReplaceFilterContainer';
 import UniqueFilterContainer from '../Containers/UniqueFilterContainer';
+import SortLinesFilterContainer from '../Containers/SortLinesFilterContainer';
 
 const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
 
@@ -31,6 +32,10 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
                 }
                 case 'Unique': {
                     filterConfigsCollection.push(<UniqueFilterContainer id={index} key={'tp_' + index}/>);
+                    break;
+                }
+                case 'SortLines': {
+                    filterConfigsCollection.push(<SortLinesFilterContainer id={index} key={'tp_' + index}/>);
                     break;
                 }
                 default: {
@@ -68,6 +73,11 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
                     <button type="button" className="btn btn-default btn-sm" onClick={() => {
                         onAddFilterConfigClick('Unique');
                     }}>+ Unique
+                    </button>
+
+                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
+                        onAddFilterConfigClick('SortLines');
+                    }}>+ Sort
                     </button>
                 </div>
             </div>
