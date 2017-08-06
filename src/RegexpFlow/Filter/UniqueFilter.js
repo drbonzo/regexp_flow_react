@@ -18,6 +18,12 @@ class UniqueFilter extends Filter {
         }
 
         let lines = this.splitTextIntoLines(inputText);
+
+        // remove last line, if empty, and only last one, even if string ends with multiple empty lines
+        if (lines[lines.length - 1] === '') {
+            lines.pop();
+        }
+
         filterConfig.totalLinesCount = lines.length;
 
         let uniqueLinesCounters = {};

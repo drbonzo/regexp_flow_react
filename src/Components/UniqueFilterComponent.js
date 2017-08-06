@@ -18,7 +18,7 @@ class UniqueFilterComponent extends FilterComponent {
                     <form>
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Label">Show just unique lines {/* FIXME implement (showing 0 of 0 lines) */}</label>
+                                <label className="FilterConfig__Contents__Label">Show just unique lines (showing {this.props.uniqueLinesCount} of {this.props.totalLinesCount})</label>
                             </div>
                             <div className="form-group form-inline">
 
@@ -62,6 +62,8 @@ UniqueFilterComponent.propTypes = {
     description: PropTypes.string.isRequired,
     addCounter: PropTypes.bool.isRequired,
     counterSeparator: PropTypes.string.isRequired,
+    uniqueLinesCount: PropTypes.number.isRequired,
+    totalLinesCount: PropTypes.number.isRequired,
     //
     enabled: PropTypes.bool.isRequired,
     //

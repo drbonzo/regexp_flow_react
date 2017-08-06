@@ -12,6 +12,8 @@ import {
 const mapStateToProps = (state, ownProps) => ({
     addCounter: state.currentRegexpFlow.filterConfigs[ownProps.id].addCounter,
     counterSeparator: state.currentRegexpFlow.filterConfigs[ownProps.id].counterSeparator,
+    uniqueLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].uniqueLinesCount,
+    totalLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
     description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
     enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });

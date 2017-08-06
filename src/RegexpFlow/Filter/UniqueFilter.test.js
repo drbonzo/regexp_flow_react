@@ -20,6 +20,8 @@ describe('UniqueFilter', function () {
             filterConfig = new UniqueFilterConfig();
 
             expect(filterConfig.addCounter).toBe(false);
+            expect(filterConfig.totalLinesCount).toBe(0);
+            expect(filterConfig.uniqueLinesCount).toBe(0);
         });
 
         describe('empty values', function () {
@@ -163,5 +165,42 @@ describe('UniqueFilter', function () {
             });
 
         });
+    });
+
+    describe('Line counting', function () {
+
+        beforeEach(function () {
+            uniqueFilter = new UniqueFilter();
+            filterConfig = new UniqueFilterConfig();
+        });
+
+        describe('multiple calls on the same filterConfig', function () {
+
+            it('should count unique lines first, and with second call it should reset it to zero, as input is empty text', function () {
+                expect(uniqueFilter.processText(filterConfig, 'A\nB\nA\nD')).toEqual('A\nB\nD');
+                expect(filterConfig.totalLinesCount).toEqual(4);
+                expect(filterConfig.uniqueLinesCount).toEqual(3);
+                //
+                expect(uniqueFilter.processText(filterConfig, '')).toEqual('');
+                expect(filterConfig.totalLinesCount).toEqual(0);
+                expect(filterConfig.uniqueLinesCount).toEqual(0);
+            });
+        });
+
+        describe('counting lines with final empty line', function () {
+
+            it('final empty line should not be counted', function () {
+                expect(uniqueFilter.processText(filterConfig, 'foobar\nfoobar\n')).toEqual('foobar');
+                expect(filterConfig.totalLinesCount).toEqual(2);
+                expect(filterConfig.uniqueLinesCount).toEqual(1);
+            });
+
+            it('in empty string, line should not be counted', function () {
+                expect(uniqueFilter.processText(filterConfig, '')).toEqual('');
+                expect(filterConfig.totalLinesCount).toEqual(0);
+                expect(filterConfig.uniqueLinesCount).toEqual(0);
+            });
+        });
+
     });
 });
