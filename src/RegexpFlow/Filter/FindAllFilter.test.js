@@ -111,4 +111,39 @@ describe('FindAllFilter', function () {
         // 		});
         //
     });
+
+    describe('Line counting', function () {
+
+        beforeEach(function () {
+            findAllFilter = new FindAllFilter();
+            filterConfig = new FindAllFilterConfig();
+        });
+
+        describe('multiple calls on the same filterConfig', function () {
+
+            it('should count unique lines first, and with second call it should reset it to zero, as input is empty text', function () {
+
+                filterConfig.searchString = '\\d+';
+
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
+                expect(filterConfig.matchesCount).toEqual(4);
+
+                expect(findAllFilter.processText(filterConfig, '')).toEqual('');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
+
+            it('should reset stats when input string is empty', function () {
+
+                filterConfig.searchString = '\\d+';
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('2\n542\n534\n2333');
+                expect(filterConfig.matchesCount).toEqual(4);
+
+                filterConfig.searchString = '';
+                expect(findAllFilter.processText(filterConfig, 'Lor2em ips542um 534 dolor s2333id amet')).toEqual('Lor2em ips542um 534 dolor s2333id amet');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
+        });
+
+    });
+
 });
