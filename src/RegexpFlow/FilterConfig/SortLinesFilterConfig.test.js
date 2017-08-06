@@ -15,6 +15,7 @@ describe('SortLinesFilterConfig', function () {
 
         it('should be default', function () {
             expect(filterConfig.filterType).toEqual('SortLines');
+            expect(filterConfig.invertOrder).toBe(false);
             expect(filterConfig.totalLinesCount).toEqual(0);
             expect(filterConfig.matchedLinesCount).toEqual(0);
         });

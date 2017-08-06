@@ -19,6 +19,15 @@ class SortLinesFilterComponent extends FilterComponent {
                             <div className="form-group">
                                 <label className="FilterConfig__Contents__Label">Sorts lines {/* FIXME implement (showing 0 lines) */}</label>
                             </div>
+                            <div className="form-group form-inline">
+
+                                <div className="checkbox FilterConfig__Contents__Checkbox">
+                                    <label className="FilterConfig__Contents__Checkbox__Label">
+                                        <input type="checkbox" checked={this.props.invertOrder} onChange={this.props.onInvertOrderChanged} ref={input => this.firstCheckbox = input}/>
+                                        Invert order
+                                    </label>
+                                </div>
+                            </div>
                         </fieldset>
                         <fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
                             <div className="form-group">
@@ -36,14 +45,16 @@ class SortLinesFilterComponent extends FilterComponent {
 }
 
 SortLinesFilterComponent.propTypes = {
-    description: PropTypes.string.isRequired,
+    invertOrder: PropTypes.bool.isRequired,
     //
+    description: PropTypes.string.isRequired,
     enabled: PropTypes.bool.isRequired,
     //
     //
     //
-    onDescriptionChange: PropTypes.func.isRequired,
+    onInvertOrderChanged: PropTypes.func.isRequired,
     //
+    onDescriptionChange: PropTypes.func.isRequired,
     onEnabledClick: PropTypes.func.isRequired,
     onDeleteClick: PropTypes.func.isRequired
 };

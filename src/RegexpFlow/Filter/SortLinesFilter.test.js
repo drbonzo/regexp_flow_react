@@ -28,7 +28,7 @@ describe('SortLinesFilter', function () {
             });
         });
 
-        describe('sorting', function () {
+        describe('normal sorting', function () {
             it('should sort lines like a text', function () {
                 const inputText = [
                     'zzzz',
@@ -88,5 +88,72 @@ describe('SortLinesFilter', function () {
                 expect(filterConfig.matchedLinesCount).toEqual(6);
             });
         });
+
+        describe('inverted sorting', function () {
+
+            beforeEach(function () {
+                filterConfig.invertOrder = true;
+            });
+            
+            it('should sort lines like a text', function () {
+                const inputText = [
+                    'aaaa',
+                    'zzzz',
+                    'mmmm',
+                ].join('\n');
+
+                const expectedText = [
+                    'zzzz',
+                    'mmmm',
+                    'aaaa',
+                ].join('\n');
+                expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
+                expect(filterConfig.totalLinesCount).toEqual(3);
+                expect(filterConfig.matchedLinesCount).toEqual(3);
+            });
+
+            it('should sort numbers like a text', function () {
+                const inputText = [
+                    '12345',
+                    '3',
+                    '2',
+                    '1',
+                ].join('\n');
+
+                const expectedText = [
+                    '3',
+                    '2',
+                    '12345',
+                    '1',
+                ].join('\n');
+                expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
+                expect(filterConfig.totalLinesCount).toEqual(4);
+                expect(filterConfig.matchedLinesCount).toEqual(4);
+            });
+
+            it('should preserve whitespace', function () {
+                const inputText = [
+                    'ccc',
+                    'bbb',
+                    ' aaaX',
+                    'aaab',
+                    ' cccX',
+                    ' bbbX',
+                ].join('\n');
+
+                const expectedText = [
+                    'ccc',
+                    'bbb',
+                    'aaab',
+                    ' cccX',
+                    ' bbbX',
+                    ' aaaX',
+                ].join('\n');
+                expect(sortLinesFilter.processText(filterConfig, inputText)).toEqual(expectedText);
+                expect(filterConfig.totalLinesCount).toEqual(6);
+                expect(filterConfig.matchedLinesCount).toEqual(6);
+            });
+        });
+
     });
 });

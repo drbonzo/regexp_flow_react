@@ -17,11 +17,32 @@ class SortLinesFilter extends Filter {
 
         const textLines = this.splitTextIntoLines(inputText);
 
-        const outputText = textLines.sort((a, b) => a > b).join('\n');
+        const compareFunction = (filterConfig.invertOrder ? this._sortInDescendingOrder : this._sortInAscendingOrder);
+        const outputText = textLines.sort(compareFunction).join('\n');
         filterConfig.totalLinesCount = textLines.length;
         filterConfig.matchedLinesCount = textLines.length;
 
         return outputText;
+    }
+
+    /**
+     * @param {string} a
+     * @param {string} b
+     * @returns {number}
+     * @private
+     */
+    _sortInAscendingOrder(a, b) {
+        return a.localeCompare(b);
+    }
+
+    /**
+     * @param {string} a
+     * @param {string} b
+     * @returns {number}
+     * @private
+     */
+    _sortInDescendingOrder(a, b) {
+        return b.localeCompare(a);
     }
 }
 

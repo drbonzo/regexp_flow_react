@@ -20,6 +20,7 @@ import MatchInLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLines
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig';
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig';
 import SortLinesFilterConfig from '../../RegexpFlow/FilterConfig/SortLinesFilterConfig';
+import {FILTER_TOGGLE_INVERT_ORDER} from '../actions';
 
 function filterConfigReducer(state, id, replacement) {
     let newFilterConfig = Object.assign({}, state[id], replacement);
@@ -158,6 +159,12 @@ function filterConfigs(state, action) {
         case FILTER_SET_COUNTER_SEPARATOR: {
             let id = action.id;
             let replacement = {counterSeparator: action.counterSeparator};
+
+            return filterConfigReducer(state, id, replacement);
+        }
+        case FILTER_TOGGLE_INVERT_ORDER: {
+            let id = action.id;
+            let replacement = {invertOrder: !state[id].invertOrder};
 
             return filterConfigReducer(state, id, replacement);
         }

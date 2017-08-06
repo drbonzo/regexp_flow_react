@@ -1,5 +1,8 @@
 # RegexpFlow - Changelog
 
+## (NEXT)
+
+- **ADDED**: `SortLinesFilter` - just sorts lines as strings
 
 ## 0.4.1 / 2017.08.05
 

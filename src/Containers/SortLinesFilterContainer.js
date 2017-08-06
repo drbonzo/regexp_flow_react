@@ -4,12 +4,14 @@ import SortLinesFilterComponent from '../Components/SortLinesFilterComponent';
 import {
     filterUpdateDescription,
     filterToggleEnabled,
-    regexpFlowDeleteFilter
+    filterToggleInvertOrder,
+    regexpFlowDeleteFilter,
 } from '../redux/actions';
 
 const mapStateToProps = (state, ownProps) => ({
     description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
-    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
+    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
+    invertOrder: state.currentRegexpFlow.filterConfigs[ownProps.id].invertOrder,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -22,6 +24,9 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     },
     onDeleteClick: () => {
         dispatch(regexpFlowDeleteFilter(ownProps.id));
+    },
+    onInvertOrderChanged: () => {
+        dispatch(filterToggleInvertOrder(ownProps.id));
     }
 });
 

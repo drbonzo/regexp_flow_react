@@ -11,6 +11,7 @@ export const FILTER_TOGGLE_GLOBAL = 'FILTER_TOGGLE_GLOBAL';
 export const FILTER_TOGGLE_MULTILINE = 'FILTER_TOGGLE_MULTILINE';
 export const FILTER_TOGGLE_ADD_COUNTER = 'FILTER_TOGGLE_ADD_COUNTER';
 export const FILTER_SET_COUNTER_SEPARATOR = 'FILTER_SET_COUNTER_SEPARATOR';
+export const FILTER_TOGGLE_INVERT_ORDER = 'FILTER_TOGGLE_INVERT_ORDER';
 export const FILTER_UPDATE_DESCRIPTION = 'FILTER_UPDATE_DESCRIPTION';
 export const FILTER_UPDATE_SEARCH_STRING = 'FILTER_UPDATE_SEARCH_STRING';
 export const FILTER_UPDATE_REPLACE_STRING = 'FILTER_UPDATE_REPLACE_STRING';
@@ -103,6 +104,13 @@ export function filterSetCounterSeparator(id, counterSeparator) {
         type: FILTER_SET_COUNTER_SEPARATOR,
         id: id,
         counterSeparator: counterSeparator
+    };
+}
+
+export function filterToggleInvertOrder(id) {
+    return {
+        type: FILTER_TOGGLE_INVERT_ORDER,
+        id: id
     };
 }
 

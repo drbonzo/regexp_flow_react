@@ -7,6 +7,11 @@ class SortLinesFilterConfig extends FilterConfig {
         super(SortLinesFilterConfig.FILTER_TYPE);
 
         /**
+         * @type {boolean}
+         */
+        this.invertOrder = false;
+
+        /**
          * @type {number}
          */
         this.totalLinesCount = 0;
