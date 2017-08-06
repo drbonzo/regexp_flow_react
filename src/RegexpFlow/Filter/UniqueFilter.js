@@ -11,7 +11,7 @@ class UniqueFilter extends Filter {
     processText(filterConfig, inputText) {
 
         filterConfig.totalLinesCount = 0;
-        filterConfig.matchedLinesCount = 0;
+        filterConfig.uniqueLinesCount = 0;
 
         if (inputText.length === 0) {
             return inputText;
@@ -51,7 +51,7 @@ class UniqueFilter extends Filter {
             }
         }
 
-        filterConfig.matchedLinesCount = uniqueLines.length;
+        filterConfig.uniqueLinesCount = uniqueLines.length;
 
         return uniqueLines.join('\n');
     }
