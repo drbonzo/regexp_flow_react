@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => ({
     caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
     multiline: state.currentRegexpFlow.filterConfigs[ownProps.id].multiline,
     replaceString: state.currentRegexpFlow.filterConfigs[ownProps.id].replaceString,
+    replacementsCount: state.currentRegexpFlow.filterConfigs[ownProps.id].replacementsCount,
     description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
     enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
 });

@@ -48,7 +48,7 @@ class ReplaceFilterComponent extends FilterComponent {
 
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Label">and replace with{/* FIXME implement (5 replacements) */}:</label>
+                                <label className="FilterConfig__Contents__Label">and replace with ({this.props.replacementsCount} replacements):</label>
                                 <input type="text" className="form-control input-sm" placeholder="replacement string" value={this.props.replaceString} onChange={(event) => {
                                     this.props.onReplaceStringChange(event.target.value);
                                 }}/>
@@ -87,8 +87,9 @@ ReplaceFilterComponent.propTypes = {
     caseInsensitive: PropTypes.bool.isRequired,
     multiline: PropTypes.bool.isRequired,
     replaceString: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    replacementsCount: PropTypes.number.isRequired,
     //
+    description: PropTypes.string.isRequired,
     enabled: PropTypes.bool.isRequired,
     //
     //
