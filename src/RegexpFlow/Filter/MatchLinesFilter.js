@@ -12,10 +12,16 @@ class MatchLinesFilter extends Filter {
 
         try {
 
+            filterConfig.totalLinesCount = 0;
+            filterConfig.matchedLinesCount = 0;
+
+            if (inputText === '') {
+                return inputText;
+            }
+
             //  FIXME this.resetRegExpValidation();
             let lines = this.splitTextIntoLines(inputText);
             filterConfig.totalLinesCount = lines.length;
-            filterConfig.matchedLinesCount = 0;
 
             if (!filterConfig.searchString) {
                 filterConfig.matchedLinesCount = filterConfig.totalLinesCount;

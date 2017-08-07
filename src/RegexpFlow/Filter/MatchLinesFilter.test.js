@@ -26,7 +26,7 @@ describe('MatchLinesFilter', function () {
                 matchLinesFilter = new MatchLinesFilter();
 
                 expect(matchLinesFilter.processText(filterConfig, '')).toEqual('');
-                expect(filterConfig.totalLinesCount).toEqual(1);
+                expect(filterConfig.totalLinesCount).toEqual(0);
                 expect(filterConfig.matchedLinesCount).toEqual(0);
             });
 

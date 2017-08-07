@@ -18,7 +18,7 @@ class MatchLinesFilterComponent extends FilterComponent {
                     <form>
                         <fieldset>
                             <div className="form-group">
-                                <label className="FilterConfig__Contents__Label">Get lines {this.props.invertMatch ? 'not' : ''} matching {/* FIXME implement (showing 1 of 1 lines)*/}</label>
+                                <label className="FilterConfig__Contents__Label">Get lines {this.props.invertMatch ? 'not' : ''} matching (showing {this.props.matchedLinesCount} of {this.props.totalLinesCount} lines)</label>
                                 <input type="text" ref={input => this.firstInput = input} className="form-control input-sm" placeholder="regular expression" value={this.props.searchString} onChange={(event) => {
                                     this.props.onSearchStringChange(event.target.value);
                                 }}/>
@@ -65,8 +65,10 @@ MatchLinesFilterComponent.propTypes = {
     searchString: PropTypes.string.isRequired,
     caseInsensitive: PropTypes.bool.isRequired,
     invertMatch: PropTypes.bool.isRequired,
-    description: PropTypes.string.isRequired,
+    totalLinesCount: PropTypes.number.isRequired,
+    matchedLinesCount: PropTypes.number.isRequired,
     //
+    description: PropTypes.string.isRequired,
     enabled: PropTypes.bool.isRequired,
     //
     //
