@@ -36,6 +36,15 @@ describe('FindAllFilter', function () {
                 expect(findAllFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('Lorem ipsum dolor sit amet');
                 expect(filterConfig.matchesCount).toEqual(0);
             });
+
+            it('should return zero matches for empty input and ^$ regexp', function () {
+                filterConfig.searchString = '^$';
+                findAllFilter = new FindAllFilter();
+
+                expect(findAllFilter.processText(filterConfig, '')).toEqual('');
+                expect(filterConfig.matchesCount).toEqual(0);
+            });
+
         });
 
         describe('normal matching', function () {

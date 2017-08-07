@@ -12,11 +12,16 @@ class FindAllFilter extends Filter {
 
         try {
 
+            filterConfig.matchesCount = 0;
+
+            if (inputText === '') {
+                return inputText;
+            }
+
             let searchRegexp;
             let matches;
 
             // FIXME this.resetRegExpValidation();
-            filterConfig.matchesCount = 0;
 
             if (!filterConfig.searchString) {
                 return inputText; // dont change anything when there is no regular expression
