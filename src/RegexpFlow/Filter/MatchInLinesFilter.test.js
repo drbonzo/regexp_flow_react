@@ -37,8 +37,8 @@ describe('MatchInLinesFilter', function () {
                 matchInLinesFilter = new MatchInLinesFilter();
 
                 expect(matchInLinesFilter.processText(filterConfig, '')).toEqual('');
-                expect(filterConfig.totalLinesCount).toEqual(1);
-                expect(filterConfig.matchedLinesCount).toEqual(1);
+                expect(filterConfig.totalLinesCount).toEqual(0);
+                expect(filterConfig.matchedLinesCount).toEqual(0);
             });
 
             it('should return empty text when regexp does not match empty input text', function () {
@@ -46,7 +46,7 @@ describe('MatchInLinesFilter', function () {
                 matchInLinesFilter = new MatchInLinesFilter();
 
                 expect(matchInLinesFilter.processText(filterConfig, '')).toEqual('');
-                expect(filterConfig.totalLinesCount).toEqual(1);
+                expect(filterConfig.totalLinesCount).toEqual(0);
                 expect(filterConfig.matchedLinesCount).toEqual(0);
             });
 

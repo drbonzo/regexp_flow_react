@@ -12,6 +12,8 @@ import {
 const mapStateToProps = (state, ownProps) => ({
     searchString: state.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
     caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
+    totalLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
+    matchedLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].matchedLinesCount,
     description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
     enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
