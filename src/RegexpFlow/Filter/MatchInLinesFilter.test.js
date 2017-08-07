@@ -125,5 +125,30 @@ describe('MatchInLinesFilter', function () {
 // 				}
 // 			});
 // 		});
+
+        describe('Line counting', function () {
+
+            describe('multiple calls on the same filterConfig', function () {
+
+                it('should reset stats when next filtering is on empty data', function () {
+
+                    filterConfig.searchString = '\\d+';
+                    matchInLinesFilter = new MatchInLinesFilter();
+
+                    expect(matchInLinesFilter.processText(filterConfig, 'Lorem123ipsum\ndolor456sit\namet789lorem\nipsum dolor sit amet')).toEqual('123\n456\n789');
+                    expect(filterConfig.totalLinesCount).toEqual(4);
+                    expect(filterConfig.matchedLinesCount).toEqual(3);
+
+                    //
+
+                    filterConfig.searchString = '';
+
+                    expect(matchInLinesFilter.processText(filterConfig, '')).toEqual('');
+                    expect(filterConfig.matchedLinesCount).toEqual(0);
+                    expect(filterConfig.totalLinesCount).toEqual(0);
+
+                });
+            });
+        });
     });
 });

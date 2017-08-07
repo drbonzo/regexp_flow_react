@@ -140,5 +140,30 @@ describe('MatchLinesFilter', function () {
         // 		}
         // 	});
         // });
+
+        describe('Line counting', function () {
+
+            describe('multiple calls on the same filterConfig', function () {
+
+                it('should reset stats when next filtering is on empty data', function () {
+
+                    filterConfig.searchString = '[13]';
+
+                    expect(matchLinesFilter.processText(filterConfig, '1\n2\n3')).toEqual('1\n3');
+                    expect(filterConfig.matchedLinesCount).toEqual(2);
+                    expect(filterConfig.totalLinesCount).toEqual(3);
+
+                    //
+
+                    filterConfig.searchString = '';
+
+                    expect(matchLinesFilter.processText(filterConfig, '')).toEqual('');
+                    expect(filterConfig.matchedLinesCount).toEqual(0);
+                    expect(filterConfig.totalLinesCount).toEqual(0);
+
+                });
+            });
+        });
     });
+
 });

@@ -217,5 +217,31 @@ describe('ReplaceFilter', function () {
         // 	});
         // });
         //
+
+        describe('Line counting', function () {
+
+            describe('multiple calls on the same filterConfig', function () {
+
+                it('should reset stats when next filtering is on empty data', function () {
+
+                    filterConfig.searchString = 'o';
+                    filterConfig.replaceString = 'O';
+                    replaceFilter = new ReplaceFilter();
+
+                    expect(replaceFilter.processText(filterConfig, 'Lorem ipsum dolor sit amet')).toEqual('LOrem ipsum dOlOr sit amet');
+                    expect(filterConfig.replacementsCount).toEqual(3);
+
+                    //
+
+                    filterConfig.searchString = '';
+                    filterConfig.replaceString = '';
+                    replaceFilter = new ReplaceFilter();
+
+                    expect(replaceFilter.processText(filterConfig, '')).toEqual('');
+                    expect(filterConfig.replacementsCount).toEqual(0);
+
+                });
+            });
+        });
     });
 });

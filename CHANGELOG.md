@@ -3,6 +3,7 @@
 ## (NEXT)
 
 - **ADDED**: `SortLinesFilter` - just sorts lines as strings
+- **ADDED**: Stats for each filter, like how many lines matched, how many replacements were made, etc
 
 ## 0.4.1 / 2017.08.05
 
