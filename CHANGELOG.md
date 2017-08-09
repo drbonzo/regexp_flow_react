@@ -1,6 +1,6 @@
 # RegexpFlow - Changelog
 
-## (NEXT)
+## 0.5.0 / 2017.08.09
 
 - **ADDED**: `SortLinesFilter` - just sorts lines as strings
 - **ADDED**: Stats for each filter, like how many lines matched, how many replacements were made, etc
