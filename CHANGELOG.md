@@ -1,5 +1,9 @@
 # RegexpFlow - Changelog
 
+## NEXT
+
+- **ADDED**: ESDoc reference generation: `npm run docs:build`
+
 ## 0.5.0 / 2017.08.09
 
 - **ADDED**: `SortLinesFilter` - just sorts lines as strings
