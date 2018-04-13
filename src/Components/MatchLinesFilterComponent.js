@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
@@ -42,7 +43,7 @@ class MatchLinesFilterComponent extends FilterComponent {
 
                         <HelpForFilterComponent showHelp={this.state.showHelp}>
                             <li>returns whole lines that are matched by regular expression</li>
-                            <li>if 'invert' flag is checked - then returns lines that DO NOT match regular expression</li>
+                            <li>if &apos;invert&apos; flag is checked - then returns lines that DO NOT match regular expression</li>
                             <li>lines are returned, joined with \n character - not their original newline character!</li>
                         </HelpForFilterComponent>
 

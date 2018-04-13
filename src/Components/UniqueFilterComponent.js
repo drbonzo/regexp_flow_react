@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import UniqueFilterConfig from '../RegexpFlow/FilterConfig/UniqueFilterConfig';

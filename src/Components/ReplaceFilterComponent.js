@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
@@ -57,10 +58,10 @@ class ReplaceFilterComponent extends FilterComponent {
 
                         <HelpForFilterComponent showHelp={this.state.showHelp}>
                             <li>$1, $2, $3 - for groups.</li>
-                            <li>$$ Inserts a "$".</li>
+                            <li>$$ Inserts a &quot;$&quot;.</li>
                             <li>$& Inserts the matched substring.</li>
-                            <li>$` Inserts the portion of the string that precedes the matched substring.</li>
-                            <li>$' Inserts the portion of the string that follows the matched substring.</li>
+                            <li>$&grave; Inserts the portion of the string that precedes the matched substring.</li>
+                            <li>$&apos; Inserts the portion of the string that follows the matched substring.</li>
                             <li>$n or $nn</li>
                             <li>Where n or nn are decimal digits, inserts the nth parenthesized submatch string, provided the first argument was a RegExp object.</li>
                             <li>\t, \n - to insert tab/newline characters</li>

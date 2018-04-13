@@ -5,6 +5,7 @@ import {
     Route,
     Switch
 } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import history from './history';
 import NavBarContainer from './Containers/NavBarContainer';
 
@@ -40,11 +41,11 @@ class App extends Component {
 
 App.contextTypes = {
     // TODO remove?
-    store: React.PropTypes.object
+    store: PropTypes.object
 };
 
 App.propTypes = {
-    isRehydrated: React.PropTypes.bool.isRequired
+    isRehydrated: PropTypes.bool.isRequired
 };
 
 export default App;

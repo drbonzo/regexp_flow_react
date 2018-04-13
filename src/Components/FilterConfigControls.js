@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class FilterConfigControls extends Component {
     render() {
@@ -14,11 +15,11 @@ class FilterConfigControls extends Component {
 }
 
 FilterConfigControls.propTypes = {
-    enabled: React.PropTypes.bool,
-    toggleShowHelp: React.PropTypes.func,
-    toggleShowDescription: React.PropTypes.func,
-    onEnabledClick: React.PropTypes.func,
-    onDeleteClick: React.PropTypes.func
+    enabled: PropTypes.bool,
+    toggleShowHelp: PropTypes.func,
+    toggleShowDescription: PropTypes.func,
+    onEnabledClick: PropTypes.func,
+    onDeleteClick: PropTypes.func
 };
 
 export default FilterConfigControls;

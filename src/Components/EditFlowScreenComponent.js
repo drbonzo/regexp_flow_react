@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import FlowScreen from './FlowScreen';
 
 class EditFlowScreenComponent extends Component {
@@ -14,7 +15,7 @@ class EditFlowScreenComponent extends Component {
 }
 
 EditFlowScreenComponent.propTypes = {
-    match: React.PropTypes.object,
+    match: PropTypes.object,
     loadRegexpFlow: PropTypes.func.isRequired
 };
 

@@ -1,4 +1,6 @@
-import React, {PropTypes, Component} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
 import {
     Link
 } from 'react-router-dom';
@@ -49,12 +51,12 @@ class FlowsListScreenComponent extends Component {
                     <h1 className="Screen__Title">Saved Regexp Flows</h1>
                     <table className="table table-condensed table-striped table-bordered">
                         <tbody>
-                        <tr>
-                            <th>ID</th>
-                            <th>Description</th>
-                            <th>Delete</th>
-                        </tr>
-                        {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
+                            <tr>
+                                <th>ID</th>
+                                <th>Description</th>
+                                <th>Delete</th>
+                            </tr>
+                            {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
                         </tbody>
                     </table>
                 </div>);

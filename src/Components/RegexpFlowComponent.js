@@ -1,4 +1,5 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import FindAllFilterContainer from '../Containers/FindAllFilterContainer';
 import MatchInLinesFilterContainer from '../Containers/MatchInLinesFilterContainer';
 import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer';
