@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
 import AppContainer from './AppContainer';
-import {initialState} from './redux/state';
+import {initialState} from './Store/initialState';
 
 it('renders without crashing', () => {
 

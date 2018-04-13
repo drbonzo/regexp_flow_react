@@ -1,8 +1,7 @@
 import {connect} from 'react-redux';
 
 import ExamplesLoaderComponent from '../Components/ExamplesLoaderComponent';
-
-import {removeAllFilterConfigs} from '../redux/actions';
+import {removeAllFilterConfigs} from '../Store/Actions/RegexpFlowActions';
 
 const mapDispatchToProps = (dispatch) => ({
     loadExampleHandler: (example) => {

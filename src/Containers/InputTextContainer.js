@@ -1,13 +1,10 @@
 import {connect} from 'react-redux';
 
 import InputTextComponent from '../Components/InputTextComponent';
-
-import {
-    updateInputText
-} from '../redux/actions';
+import {updateInputText} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state) => ({
-    value: state.inputText
+    value: state.app.inputText
 });
 
 const mapDispatchToProps = (dispatch) => ({

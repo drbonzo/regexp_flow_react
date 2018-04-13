@@ -1,14 +1,10 @@
 import {connect} from 'react-redux';
 
 import FlowsListScreenComponent from '../Components/FlowsListScreenComponent';
-import {
-    deleteRegexpFlow,
-    loadRegexpFlow,
-    navigateToEditFlowScreen
-} from '../redux/actions';
+import {deleteRegexpFlow, loadRegexpFlow, navigateToEditFlowScreen} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state) => ({
-    regexpFlows: state.regexpFlows
+    regexpFlows: state.app.regexpFlows
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -6,16 +6,16 @@ import {
     filterToggleEnabled,
     filterToggleAddCounter,
     filterSetCounterSeparator,
-    regexpFlowDeleteFilter
-} from '../redux/actions';
+} from '../Store/Actions/RegexpFlowActions';
+import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state, ownProps) => ({
-    addCounter: state.currentRegexpFlow.filterConfigs[ownProps.id].addCounter,
-    counterSeparator: state.currentRegexpFlow.filterConfigs[ownProps.id].counterSeparator,
-    uniqueLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].uniqueLinesCount,
-    totalLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
-    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
-    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
+    addCounter: state.app.currentRegexpFlow.filterConfigs[ownProps.id].addCounter,
+    counterSeparator: state.app.currentRegexpFlow.filterConfigs[ownProps.id].counterSeparator,
+    uniqueLinesCount: state.app.currentRegexpFlow.filterConfigs[ownProps.id].uniqueLinesCount,
+    totalLinesCount: state.app.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
+    description: state.app.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
 import RegexpFlowComponent from '../Components/RegexpFlowComponent';
-import {regexpFlowAddFilter} from '../redux/actions';
+import {regexpFlowAddFilter} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state) => ({
-    filterConfigs: state.currentRegexpFlow.filterConfigs
+    filterConfigs: state.app.currentRegexpFlow.filterConfigs
 });
 
 const mapDispatchToProps = (dispatch) => ({

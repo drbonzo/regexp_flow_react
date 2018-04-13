@@ -5,13 +5,13 @@ import {
     filterUpdateDescription,
     filterToggleEnabled,
     filterToggleInvertOrder,
-    regexpFlowDeleteFilter,
-} from '../redux/actions';
+} from '../Store/Actions/RegexpFlowActions';
+import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state, ownProps) => ({
-    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
-    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
-    invertOrder: state.currentRegexpFlow.filterConfigs[ownProps.id].invertOrder,
+    description: state.app.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
+    invertOrder: state.app.currentRegexpFlow.filterConfigs[ownProps.id].invertOrder,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

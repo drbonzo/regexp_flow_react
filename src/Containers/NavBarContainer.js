@@ -1,9 +1,9 @@
 import {connect} from 'react-redux';
-import {saveRegexpFlow, navigateToEditFlowScreen, clearRegexpFlow} from '../redux/actions';
 import NavBarComponent from '../Components/NavBarComponent';
+import {clearRegexpFlow, navigateToEditFlowScreen, saveRegexpFlow} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state) => ({
-    currentRegexpFlowId: state.currentRegexpFlow.id
+    currentRegexpFlowId: state.app.currentRegexpFlow.id
 });
 
 const mapDispatchToProps = (dispatch) => ({

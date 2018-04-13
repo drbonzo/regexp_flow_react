@@ -9,18 +9,18 @@ import {
     filterToggleMultiline,
     filterUpdateReplaceString,
     filterToggleEnabled,
-    regexpFlowDeleteFilter
-} from '../redux/actions';
+} from '../Store/Actions/RegexpFlowActions';
+import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state, ownProps) => ({
-    searchString: state.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
-    global: state.currentRegexpFlow.filterConfigs[ownProps.id].global,
-    caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
-    multiline: state.currentRegexpFlow.filterConfigs[ownProps.id].multiline,
-    replaceString: state.currentRegexpFlow.filterConfigs[ownProps.id].replaceString,
-    replacementsCount: state.currentRegexpFlow.filterConfigs[ownProps.id].replacementsCount,
-    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
-    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
+    searchString: state.app.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
+    global: state.app.currentRegexpFlow.filterConfigs[ownProps.id].global,
+    caseInsensitive: state.app.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
+    multiline: state.app.currentRegexpFlow.filterConfigs[ownProps.id].multiline,
+    replaceString: state.app.currentRegexpFlow.filterConfigs[ownProps.id].replaceString,
+    replacementsCount: state.app.currentRegexpFlow.filterConfigs[ownProps.id].replacementsCount,
+    description: state.app.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -33,7 +33,7 @@
         "test": "react-scripts test --env=jsdom",
         "eject": "react-scripts eject",
         "flow": "flow",
-        "flow-typed": "flow-typed install",
+        "flow-typed": "flow-typed",
         "lint": "eslint src",
         "lint:fix": "eslint --save src",
         "docs:build": "esdoc"

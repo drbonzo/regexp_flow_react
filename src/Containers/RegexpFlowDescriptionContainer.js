@@ -1,13 +1,10 @@
 import {connect} from 'react-redux';
 
 import TextFieldComponent from '../Components/TextFieldComponent';
-
-import {
-    regxpFlowUpdateDescription
-} from '../redux/actions';
+import {regxpFlowUpdateDescription} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state) => ({
-    value: state.currentRegexpFlow.description
+    value: state.app.currentRegexpFlow.description
 });
 
 const mapDispatchToProps = (dispatch) => ({

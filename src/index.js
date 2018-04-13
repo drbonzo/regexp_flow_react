@@ -1,42 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {
-    applyMiddleware,
-    createStore,
-    compose
-} from 'redux';
-import logger from 'redux-logger';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/lib/integration/react';
+
 import AppContainer from './AppContainer';
 import './index.css';
-import mainReducer from './redux/reducers';
-import {initialState} from './redux/state';
-import {persistStore, autoRehydrate} from 'redux-persist';
 
-// add `autoRehydrate` as an enhancer to your store (note: `autoRehydrate` is not a middleware)
-const store = createStore(
-    mainReducer,
-    initialState,
-    compose(
-        applyMiddleware(logger),
-        autoRehydrate()
-    )
-);
+import reduxStoreConfigBuilder from './config/redux-store';
+import mainReducer from './Store/mainReducer';
 
-// begin periodically persisting the store
-persistStore(store, {
-    whitelist: [
-        'currentRegexpFlow',
-        'regexpFlows',
-        'nextRegexpFlowIndex'
-    ],
-    // storage: localStorage, - is default
-    debounce: 1000
-});
+// redux-persist needs reducers to be combined
+// so we put our state under `app` key
+const combinedReducer = {
+    app: mainReducer
+};
+
+const {persistor, store} = reduxStoreConfigBuilder(combinedReducer);
+
+const Loading = () => {
+    return (
+        <div>
+            <h1>LOADING...</h1>
+        </div>
+    );
+};
 
 ReactDOM.render(
     <Provider store={store}>
-        <AppContainer />
+        <PersistGate persistor={persistor} loading={<Loading/>}>
+            <AppContainer/>
+        </PersistGate>
     </Provider>,
     document.getElementById('root')
 );

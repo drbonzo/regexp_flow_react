@@ -1,23 +1,16 @@
 import {connect} from 'react-redux';
 
 import MatchLinesFilterComponent from '../Components/MatchLinesFilterComponent';
-import {
-    filterUpdateSearchString,
-    filterToggleCaseInsensitive,
-    filterUpdateDescription,
-    filterToggleInvertMatch,
-    filterToggleEnabled,
-    regexpFlowDeleteFilter
-} from '../redux/actions';
+import {filterToggleCaseInsensitive, filterToggleEnabled, filterToggleInvertMatch, filterUpdateDescription, filterUpdateSearchString, regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = (state, ownProps) => ({
-    searchString: state.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
-    caseInsensitive: state.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
-    invertMatch: state.currentRegexpFlow.filterConfigs[ownProps.id].invertMatch,
-    totalLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
-    matchedLinesCount: state.currentRegexpFlow.filterConfigs[ownProps.id].matchedLinesCount,
-    description: state.currentRegexpFlow.filterConfigs[ownProps.id].description,
-    enabled: state.currentRegexpFlow.filterConfigs[ownProps.id].enabled
+    searchString: state.app.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
+    caseInsensitive: state.app.currentRegexpFlow.filterConfigs[ownProps.id].caseInsensitive,
+    invertMatch: state.app.currentRegexpFlow.filterConfigs[ownProps.id].invertMatch,
+    totalLinesCount: state.app.currentRegexpFlow.filterConfigs[ownProps.id].totalLinesCount,
+    matchedLinesCount: state.app.currentRegexpFlow.filterConfigs[ownProps.id].matchedLinesCount,
+    description: state.app.currentRegexpFlow.filterConfigs[ownProps.id].description,
+    enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

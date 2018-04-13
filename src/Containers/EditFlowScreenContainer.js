@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import EditFlowScreenComponent from '../Components/EditFlowScreenComponent';
-import {loadRegexpFlow} from '../redux/actions';
+import {loadRegexpFlow} from '../Store/Actions/RegexpFlowActions';
 
 const mapStateToProps = () => ({});
 
