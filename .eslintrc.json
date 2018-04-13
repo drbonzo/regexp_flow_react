@@ -1,6 +1,7 @@
 {
+    "parser": "babel-eslint",
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 8,
         "sourceType": "module",
         "ecmaFeatures": {
             "arrowFunctions": true,
@@ -27,6 +28,12 @@
             "jsx": true
         }
     },
+    "settings": {
+        "import/resolver": "webpack",
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
     "globals": {
         "console": false,
         "debugger": false
@@ -39,9 +46,16 @@
     },
     "plugins": [
         "react",
+        "flowtype",
+        "flowtype-errors",
         "jest"
     ],
-    "extends": ["eslint:recommended", "plugin:react/recommended"],
+    "extends": [
+        "eslint:recommended",
+        "plugin:flowtype/recommended",
+        "plugin:jest/recommended",
+        "plugin:react/recommended"
+    ],
     "rules": {
         "eqeqeq": [
             "error",
@@ -89,6 +103,7 @@
                     ".jsx"
                 ]
             }
-        ]
+        ],
+        "flowtype-errors/show-errors": "error"
     }
 }
