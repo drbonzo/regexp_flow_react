@@ -1,5 +1,7 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import FindAllFilterContainer from '../Containers/FindAllFilterContainer';
 import MatchInLinesFilterContainer from '../Containers/MatchInLinesFilterContainer';
 import MatchLinesFilterContainer from '../Containers/MatchLinesFilterContainer';
@@ -12,8 +14,13 @@ import MatchInLinesFilterConfig from '../RegexpFlow/FilterConfig/MatchInLinesFil
 import ReplaceFilterConfig from '../RegexpFlow/FilterConfig/ReplaceFilterConfig';
 import UniqueFilterConfig from '../RegexpFlow/FilterConfig/UniqueFilterConfig';
 import SortLinesFilterConfig from '../RegexpFlow/FilterConfig/SortLinesFilterConfig';
+import type {FilterConfigCollection} from '../RegexpFlow/BasicTypes';
 
-const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
+type Props = {
+    filterConfigs: FilterConfigCollection,
+    onAddFilterConfigClick: (type: string) => void,
+}
+const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}: Props) => {
 
     let filterConfigsCollection = [];
     for (let index in filterConfigs) {
@@ -93,14 +100,6 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}) => {
             </div>
         </div>
     );
-};
-
-RegexpFlowComponent.propTypes = {
-    filterConfigs: PropTypes.objectOf(Object), // FIXME create class for these text processors + subclasses
-    //
-    //
-    //
-    onAddFilterConfigClick: PropTypes.func.isRequired
 };
 
 export default RegexpFlowComponent;

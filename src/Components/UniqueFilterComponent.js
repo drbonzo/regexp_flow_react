@@ -1,10 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
+
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import UniqueFilterConfig from '../RegexpFlow/FilterConfig/UniqueFilterConfig';
 
-class UniqueFilterComponent extends FilterComponent {
+type Props = {
+    description: string,
+    addCounter: boolean,
+    counterSeparator: string,
+    uniqueLinesCount: number,
+    totalLinesCount: number,
+    //
+    enabled: boolean,
+    //
+    //
+    //
+    onAddCounterChange: () => void,
+    counterSeparatorChange: (string) => void,
+    onDescriptionChange: (string) => void,
+    //
+    onEnabledClick: () => void,
+    onDeleteClick: () => void
+}
+
+class UniqueFilterComponent extends FilterComponent<Props> {
 
     render() {
         return (
@@ -58,24 +79,5 @@ class UniqueFilterComponent extends FilterComponent {
         );
     }
 }
-
-UniqueFilterComponent.propTypes = {
-    description: PropTypes.string.isRequired,
-    addCounter: PropTypes.bool.isRequired,
-    counterSeparator: PropTypes.string.isRequired,
-    uniqueLinesCount: PropTypes.number.isRequired,
-    totalLinesCount: PropTypes.number.isRequired,
-    //
-    enabled: PropTypes.bool.isRequired,
-    //
-    //
-    //
-    onAddCounterChange: PropTypes.func.isRequired,
-    counterSeparatorChange: PropTypes.func.isRequired,
-    onDescriptionChange: PropTypes.func.isRequired,
-    //
-    onEnabledClick: PropTypes.func.isRequired,
-    onDeleteClick: PropTypes.func.isRequired
-};
 
 export default UniqueFilterComponent;

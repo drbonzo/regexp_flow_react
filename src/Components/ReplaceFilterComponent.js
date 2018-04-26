@@ -1,10 +1,36 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
+
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
 
-class ReplaceFilterComponent extends FilterComponent {
+type Props = {
+    searchString: string,
+    global: boolean,
+    caseInsensitive: boolean,
+    multiline: boolean,
+    replaceString: string,
+    replacementsCount: number,
+    //
+    description: string,
+    enabled: boolean,
+    //
+    //
+    //
+    onSearchStringChange: (string) => void,
+    onGlobalChange: () => void,
+    onCaseInsensitiveChange: () => void,
+    onMultilineChange: () => void,
+    onReplaceStringChange: (string) => void,
+    onDescriptionChange: (string) => void,
+    //
+    onEnabledClick: () => void,
+    onDeleteClick: () => void
+}
+
+class ReplaceFilterComponent extends FilterComponent<Props> {
 
     render() {
         return (
@@ -81,29 +107,5 @@ class ReplaceFilterComponent extends FilterComponent {
         );
     }
 }
-
-ReplaceFilterComponent.propTypes = {
-    searchString: PropTypes.string.isRequired,
-    global: PropTypes.bool.isRequired,
-    caseInsensitive: PropTypes.bool.isRequired,
-    multiline: PropTypes.bool.isRequired,
-    replaceString: PropTypes.string.isRequired,
-    replacementsCount: PropTypes.number.isRequired,
-    //
-    description: PropTypes.string.isRequired,
-    enabled: PropTypes.bool.isRequired,
-    //
-    //
-    //
-    onSearchStringChange: PropTypes.func.isRequired,
-    onGlobalChange: PropTypes.func.isRequired,
-    onCaseInsensitiveChange: PropTypes.func.isRequired,
-    onMultilineChange: PropTypes.func.isRequired,
-    onReplaceStringChange: PropTypes.func.isRequired,
-    onDescriptionChange: PropTypes.func.isRequired,
-    //
-    onEnabledClick: PropTypes.func.isRequired,
-    onDeleteClick: PropTypes.func.isRequired
-};
 
 export default ReplaceFilterComponent;

@@ -1,8 +1,21 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React from 'react';
+
+import type {Example} from './examples';
 import examples from './examples';
 
-class ExamplesLoaderComponent extends Component {
+type Props = {
+    loadExampleHandler: (example: Example) => void
+}
+
+type State = {
+    examples: Example[]
+}
+
+class ExamplesLoaderComponent extends React.Component<Props, State> {
+
+    loadExample: (i: number) => void;
 
     constructor() {
 
@@ -15,7 +28,7 @@ class ExamplesLoaderComponent extends Component {
         this.loadExample = this.loadExample.bind(this);
     }
 
-    loadExample(i) {
+    loadExample(i: number) {
         this.props.loadExampleHandler(this.state.examples[i]);
     }
 
@@ -39,9 +52,5 @@ class ExamplesLoaderComponent extends Component {
         );
     }
 }
-
-ExamplesLoaderComponent.propTypes = {
-    loadExampleHandler: PropTypes.func.isRequired
-};
 
 export default ExamplesLoaderComponent;

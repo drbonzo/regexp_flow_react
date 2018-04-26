@@ -1,10 +1,29 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
+
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
 
-class FindAllFilterComponent extends FilterComponent {
+type Props = {
+    searchString: string,
+    caseInsensitive: boolean,
+    matchesCount: number,
+    description: string,
+    enabled: boolean,
+    //
+    //
+    //
+    onSearchStringChange: (string) => void,
+    onCaseInsensitiveChange: () => void,
+    onDescriptionChange: (string) => void,
+    //
+    onEnabledClick: () => void,
+    onDeleteClick: () => void,
+}
+
+class FindAllFilterComponent extends FilterComponent<Props> {
 
     render() {
         return (
@@ -53,22 +72,5 @@ class FindAllFilterComponent extends FilterComponent {
         );
     }
 }
-
-FindAllFilterComponent.propTypes = {
-    searchString: PropTypes.string.isRequired,
-    caseInsensitive: PropTypes.bool.isRequired,
-    matchesCount: PropTypes.number.isRequired,
-    description: PropTypes.string.isRequired,
-    enabled: PropTypes.bool.isRequired,
-    //
-    //
-    //
-    onSearchStringChange: PropTypes.func.isRequired,
-    onCaseInsensitiveChange: PropTypes.func.isRequired,
-    onDescriptionChange: PropTypes.func.isRequired,
-    //
-    onEnabledClick: PropTypes.func.isRequired,
-    onDeleteClick: PropTypes.func.isRequired
-};
 
 export default FindAllFilterComponent;

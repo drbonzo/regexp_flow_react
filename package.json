@@ -34,7 +34,7 @@
     },
     "dependencies": {},
     "lint-staged": {
-        "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write"]
+        "src/**/*.{js,jsx,json,css}": ["eslint", "prettier --list-different"]
     },
     "scripts": {
         "start": "react-scripts start",

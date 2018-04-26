@@ -1,10 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import * as React from 'react';
+
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 import HelpForFilterComponent from './HelpForFilterComponent';
 
-class MatchInLinesFilterComponent extends FilterComponent {
+type Props = {
+    searchString: string,
+    caseInsensitive: boolean,
+    totalLinesCount: number,
+    matchedLinesCount: number,
+    //
+    description: string,
+    enabled: boolean,
+    //
+    //
+    //
+    onSearchStringChange: (string) => void,
+    onCaseInsensitiveChange: () => void,
+    onDescriptionChange: (string) => void,
+    //
+    onEnabledClick: () => void,
+    onDeleteClick: () => void
+}
+
+class MatchInLinesFilterComponent extends FilterComponent<Props> {
 
     render() {
         return (
@@ -60,24 +81,5 @@ class MatchInLinesFilterComponent extends FilterComponent {
         );
     }
 }
-
-MatchInLinesFilterComponent.propTypes = {
-    searchString: PropTypes.string.isRequired,
-    caseInsensitive: PropTypes.bool.isRequired,
-    totalLinesCount: PropTypes.number.isRequired,
-    matchedLinesCount: PropTypes.number.isRequired,
-    //
-    description: PropTypes.string.isRequired,
-    enabled: PropTypes.bool.isRequired,
-    //
-    //
-    //
-    onSearchStringChange: PropTypes.func.isRequired,
-    onCaseInsensitiveChange: PropTypes.func.isRequired,
-    onDescriptionChange: PropTypes.func.isRequired,
-    //
-    onEnabledClick: PropTypes.func.isRequired,
-    onDeleteClick: PropTypes.func.isRequired
-};
 
 export default MatchInLinesFilterComponent;

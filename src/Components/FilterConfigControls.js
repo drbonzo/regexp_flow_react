@@ -1,7 +1,16 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-class FilterConfigControls extends Component {
+import React from 'react';
+
+type Props = {
+    enabled: boolean,
+    toggleShowHelp: () => void,
+    toggleShowDescription: () => void,
+    onEnabledClick: () => void,
+    onDeleteClick: () => void
+}
+
+class FilterConfigControls extends React.Component<Props, {}> {
     render() {
         return (
             <div className="btn-group pull-right">
@@ -13,13 +22,5 @@ class FilterConfigControls extends Component {
         );
     }
 }
-
-FilterConfigControls.propTypes = {
-    enabled: PropTypes.bool,
-    toggleShowHelp: PropTypes.func,
-    toggleShowDescription: PropTypes.func,
-    onEnabledClick: PropTypes.func,
-    onDeleteClick: PropTypes.func
-};
 
 export default FilterConfigControls;

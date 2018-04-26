@@ -1,7 +1,12 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import * as React from 'react';
 
-class HelpForFilterComponent extends Component {
+type Props = {
+    showHelp: boolean,
+    children: React.Node,
+}
+
+class HelpForFilterComponent extends React.Component<Props, {}> {
 
     render() {
         return (
@@ -11,10 +16,5 @@ class HelpForFilterComponent extends Component {
         );
     }
 }
-
-HelpForFilterComponent.propTypes = {
-    showHelp: PropTypes.bool.isRequired,
-    children: PropTypes.node.isRequired,
-};
 
 export default HelpForFilterComponent;

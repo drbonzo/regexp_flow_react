@@ -1,5 +1,10 @@
 // @flow
 
+export type Example = {
+    name: string,
+    actions: any[]
+};
+
 let examples = [];
 
 examples.push({

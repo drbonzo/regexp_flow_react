@@ -1,9 +1,26 @@
-import {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-class FilterComponent extends Component {
+import React from 'react';
 
-    constructor(props) {
+type Props = {
+    description: string,
+}
+
+type State = {
+    showDescription: boolean,
+    showHelp: boolean,
+}
+
+
+class FilterComponent<AdditionalProps> extends React.Component<AdditionalProps & Props, State> {
+
+    toggleShowHelp: () => void;
+    toggleShowDescription: () => void;
+
+    firstInput: ?HTMLInputElement = null;
+    firstCheckbox: ?HTMLInputElement = null;
+
+    constructor(props: AdditionalProps & Props) {
         super(props);
 
         this.state = {
@@ -14,14 +31,14 @@ class FilterComponent extends Component {
         this.toggleShowHelp = this.toggleShowHelp.bind(this);
         this.toggleShowDescription = this.toggleShowDescription.bind(this);
 
-        this.firstInput = null;
-        this.firstCheckbox = null;
     }
 
     focusOnFirstInput() {
         if (this.firstInput) {
-            this.firstInput.focus();
-            this.firstInput.setSelectionRange(0, this.firstInput.value.length);
+            const firstInput: HTMLInputElement = this.firstInput;
+            // TODO FLOW_HACK you cannot have 2 statements inside if() check, only first works
+            firstInput.focus();
+            firstInput.setSelectionRange(0, firstInput.value.length);
         }
 
         if (this.firstCheckbox) {
@@ -45,9 +62,5 @@ class FilterComponent extends Component {
         });
     }
 }
-
-FilterComponent.propTypes = {
-    description: PropTypes.string.isRequired,
-};
 
 export default FilterComponent;

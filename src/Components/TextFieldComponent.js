@@ -1,7 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const TextFieldComponent = ({value, onValueChange}) => {
+import React from 'react';
+
+type Props = {
+    value: string,
+    onValueChange: (string) => void,
+}
+
+const TextFieldComponent = ({value, onValueChange}: Props) => {
 
     return (
         <div>
@@ -10,14 +16,6 @@ const TextFieldComponent = ({value, onValueChange}) => {
             }}/>
         </div>
     );
-};
-
-TextFieldComponent.propTypes = {
-    value: PropTypes.string.isRequired,
-    //
-    //
-    //
-    onValueChange: PropTypes.func.isRequired,
 };
 
 export default TextFieldComponent;

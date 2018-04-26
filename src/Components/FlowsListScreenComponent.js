@@ -1,34 +1,46 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React from 'react';
+
 
 import {
     Link
 } from 'react-router-dom';
+import type {RegexpFlowId, RegexpFlowType} from '../RegexpFlow/BasicTypes';
 
-class FlowsListScreenComponent extends Component {
+type Props = {
+    regexpFlows: RegexpFlowType[],
+    onDeleteRegexpFlow: (flowId: RegexpFlowId) => void,
+    onLoadRegexpFlow: (flowId: RegexpFlowId) => void,
+}
 
-    renderRegexpFlowItem(flow) {
+class FlowsListScreenComponent extends React.Component<Props, {}> {
+
+    renderRegexpFlowItem(flow: RegexpFlowType) {
+
+        const flowId: string = flow.id ? flow.id : '---';
+
         return (
-            <tr key={'flow_' + flow.id}>
+            <tr key={'flow_' + flowId}>
                 <td>
                     <a href="#" onClick={(e) => {
                         e.preventDefault();
-                        this.props.onLoadRegexpFlow(flow.id);
+                        this.props.onLoadRegexpFlow(flowId);
                     }}>
-                        #{flow.id}
+                        #{flowId}
                     </a>
                 </td>
                 <td>
                     <a href="#" onClick={(e) => {
                         e.preventDefault();
-                        this.props.onLoadRegexpFlow(flow.id);
+                        this.props.onLoadRegexpFlow(flowId);
                     }}>
                         {flow.description ? flow.description : '(no description)'}
                     </a>
                 </td>
                 <td>
                     <button className="btn btn-danger btn-xs" onClick={() => {
-                        this.props.onDeleteRegexpFlow(flow.id);
+                        this.props.onDeleteRegexpFlow(flowId);
                     }}>Delete
                     </button>
                 </td>
@@ -51,12 +63,12 @@ class FlowsListScreenComponent extends Component {
                     <h1 className="Screen__Title">Saved Regexp Flows</h1>
                     <table className="table table-condensed table-striped table-bordered">
                         <tbody>
-                            <tr>
-                                <th>ID</th>
-                                <th>Description</th>
-                                <th>Delete</th>
-                            </tr>
-                            {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Delete</th>
+                        </tr>
+                        {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
                         </tbody>
                     </table>
                 </div>);
@@ -73,11 +85,5 @@ class FlowsListScreenComponent extends Component {
     }
 }
 
-FlowsListScreenComponent.propTypes = {
-    // regexpFlows: PropTypes.arrayOf(PropTypes.instanceOf(RegexpFlow)) // FIXME rehydrate returns RAW objects not RegexpFlow
-    regexpFlows: PropTypes.arrayOf(PropTypes.object),
-    onDeleteRegexpFlow: PropTypes.func.isRequired,
-    onLoadRegexpFlow: PropTypes.func.isRequired
-};
 
 export default FlowsListScreenComponent;

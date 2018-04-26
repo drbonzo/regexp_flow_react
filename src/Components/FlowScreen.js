@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+// @flow
+
+import React from 'react';
 import RegexpFlowDescriptionContainer from '../Containers/RegexpFlowDescriptionContainer';
 import RegexpFlowContainer from '../Containers/RegexpFlowContainer';
 import InputTextContainer from '../Containers/InputTextContainer';
 import OutputTextContainer from '../Containers/OutputTextContainer';
 
-class FlowScreen extends Component {
+class FlowScreen extends React.Component<{}, {}> {
 
     render() {
         return (
@@ -35,4 +37,4 @@ class FlowScreen extends Component {
     }
 }
 
-export default  FlowScreen;
+export default FlowScreen;

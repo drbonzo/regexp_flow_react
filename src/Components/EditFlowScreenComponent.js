@@ -1,8 +1,14 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
+
+import React from 'react';
+
 import FlowScreen from './FlowScreen';
 
-class EditFlowScreenComponent extends Component {
+type Props = {
+    match: any // FIXME matches from router
+};
+
+class EditFlowScreenComponent extends React.Component<Props,{}> {
 
     render() {
         return (
@@ -13,10 +19,5 @@ class EditFlowScreenComponent extends Component {
         );
     }
 }
-
-EditFlowScreenComponent.propTypes = {
-    match: PropTypes.object,
-    loadRegexpFlow: PropTypes.func.isRequired
-};
 
 export default EditFlowScreenComponent;

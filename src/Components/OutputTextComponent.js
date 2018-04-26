@@ -1,7 +1,15 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-class OutputTextComponent extends Component {
+import React from 'react';
+import type {FilterConfigCollection} from '../RegexpFlow/BasicTypes';
+
+type Props = {
+    inputText: string,
+    outputText: string,
+    filterConfigs: FilterConfigCollection
+}
+
+class OutputTextComponent extends React.Component<Props, {}> {
 
     render() {
         return (
@@ -15,11 +23,5 @@ class OutputTextComponent extends Component {
         );
     }
 }
-
-OutputTextComponent.propTypes = {
-    inputText: PropTypes.string.isRequired,
-    outputText: PropTypes.string.isRequired,
-    filterConfigs: PropTypes.objectOf(Object) // FIXME create class for these text processors + subclasses
-};
 
 export default OutputTextComponent;

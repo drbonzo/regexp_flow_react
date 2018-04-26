@@ -1,9 +1,26 @@
+// @flow
+
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
 
-class SortLinesFilterComponent extends FilterComponent {
+type Props = {
+    invertOrder: boolean,
+    //
+    description: string,
+    enabled: boolean,
+    //
+    //
+    //
+    onInvertOrderChanged: () => void,
+    //
+    onDescriptionChange: (string) => void,
+    onEnabledClick: () => void,
+    onDeleteClick: () => void
+}
+
+class SortLinesFilterComponent extends FilterComponent<Props> {
 
     render() {
         return (
@@ -44,20 +61,5 @@ class SortLinesFilterComponent extends FilterComponent {
         );
     }
 }
-
-SortLinesFilterComponent.propTypes = {
-    invertOrder: PropTypes.bool.isRequired,
-    //
-    description: PropTypes.string.isRequired,
-    enabled: PropTypes.bool.isRequired,
-    //
-    //
-    //
-    onInvertOrderChanged: PropTypes.func.isRequired,
-    //
-    onDescriptionChange: PropTypes.func.isRequired,
-    onEnabledClick: PropTypes.func.isRequired,
-    onDeleteClick: PropTypes.func.isRequired
-};
 
 export default SortLinesFilterComponent;

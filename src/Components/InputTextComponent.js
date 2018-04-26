@@ -1,7 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+// @flow
 
-const InputTextComponent = ({value, onValueChange}) => {
+import React from 'react';
+
+type Props = {
+    value: string,
+    onValueChange: (string) => void
+}
+
+const InputTextComponent = ({value, onValueChange}: Props) => {
 
     return (
         <div className="InputText">
@@ -13,14 +19,6 @@ const InputTextComponent = ({value, onValueChange}) => {
             </form>
         </div>
     );
-};
-
-InputTextComponent.propTypes = {
-    value: PropTypes.string.isRequired,
-    //
-    //
-    //
-    onValueChange: PropTypes.func.isRequired,
 };
 
 export default InputTextComponent;
