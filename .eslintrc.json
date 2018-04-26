@@ -44,64 +44,20 @@
         "jest/globals": true,
         "node": true
     },
-    "plugins": [
-        "react",
-        "flowtype",
-        "flowtype-errors",
-        "jest"
-    ],
-    "extends": [
-        "eslint:recommended",
-        "plugin:flowtype/recommended",
-        "plugin:jest/recommended",
-        "plugin:react/recommended"
-    ],
+    "plugins": ["react", "flowtype", "flowtype-errors", "jest"],
+    "extends": ["eslint:recommended", "plugin:flowtype/recommended", "plugin:jest/recommended", "plugin:react/recommended"],
     "rules": {
-        "eqeqeq": [
-            "error",
-            "smart"
-        ],
-        "indent": [
-            "error",
-            4,
-            {
-                "SwitchCase": 1,
-                "VariableDeclarator": 1,
-                "outerIIFEBody": 1,
-                "MemberExpression": 1,
-                "FunctionDeclaration": {
-                    "body": 1,
-                    "parameters": "first"
-                },
-                "CallExpression": {
-                    "arguments": "first"
-                },
-                "ArrayExpression": 1,
-                "ObjectExpression": 1
-            }
-        ],
+        "eqeqeq": ["error", "smart"],
         "no-use-before-define": "error",
-        "no-var":"error",
-        "quotes": [
-            "warn",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "strict": [
-            "error",
-            "global"
-        ],
+        "no-var": "error",
+        "quotes": ["warn", "single"],
+        "semi": ["error", "always"],
+        "strict": ["error", "global"],
         "react/react-in-jsx-scope": 0,
         "react/jsx-filename-extension": [
             "error",
             {
-                "extensions": [
-                    ".js",
-                    ".jsx"
-                ]
+                "extensions": [".js", ".jsx"]
             }
         ],
         "flowtype-errors/show-errors": "error"

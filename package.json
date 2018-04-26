@@ -17,8 +17,11 @@
         "eslint-plugin-jsx-a11y": "6.0.3",
         "eslint-plugin-react": "^7.7.0",
         "flow-bin": "0.70.0",
+        "husky": "^0.14.3",
         "flow-typed": "^2.4.0",
         "jquery": "^3.1.1",
+        "lint-staged": "^7.0.5",
+        "prettier": "^1.12.1",
         "prop-types": "^15.6.1",
         "react": "^16.3.1",
         "react-dom": "^16.3.1",
@@ -30,6 +33,9 @@
         "redux-persist": "^5.9.1"
     },
     "dependencies": {},
+    "lint-staged": {
+        "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write"]
+    },
     "scripts": {
         "start": "react-scripts start",
         "build": "react-scripts build",
@@ -39,6 +45,8 @@
         "flow-typed": "flow-typed",
         "lint": "eslint src",
         "lint:fix": "eslint --save src",
-        "docs:build": "esdoc"
+        "docs:build": "esdoc",
+        "precommit": "lint-staged",
+        "prettier:fix": "prettier --write $(git --no-pager diff --name-only --cached)"
     }
 }
