@@ -96,20 +96,6 @@ describe('filterConfigs reducer', function () {
                 expect(state_2[1].multiline).toBe(true);
             });
 
-            it('should toggle multiline flag', function () {
-                let state_0 = {};
-                state_0[1] = new ReplaceFilterConfig();
-                state_0[1].multiline = true;
-
-                expect(state_0[1].multiline).toBe(true);
-
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_TOGGLE_MULTILINE', id: 1});
-                expect(state_1[1].multiline).toBe(false);
-
-                let state_2 = filterConfigsReducer(state_1, {type: 'FILTER_TOGGLE_MULTILINE', id: 1});
-                expect(state_2[1].multiline).toBe(true);
-            });
-
             it('should toggle FILTER_TOGGLE_CASE_INSENSITIVE flag', function () {
                 let state_0 = {};
                 state_0[1] = new MatchLinesFilterConfig();
@@ -137,7 +123,7 @@ describe('filterConfigs reducer', function () {
                 expect(state_1[1].searchString).toBe('xyz');
             });
 
-            it('should update searchString', function () {
+            it('should update description', function () {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].description = 'foo';
@@ -726,7 +712,7 @@ describe('regexpFlowSaver reducer', function () {
         });
 
         it('old state should have only three regexpFlows', () => {
-            expect(state.regexpFlows.length).toBe(3);
+            expect(state.regexpFlows).toHaveLength(3);
         });
 
         it('saving should save it under new ID == ' + nextRegexpFlowId, () => {
@@ -734,7 +720,7 @@ describe('regexpFlowSaver reducer', function () {
         });
 
         it('saving should add RegexpFlow to regexpFlows', () => {
-            expect(newState.regexpFlows.length).toBe(4);
+            expect(newState.regexpFlows).toHaveLength(4);
         });
 
         it('saved object should be equal to current object', () => {
@@ -767,7 +753,7 @@ describe('regexpFlowSaver reducer', function () {
             });
 
             it('old state should have only three regexpFlows', () => {
-                expect(state.regexpFlows.length).toBe(3);
+                expect(state.regexpFlows).toHaveLength(3);
             });
 
             //
@@ -777,7 +763,7 @@ describe('regexpFlowSaver reducer', function () {
             });
 
             it('saving should update existing RegexpFlow', () => {
-                expect(newState.regexpFlows.length).toBe(3);
+                expect(newState.regexpFlows).toHaveLength(3);
             });
 
             it('saved object should be equal to current object', () => {
@@ -785,7 +771,7 @@ describe('regexpFlowSaver reducer', function () {
                 expect(newState.regexpFlows[rfIndex].id).toEqual(newState.currentRegexpFlow.id);
                 expect(newState.regexpFlows[rfIndex].description).toEqual(newState.currentRegexpFlow.description);
                 expect(newState.regexpFlows[rfIndex].filterConfigs).toEqual(newState.currentRegexpFlow.filterConfigs);
-                expect(Object.keys(newState.regexpFlows[rfIndex].filterConfigs).length).toBe(3);
+                expect(Object.keys(newState.regexpFlows[rfIndex].filterConfigs)).toHaveLength(3);
             });
 
             it('saving should NOT increment nextRegexpFlowIndex', () => {
@@ -808,7 +794,7 @@ describe('regexpFlowSaver reducer', function () {
             });
 
             it('old state should have only three regexpFlows', () => {
-                expect(state.regexpFlows.length).toBe(3);
+                expect(state.regexpFlows).toHaveLength(3);
             });
 
             it('saving should save it under new ID == ' + nextRegexpFlowId, () => {
@@ -816,7 +802,7 @@ describe('regexpFlowSaver reducer', function () {
             });
 
             it('saving should add RegexpFlow to regexpFlows', () => {
-                expect(newState.regexpFlows.length).toBe(4);
+                expect(newState.regexpFlows).toHaveLength(4);
             });
 
             it('saved object should be equal to current object', () => {

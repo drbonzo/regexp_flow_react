@@ -8,7 +8,7 @@ import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConf
 import type {FilterConfigType, FilterType, FilterConfigCollection, FilterConfigId, RegexpFlowId} from '../../RegexpFlow/BasicTypes';
 import {REDIRECT} from './BoilerplateActions';
 import RegexpFlow from '../../RegexpFlow/RegexpFlow';
-import type {ApplicationAppState, ApplicationState} from '../ApplicationState';
+import type {ApplicationAppState} from '../ApplicationState';
 
 // ACTION TYPES
 export const REGEXP_FLOW_UPDATE_DESCRIPTION = 'REGEXP_FLOW_UPDATE_DESCRIPTION'; // FIXME rename action

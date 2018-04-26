@@ -1,6 +1,6 @@
 // @flow
 
-import history from "../../config/history";
+import history from '../../config/history';
 
 // ACTION TYPES
 export const REDIRECT = 'app/boilerplate/redirect';
@@ -18,7 +18,7 @@ export const redirectTo = (url: string): RedirectAction => {
     return {
         type: REDIRECT,
         url: url
-    }
+    };
 };
 
 // REDUCERS

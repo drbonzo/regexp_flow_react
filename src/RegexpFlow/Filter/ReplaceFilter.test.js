@@ -91,7 +91,7 @@ describe('ReplaceFilter', function () {
                 expect(filterConfig.replacementsCount).toEqual(2);
             });
 
-            it('backslash+n also is replaced with newline', function () {
+            it('backslash+t also is replaced with tab', function () {
                 filterConfig.searchString = '\\d+';
                 filterConfig.replaceString = '\\t';
                 replaceFilter = new ReplaceFilter();

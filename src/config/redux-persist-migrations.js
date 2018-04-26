@@ -14,16 +14,16 @@
 // Migrations that are > persisted version, and <= `persistConfig.version` are being run
 // So if you have persisted version: 3, and `persistConfig.version` is 5, then migrations: 4 and 5 will be run
 
-import type {ApplicationState} from "../Store/ApplicationState";
+import type {ApplicationState} from '../Store/ApplicationState';
 
 type ReduxPersistMigration = (state: ApplicationState) => ApplicationState;
 type ReduxPersistMigrationCollection = { [string]: ReduxPersistMigration };
 
 const migrations: ReduxPersistMigrationCollection = {
-    "1": (state: ApplicationState): ApplicationState => {
+    '1': (state: ApplicationState): ApplicationState => {
         return {
             ...state,
-        }
+        };
     }
 };
 

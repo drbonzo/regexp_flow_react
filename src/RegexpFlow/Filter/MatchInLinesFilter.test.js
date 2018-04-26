@@ -50,7 +50,7 @@ describe('MatchInLinesFilter', function () {
                 expect(filterConfig.matchedLinesCount).toEqual(0);
             });
 
-            it('should return empty text when regexp does not match empty input text', function () {
+            it('should return empty text when regexp does not match input text', function () {
                 filterConfig.searchString = '[a-z]+';
                 matchInLinesFilter = new MatchInLinesFilter();
 
