@@ -1,3 +1,4 @@
+// @flow
 import {connect} from 'react-redux';
 
 import SortLinesFilterComponent from '../Components/SortLinesFilterComponent';
@@ -7,6 +8,7 @@ import {
     filterToggleInvertOrder,
 } from '../Store/Actions/RegexpFlowActions';
 import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
+import type { Dispatch } from 'redux';
 
 const mapStateToProps = (state, ownProps) => ({
     description: state.app.currentRegexpFlow.filterConfigs[ownProps.id].description,
@@ -14,7 +16,7 @@ const mapStateToProps = (state, ownProps) => ({
     invertOrder: state.app.currentRegexpFlow.filterConfigs[ownProps.id].invertOrder,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProps) => ({
 
     onDescriptionChange: (newDescription) => {
         dispatch(filterUpdateDescription(ownProps.id, newDescription));

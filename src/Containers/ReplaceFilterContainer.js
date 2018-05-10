@@ -1,3 +1,4 @@
+// @flow
 import {connect} from 'react-redux';
 
 import ReplaceFilterComponent from '../Components/ReplaceFilterComponent';
@@ -11,6 +12,7 @@ import {
     filterToggleEnabled,
 } from '../Store/Actions/RegexpFlowActions';
 import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
+import type { Dispatch } from 'redux';
 
 const mapStateToProps = (state, ownProps) => ({
     searchString: state.app.currentRegexpFlow.filterConfigs[ownProps.id].searchString,
@@ -23,7 +25,7 @@ const mapStateToProps = (state, ownProps) => ({
     enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProps) => ({
 
     onSearchStringChange: (newSearchString) => {
         dispatch(filterUpdateSearchString(ownProps.id, newSearchString));

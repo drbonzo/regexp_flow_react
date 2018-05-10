@@ -1,3 +1,4 @@
+// @flow
 import {connect} from 'react-redux';
 
 import UniqueFilterComponent from '../Components/UniqueFilterComponent';
@@ -8,6 +9,7 @@ import {
     filterSetCounterSeparator,
 } from '../Store/Actions/RegexpFlowActions';
 import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
+import type { Dispatch } from 'redux';
 
 const mapStateToProps = (state, ownProps) => ({
     addCounter: state.app.currentRegexpFlow.filterConfigs[ownProps.id].addCounter,
@@ -18,7 +20,7 @@ const mapStateToProps = (state, ownProps) => ({
     enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProps) => ({
 
     onAddCounterChange: () => {
         dispatch(filterToggleAddCounter(ownProps.id));
