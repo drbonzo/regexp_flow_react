@@ -1,12 +1,12 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import NavBarComponent from '../Components/NavBarComponent';
-import {clearRegexpFlow, navigateToEditFlowScreen, saveRegexpFlow} from '../Store/Actions/RegexpFlowActions';
+import { clearRegexpFlow, navigateToEditFlowScreen, saveRegexpFlow } from '../Store/Actions/RegexpFlowActions';
 
-const mapStateToProps = (state) => ({
-    currentRegexpFlowId: state.app.currentRegexpFlow.id
+const mapStateToProps = state => ({
+    currentRegexpFlowId: state.app.currentRegexpFlow ? state.app.currentRegexpFlow.id : null,
 });
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
     onSaveRegexpFlow: () => {
         dispatch(saveRegexpFlow());
         dispatch(navigateToEditFlowScreen());
@@ -15,12 +15,9 @@ const mapDispatchToProps = (dispatch) => ({
     onCreateNewRegexpFlow: () => {
         dispatch(clearRegexpFlow());
         dispatch(navigateToEditFlowScreen());
-    }
+    },
 });
 
-const NavBarContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(NavBarComponent);
+const NavBarContainer = connect(mapStateToProps, mapDispatchToProps)(NavBarComponent);
 
 export default NavBarContainer;
