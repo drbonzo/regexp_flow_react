@@ -5,6 +5,7 @@ import boilerplateReducer from './Actions/BoilerplateActions';
 import {initialState} from './initialState';
 import {descriptionReducer, filterConfigsReducer, inputText, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver} from './Actions/RegexpFlowActions';
 import FilterRunner from '../RegexpFlow/FilterRunner';
+import {REHYDRATE} from 'redux-persist/es/constants';
 
 const mainReducer = (state: ApplicationAppState | void, action: any) => {
 
@@ -13,6 +14,14 @@ const mainReducer = (state: ApplicationAppState | void, action: any) => {
         // > If the state given to it is undefined, it must return the initial state for this specific reducer. According to the previous rule, the initial state must not be undefined either.
         // combineReducers() is used by redux-persis
         return initialState;
+    }
+
+    if (action.type === REHYDRATE) {
+        if (action.payload === undefined) {
+            return initialState.app;
+        }
+
+        return action.payload.app;
     }
 
     let filterConfigsNew = filterConfigsReducer(state.currentRegexpFlow.filterConfigs, action);
