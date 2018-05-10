@@ -50,7 +50,6 @@
         "eqeqeq": ["error", "smart"],
         "no-use-before-define": "error",
         "no-var": "error",
-        "quotes": ["warn", "single"],
         "semi": ["error", "always"],
         "strict": ["error", "global"],
         "react/react-in-jsx-scope": 0,
