@@ -1,14 +1,13 @@
 // @flow
 
-import type {ApplicationAppState} from './ApplicationState';
+import type { ApplicationAppState } from './ApplicationState';
 import boilerplateReducer from './Actions/BoilerplateActions';
-import {initialState} from './initialState';
-import {descriptionReducer, filterConfigsReducer, inputText, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver} from './Actions/RegexpFlowActions';
+import { initialState } from './initialState';
+import { descriptionReducer, filterConfigsReducer, inputText, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver } from './Actions/RegexpFlowActions';
 import FilterRunner from '../RegexpFlow/FilterRunner';
-import {REHYDRATE} from 'redux-persist/es/constants';
+import { REHYDRATE } from 'redux-persist/es/constants';
 
 const mainReducer = (state: ApplicationAppState | void, action: any) => {
-
     if (state === undefined) {
         // https://redux.js.org/docs/api/combineReducers.html#notes
         // > If the state given to it is undefined, it must return the initial state for this specific reducer. According to the previous rule, the initial state must not be undefined either.
