@@ -39,13 +39,10 @@ const reduxStoreConfigBuilder = (combinedReducer: CombinedReducersType): ReduxSt
 
     const persistConfig = {
         key: 'root', // key name in a storage
+        // debug: true,
         storage,
-        blacklist: [], // which keys of `app` state do not persist,
-        whitelist: [
-            'currentRegexpFlow',
-            'regexpFlows',
-            'nextRegexpFlowIndex'
-        ], // which kes of `app` state to DO persist
+        // blacklist: [], // which keys of state do not persist,
+        whitelist: ['app'], // which keys of state to DO persist
         version: 1,
         migrate: createMigrate(migrations, {debug: true}),
     };
