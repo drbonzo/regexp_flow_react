@@ -59,7 +59,7 @@ examples.push({
         { type: 'REGEXP_FLOW_UPDATE_DESCRIPTION', description: 'Split rows into cells, then convert each row into JSON object' },
         {
             type: 'UPDATE_INPUT_TEXT',
-            text: '1	Aaa	2016-10-01	8\n' + '2	Bbb	2016-10-01	16\n' + '3	Ccc	2016-10-02	10\n' + '4	Ddd	2016-10-03	14\n' + '5	Eee	2016-10-05	16\n' + '6	Fff	2016-10-10	11\n' + '7	Ggg	2016-10-12	11\n' + '8	Hhh	2016-10-14	18\n' + '9	Iii	2016-10-20	18\n' + '10	Jjj	2016-10-24	7\n' + '11	Kkk	2016-10-30	17\n',
+            text: '1	Aaa	2016-10-01	8\n2	Bbb	2016-10-01	16\n3	Ccc	2016-10-02	10\n4	Ddd	2016-10-03	14\n5	Eee	2016-10-05	16\n6	Fff	2016-10-10	11\n7	Ggg	2016-10-12	11\n8	Hhh	2016-10-14	18\n9	Iii	2016-10-20	18\n10	Jjj	2016-10-24	7\n11	Kkk	2016-10-30	17\n',
         },
         { type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'Replace' },
         { type: 'FILTER_UPDATE_SEARCH_STRING', id: '1', searchString: '^(.+?)\\t(.+?)\\t(.+?)\\t(.+?)$' },
@@ -73,7 +73,7 @@ examples.push({
         { type: 'REGEXP_FLOW_UPDATE_DESCRIPTION', description: 'Find values inside XML, convert them to JavaScript constant definitions' },
         {
             type: 'UPDATE_INPUT_TEXT',
-            text: '<type>FOO</type>\n' + '<type>BAR</type>\n' + '<type>FOOBAR</type>\n' + '<type>LOREM</type>\n' + '<type>IPSUM</type>',
+            text: '<type>FOO</type>\n<type>BAR</type>\n<type>FOOBAR</type>\n<type>LOREM</type>\n<type>IPSUM</type>',
         },
         { type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'MatchInLines' },
         { type: 'FILTER_UPDATE_SEARCH_STRING', id: '1', searchString: '<type>(.+?)</type>' },
