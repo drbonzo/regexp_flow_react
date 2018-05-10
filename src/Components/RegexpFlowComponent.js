@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 
 import FindAllFilterContainer from '../Containers/FindAllFilterContainer';
 import MatchInLinesFilterContainer from '../Containers/MatchInLinesFilterContainer';

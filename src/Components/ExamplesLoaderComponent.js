@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 
 import type { Example } from './examples';
 import examples from './examples';

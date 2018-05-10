@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 import RegexpFlowDescriptionContainer from '../Containers/RegexpFlowDescriptionContainer';
 import RegexpFlowContainer from '../Containers/RegexpFlowContainer';
 import InputTextContainer from '../Containers/InputTextContainer';

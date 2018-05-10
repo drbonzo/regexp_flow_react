@@ -1,6 +1,6 @@
 // @flow
 
-import React from 'react';
+import * as React from 'react';
 
 import FilterConfigControls from './FilterConfigControls';
 import FilterComponent from './FilterComponent';
