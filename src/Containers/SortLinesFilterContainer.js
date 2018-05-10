@@ -1,13 +1,9 @@
 // @flow
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import SortLinesFilterComponent from '../Components/SortLinesFilterComponent';
-import {
-    filterUpdateDescription,
-    filterToggleEnabled,
-    filterToggleInvertOrder,
-} from '../Store/Actions/RegexpFlowActions';
-import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
+import { filterUpdateDescription, filterToggleEnabled, filterToggleInvertOrder } from '../Store/Actions/RegexpFlowActions';
+import { regexpFlowDeleteFilter } from '../Store/Actions/RegexpFlowActions';
 import type { Dispatch } from 'redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -16,9 +12,8 @@ const mapStateToProps = (state, ownProps) => ({
     invertOrder: state.app.currentRegexpFlow.filterConfigs[ownProps.id].invertOrder,
 });
 
-const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProps) => ({
-
-    onDescriptionChange: (newDescription) => {
+const mapDispatchToProps = (dispatch: Dispatch<{ type: $Subtype<string> }>, ownProps) => ({
+    onDescriptionChange: newDescription => {
         dispatch(filterUpdateDescription(ownProps.id, newDescription));
     },
     onEnabledClick: () => {
@@ -29,12 +24,9 @@ const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProp
     },
     onInvertOrderChanged: () => {
         dispatch(filterToggleInvertOrder(ownProps.id));
-    }
+    },
 });
 
-const SortLinesFilterContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(SortLinesFilterComponent);
+const SortLinesFilterContainer = connect(mapStateToProps, mapDispatchToProps)(SortLinesFilterComponent);
 
 export default SortLinesFilterContainer;

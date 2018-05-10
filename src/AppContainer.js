@@ -1,15 +1,11 @@
 // @flow
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import App from './App';
 
-const mapStateToProps = () => ({
-});
+const mapStateToProps = () => ({});
 
-const AppContainer = connect(
-    mapStateToProps,
-    null
-)(App);
+const AppContainer = connect(mapStateToProps, null)(App);
 
 export default AppContainer;

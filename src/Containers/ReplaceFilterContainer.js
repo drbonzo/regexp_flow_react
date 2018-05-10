@@ -1,17 +1,9 @@
 // @flow
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import ReplaceFilterComponent from '../Components/ReplaceFilterComponent';
-import {
-    filterUpdateSearchString,
-    filterToggleCaseInsensitive,
-    filterUpdateDescription,
-    filterToggleGlobal,
-    filterToggleMultiline,
-    filterUpdateReplaceString,
-    filterToggleEnabled,
-} from '../Store/Actions/RegexpFlowActions';
-import {regexpFlowDeleteFilter} from '../Store/Actions/RegexpFlowActions';
+import { filterUpdateSearchString, filterToggleCaseInsensitive, filterUpdateDescription, filterToggleGlobal, filterToggleMultiline, filterUpdateReplaceString, filterToggleEnabled } from '../Store/Actions/RegexpFlowActions';
+import { regexpFlowDeleteFilter } from '../Store/Actions/RegexpFlowActions';
 import type { Dispatch } from 'redux';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -25,9 +17,8 @@ const mapStateToProps = (state, ownProps) => ({
     enabled: state.app.currentRegexpFlow.filterConfigs[ownProps.id].enabled,
 });
 
-const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProps) => ({
-
-    onSearchStringChange: (newSearchString) => {
+const mapDispatchToProps = (dispatch: Dispatch<{ type: $Subtype<string> }>, ownProps) => ({
+    onSearchStringChange: newSearchString => {
         dispatch(filterUpdateSearchString(ownProps.id, newSearchString));
     },
     onGlobalChange: () => {
@@ -39,10 +30,10 @@ const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProp
     onMultilineChange: () => {
         dispatch(filterToggleMultiline(ownProps.id));
     },
-    onReplaceStringChange: (newReplaceString) => {
+    onReplaceStringChange: newReplaceString => {
         dispatch(filterUpdateReplaceString(ownProps.id, newReplaceString));
     },
-    onDescriptionChange: (newDescription) => {
+    onDescriptionChange: newDescription => {
         dispatch(filterUpdateDescription(ownProps.id, newDescription));
     },
     onEnabledClick: () => {
@@ -50,12 +41,9 @@ const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>, ownProp
     },
     onDeleteClick: () => {
         dispatch(regexpFlowDeleteFilter(ownProps.id));
-    }
+    },
 });
 
-const ReplaceFilterContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(ReplaceFilterComponent);
+const ReplaceFilterContainer = connect(mapStateToProps, mapDispatchToProps)(ReplaceFilterComponent);
 
 export default ReplaceFilterContainer;

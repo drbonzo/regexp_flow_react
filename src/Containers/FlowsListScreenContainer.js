@@ -1,10 +1,10 @@
 // @flow
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 import FlowsListScreenComponent from '../Components/FlowsListScreenComponent';
-import {deleteRegexpFlow, loadRegexpFlow, navigateToEditFlowScreen} from '../Store/Actions/RegexpFlowActions';
-import type {Dispatch} from 'redux';
+import { deleteRegexpFlow, loadRegexpFlow, navigateToEditFlowScreen } from '../Store/Actions/RegexpFlowActions';
+import type { Dispatch } from 'redux';
 
 const mapStateToProps = state => ({
     regexpFlows: state.app.regexpFlows,

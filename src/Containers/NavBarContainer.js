@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     currentRegexpFlowId: state.app.currentRegexpFlow ? state.app.currentRegexpFlow.id : null,
 });
 
-const mapDispatchToProps = (dispatch:Dispatch<{type: $Subtype<string>}>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<{ type: $Subtype<string> }>) => ({
     onSaveRegexpFlow: () => {
         dispatch(saveRegexpFlow());
         dispatch(navigateToEditFlowScreen());
