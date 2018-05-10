@@ -2,46 +2,48 @@
 
 import React from 'react';
 
-
-import {
-    Link
-} from 'react-router-dom';
-import type {RegexpFlowId, RegexpFlowType} from '../RegexpFlow/BasicTypes';
+import { Link } from 'react-router-dom';
+import type { RegexpFlowId, RegexpFlowType } from '../RegexpFlow/BasicTypes';
 
 type Props = {
     regexpFlows: RegexpFlowType[],
     onDeleteRegexpFlow: (flowId: RegexpFlowId) => void,
     onLoadRegexpFlow: (flowId: RegexpFlowId) => void,
-}
+};
 
 class FlowsListScreenComponent extends React.Component<Props, {}> {
-
     renderRegexpFlowItem(flow: RegexpFlowType) {
-
         const flowId: string = flow.id ? flow.id : '---';
 
         return (
             <tr key={'flow_' + flowId}>
                 <td>
-                    <a href="#" onClick={(e) => {
-                        e.preventDefault();
-                        this.props.onLoadRegexpFlow(flowId);
-                    }}>
+                    <a
+                        href="#"
+                        onClick={e => {
+                            e.preventDefault();
+                            this.props.onLoadRegexpFlow(flowId);
+                        }}>
                         #{flowId}
                     </a>
                 </td>
                 <td>
-                    <a href="#" onClick={(e) => {
-                        e.preventDefault();
-                        this.props.onLoadRegexpFlow(flowId);
-                    }}>
+                    <a
+                        href="#"
+                        onClick={e => {
+                            e.preventDefault();
+                            this.props.onLoadRegexpFlow(flowId);
+                        }}>
                         {flow.description ? flow.description : '(no description)'}
                     </a>
                 </td>
                 <td>
-                    <button className="btn btn-danger btn-xs" onClick={() => {
-                        this.props.onDeleteRegexpFlow(flowId);
-                    }}>Delete
+                    <button
+                        className="btn btn-danger btn-xs"
+                        onClick={() => {
+                            this.props.onDeleteRegexpFlow(flowId);
+                        }}>
+                        Delete
                     </button>
                 </td>
             </tr>
@@ -49,11 +51,7 @@ class FlowsListScreenComponent extends React.Component<Props, {}> {
     }
 
     render() {
-        return (
-            <div className="MainScreen">
-                {this.renderSavedRegexpFlows()}
-            </div>
-        );
+        return <div className="MainScreen">{this.renderSavedRegexpFlows()}</div>;
     }
 
     renderSavedRegexpFlows() {
@@ -63,15 +61,16 @@ class FlowsListScreenComponent extends React.Component<Props, {}> {
                     <h1 className="Screen__Title">Saved Regexp Flows</h1>
                     <table className="table table-condensed table-striped table-bordered">
                         <tbody>
-                        <tr>
-                            <th>ID</th>
-                            <th>Description</th>
-                            <th>Delete</th>
-                        </tr>
-                        {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
+                            <tr>
+                                <th>ID</th>
+                                <th>Description</th>
+                                <th>Delete</th>
+                            </tr>
+                            {this.props.regexpFlows.map(this.renderRegexpFlowItem.bind(this))}
                         </tbody>
                     </table>
-                </div>);
+                </div>
+            );
         } else {
             return (
                 <div className="Screen">
@@ -80,10 +79,10 @@ class FlowsListScreenComponent extends React.Component<Props, {}> {
                     <Link to={'/editor'} className="btn btn-success">
                         Add new RegexpFlow
                     </Link>
-                </div>);
+                </div>
+            );
         }
     }
 }
-
 
 export default FlowsListScreenComponent;

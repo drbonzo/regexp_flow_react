@@ -15,20 +15,19 @@ type Props = {
     //
     onInvertOrderChanged: () => void,
     //
-    onDescriptionChange: (string) => void,
+    onDescriptionChange: string => void,
     onEnabledClick: () => void,
-    onDeleteClick: () => void
-}
+    onDeleteClick: () => void,
+};
 
 class SortLinesFilterComponent extends FilterComponent<Props> {
-
     render() {
         return (
             <div className="FilterConfig FindAllFilterConfig">
                 <div className="FilterConfig__Header">
                     Sort
                     <div className="btn-group pull-right">
-                        <FilterConfigControls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick} enabled={this.props.enabled}/>
+                        <FilterConfigControls toggleShowHelp={this.toggleShowHelp} toggleShowDescription={this.toggleShowDescription} onEnabledClick={this.props.onEnabledClick} onDeleteClick={this.props.onDeleteClick} enabled={this.props.enabled} />
                     </div>
                 </div>
                 <div className={this.props.enabled ? 'FilterConfig__Contents' : 'FilterConfig__Contents FilterConfig__Contents--Hidden'}>
@@ -38,10 +37,9 @@ class SortLinesFilterComponent extends FilterComponent<Props> {
                                 <label className="FilterConfig__Contents__Label">Sorts lines</label>
                             </div>
                             <div className="form-group form-inline">
-
                                 <div className="checkbox FilterConfig__Contents__Checkbox">
                                     <label className="FilterConfig__Contents__Checkbox__Label">
-                                        <input type="checkbox" checked={this.props.invertOrder} onChange={this.props.onInvertOrderChanged} ref={input => this.firstCheckbox = input}/>
+                                        <input type="checkbox" checked={this.props.invertOrder} onChange={this.props.onInvertOrderChanged} ref={input => (this.firstCheckbox = input)} />
                                         Invert order
                                     </label>
                                 </div>
@@ -50,9 +48,14 @@ class SortLinesFilterComponent extends FilterComponent<Props> {
                         <fieldset className={this.state.showDescription ? 'FilterConfig__Contents__Description' : 'FilterConfig__Contents__Description FilterConfig__Contents__Description--Hidden'}>
                             <div className="form-group">
                                 <label className="FilterConfig__Contents__Label">Description</label>
-                                <input type="text" className="form-control input-sm" value={this.props.description} onChange={(event) => {
-                                    this.props.onDescriptionChange(event.target.value);
-                                }}/>
+                                <input
+                                    type="text"
+                                    className="form-control input-sm"
+                                    value={this.props.description}
+                                    onChange={event => {
+                                        this.props.onDescriptionChange(event.target.value);
+                                    }}
+                                />
                             </div>
                         </fieldset>
                     </form>

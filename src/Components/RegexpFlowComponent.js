@@ -14,14 +14,13 @@ import MatchInLinesFilterConfig from '../RegexpFlow/FilterConfig/MatchInLinesFil
 import ReplaceFilterConfig from '../RegexpFlow/FilterConfig/ReplaceFilterConfig';
 import UniqueFilterConfig from '../RegexpFlow/FilterConfig/UniqueFilterConfig';
 import SortLinesFilterConfig from '../RegexpFlow/FilterConfig/SortLinesFilterConfig';
-import type {FilterConfigCollection} from '../RegexpFlow/BasicTypes';
+import type { FilterConfigCollection } from '../RegexpFlow/BasicTypes';
 
 type Props = {
     filterConfigs: FilterConfigCollection,
     onAddFilterConfigClick: (type: string) => void,
-}
-const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}: Props) => {
-
+};
+const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) => {
     let filterConfigsCollection = [];
     for (let index in filterConfigs) {
         if (filterConfigs.hasOwnProperty(index)) {
@@ -29,27 +28,27 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}: Props) => 
 
             switch (filterConfig.filterType) {
                 case FindAllFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<FindAllFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 case MatchLinesFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<MatchLinesFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<MatchLinesFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 case MatchInLinesFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<MatchInLinesFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<MatchInLinesFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 case ReplaceFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<ReplaceFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<ReplaceFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 case UniqueFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<UniqueFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<UniqueFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 case SortLinesFilterConfig.FILTER_TYPE: {
-                    filterConfigsCollection.push(<SortLinesFilterContainer id={index} key={'tp_' + index}/>);
+                    filterConfigsCollection.push(<SortLinesFilterContainer id={index} key={'tp_' + index} />);
                     break;
                 }
                 default: {
@@ -64,40 +63,62 @@ const RegexpFlowComponent = ({filterConfigs, onAddFilterConfigClick}: Props) => 
         <div className="RegexpFlow">
             <div>
                 <div className="btn-group" role="group">
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(FindAllFilterConfig.FILTER_TYPE);
-                    }}>+ FindAll
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(FindAllFilterConfig.FILTER_TYPE);
+                        }}>
+                        + FindAll
                     </button>
 
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(ReplaceFilterConfig.FILTER_TYPE);
-                    }}>+ Replace
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(ReplaceFilterConfig.FILTER_TYPE);
+                        }}>
+                        + Replace
                     </button>
 
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(MatchLinesFilterConfig.FILTER_TYPE);
-                    }}>+ MatchLines
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(MatchLinesFilterConfig.FILTER_TYPE);
+                        }}>
+                        + MatchLines
                     </button>
 
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(MatchInLinesFilterConfig.FILTER_TYPE);
-                    }}>+ MatchInLines
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(MatchInLinesFilterConfig.FILTER_TYPE);
+                        }}>
+                        + MatchInLines
                     </button>
 
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(UniqueFilterConfig.FILTER_TYPE);
-                    }}>+ Unique
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(UniqueFilterConfig.FILTER_TYPE);
+                        }}>
+                        + Unique
                     </button>
 
-                    <button type="button" className="btn btn-default btn-sm" onClick={() => {
-                        onAddFilterConfigClick(SortLinesFilterConfig.FILTER_TYPE);
-                    }}>+ Sort
+                    <button
+                        type="button"
+                        className="btn btn-default btn-sm"
+                        onClick={() => {
+                            onAddFilterConfigClick(SortLinesFilterConfig.FILTER_TYPE);
+                        }}>
+                        + Sort
                     </button>
                 </div>
             </div>
-            <div className="RegexpFlow__FilterConfigs">
-                {filterConfigsCollection}
-            </div>
+            <div className="RegexpFlow__FilterConfigs">{filterConfigsCollection}</div>
         </div>
     );
 };

@@ -4,16 +4,20 @@ import React from 'react';
 
 type Props = {
     value: string,
-    onValueChange: (string) => void,
-}
+    onValueChange: string => void,
+};
 
-const TextFieldComponent = ({value, onValueChange}: Props) => {
-
+const TextFieldComponent = ({ value, onValueChange }: Props) => {
     return (
         <div>
-            <input type="text" className="form-control" value={value} onChange={(event) => {
-                onValueChange(event.target.value);
-            }}/>
+            <input
+                type="text"
+                className="form-control"
+                value={value}
+                onChange={event => {
+                    onValueChange(event.target.value);
+                }}
+            />
         </div>
     );
 };

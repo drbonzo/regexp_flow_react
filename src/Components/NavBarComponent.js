@@ -2,17 +2,16 @@
 
 import React from 'react';
 
-import {Link, NavLink} from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import ExamplesLoaderContainer from '../Containers/ExamplesLoaderContainer';
 
 type Props = {
     onSaveRegexpFlow: () => void,
     onCreateNewRegexpFlow: () => void,
     currentRegexpFlowId: ?string,
-}
+};
 
 class NavBarComponent extends React.Component<Props, {}> {
-
     getSaveButtonLabel() {
         if (this.props.currentRegexpFlowId) {
             return `Save #${this.props.currentRegexpFlowId}`;
@@ -29,9 +28,9 @@ class NavBarComponent extends React.Component<Props, {}> {
                         <div className="navbar-header">
                             <button type="button" className="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                                 <span className="sr-only">Toggle navigation</span>
-                                <span className="icon-bar"/>
-                                <span className="icon-bar"/>
-                                <span className="icon-bar"/>
+                                <span className="icon-bar" />
+                                <span className="icon-bar" />
+                                <span className="icon-bar" />
                             </button>
                             <Link to="/" className="navbar-brand">
                                 RegexpFlow - ReactJS
@@ -50,7 +49,7 @@ class NavBarComponent extends React.Component<Props, {}> {
     renderExamplesLoaderComboBox() {
         return (
             <div className="pull-right">
-                <ExamplesLoaderContainer/>
+                <ExamplesLoaderContainer />
             </div>
         );
     }
@@ -94,6 +93,5 @@ class NavBarComponent extends React.Component<Props, {}> {
         );
     }
 }
-
 
 export default NavBarComponent;

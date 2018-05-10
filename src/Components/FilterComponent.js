@@ -4,16 +4,14 @@ import React from 'react';
 
 type Props = {
     description: string,
-}
+};
 
 type State = {
     showDescription: boolean,
     showHelp: boolean,
-}
-
+};
 
 class FilterComponent<AdditionalProps> extends React.Component<AdditionalProps & Props, State> {
-
     toggleShowHelp: () => void;
     toggleShowDescription: () => void;
 
@@ -25,12 +23,11 @@ class FilterComponent<AdditionalProps> extends React.Component<AdditionalProps &
 
         this.state = {
             showDescription: Boolean(props.description),
-            showHelp: false
+            showHelp: false,
         };
 
         this.toggleShowHelp = this.toggleShowHelp.bind(this);
         this.toggleShowDescription = this.toggleShowDescription.bind(this);
-
     }
 
     focusOnFirstInput() {
@@ -52,13 +49,13 @@ class FilterComponent<AdditionalProps> extends React.Component<AdditionalProps &
 
     toggleShowHelp() {
         this.setState({
-            showHelp: !this.state.showHelp
+            showHelp: !this.state.showHelp,
         });
     }
 
     toggleShowDescription() {
         this.setState({
-            showDescription: !this.state.showDescription
+            showDescription: !this.state.showDescription,
         });
     }
 }

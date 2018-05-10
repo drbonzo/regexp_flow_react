@@ -7,14 +7,13 @@ import InputTextContainer from '../Containers/InputTextContainer';
 import OutputTextContainer from '../Containers/OutputTextContainer';
 
 class FlowScreen extends React.Component<{}, {}> {
-
     render() {
         return (
             <div className="MainScreen">
                 <div className="row">
                     <div className="col-md-8">
-                        <InputTextContainer/>
-                        <OutputTextContainer/>
+                        <InputTextContainer />
+                        <OutputTextContainer />
                     </div>
                     <div className="col-md-4">
                         <div>
@@ -22,13 +21,13 @@ class FlowScreen extends React.Component<{}, {}> {
                                 <form>
                                     <div className="form-group form-group-sm">
                                         <label>Description</label>
-                                        <RegexpFlowDescriptionContainer/>
+                                        <RegexpFlowDescriptionContainer />
                                     </div>
                                 </form>
                             </div>
                         </div>
                         <div>
-                            <RegexpFlowContainer/>
+                            <RegexpFlowContainer />
                         </div>
                     </div>
                 </div>
