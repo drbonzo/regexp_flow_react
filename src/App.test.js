@@ -1,13 +1,12 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
-import {createStore} from 'redux';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import AppContainer from './AppContainer';
-import {initialState} from './Store/initialState';
+import { initialState } from './Store/initialState';
 
 it('renders without crashing', () => {
-
-    let store = createStore(function (state) {
+    let store = createStore(function(state) {
         return state;
     }, initialState);
 
@@ -15,6 +14,7 @@ it('renders without crashing', () => {
     ReactDOM.render(
         <Provider store={store}>
             <AppContainer />
-        </Provider>
-        , div);
+        </Provider>,
+        div,
+    );
 });
