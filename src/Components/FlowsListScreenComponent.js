@@ -19,7 +19,7 @@ class FlowsListScreenComponent extends React.Component<Props, {}> {
             <tr key={'flow_' + flowId}>
                 <td>
                     <a
-                        href="#"
+                        href="#load-regexp-flow"
                         onClick={e => {
                             e.preventDefault();
                             this.props.onLoadRegexpFlow(flowId);
@@ -29,7 +29,7 @@ class FlowsListScreenComponent extends React.Component<Props, {}> {
                 </td>
                 <td>
                     <a
-                        href="#"
+                        href="#load-regexp-flow"
                         onClick={e => {
                             e.preventDefault();
                             this.props.onLoadRegexpFlow(flowId);

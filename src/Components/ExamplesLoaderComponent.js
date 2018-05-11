@@ -37,7 +37,7 @@ class ExamplesLoaderComponent extends React.Component<Props, State> {
             let example = this.state.examples[i];
             exampleElements.push(
                 <li key={'example_' + i}>
-                    <a href="#" onClick={() => this.loadExample(i)}>
+                    <a href="#load-example" onClick={() => this.loadExample(i)}>
                         {example.name}
                     </a>
                 </li>,

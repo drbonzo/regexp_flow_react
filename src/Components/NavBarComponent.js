@@ -65,7 +65,7 @@ class NavBarComponent extends React.Component<Props, {}> {
                     </li>
                     <li>
                         <a
-                            href="#"
+                            href="#save"
                             onClick={e => {
                                 e.preventDefault();
                                 this.props.onSaveRegexpFlow();
@@ -80,7 +80,7 @@ class NavBarComponent extends React.Component<Props, {}> {
                     </li>
                     <li>
                         <a
-                            href="#"
+                            href="#new"
                             onClick={e => {
                                 e.preventDefault();
                                 this.props.onCreateNewRegexpFlow();
