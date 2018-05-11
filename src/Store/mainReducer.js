@@ -1,7 +1,6 @@
 // @flow
 
 import type { ApplicationAppState } from './ApplicationState';
-import boilerplateReducer from './Actions/BoilerplateActions';
 import { initialState } from './initialState';
 import { descriptionReducer, filterConfigsReducer, inputText, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver } from './Actions/RegexpFlowActions';
 import FilterRunner from '../RegexpFlow/FilterRunner';
@@ -58,9 +57,6 @@ const mainReducer = (state: ApplicationAppState | void, action: any) => {
     // changes .currentRegexpFlow
     const newState5 = regexpFlowDeleter(newState, action);
     Object.assign(newState, newState5);
-
-    const newState6 = boilerplateReducer(newState, action);
-    Object.assign(newState, newState6);
 
     return newState;
 };

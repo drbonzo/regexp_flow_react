@@ -3,6 +3,8 @@
 // Redux
 import { applyMiddleware, createStore, compose } from 'redux';
 import logger from 'redux-logger';
+import appHistory from '../history';
+import { routerMiddleware } from 'react-router-redux';
 
 // Redux-Persist
 //
@@ -42,7 +44,8 @@ const reduxStoreConfigBuilder = (combinedReducer: CombinedReducersType): ReduxSt
     const reducer = persistCombineReducers(persistConfig, combinedReducer);
 
     // Store
-    const store = createStore(reducer, initialState, compose(applyMiddleware(logger)));
+    const middleware = [logger, routerMiddleware(appHistory)];
+    const store = createStore(reducer, initialState, compose(applyMiddleware(...middleware)));
 
     // Persistor
     const persistor = persistStore(store);

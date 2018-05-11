@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { Redirect, Router, Route, Switch } from 'react-router-dom';
-import history from './history';
+import appHistory from './history';
 import NavBarContainer from './Containers/NavBarContainer';
 
 import './App.css';
@@ -13,7 +13,7 @@ import EditFlowScreenContainer from './Containers/EditFlowScreenContainer';
 class App extends React.Component<{}, {}> {
     render() {
         return (
-            <Router history={history}>
+            <Router history={appHistory}>
                 <div className="App">
                     <NavBarContainer />
                     <div className="container-fluid">

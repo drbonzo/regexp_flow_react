@@ -6,9 +6,9 @@ import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConf
 import SortLinesFilterConfig from '../../RegexpFlow/FilterConfig/SortLinesFilterConfig';
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig';
 import type {FilterConfigType, FilterType, FilterConfigCollection, FilterConfigId, RegexpFlowId} from '../../RegexpFlow/BasicTypes';
-import {REDIRECT} from './BoilerplateActions';
 import RegexpFlow from '../../RegexpFlow/RegexpFlow';
 import type {ApplicationAppState} from '../ApplicationState';
+import { push } from 'react-router-redux';
 
 // ACTION TYPES
 export const REGEXP_FLOW_UPDATE_DESCRIPTION = 'REGEXP_FLOW_UPDATE_DESCRIPTION'; // FIXME rename action
@@ -234,9 +234,8 @@ export function deleteRegexpFlow(id: RegexpFlowId) {
 }
 
 export function navigateToEditFlowScreen() {
-    return {
-        type: REDIRECT
-    };
+    // Uses: react-router-redux
+    return push("/editor");
 }
 
 
