@@ -451,7 +451,7 @@ export const regexpFlowLoader = (state: ApplicationAppState, action: LoadRegexpF
     if (action.type === LOAD_REGEXP_FLOW) {
 
         const newState = Object.assign({}, state);
-        const requestedId = Number(action.id);
+        const requestedId = action.id;
 
         const requestedRegexpFlow = state.regexpFlows.find((regexpFlow) => {
             return regexpFlow.id === requestedId;
