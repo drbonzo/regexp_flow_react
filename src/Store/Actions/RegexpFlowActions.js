@@ -5,9 +5,9 @@ import MatchInLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchInLines
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';
 import SortLinesFilterConfig from '../../RegexpFlow/FilterConfig/SortLinesFilterConfig';
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig';
-import type {FilterConfigType, FilterType, FilterConfigCollection, FilterConfigId, RegexpFlowId} from '../../RegexpFlow/BasicTypes';
+import type { FilterConfigType, FilterType, FilterConfigCollection, FilterConfigId, RegexpFlowId } from '../../RegexpFlow/BasicTypes';
 import RegexpFlow from '../../RegexpFlow/RegexpFlow';
-import type {ApplicationAppState} from '../ApplicationState';
+import type { ApplicationAppState } from '../ApplicationState';
 import { push } from 'react-router-redux';
 
 // ACTION TYPES
@@ -33,62 +33,55 @@ export const LOAD_REGEXP_FLOW = 'LOAD_REGEXP_FLOW';
 export const SAVE_REGEXP_FLOW = 'SAVE_REGEXP_FLOW';
 export const DELETE_REGEXP_FLOW = 'DELETE_REGEXP_FLOW';
 
-
 // FLOW TYPES FOR ACTIONS
 export type RegexpFlowUpdateDescriptionAction = {
     type: 'REGEXP_FLOW_UPDATE_DESCRIPTION',
-    description: string
-}
+    description: string,
+};
 
 export type RegexpFlowDeleteFilterAction = {
     type: 'REGEXP_FLOW_DELETE_FILTER',
-    id: string
-}
+    id: string,
+};
 
 export type RegexpFlowUpdateInputTextAction = {
     type: 'UPDATE_INPUT_TEXT',
-    text: string
-}
+    text: string,
+};
 
 export type ClearCurrentRegexpFlowAction = {
-    type: 'CLEAR_CURRENT_REGEXP_FLOW'
-}
+    type: 'CLEAR_CURRENT_REGEXP_FLOW',
+};
 
 export type DeleteRegexpFlowAction = {
     id: RegexpFlowId,
     type: 'DELETE_REGEXP_FLOW',
-}
+};
 
 export type LoadRegexpFlowAction = {
     id: RegexpFlowId,
     type: 'LOAD_REGEXP_FLOW',
-}
+};
 
 export type SaveRegexpFlowAction = {
     type: 'SAVE_REGEXP_FLOW',
-}
+};
 
-export type AllRegexpFlowActions = RegexpFlowUpdateDescriptionAction
-    | RegexpFlowDeleteFilterAction
-    | RegexpFlowUpdateInputTextAction
-    | ClearCurrentRegexpFlowAction
-    | DeleteRegexpFlowAction
-    | LoadRegexpFlowAction
-    | SaveRegexpFlowAction;
+export type AllRegexpFlowActions = RegexpFlowUpdateDescriptionAction | RegexpFlowDeleteFilterAction | RegexpFlowUpdateInputTextAction | ClearCurrentRegexpFlowAction | DeleteRegexpFlowAction | LoadRegexpFlowAction | SaveRegexpFlowAction;
 
 // ACTION CREATORS
 
 export const regxpFlowUpdateDescription = (description: string): RegexpFlowUpdateDescriptionAction => {
     return {
         type: REGEXP_FLOW_UPDATE_DESCRIPTION,
-        description: description
+        description: description,
     };
 };
 
 export const regexpFlowDeleteFilter = (id: string): RegexpFlowDeleteFilterAction => {
     return {
         type: REGEXP_FLOW_DELETE_FILTER,
-        id: id
+        id: id,
     };
 };
 
@@ -101,7 +94,6 @@ export const descriptionReducer = (state: string, action: RegexpFlowUpdateDescri
     }
 };
 
-
 export function regexpFlowAddFilter(filterType: FilterType) {
     return {
         type: REGEXP_FLOW_ADD_FILTER,
@@ -112,55 +104,55 @@ export function regexpFlowAddFilter(filterType: FilterType) {
 export function updateInputText(text: string): RegexpFlowUpdateInputTextAction {
     return {
         type: UPDATE_INPUT_TEXT,
-        text: text
+        text: text,
     };
 }
 
 export function removeAllFilterConfigs() {
     return {
-        type: REMOVE_ALL_FILTERS
+        type: REMOVE_ALL_FILTERS,
     };
 }
 
 export function filterToggleEnabled(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_ENABLED,
-        id: id
+        id: id,
     };
 }
 
 export function filterToggleCaseInsensitive(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_CASE_INSENSITIVE,
-        id: id
+        id: id,
     };
 }
 
 export function filterToggleInvertMatch(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_INVERT_MATCH,
-        id: id
+        id: id,
     };
 }
 
 export function filterToggleGlobal(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_GLOBAL,
-        id: id
+        id: id,
     };
 }
 
 export function filterToggleMultiline(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_MULTILINE,
-        id: id
+        id: id,
     };
 }
 
 export function filterToggleAddCounter(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_ADD_COUNTER,
-        id: id
+        id: id,
     };
 }
 
@@ -168,14 +160,14 @@ export function filterSetCounterSeparator(id: FilterConfigId, counterSeparator: 
     return {
         type: FILTER_SET_COUNTER_SEPARATOR,
         id: id,
-        counterSeparator: counterSeparator
+        counterSeparator: counterSeparator,
     };
 }
 
 export function filterToggleInvertOrder(id: FilterConfigId) {
     return {
         type: FILTER_TOGGLE_INVERT_ORDER,
-        id: id
+        id: id,
     };
 }
 
@@ -183,7 +175,7 @@ export function filterUpdateDescription(id: FilterConfigId, description: string)
     return {
         type: FILTER_UPDATE_DESCRIPTION,
         id: id,
-        description: description
+        description: description,
     };
 }
 
@@ -191,7 +183,7 @@ export function filterUpdateSearchString(id: FilterConfigId, searchString: strin
     return {
         type: FILTER_UPDATE_SEARCH_STRING,
         id: id,
-        searchString: searchString
+        searchString: searchString,
     };
 }
 
@@ -199,20 +191,20 @@ export function filterUpdateReplaceString(id: FilterConfigId, replaceString: str
     return {
         type: FILTER_UPDATE_REPLACE_STRING,
         id: id,
-        replaceString: replaceString
+        replaceString: replaceString,
     };
 }
 
 export function clearRegexpFlow(): ClearCurrentRegexpFlowAction {
     return {
-        type: CLEAR_CURRENT_REGEXP_FLOW // FIXME rename
+        type: CLEAR_CURRENT_REGEXP_FLOW, // FIXME rename
     };
 }
 
 export function loadRegexpFlow(id: RegexpFlowId) {
     return {
         type: LOAD_REGEXP_FLOW,
-        id: id
+        id: id,
     };
 }
 
@@ -221,23 +213,21 @@ export function loadRegexpFlow(id: RegexpFlowId) {
  */
 export function saveRegexpFlow() {
     return {
-        type: SAVE_REGEXP_FLOW
+        type: SAVE_REGEXP_FLOW,
     };
 }
-
 
 export function deleteRegexpFlow(id: RegexpFlowId) {
     return {
         type: DELETE_REGEXP_FLOW,
-        id: id
+        id: id,
     };
 }
 
 export function navigateToEditFlowScreen() {
     // Uses: react-router-redux
-    return push("/editor");
+    return push('/editor');
 }
-
 
 // FIXME this does not work after restart
 let nextId = 1;
@@ -252,7 +242,7 @@ export const createNewFilterConfig = (filterType: FilterType): FilterConfigType 
         }
         case MatchLinesFilterConfig.FILTER_TYPE: {
             let config = new MatchLinesFilterConfig();
-            config.searchString = '';// will match all lines
+            config.searchString = ''; // will match all lines
             config.id = nextId++;
             return config;
         }
@@ -294,7 +284,6 @@ function filterConfigReplacer(state, id, replacement) {
 
 // FIXME any action
 export const filterConfigsReducer = (state: FilterConfigCollection, action: any): FilterConfigCollection => {
-
     switch (action.type) {
         case REGEXP_FLOW_DELETE_FILTER: {
             let newState = Object.assign({}, state);
@@ -309,7 +298,7 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
             }
             return newState;
         }
-        case REMOVE_ALL_FILTERS : {
+        case REMOVE_ALL_FILTERS: {
             nextId = 1; // reset numbering
             return {};
         }
@@ -317,7 +306,7 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
             let id = action.id;
             let filterConfig = state[id];
 
-            let replacement = {enabled: !filterConfig.enabled};
+            let replacement = { enabled: !filterConfig.enabled };
 
             return filterConfigReplacer(state, id, replacement);
         }
@@ -325,7 +314,7 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
             let id = action.id;
 
             let searchString = action.searchString;
-            let replacement = {searchString: searchString};
+            let replacement = { searchString: searchString };
 
             return filterConfigReplacer(state, id, replacement);
         }
@@ -333,19 +322,19 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
             let id = action.id;
 
             let description = action.description;
-            let replacement = {description: description};
+            let replacement = { description: description };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_CASE_INSENSITIVE: {
             let id = action.id;
-            let replacement = {caseInsensitive: !state[id].caseInsensitive};
+            let replacement = { caseInsensitive: !state[id].caseInsensitive };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_INVERT_MATCH: {
             let id = action.id;
-            let replacement = {invertMatch: !state[id].invertMatch};
+            let replacement = { invertMatch: !state[id].invertMatch };
 
             return filterConfigReplacer(state, id, replacement);
         }
@@ -353,43 +342,43 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
             let id = action.id;
 
             let replaceString = action.replaceString;
-            let replacement = {replaceString: replaceString};
+            let replacement = { replaceString: replaceString };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_GLOBAL: {
             let id = action.id;
-            let replacement = {global: !state[id].global};
+            let replacement = { global: !state[id].global };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_MULTILINE: {
             let id = action.id;
-            let replacement = {multiline: !state[id].multiline};
+            let replacement = { multiline: !state[id].multiline };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_ADD_COUNTER: {
             let id = action.id;
-            let replacement = {addCounter: !state[id].addCounter};
+            let replacement = { addCounter: !state[id].addCounter };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_SET_COUNTER_SEPARATOR: {
             let id = action.id;
-            let replacement = {counterSeparator: action.counterSeparator};
+            let replacement = { counterSeparator: action.counterSeparator };
 
             return filterConfigReplacer(state, id, replacement);
         }
         case FILTER_TOGGLE_INVERT_ORDER: {
             let id = action.id;
-            let replacement = {invertOrder: !state[id].invertOrder};
+            let replacement = { invertOrder: !state[id].invertOrder };
 
             return filterConfigReplacer(state, id, replacement);
         }
         default: {
             // Reducer "filterConfigs" returned undefined during initialization. If the state passed to the reducer is undefined, you must explicitly return the initial state.
-            return (state === undefined ? {} : state);
+            return state === undefined ? {} : state;
         }
     }
 };
@@ -405,55 +394,49 @@ export const inputText = (state: string, action: RegexpFlowUpdateInputTextAction
 
 export const regexpFlowClearer = (state: ApplicationAppState, action: ClearCurrentRegexpFlowAction): ApplicationAppState => {
     if (action.type === CLEAR_CURRENT_REGEXP_FLOW) {
-
         const newState: ApplicationAppState = Object.assign({}, state);
 
         newState.currentRegexpFlow = {
             id: null,
             description: '',
-            filterConfigs: {}
+            filterConfigs: {},
         };
 
         newState.inputText = '';
         newState.outputText = '';
 
         return newState;
-
     } else {
         return state;
     }
 };
 
-
 export const regexpFlowDeleter = (state: ApplicationAppState, action: DeleteRegexpFlowAction): ApplicationAppState => {
     if (action.type === DELETE_REGEXP_FLOW) {
-
         // Clone mutable state
         const newState = Object.assign({}, state);
         newState.currentRegexpFlow = Object.assign({}, state.currentRegexpFlow);
-        newState.regexpFlows = state.regexpFlows.filter((regexpFlow) => {
+        newState.regexpFlows = state.regexpFlows.filter(regexpFlow => {
             // Leave only not-deleted RegexpFlows
             return regexpFlow.id !== action.id;
         });
 
         return newState;
-
     } else {
         return state;
     }
 };
 
-const cloneFilterConfigs = (filterConfigs) => {
+const cloneFilterConfigs = filterConfigs => {
     return JSON.parse(JSON.stringify(filterConfigs));
 };
 
 export const regexpFlowLoader = (state: ApplicationAppState, action: LoadRegexpFlowAction): ApplicationAppState => {
     if (action.type === LOAD_REGEXP_FLOW) {
-
         const newState = Object.assign({}, state);
         const requestedId = action.id;
 
-        const requestedRegexpFlow = state.regexpFlows.find((regexpFlow) => {
+        const requestedRegexpFlow = state.regexpFlows.find(regexpFlow => {
             return regexpFlow.id === requestedId;
         });
 
@@ -463,15 +446,13 @@ export const regexpFlowLoader = (state: ApplicationAppState, action: LoadRegexpF
             newState.currentRegexpFlow = {
                 id: requestedRegexpFlow.id,
                 description: requestedRegexpFlow.description,
-                filterConfigs: cloneFilterConfigs(requestedRegexpFlow.filterConfigs)
+                filterConfigs: cloneFilterConfigs(requestedRegexpFlow.filterConfigs),
             };
             return newState;
         } else {
             // dont change anything
             return newState;
         }
-
-
     } else {
         return state;
     }
@@ -479,7 +460,6 @@ export const regexpFlowLoader = (state: ApplicationAppState, action: LoadRegexpF
 
 export const regexpFlowSaver = (state: ApplicationAppState, action: SaveRegexpFlowAction): ApplicationAppState => {
     if (action.type === SAVE_REGEXP_FLOW) {
-
         // Clone mutable state
         const newState = Object.assign({}, state);
         newState.currentRegexpFlow = Object.assign({}, state.currentRegexpFlow);
