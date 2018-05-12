@@ -1,4 +1,4 @@
-import {clearRegexpFlow, deleteRegexpFlow, descriptionReducer, filterConfigsReducer, inputText, loadRegexpFlow, REGEXP_FLOW_UPDATE_DESCRIPTION, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver, saveRegexpFlow, UPDATE_INPUT_TEXT} from './RegexpFlowActions';
+import { clearRegexpFlow, deleteRegexpFlow, descriptionReducer, filterConfigsReducer, inputText, loadRegexpFlow, REGEXP_FLOW_UPDATE_DESCRIPTION, regexpFlowClearer, regexpFlowDeleter, regexpFlowLoader, regexpFlowSaver, saveRegexpFlow, UPDATE_INPUT_TEXT } from './RegexpFlowActions';
 import MatchLinesFilterConfig from '../../RegexpFlow/FilterConfig/MatchLinesFilterConfig';
 import FindAllFilterConfig from '../../RegexpFlow/FilterConfig/FindAllFilterConfig';
 import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConfig';
@@ -29,41 +29,39 @@ function buildRegexpFlow(id) {
     return rf;
 }
 
-describe('description reducer', function () {
-
-    it('should return empty string when current state is undefined and action is other', function () {
+describe('description reducer', function() {
+    it('should return empty string when current state is undefined and action is other', function() {
         let state = undefined;
-        let newState = descriptionReducer(state, {type: 'OTHER', description: 'aaaa'});
+        let newState = descriptionReducer(state, { type: 'OTHER', description: 'aaaa' });
         expect(newState).toBe('');
     });
 
-    it('should not change state when action is other', function () {
+    it('should not change state when action is other', function() {
         let state = 'foobar';
-        let newState = descriptionReducer(state, {type: 'OTHER', description: 'not foobar'});
+        let newState = descriptionReducer(state, { type: 'OTHER', description: 'not foobar' });
         expect(newState).toBe('foobar');
     });
 
-    it('should return description from action if action is REGEXP_FLOW_UPDATE_DESCRIPTION', function () {
+    it('should return description from action if action is REGEXP_FLOW_UPDATE_DESCRIPTION', function() {
         let state = 'foobar';
-        let newState = descriptionReducer(state, {type: REGEXP_FLOW_UPDATE_DESCRIPTION, description: 'not foobar'});
+        let newState = descriptionReducer(state, { type: REGEXP_FLOW_UPDATE_DESCRIPTION, description: 'not foobar' });
         expect(newState).toBe('not foobar');
     });
 });
 
-describe('filterConfigs reducer', function () {
-
-    describe('collection modification', function () {
-        it('should add filter config', function () {
+describe('filterConfigs reducer', function() {
+    describe('collection modification', function() {
+        it('should add filter config', function() {
             let state_0 = {};
-            let newState = filterConfigsReducer(state_0, {type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'FindAll', nextId: 1});
+            let newState = filterConfigsReducer(state_0, { type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'FindAll', nextId: 1 });
             expect('1' in newState).toBe(true);
             expect(newState[1].constructor.name).toBe('FindAllFilterConfig');
         });
 
-        it('should delete existing filter', function () {
+        it('should delete existing filter', function() {
             let state_0 = {};
             state_0[1] = new FindAllFilterConfig();
-            let newState = filterConfigsReducer(state_0, {type: 'REGEXP_FLOW_DELETE_FILTER', id: 1});
+            let newState = filterConfigsReducer(state_0, { type: 'REGEXP_FLOW_DELETE_FILTER', id: 1 });
             expect('1' in newState).toBe(false);
         });
         //
@@ -75,132 +73,126 @@ describe('filterConfigs reducer', function () {
         // });
     });
 
-    describe('manipulation on single FilterConfig', function () {
-        describe('toggling settings', function () {
-
-            it('should toggle enabled flag', function () {
+    describe('manipulation on single FilterConfig', function() {
+        describe('toggling settings', function() {
+            it('should toggle enabled flag', function() {
                 let state_0 = {};
                 state_0[1] = new FindAllFilterConfig();
                 state_0[1].enabled = true;
 
                 expect(state_0[1].enabled).toBe(true);
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_TOGGLE_ENABLED', id: 1});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_TOGGLE_ENABLED', id: 1 });
                 expect(state_1[1].enabled).toBe(false);
 
-                let state_2 = filterConfigsReducer(state_1, {type: 'FILTER_TOGGLE_ENABLED', id: 1});
+                let state_2 = filterConfigsReducer(state_1, { type: 'FILTER_TOGGLE_ENABLED', id: 1 });
                 expect(state_2[1].enabled).toBe(true);
             });
 
-            it('should toggle global flag', function () {
+            it('should toggle global flag', function() {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].global = true;
 
                 expect(state_0[1].global).toBe(true);
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_TOGGLE_GLOBAL', id: 1});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_TOGGLE_GLOBAL', id: 1 });
                 expect(state_1[1].global).toBe(false);
 
-                let state_2 = filterConfigsReducer(state_1, {type: 'FILTER_TOGGLE_GLOBAL', id: 1});
+                let state_2 = filterConfigsReducer(state_1, { type: 'FILTER_TOGGLE_GLOBAL', id: 1 });
                 expect(state_2[1].global).toBe(true);
             });
 
-            it('should toggle multiline flag', function () {
+            it('should toggle multiline flag', function() {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].multiline = true;
 
                 expect(state_0[1].multiline).toBe(true);
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_TOGGLE_MULTILINE', id: 1});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_TOGGLE_MULTILINE', id: 1 });
                 expect(state_1[1].multiline).toBe(false);
 
-                let state_2 = filterConfigsReducer(state_1, {type: 'FILTER_TOGGLE_MULTILINE', id: 1});
+                let state_2 = filterConfigsReducer(state_1, { type: 'FILTER_TOGGLE_MULTILINE', id: 1 });
                 expect(state_2[1].multiline).toBe(true);
             });
 
-            it('should toggle FILTER_TOGGLE_CASE_INSENSITIVE flag', function () {
+            it('should toggle FILTER_TOGGLE_CASE_INSENSITIVE flag', function() {
                 let state_0 = {};
                 state_0[1] = new MatchLinesFilterConfig();
                 state_0[1].caseInsensitive = true;
 
                 expect(state_0[1].caseInsensitive).toBe(true);
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_TOGGLE_CASE_INSENSITIVE', id: 1});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_TOGGLE_CASE_INSENSITIVE', id: 1 });
                 expect(state_1[1].caseInsensitive).toBe(false);
 
-                let state_2 = filterConfigsReducer(state_1, {type: 'FILTER_TOGGLE_CASE_INSENSITIVE', id: 1});
+                let state_2 = filterConfigsReducer(state_1, { type: 'FILTER_TOGGLE_CASE_INSENSITIVE', id: 1 });
                 expect(state_2[1].caseInsensitive).toBe(true);
             });
         });
 
-        describe('updating settings', function () {
-            it('should update searchString', function () {
+        describe('updating settings', function() {
+            it('should update searchString', function() {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].searchString = 'abc';
 
                 expect(state_0[1].searchString).toBe('abc');
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_UPDATE_SEARCH_STRING', id: 1, searchString: 'xyz'});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_UPDATE_SEARCH_STRING', id: 1, searchString: 'xyz' });
                 expect(state_1[1].searchString).toBe('xyz');
             });
 
-            it('should update description', function () {
+            it('should update description', function() {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].description = 'foo';
 
                 expect(state_0[1].description).toBe('foo');
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_UPDATE_DESCRIPTION', id: 1, description: 'bar'});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_UPDATE_DESCRIPTION', id: 1, description: 'bar' });
                 expect(state_1[1].description).toBe('bar');
             });
 
-            it('should update replaceString', function () {
+            it('should update replaceString', function() {
                 let state_0 = {};
                 state_0[1] = new ReplaceFilterConfig();
                 state_0[1].replaceString = 'abc';
 
                 expect(state_0[1].replaceString).toBe('abc');
 
-                let state_1 = filterConfigsReducer(state_0, {type: 'FILTER_UPDATE_REPLACE_STRING', id: 1, replaceString: 'xyz'});
+                let state_1 = filterConfigsReducer(state_0, { type: 'FILTER_UPDATE_REPLACE_STRING', id: 1, replaceString: 'xyz' });
                 expect(state_1[1].replaceString).toBe('xyz');
             });
-
         });
-
     });
 });
-describe('inputText reducer', function () {
-
-    it('should return empty string when current state is undefined and action is other', function () {
+describe('inputText reducer', function() {
+    it('should return empty string when current state is undefined and action is other', function() {
         let state = undefined;
-        let newState = inputText(state, {type: 'OTHER', text: 'aaaa'});
+        let newState = inputText(state, { type: 'OTHER', text: 'aaaa' });
         expect(newState).toBe('');
     });
 
-    it('should not change state when action is other', function () {
+    it('should not change state when action is other', function() {
         let state = 'foobar';
-        let newState = inputText(state, {type: 'OTHER', text: 'not foobar'});
+        let newState = inputText(state, { type: 'OTHER', text: 'not foobar' });
         expect(newState).toBe('foobar');
     });
 
-    it('should return text from action if action is UPDATE_INPUT_TEXT', function () {
+    it('should return text from action if action is UPDATE_INPUT_TEXT', function() {
         let state = 'foobar';
-        let newState = inputText(state, {type: UPDATE_INPUT_TEXT, text: 'not foobar'});
+        let newState = inputText(state, { type: UPDATE_INPUT_TEXT, text: 'not foobar' });
         expect(newState).toBe('not foobar');
     });
 });
 
-describe('regexpFlowClearer reducer', function () {
-
+describe('regexpFlowClearer reducer', function() {
     /**
      * @returns {Object}
      */
     function buildThreeFilterConfigs() {
-
         const filterConfigs = {};
 
         const fc_1 = new FindAllFilterConfig();
@@ -223,14 +215,13 @@ describe('regexpFlowClearer reducer', function () {
         return filterConfigs;
     }
 
-    describe('currentRegexpFlow is empty', function () {
-
+    describe('currentRegexpFlow is empty', function() {
         let rf1;
         let rf2;
         let rf3;
         let state;
 
-        beforeEach(function () {
+        beforeEach(function() {
             rf1 = buildRegexpFlow(1);
             rf2 = buildRegexpFlow(2);
             rf3 = buildRegexpFlow(3);
@@ -240,18 +231,14 @@ describe('regexpFlowClearer reducer', function () {
                 currentRegexpFlow: {
                     id: null,
                     description: '',
-                    filterConfigs: {}
+                    filterConfigs: {},
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
         });
 
-        it('should keep currentRegexpFlow empty', function () {
+        it('should keep currentRegexpFlow empty', function() {
             const newState = regexpFlowClearer(state, clearRegexpFlow());
             const expectedState = {
                 inputText: '',
@@ -259,27 +246,22 @@ describe('regexpFlowClearer reducer', function () {
                 currentRegexpFlow: {
                     id: null,
                     description: '',
-                    filterConfigs: {}
+                    filterConfigs: {},
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
             expect(newState).toEqual(expectedState);
         });
     });
 
-    describe('currentRegexpFlow is NOT empty', function () {
-
+    describe('currentRegexpFlow is NOT empty', function() {
         let rf1;
         let rf2;
         let rf3;
         let state;
 
-        beforeEach(function () {
+        beforeEach(function() {
             rf1 = buildRegexpFlow(1);
             rf2 = buildRegexpFlow(2);
             rf3 = buildRegexpFlow(3);
@@ -289,18 +271,14 @@ describe('regexpFlowClearer reducer', function () {
                 currentRegexpFlow: {
                     id: 3,
                     description: 'Some description',
-                    filterConfigs: buildThreeFilterConfigs()
+                    filterConfigs: buildThreeFilterConfigs(),
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
         });
 
-        it('should clear currentRegexpFlow', function () {
+        it('should clear currentRegexpFlow', function() {
             const newState = regexpFlowClearer(state, clearRegexpFlow());
             const expectedState = {
                 inputText: '',
@@ -308,23 +286,17 @@ describe('regexpFlowClearer reducer', function () {
                 currentRegexpFlow: {
                     id: null,
                     description: '',
-                    filterConfigs: {}
+                    filterConfigs: {},
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
             expect(newState).toEqual(expectedState);
         });
     });
 });
 
-
-describe('regexpFlowDeleter reducer', function () {
-
+describe('regexpFlowDeleter reducer', function() {
     const existingRegexpFlowId_2 = '2';
     const existingRegexpFlowId_3 = '3';
     const missingRegexpFlowId = '999';
@@ -334,7 +306,7 @@ describe('regexpFlowDeleter reducer', function () {
     let rf3;
     let state;
 
-    beforeEach(function () {
+    beforeEach(function() {
         rf1 = buildRegexpFlow(1);
         rf2 = buildRegexpFlow(2);
         rf3 = buildRegexpFlow(3);
@@ -344,20 +316,16 @@ describe('regexpFlowDeleter reducer', function () {
             currentRegexpFlow: {
                 id: null,
                 description: '',
-                filterConfigs: {}
+                filterConfigs: {},
             },
-            regexpFlows: [
-                rf1,
-                rf2,
-                rf3
-            ],
-            nextRegexpFlowIndex: 4
+            regexpFlows: [rf1, rf2, rf3],
+            nextRegexpFlowIndex: 4,
         };
     });
 
-    describe('when state has RegexpFlow', function () {
-        describe('and currentRegexpFlow has the same RegexpFlow loaded', function () {
-            beforeEach(function () {
+    describe('when state has RegexpFlow', function() {
+        describe('and currentRegexpFlow has the same RegexpFlow loaded', function() {
+            beforeEach(function() {
                 state.currentRegexpFlow.id = existingRegexpFlowId_2;
                 state.currentRegexpFlow.description = rf2.description;
                 state.currentRegexpFlow.filterConfigs = rf2.filterConfigs;
@@ -365,7 +333,7 @@ describe('regexpFlowDeleter reducer', function () {
 
             //
 
-            it('should delete existing RegexpFlow', function () {
+            it('should delete existing RegexpFlow', function() {
                 const newState = regexpFlowDeleter(state, deleteRegexpFlow(existingRegexpFlowId_2));
                 const expectedState = {
                     inputText: 'Lorem ipsum some text',
@@ -373,20 +341,17 @@ describe('regexpFlowDeleter reducer', function () {
                     currentRegexpFlow: {
                         id: existingRegexpFlowId_2,
                         description: rf2.description,
-                        filterConfigs: rf2.filterConfigs
+                        filterConfigs: rf2.filterConfigs,
                     },
-                    regexpFlows: [
-                        rf1,
-                        rf3
-                    ],
-                    nextRegexpFlowIndex: 4
+                    regexpFlows: [rf1, rf3],
+                    nextRegexpFlowIndex: 4,
                 };
                 expect(newState).toEqual(expectedState);
             });
         });
 
-        describe('and currentRegexpFlow does NOT have the same RegexpFlow loaded', function () {
-            it('should delete existing RegexpFlow', function () {
+        describe('and currentRegexpFlow does NOT have the same RegexpFlow loaded', function() {
+            it('should delete existing RegexpFlow', function() {
                 const newState = regexpFlowDeleter(state, deleteRegexpFlow(existingRegexpFlowId_3));
                 const expectedState = {
                     inputText: 'Lorem ipsum some text',
@@ -394,41 +359,35 @@ describe('regexpFlowDeleter reducer', function () {
                     currentRegexpFlow: {
                         id: null,
                         description: '',
-                        filterConfigs: {}
+                        filterConfigs: {},
                     },
-                    regexpFlows: [
-                        rf1,
-                        rf2
-                    ],
-                    nextRegexpFlowIndex: 4
+                    regexpFlows: [rf1, rf2],
+                    nextRegexpFlowIndex: 4,
                 };
                 expect(newState).toEqual(expectedState);
             });
         });
     });
 
-    describe('when state does not have RegexpFlow', function () {
-        it('it should do nothing', function () {
+    describe('when state does not have RegexpFlow', function() {
+        it('it should do nothing', function() {
             const newState = regexpFlowDeleter(state, deleteRegexpFlow(missingRegexpFlowId));
             expect(newState).toEqual(state);
         });
     });
 });
 
-
-describe('regexpFlowLoader reducer', function () {
-
+describe('regexpFlowLoader reducer', function() {
     const existingRegexpFlowId = 2;
     const missingRegexpFlowId = 999;
 
-    describe('currentRegexpFlow is empty', function () {
-
+    describe('currentRegexpFlow is empty', function() {
         let rf1;
         let rf2;
         let rf3;
         let state;
 
-        beforeEach(function () {
+        beforeEach(function() {
             rf1 = buildRegexpFlow(1);
             rf2 = buildRegexpFlow(2);
             rf3 = buildRegexpFlow(3);
@@ -438,64 +397,53 @@ describe('regexpFlowLoader reducer', function () {
                 currentRegexpFlow: {
                     id: null,
                     description: '',
-                    filterConfigs: {}
+                    filterConfigs: {},
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
         });
 
-        describe('when state has RegexpFlow', function () {
-            it('should load existing RegexpFlow into currentRegexpFlow', function () {
+        describe('when state has RegexpFlow', function() {
+            it('should load existing RegexpFlow into currentRegexpFlow', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(existingRegexpFlowId));
                 const expectedState = {
-
                     inputText: '',
                     outputText: '',
                     currentRegexpFlow: {
-                        id: "2",
+                        id: '2',
                         description: 'Lorem ipsum 2',
-                        filterConfigs: rf2.filterConfigs
+                        filterConfigs: rf2.filterConfigs,
                     },
-                    regexpFlows: [
-                        rf1,
-                        rf2,
-                        rf3
-                    ],
-                    nextRegexpFlowIndex: 4
+                    regexpFlows: [rf1, rf2, rf3],
+                    nextRegexpFlowIndex: 4,
                 };
                 expect(newState).toEqual(expectedState);
             });
 
-            it('should leave input and output text empty', function () {
+            it('should leave input and output text empty', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(existingRegexpFlowId));
                 expect(newState.inputText).toBe('');
                 expect(newState.outputText).toBe('');
             });
         });
 
-
-        describe('when state does not have RegexpFlow', function () {
-            it('it should do nothing', function () {
+        describe('when state does not have RegexpFlow', function() {
+            it('it should do nothing', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(missingRegexpFlowId));
                 expect(newState).toEqual(state);
             });
         });
     });
 
-    describe('currentRegexpFlow is NOT empty', function () {
-
+    describe('currentRegexpFlow is NOT empty', function() {
         let rf1;
         let rf2;
         let rf3;
         let state;
         const existingRegexpFlowId = 2;
 
-        beforeEach(function () {
+        beforeEach(function() {
             rf1 = buildRegexpFlow(1);
             rf2 = buildRegexpFlow(2);
             rf3 = buildRegexpFlow(3);
@@ -505,79 +453,64 @@ describe('regexpFlowLoader reducer', function () {
                 currentRegexpFlow: {
                     id: '1',
                     description: 'Lorem ipsum 1',
-                    filterConfigs: rf1.filterConfigs
+                    filterConfigs: rf1.filterConfigs,
                 },
-                regexpFlows: [
-                    rf1,
-                    rf2,
-                    rf3
-                ],
-                nextRegexpFlowIndex: 4
+                regexpFlows: [rf1, rf2, rf3],
+                nextRegexpFlowIndex: 4,
             };
         });
 
-        describe('when state has RegexpFlow', function () {
-
-            it('should load existing RegexpFlow into currentRegexpFlow, overwriting existing data', function () {
+        describe('when state has RegexpFlow', function() {
+            it('should load existing RegexpFlow into currentRegexpFlow, overwriting existing data', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(existingRegexpFlowId));
                 const expectedState = {
                     inputText: '',
                     outputText: '',
                     currentRegexpFlow: {
-                        id: "2",
+                        id: '2',
                         description: 'Lorem ipsum 2',
-                        filterConfigs: rf2.filterConfigs
+                        filterConfigs: rf2.filterConfigs,
                     },
-                    regexpFlows: [
-                        rf1,
-                        rf2,
-                        rf3
-                    ],
-                    nextRegexpFlowIndex: 4
+                    regexpFlows: [rf1, rf2, rf3],
+                    nextRegexpFlowIndex: 4,
                 };
                 expect(newState).toEqual(expectedState);
             });
 
-            it('should empty input and output text', function () {
+            it('should empty input and output text', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(existingRegexpFlowId));
                 expect(newState.inputText).toBe('');
                 expect(newState.outputText).toBe('');
             });
         });
 
-        describe('when requested ID is a string', function () {
-
-            it('should load existing RegexpFlow normally', function () {
+        describe('when requested ID is a string', function() {
+            it('should load existing RegexpFlow normally', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(String(existingRegexpFlowId)));
                 expect(newState.currentRegexpFlow.id).toBe('2');
             });
         });
 
-
-        describe('when state does not have RegexpFlow', function () {
-
-            it('should do nothing', function () {
+        describe('when state does not have RegexpFlow', function() {
+            it('should do nothing', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(missingRegexpFlowId));
                 expect(newState).toEqual(state);
             });
 
-            it('should not change input nor output text', function () {
+            it('should not change input nor output text', function() {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(missingRegexpFlowId));
                 expect(newState.inputText).toBe('Aaaa');
                 expect(newState.outputText).toBe('AaaaZZZ');
             });
         });
-
     });
 });
 
-describe('regexpFlowSaver reducer', function () {
-
+describe('regexpFlowSaver reducer', function() {
     /**
      * @returns {Object}
      */
     function buildThreeFilterConfigs() {
-
         const filterConfigs = {};
 
         const fc_1 = new FindAllFilterConfig();
@@ -606,7 +539,7 @@ describe('regexpFlowSaver reducer', function () {
     let rf3;
     let state;
 
-    beforeEach(function () {
+    beforeEach(function() {
         rf1 = buildRegexpFlow(1);
         rf2 = buildRegexpFlow(2);
         rf3 = buildRegexpFlow(3);
@@ -616,20 +549,16 @@ describe('regexpFlowSaver reducer', function () {
             currentRegexpFlow: {
                 id: null,
                 description: 'Some random description',
-                filterConfigs: buildThreeFilterConfigs()
+                filterConfigs: buildThreeFilterConfigs(),
             },
-            regexpFlows: [
-                rf1,
-                rf2,
-                rf3
-            ],
-            nextRegexpFlowIndex: nextRegexpFlowId
+            regexpFlows: [rf1, rf2, rf3],
+            nextRegexpFlowIndex: nextRegexpFlowId,
         };
     });
 
-    describe('currentRegexpFlow has ID == null', function () {
+    describe('currentRegexpFlow has ID == null', function() {
         let newState;
-        beforeEach(function () {
+        beforeEach(function() {
             state.currentRegexpFlow.id = null;
             newState = regexpFlowSaver(state, saveRegexpFlow());
         });
@@ -662,15 +591,13 @@ describe('regexpFlowSaver reducer', function () {
         });
     });
 
-    describe('currentRegexpFlow has ID set', function () {
+    describe('currentRegexpFlow has ID set', function() {
+        const existingRegexpFlowId = '2';
 
-        const existingRegexpFlowId = "2";
-
-        describe('regexpFlows contain regexpFlow for that ID', function () {
-
+        describe('regexpFlows contain regexpFlow for that ID', function() {
             let newState;
 
-            beforeEach(function () {
+            beforeEach(function() {
                 state.currentRegexpFlow.id = existingRegexpFlowId;
                 newState = regexpFlowSaver(state, saveRegexpFlow());
             });
@@ -708,10 +635,9 @@ describe('regexpFlowSaver reducer', function () {
 
         const missingRegexpFlowId = 999;
 
-        describe('regexpFlows do not contain regexpFlow for that ID', function () {
-
+        describe('regexpFlows do not contain regexpFlow for that ID', function() {
             let newState;
-            beforeEach(function () {
+            beforeEach(function() {
                 state.currentRegexpFlow.id = missingRegexpFlowId;
                 newState = regexpFlowSaver(state, saveRegexpFlow());
             });
@@ -744,5 +670,4 @@ describe('regexpFlowSaver reducer', function () {
             });
         });
     });
-
 });
