@@ -1,6 +1,6 @@
 {
     "name": "regexp_flow_react",
-    "version": "0.5.0",
+    "version": "0.7.0",
     "private": true,
     "devDependencies": {
         "babel-eslint": "8.2.3",
