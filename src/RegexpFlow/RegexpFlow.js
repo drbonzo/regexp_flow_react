@@ -1,22 +1,11 @@
+// @flow
+
+import type { FilterConfigCollection, RegexpFlowId } from './BasicTypes';
+
 class RegexpFlow {
-
-    constructor() {
-
-        /**
-         * @type {Number}
-         */
-        this.id = null;
-
-        /**
-         * @type {Array|FilterConfig[]}
-         */
-        this.filterConfigs = {};
-
-        /**
-         * @type {string}
-         */
-        this.description = '';
-    }
+    id: RegexpFlowId = null;
+    filterConfigs: FilterConfigCollection = {};
+    description: string = '';
 }
 
 export default RegexpFlow;

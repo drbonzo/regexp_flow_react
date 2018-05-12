@@ -5,6 +5,30 @@ import ReplaceFilterConfig from '../../RegexpFlow/FilterConfig/ReplaceFilterConf
 import RegexpFlow from '../../RegexpFlow/RegexpFlow';
 import UniqueFilterConfig from '../../RegexpFlow/FilterConfig/UniqueFilterConfig';
 
+/**
+ * @param {Number} id
+ * @returns {RegexpFlow}
+ */
+function buildRegexpFlow(id) {
+    const rf = new RegexpFlow();
+    rf.id = String(id);
+    rf.description = 'Lorem ipsum ' + id;
+
+    const fc_1 = new FindAllFilterConfig();
+    fc_1.id = 1;
+    fc_1.searchString = 'Lorem ' + id;
+    fc_1.global = false;
+    rf.filterConfigs[1] = fc_1;
+
+    const fc_2 = new ReplaceFilterConfig();
+    fc_2.id = 2;
+    fc_2.searchString = 'Lorem ' + id;
+    fc_2.replaceString = 'Ipsum';
+    rf.filterConfigs[2] = fc_2;
+
+    return rf;
+}
+
 describe('description reducer', function () {
 
     it('should return empty string when current state is undefined and action is other', function () {
@@ -31,7 +55,7 @@ describe('filterConfigs reducer', function () {
     describe('collection modification', function () {
         it('should add filter config', function () {
             let state_0 = {};
-            let newState = filterConfigsReducer(state_0, {type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'FindAll'});
+            let newState = filterConfigsReducer(state_0, {type: 'REGEXP_FLOW_ADD_FILTER', filterType: 'FindAll', nextId: 1});
             expect('1' in newState).toBe(true);
             expect(newState[1].constructor.name).toBe('FindAllFilterConfig');
         });
@@ -173,30 +197,6 @@ describe('inputText reducer', function () {
 describe('regexpFlowClearer reducer', function () {
 
     /**
-     * @param {Number} id
-     * @returns {RegexpFlow}
-     */
-    function buildRegexpFlow(id) {
-        const rf = new RegexpFlow();
-        rf.id = id;
-        rf.description = 'Lorem ipsum ' + id;
-
-        const fc_1 = new FindAllFilterConfig();
-        fc_1.id = 1;
-        fc_1.searchString = 'Lorem ' + id;
-        fc_1.global = false;
-        rf.filterConfigs[1] = fc_1;
-
-        const fc_2 = new ReplaceFilterConfig();
-        fc_2.id = 2;
-        fc_2.searchString = 'Lorem ' + id;
-        fc_2.replaceString = 'Ipsum';
-        rf.filterConfigs[2] = fc_2;
-
-        return rf;
-    }
-
-    /**
      * @returns {Object}
      */
     function buildThreeFilterConfigs() {
@@ -325,33 +325,9 @@ describe('regexpFlowClearer reducer', function () {
 
 describe('regexpFlowDeleter reducer', function () {
 
-    const existingRegexpFlowId_2 = 2;
-    const existingRegexpFlowId_3 = 3;
-    const missingRegexpFlowId = 999;
-
-    /**
-     * @param {Number} id
-     * @returns {RegexpFlow}
-     */
-    function buildRegexpFlow(id) {
-        const rf = new RegexpFlow();
-        rf.id = id;
-        rf.description = 'Lorem ipsum ' + id;
-
-        const fc_1 = new FindAllFilterConfig();
-        fc_1.id = 1;
-        fc_1.searchString = 'Lorem ' + id;
-        fc_1.global = false;
-        rf.filterConfigs[1] = fc_1;
-
-        const fc_2 = new ReplaceFilterConfig();
-        fc_2.id = 2;
-        fc_2.searchString = 'Lorem ' + id;
-        fc_2.replaceString = 'Ipsum';
-        rf.filterConfigs[2] = fc_2;
-
-        return rf;
-    }
+    const existingRegexpFlowId_2 = '2';
+    const existingRegexpFlowId_3 = '3';
+    const missingRegexpFlowId = '999';
 
     let rf1;
     let rf2;
@@ -445,30 +421,6 @@ describe('regexpFlowLoader reducer', function () {
     const existingRegexpFlowId = 2;
     const missingRegexpFlowId = 999;
 
-    /**
-     * @param {Number} id
-     * @returns {RegexpFlow}
-     */
-    function buildRegexpFlow(id) {
-        const rf = new RegexpFlow();
-        rf.id = id;
-        rf.description = 'Lorem ipsum ' + id;
-
-        const fc_1 = new FindAllFilterConfig();
-        fc_1.id = 1;
-        fc_1.searchString = 'Lorem ' + id;
-        fc_1.global = false;
-        rf.filterConfigs[1] = fc_1;
-
-        const fc_2 = new ReplaceFilterConfig();
-        fc_2.id = 2;
-        fc_2.searchString = 'Lorem ' + id;
-        fc_2.replaceString = 'Ipsum';
-        rf.filterConfigs[2] = fc_2;
-
-        return rf;
-    }
-
     describe('currentRegexpFlow is empty', function () {
 
         let rf1;
@@ -505,7 +457,7 @@ describe('regexpFlowLoader reducer', function () {
                     inputText: '',
                     outputText: '',
                     currentRegexpFlow: {
-                        id: 2,
+                        id: "2",
                         description: 'Lorem ipsum 2',
                         filterConfigs: rf2.filterConfigs
                     },
@@ -551,7 +503,7 @@ describe('regexpFlowLoader reducer', function () {
                 inputText: 'Aaaa',
                 outputText: 'AaaaZZZ',
                 currentRegexpFlow: {
-                    id: 1,
+                    id: '1',
                     description: 'Lorem ipsum 1',
                     filterConfigs: rf1.filterConfigs
                 },
@@ -572,7 +524,7 @@ describe('regexpFlowLoader reducer', function () {
                     inputText: '',
                     outputText: '',
                     currentRegexpFlow: {
-                        id: 2,
+                        id: "2",
                         description: 'Lorem ipsum 2',
                         filterConfigs: rf2.filterConfigs
                     },
@@ -597,7 +549,7 @@ describe('regexpFlowLoader reducer', function () {
 
             it('should load existing RegexpFlow normally', function () {
                 const newState = regexpFlowLoader(state, loadRegexpFlow(String(existingRegexpFlowId)));
-                expect(newState.currentRegexpFlow.id).toBe(2);
+                expect(newState.currentRegexpFlow.id).toBe('2');
             });
         });
 
@@ -620,31 +572,6 @@ describe('regexpFlowLoader reducer', function () {
 });
 
 describe('regexpFlowSaver reducer', function () {
-
-    /**
-     * @param {Number} id
-     * @returns {RegexpFlow}
-     */
-    function buildRegexpFlow(id) {
-
-        const rf = new RegexpFlow();
-        rf.id = id;
-        rf.description = 'Lorem ipsum ' + id;
-
-        const fc_1 = new FindAllFilterConfig();
-        fc_1.id = 1;
-        fc_1.searchString = 'Lorem ' + id;
-        fc_1.global = false;
-        rf.filterConfigs[1] = fc_1;
-
-        const fc_2 = new ReplaceFilterConfig();
-        fc_2.id = 2;
-        fc_2.searchString = 'Lorem ' + id;
-        fc_2.replaceString = 'Ipsum';
-        rf.filterConfigs[2] = fc_2;
-
-        return rf;
-    }
 
     /**
      * @returns {Object}
@@ -737,7 +664,7 @@ describe('regexpFlowSaver reducer', function () {
 
     describe('currentRegexpFlow has ID set', function () {
 
-        const existingRegexpFlowId = 2;
+        const existingRegexpFlowId = "2";
 
         describe('regexpFlows contain regexpFlow for that ID', function () {
 

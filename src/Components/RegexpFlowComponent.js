@@ -18,8 +18,19 @@ import type { FilterConfigCollection } from '../RegexpFlow/BasicTypes';
 
 type Props = {
     filterConfigs: FilterConfigCollection,
-    onAddFilterConfigClick: (type: string) => void,
+    onAddFilterConfigClick: (type: string, nextId: number) => void,
 };
+
+const findNextFilterConfigId = (filterConfigs: FilterConfigCollection): number => {
+    const ids = Object.keys(filterConfigs).map(k => Number(k));
+    let id: number = Math.max(...ids);
+    if (id > 0) {
+        return id + 1;
+    } else {
+        return 1;
+    }
+};
+
 const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) => {
     let filterConfigsCollection = [];
     for (let index in filterConfigs) {
@@ -58,6 +69,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
             }
         }
     }
+    const nextId = findNextFilterConfigId(filterConfigs);
 
     return (
         <div className="RegexpFlow">
@@ -67,7 +79,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(FindAllFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(FindAllFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + FindAll
                     </button>
@@ -76,7 +88,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(ReplaceFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(ReplaceFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + Replace
                     </button>
@@ -85,7 +97,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(MatchLinesFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(MatchLinesFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + MatchLines
                     </button>
@@ -94,7 +106,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(MatchInLinesFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(MatchInLinesFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + MatchInLines
                     </button>
@@ -103,7 +115,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(UniqueFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(UniqueFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + Unique
                     </button>
@@ -112,7 +124,7 @@ const RegexpFlowComponent = ({ filterConfigs, onAddFilterConfigClick }: Props) =
                         type="button"
                         className="btn btn-default btn-sm"
                         onClick={() => {
-                            onAddFilterConfigClick(SortLinesFilterConfig.FILTER_TYPE);
+                            onAddFilterConfigClick(SortLinesFilterConfig.FILTER_TYPE, nextId);
                         }}>
                         + Sort
                     </button>

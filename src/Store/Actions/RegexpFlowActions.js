@@ -67,6 +67,12 @@ export type SaveRegexpFlowAction = {
     type: 'SAVE_REGEXP_FLOW',
 };
 
+export type RegexpFlowAddFilterAction = {
+    type: 'REGEXP_FLOW_ADD_FILTER',
+    filterType: FilterType,
+    nextId: number,
+};
+
 export type AllRegexpFlowActions = RegexpFlowUpdateDescriptionAction | RegexpFlowDeleteFilterAction | RegexpFlowUpdateInputTextAction | ClearCurrentRegexpFlowAction | DeleteRegexpFlowAction | LoadRegexpFlowAction | SaveRegexpFlowAction;
 
 // ACTION CREATORS
@@ -94,10 +100,11 @@ export const descriptionReducer = (state: string, action: RegexpFlowUpdateDescri
     }
 };
 
-export function regexpFlowAddFilter(filterType: FilterType) {
+export function regexpFlowAddFilter(filterType: FilterType, nextId: number): RegexpFlowAddFilterAction {
     return {
         type: REGEXP_FLOW_ADD_FILTER,
         filterType: filterType,
+        nextId: nextId,
     };
 }
 
@@ -204,7 +211,7 @@ export function clearRegexpFlow(): ClearCurrentRegexpFlowAction {
 export function loadRegexpFlow(id: RegexpFlowId) {
     return {
         type: LOAD_REGEXP_FLOW,
-        id: id,
+        id: String(id),
     };
 }
 
@@ -229,44 +236,41 @@ export function navigateToEditFlowScreen() {
     return push('/editor');
 }
 
-// FIXME this does not work after restart
-let nextId = 1;
-
-export const createNewFilterConfig = (filterType: FilterType): FilterConfigType | null => {
+export const createNewFilterConfig = (filterType: FilterType, nextId: number): FilterConfigType | null => {
     switch (filterType) {
         case FindAllFilterConfig.FILTER_TYPE: {
             let config = new FindAllFilterConfig();
             config.searchString = '\\b.+?\\b';
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         case MatchLinesFilterConfig.FILTER_TYPE: {
             let config = new MatchLinesFilterConfig();
             config.searchString = ''; // will match all lines
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         case MatchInLinesFilterConfig.FILTER_TYPE: {
             let config = new MatchInLinesFilterConfig();
             config.searchString = '^.*$';
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         case ReplaceFilterConfig.FILTER_TYPE: {
             let config = new ReplaceFilterConfig();
             config.searchString = '^(.+?)$';
             config.replaceString = '$1';
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         case UniqueFilterConfig.FILTER_TYPE: {
             let config = new UniqueFilterConfig();
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         case SortLinesFilterConfig.FILTER_TYPE: {
             let config = new SortLinesFilterConfig();
-            config.id = nextId++;
+            config.id = nextId;
             return config;
         }
         default: {
@@ -292,14 +296,13 @@ export const filterConfigsReducer = (state: FilterConfigCollection, action: any)
         }
         case REGEXP_FLOW_ADD_FILTER: {
             let newState = Object.assign({}, state);
-            let newFilterConfig = createNewFilterConfig(action.filterType);
+            let newFilterConfig = createNewFilterConfig(action.filterType, action.nextId);
             if (newFilterConfig) {
                 newState[newFilterConfig.id] = newFilterConfig;
             }
             return newState;
         }
         case REMOVE_ALL_FILTERS: {
-            nextId = 1; // reset numbering
             return {};
         }
         case FILTER_TOGGLE_ENABLED: {

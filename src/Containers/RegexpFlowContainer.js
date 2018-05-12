@@ -9,8 +9,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<{ type: $Subtype<string> }>) => ({
-    onAddFilterConfigClick: filterType => {
-        dispatch(regexpFlowAddFilter(filterType));
+    onAddFilterConfigClick: (filterType: string, nextId: number) => {
+        dispatch(regexpFlowAddFilter(filterType, nextId));
     },
 });
 
